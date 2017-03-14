@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        03/14/2017  17:51:01  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/14/2017  17:58:51  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
@@ -28,12 +28,12 @@ LINK MAP OF MODULE:  .\Objects\CompDesignProject (COMPDESIGNPROJECT)
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
                     0003H     07FDH                  *** GAP ***
-            CODE    0800H     009EH     UNIT         ?PR?_OUTPUTSEVENSEG?COMPDESIGNPROJECT
-            CODE    089EH     0093H     UNIT         ?PR?MAIN?COMPDESIGNPROJECT
-            CODE    0931H     0026H     UNIT         ?C?LIB_CODE
-            CODE    0957H     001CH     UNIT         ?PR?_MSDELAY?COMPDESIGNPROJECT
-            CODE    0973H     000CH     UNIT         ?C_C51STARTUP
-            CODE    097FH     0005H     UNIT         ?PR?LATCHSEVENSEG?COMPDESIGNPROJECT
+            CODE    0800H     00A6H     UNIT         ?PR?_OUTPUTSEVENSEG?COMPDESIGNPROJECT
+            CODE    08A6H     009BH     UNIT         ?PR?MAIN?COMPDESIGNPROJECT
+            CODE    0941H     0026H     UNIT         ?C?LIB_CODE
+            CODE    0967H     001CH     UNIT         ?PR?_DELAY?COMPDESIGNPROJECT
+            CODE    0983H     000CH     UNIT         ?C_C51STARTUP
+            CODE    098FH     0005H     UNIT         ?PR?LATCHSEVENSEG?COMPDESIGNPROJECT
 
 
 
@@ -48,7 +48,7 @@ SEGMENT
 
 ?PR?MAIN?COMPDESIGNPROJECT
   +--> ?PR?_OUTPUTSEVENSEG?COMPDESIGNPROJECT
-  +--> ?PR?_MSDELAY?COMPDESIGNPROJECT
+  +--> ?PR?_DELAY?COMPDESIGNPROJECT
 
 ?PR?_OUTPUTSEVENSEG?COMPDESIGNPROJECT
   +--> ?PR?LATCHSEVENSEG?COMPDESIGNPROJECT
@@ -59,7 +59,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\CompDesignProject (COMPDESIGNPROJECT)
 
   VALUE           TYPE          NAME
   ----------------------------------
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/14/2017  17:51:01  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/14/2017  17:58:51  PAGE 2
 
 
 
@@ -70,120 +70,123 @@ SYMBOL TABLE OF MODULE:  .\Objects\CompDesignProject (COMPDESIGNPROJECT)
   D:00A0H         PUBLIC        P2
   D:00B0H         PUBLIC        P3
   D:00A8H         PUBLIC        IE
+  C:096BH         PUBLIC        _delay
   B:00B0H.0       PUBLIC        P3_0
   D:00B8H         PUBLIC        IP
-  C:089EH         PUBLIC        main
+  C:08A6H         PUBLIC        main
   D:0098H         PUBLIC        SCON
-  C:097FH         PUBLIC        latchSevenSeg
+  C:098FH         PUBLIC        latchSevenSeg
   D:0088H         PUBLIC        TCON
-  C:095BH         PUBLIC        _msDelay
   C:0800H         PUBLIC        _outputSevenSeg
   D:00C8H         PUBLIC        T2CON
   D:00D0H         PUBLIC        PSW
   -------         PROC          MAIN
-  C:089EH         LINE#         37
-  C:089EH         LINE#         39
-  C:089EH         LINE#         41
-  C:08A3H         LINE#         42
-  C:08A6H         LINE#         44
-  C:08ABH         LINE#         45
-  C:08AEH         LINE#         47
-  C:08B3H         LINE#         48
-  C:08B6H         LINE#         50
-  C:08BBH         LINE#         51
-  C:08BEH         LINE#         53
-  C:08C3H         LINE#         54
-  C:08C6H         LINE#         56
-  C:08CBH         LINE#         57
-  C:08CEH         LINE#         59
-  C:08D3H         LINE#         60
-  C:08D6H         LINE#         62
-  C:08DBH         LINE#         63
-  C:08DEH         LINE#         65
-  C:08E3H         LINE#         66
-  C:08E6H         LINE#         68
-  C:08EBH         LINE#         69
-  C:08EEH         LINE#         71
-  C:08F3H         LINE#         72
-  C:08F6H         LINE#         74
-  C:08FBH         LINE#         75
-  C:08FEH         LINE#         77
-  C:0903H         LINE#         78
-  C:0906H         LINE#         80
-  C:090BH         LINE#         81
-  C:090EH         LINE#         83
-  C:0913H         LINE#         84
-  C:0916H         LINE#         86
-  C:091BH         LINE#         87
-  C:091EH         LINE#         89
-  C:0923H         LINE#         90
-  C:0926H         LINE#         92
-  C:092BH         LINE#         93
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/14/2017  17:51:01  PAGE 3
+  C:08A6H         LINE#         37
+  C:08A6H         LINE#         39
+  C:08A6H         LINE#         41
+  C:08ABH         LINE#         42
+  C:08AEH         LINE#         44
+  C:08B3H         LINE#         45
+  C:08B6H         LINE#         47
+  C:08BBH         LINE#         48
+  C:08BEH         LINE#         50
+  C:08C3H         LINE#         51
+  C:08C6H         LINE#         53
+  C:08CBH         LINE#         54
+  C:08CEH         LINE#         56
+  C:08D3H         LINE#         57
+  C:08D6H         LINE#         59
+  C:08DBH         LINE#         60
+  C:08DEH         LINE#         62
+  C:08E3H         LINE#         63
+  C:08E6H         LINE#         65
+  C:08EBH         LINE#         66
+  C:08EEH         LINE#         68
+  C:08F3H         LINE#         69
+  C:08F6H         LINE#         71
+  C:08FBH         LINE#         72
+  C:08FEH         LINE#         74
+  C:0903H         LINE#         75
+  C:0906H         LINE#         77
+  C:090BH         LINE#         78
+  C:090EH         LINE#         80
+  C:0913H         LINE#         81
+  C:0916H         LINE#         83
+  C:091BH         LINE#         84
+  C:091EH         LINE#         86
+  C:0923H         LINE#         87
+  C:0926H         LINE#         89
+  C:092BH         LINE#         90
+  C:092EH         LINE#         92
+  C:0933H         LINE#         93
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/14/2017  17:58:51  PAGE 3
 
 
-  C:092EH         LINE#         94
+  C:0936H         LINE#         95
+  C:093BH         LINE#         96
+  C:093EH         LINE#         97
   -------         ENDPROC       MAIN
   -------         PROC          LATCHSEVENSEG
-  C:097FH         LINE#         102
-  C:097FH         LINE#         104
-  C:0981H         LINE#         105
-  C:0983H         LINE#         107
+  C:098FH         LINE#         105
+  C:098FH         LINE#         107
+  C:0991H         LINE#         108
+  C:0993H         LINE#         110
   -------         ENDPROC       LATCHSEVENSEG
   -------         PROC          _OUTPUTSEVENSEG
   D:0007H         SYMBOL        character
-  C:0800H         LINE#         111
-  C:0800H         LINE#         113
-  C:083EH         LINE#         114
-  C:0843H         LINE#         115
-  C:0848H         LINE#         116
-  C:084DH         LINE#         117
-  C:0852H         LINE#         118
-  C:0857H         LINE#         119
-  C:085CH         LINE#         120
-  C:0861H         LINE#         121
-  C:0866H         LINE#         122
-  C:086BH         LINE#         123
-  C:0870H         LINE#         124
-  C:0875H         LINE#         125
-  C:087AH         LINE#         126
-  C:087FH         LINE#         127
-  C:0884H         LINE#         128
-  C:0889H         LINE#         129
-  C:088EH         LINE#         130
-  C:0893H         LINE#         131
-  C:0898H         LINE#         132
-  C:089BH         LINE#         133
+  C:0800H         LINE#         114
+  C:0800H         LINE#         116
+  C:0841H         LINE#         117
+  C:0846H         LINE#         118
+  C:084BH         LINE#         119
+  C:0850H         LINE#         120
+  C:0855H         LINE#         121
+  C:085AH         LINE#         122
+  C:085FH         LINE#         123
+  C:0864H         LINE#         124
+  C:0869H         LINE#         125
+  C:086EH         LINE#         126
+  C:0873H         LINE#         127
+  C:0878H         LINE#         128
+  C:087DH         LINE#         129
+  C:0882H         LINE#         130
+  C:0887H         LINE#         131
+  C:088CH         LINE#         132
+  C:0891H         LINE#         133
+  C:0896H         LINE#         134
   C:089BH         LINE#         135
+  C:08A0H         LINE#         136
+  C:08A3H         LINE#         137
+  C:08A3H         LINE#         139
   -------         ENDPROC       _OUTPUTSEVENSEG
-  C:0957H         SYMBOL        L?0037
-  -------         PROC          L?0036
-  -------         ENDPROC       L?0036
-  C:0957H         SYMBOL        L?0037
-  -------         PROC          _MSDELAY
+  C:0967H         SYMBOL        L?0038
+  -------         PROC          L?0037
+  -------         ENDPROC       L?0037
+  C:0967H         SYMBOL        L?0038
+  -------         PROC          _DELAY
   D:0006H         SYMBOL        msecs
   -------         DO            
   D:0004H         SYMBOL        i
   D:0003H         SYMBOL        j
   -------         ENDDO         
-  C:095BH         LINE#         141
-  C:095BH         LINE#         146
-  C:0965H         LINE#         147
-  C:096BH         LINE#         148
-  C:0972H         LINE#         150
-  -------         ENDPROC       _MSDELAY
+  C:096BH         LINE#         145
+  C:096BH         LINE#         150
+  C:0975H         LINE#         151
+  C:097BH         LINE#         152
+  C:0982H         LINE#         154
+  -------         ENDPROC       _DELAY
   -------         ENDMOD        COMPDESIGNPROJECT
 
   -------         MODULE        ?C?CCASE
-  C:0931H         PUBLIC        ?C?CCASE
+  C:0941H         PUBLIC        ?C?CCASE
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/14/2017  17:58:51  PAGE 4
+
+
   -------         ENDMOD        ?C?CCASE
 
 ******************************************************************************
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/14/2017  17:51:01  PAGE 4
-
-
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0152H BYTE (16%) *
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0162H BYTE (17%) *
 ******************************************************************************
 
-Program Size: data=9.0 xdata=0 code=391
+Program Size: data=9.0 xdata=0 code=407
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
