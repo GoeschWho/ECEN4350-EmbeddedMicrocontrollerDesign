@@ -1,0 +1,3 @@
+".\Objects\MemoryTest.obj" 
+TO ".\Objects\CompDesignProject" 
+PRINT(".\Listings\CompDesignProject.m51") RAMSIZE(256) 
