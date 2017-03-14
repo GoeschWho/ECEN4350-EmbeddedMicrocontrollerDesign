@@ -2,15 +2,19 @@
 #include <stdio.h>
 
 // P1
-//sfr P1 = 0x90;
-//sbit P1_0 = P1^0;
-//sbit P1_1 = P1^1;
-//sbit P1_2 = P1^2;
-//sbit P1_3 = P1^3;
-//sbit P1_4 = P1^4;
-//sbit P1_5 = P1^5;
-//sbit P1_6 = P1^6;
-//sbit P1_7 = P1^7;
+sbit P1_0 = P1^0;
+sbit P1_1 = P1^1;
+
+
+// P3
+sbit P3_0 = P3^0;
+sbit P3_1 = P3^1;
+sbit P3_2 = P3^2;
+sbit P3_3 = P3^3;
+sbit P3_4 = P3^4;
+sbit P3_5 = P3^5;
+sbit P3_6 = P3^6;
+sbit P3_7 = P3^7;
 
 // Prototypes
 
@@ -21,21 +25,25 @@ datum * memTestAddressBus(volatile datum * baseAddress, unsigned long nBytes);
 // Main
 
 void main(void) {
+	datum *addressResult;
 	
-	P1 = 0x00;
+	P1 = 0xFF;		// clear 7-seg
 	
-		while(1) {
-			P1 = ~P1;
-		}
+	addressResult = memTestAddressBus(0x0000,0x8000);
+	if ( addressResult == 0 ) {
+		P1 = 1;
+	}
+	else {
+		P1 = &addressResult;
+	}
 	
+//	if ( memTestAddressBus(0x8000,0x8000) == 0 ) {
+//		P1_3 = 0;
+//	}
+
 	while(1); // Stay off the streets
 	
 } // end main()
-
-
-
-
-
 
 /**********************************************************************
  *
@@ -163,6 +171,6 @@ datum * memTestAddressBus(volatile datum * baseAddress, unsigned long nBytes)
         baseAddress[testOffset] = pattern;
     }
 
-    return (0);
+    return (NULL);
 
 }   /* memTestAddressBus() */
