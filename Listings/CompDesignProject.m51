@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        03/14/2017  15:45:29  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/14/2017  17:51:01  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
@@ -12,12 +12,7 @@ MEMORY MODEL: SMALL
 INPUT MODULES INCLUDED:
   .\Objects\CompDesignProject.obj (COMPDESIGNPROJECT)
   C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
-  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDPTR)
-  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDOPTR)
-  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CSTPTR)
-  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CSTOPTR)
-  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?ULCMP)
-  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LSHL)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CCASE)
 
 
 LINK MAP OF MODULE:  .\Objects\CompDesignProject (COMPDESIGNPROJECT)
@@ -28,43 +23,45 @@ LINK MAP OF MODULE:  .\Objects\CompDesignProject (COMPDESIGNPROJECT)
 
             * * * * * * *   D A T A   M E M O R Y   * * * * * * *
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
-            DATA    0008H     0018H     UNIT         _DATA_GROUP_
-            IDATA   0020H     0001H     UNIT         ?STACK
+            IDATA   0008H     0001H     UNIT         ?STACK
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
                     0003H     07FDH                  *** GAP ***
-            CODE    0800H     01F8H     UNIT         ?PR?_MEMTESTADDRESSBUS?COMPDESIGNPROJECT
-            CODE    09F8H     009EH     UNIT         ?C?LIB_CODE
-            CODE    0A96H     002CH     UNIT         ?PR?MAIN?COMPDESIGNPROJECT
-            CODE    0AC2H     0018H     UNIT         ?PR?_MEMTESTDATABUS?COMPDESIGNPROJECT
-            CODE    0ADAH     000CH     UNIT         ?C_C51STARTUP
+            CODE    0800H     009EH     UNIT         ?PR?_OUTPUTSEVENSEG?COMPDESIGNPROJECT
+            CODE    089EH     0093H     UNIT         ?PR?MAIN?COMPDESIGNPROJECT
+            CODE    0931H     0026H     UNIT         ?C?LIB_CODE
+            CODE    0957H     001CH     UNIT         ?PR?_MSDELAY?COMPDESIGNPROJECT
+            CODE    0973H     000CH     UNIT         ?C_C51STARTUP
+            CODE    097FH     0005H     UNIT         ?PR?LATCHSEVENSEG?COMPDESIGNPROJECT
 
 
 
 OVERLAY MAP OF MODULE:   .\Objects\CompDesignProject (COMPDESIGNPROJECT)
 
 
-SEGMENT                                            DATA_GROUP 
-  +--> CALLED SEGMENT                            START    LENGTH
-----------------------------------------------------------------
-?C_C51STARTUP                                    -----    -----
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
   +--> ?PR?MAIN?COMPDESIGNPROJECT
 
-?PR?MAIN?COMPDESIGNPROJECT                       0008H    0003H
-  +--> ?PR?_MEMTESTADDRESSBUS?COMPDESIGNPROJECT
+?PR?MAIN?COMPDESIGNPROJECT
+  +--> ?PR?_OUTPUTSEVENSEG?COMPDESIGNPROJECT
+  +--> ?PR?_MSDELAY?COMPDESIGNPROJECT
 
-?PR?_MEMTESTADDRESSBUS?COMPDESIGNPROJECT         000BH    0015H
+?PR?_OUTPUTSEVENSEG?COMPDESIGNPROJECT
+  +--> ?PR?LATCHSEVENSEG?COMPDESIGNPROJECT
 
 
 
 SYMBOL TABLE OF MODULE:  .\Objects\CompDesignProject (COMPDESIGNPROJECT)
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/14/2017  15:45:29  PAGE 2
-
-
 
   VALUE           TYPE          NAME
   ----------------------------------
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/14/2017  17:51:01  PAGE 2
+
+
 
   -------         MODULE        COMPDESIGNPROJECT
   C:0000H         SYMBOL        _ICE_DUMMY_
@@ -72,134 +69,121 @@ SYMBOL TABLE OF MODULE:  .\Objects\CompDesignProject (COMPDESIGNPROJECT)
   D:0090H         PUBLIC        P1
   D:00A0H         PUBLIC        P2
   D:00B0H         PUBLIC        P3
-  C:0AC2H         PUBLIC        _memTestDataBus
   D:00A8H         PUBLIC        IE
+  B:00B0H.0       PUBLIC        P3_0
   D:00B8H         PUBLIC        IP
-  C:0A96H         PUBLIC        main
+  C:089EH         PUBLIC        main
   D:0098H         PUBLIC        SCON
+  C:097FH         PUBLIC        latchSevenSeg
   D:0088H         PUBLIC        TCON
-  C:0800H         PUBLIC        _memTestAddressBus
+  C:095BH         PUBLIC        _msDelay
+  C:0800H         PUBLIC        _outputSevenSeg
   D:00C8H         PUBLIC        T2CON
   D:00D0H         PUBLIC        PSW
   -------         PROC          MAIN
-  -------         DO            
-  D:0008H         SYMBOL        addressResult
-  -------         ENDDO         
-  C:0A96H         LINE#         27
-  C:0A96H         LINE#         30
-  C:0A99H         LINE#         32
-  C:0AB0H         LINE#         33
-  C:0AB8H         LINE#         34
-  C:0ABBH         LINE#         35
-  C:0ABDH         LINE#         36
-  C:0ABDH         LINE#         37
-  C:0AC0H         LINE#         38
-  C:0AC0H         LINE#         44
+  C:089EH         LINE#         37
+  C:089EH         LINE#         39
+  C:089EH         LINE#         41
+  C:08A3H         LINE#         42
+  C:08A6H         LINE#         44
+  C:08ABH         LINE#         45
+  C:08AEH         LINE#         47
+  C:08B3H         LINE#         48
+  C:08B6H         LINE#         50
+  C:08BBH         LINE#         51
+  C:08BEH         LINE#         53
+  C:08C3H         LINE#         54
+  C:08C6H         LINE#         56
+  C:08CBH         LINE#         57
+  C:08CEH         LINE#         59
+  C:08D3H         LINE#         60
+  C:08D6H         LINE#         62
+  C:08DBH         LINE#         63
+  C:08DEH         LINE#         65
+  C:08E3H         LINE#         66
+  C:08E6H         LINE#         68
+  C:08EBH         LINE#         69
+  C:08EEH         LINE#         71
+  C:08F3H         LINE#         72
+  C:08F6H         LINE#         74
+  C:08FBH         LINE#         75
+  C:08FEH         LINE#         77
+  C:0903H         LINE#         78
+  C:0906H         LINE#         80
+  C:090BH         LINE#         81
+  C:090EH         LINE#         83
+  C:0913H         LINE#         84
+  C:0916H         LINE#         86
+  C:091BH         LINE#         87
+  C:091EH         LINE#         89
+  C:0923H         LINE#         90
+  C:0926H         LINE#         92
+  C:092BH         LINE#         93
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/14/2017  17:51:01  PAGE 3
+
+
+  C:092EH         LINE#         94
   -------         ENDPROC       MAIN
-  -------         PROC          _MEMTESTDATABUS
-  D:0001H         SYMBOL        address
+  -------         PROC          LATCHSEVENSEG
+  C:097FH         LINE#         102
+  C:097FH         LINE#         104
+  C:0981H         LINE#         105
+  C:0983H         LINE#         107
+  -------         ENDPROC       LATCHSEVENSEG
+  -------         PROC          _OUTPUTSEVENSEG
+  D:0007H         SYMBOL        character
+  C:0800H         LINE#         111
+  C:0800H         LINE#         113
+  C:083EH         LINE#         114
+  C:0843H         LINE#         115
+  C:0848H         LINE#         116
+  C:084DH         LINE#         117
+  C:0852H         LINE#         118
+  C:0857H         LINE#         119
+  C:085CH         LINE#         120
+  C:0861H         LINE#         121
+  C:0866H         LINE#         122
+  C:086BH         LINE#         123
+  C:0870H         LINE#         124
+  C:0875H         LINE#         125
+  C:087AH         LINE#         126
+  C:087FH         LINE#         127
+  C:0884H         LINE#         128
+  C:0889H         LINE#         129
+  C:088EH         LINE#         130
+  C:0893H         LINE#         131
+  C:0898H         LINE#         132
+  C:089BH         LINE#         133
+  C:089BH         LINE#         135
+  -------         ENDPROC       _OUTPUTSEVENSEG
+  C:0957H         SYMBOL        L?0037
+  -------         PROC          L?0036
+  -------         ENDPROC       L?0036
+  C:0957H         SYMBOL        L?0037
+  -------         PROC          _MSDELAY
+  D:0006H         SYMBOL        msecs
   -------         DO            
-  D:0007H         SYMBOL        pattern
+  D:0004H         SYMBOL        i
+  D:0003H         SYMBOL        j
   -------         ENDDO         
-  C:0AC2H         LINE#         63
-  C:0AC2H         LINE#         64
-  C:0AC2H         LINE#         71
-  C:0AC7H         LINE#         72
-  C:0AC7H         LINE#         76
-  C:0ACAH         LINE#         81
-  C:0AD0H         LINE#         82
-  C:0AD0H         LINE#         83
-  C:0AD1H         LINE#         84
-  C:0AD1H         LINE#         85
-  C:0AD7H         LINE#         87
-  C:0AD9H         LINE#         89
-  -------         ENDPROC       _MEMTESTDATABUS
-  -------         PROC          _MEMTESTADDRESSBUS
-  D:000BH         SYMBOL        baseAddress
-  D:000EH         SYMBOL        nBytes
-  -------         DO            
-  D:0012H         SYMBOL        addressMask
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/14/2017  15:45:29  PAGE 3
-
-
-  D:0016H         SYMBOL        offset
-  D:001AH         SYMBOL        testOffset
-  D:001EH         SYMBOL        pattern
-  D:001FH         SYMBOL        antipattern
-  -------         ENDDO         
-  C:0800H         LINE#         117
-  C:080EH         LINE#         118
-  C:080EH         LINE#         119
-  C:0826H         LINE#         123
-  C:0829H         LINE#         124
-  C:082CH         LINE#         130
-  C:0855H         LINE#         131
-  C:0855H         LINE#         132
-  C:0866H         LINE#         133
-  C:087DH         LINE#         138
-  C:0886H         LINE#         139
-  C:0897H         LINE#         141
-  C:08C0H         LINE#         142
-  C:08C0H         LINE#         143
-  C:08D3H         LINE#         144
-  C:08D3H         LINE#         145
-  C:08E0H         LINE#         146
-  C:08E0H         LINE#         147
-  C:08F7H         LINE#         149
-  C:0908H         LINE#         154
-  C:0934H         LINE#         155
-  C:0934H         LINE#         156
-  C:0945H         LINE#         158
-  C:094CH         LINE#         159
-  C:094CH         LINE#         160
-  C:094EH         LINE#         161
-  C:094EH         LINE#         163
-  C:0977H         LINE#         164
-  C:0977H         LINE#         165
-  C:09A0H         LINE#         166
-  C:09A0H         LINE#         167
-  C:09B1H         LINE#         168
-  C:09B1H         LINE#         169
-  C:09C8H         LINE#         171
-  C:09D9H         LINE#         172
-  C:09F1H         LINE#         174
-  C:09F7H         LINE#         176
-  -------         ENDPROC       _MEMTESTADDRESSBUS
+  C:095BH         LINE#         141
+  C:095BH         LINE#         146
+  C:0965H         LINE#         147
+  C:096BH         LINE#         148
+  C:0972H         LINE#         150
+  -------         ENDPROC       _MSDELAY
   -------         ENDMOD        COMPDESIGNPROJECT
 
-  -------         MODULE        ?C?CLDPTR
-  C:09F8H         PUBLIC        ?C?CLDPTR
-  -------         ENDMOD        ?C?CLDPTR
-
-  -------         MODULE        ?C?CLDOPTR
-  C:0A11H         PUBLIC        ?C?CLDOPTR
-  -------         ENDMOD        ?C?CLDOPTR
-
-  -------         MODULE        ?C?CSTPTR
-  C:0A3EH         PUBLIC        ?C?CSTPTR
-  -------         ENDMOD        ?C?CSTPTR
-
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/14/2017  15:45:29  PAGE 4
-
-
-  -------         MODULE        ?C?CSTOPTR
-  C:0A50H         PUBLIC        ?C?CSTOPTR
-  -------         ENDMOD        ?C?CSTOPTR
-
-  -------         MODULE        ?C?ULCMP
-  C:0A72H         PUBLIC        ?C?ULCMP
-  -------         ENDMOD        ?C?ULCMP
-
-  -------         MODULE        ?C?LSHL
-  C:0A83H         PUBLIC        ?C?LSHL
-  -------         ENDMOD        ?C?LSHL
-
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_MEMTESTDATABUS?COMPDESIGNPROJECT
+  -------         MODULE        ?C?CCASE
+  C:0931H         PUBLIC        ?C?CCASE
+  -------         ENDMOD        ?C?CCASE
 
 ******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 023CH BYTE (27%) *
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/14/2017  17:51:01  PAGE 4
+
+
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0152H BYTE (16%) *
 ******************************************************************************
 
-Program Size: data=33.0 xdata=0 code=745
-LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)
+Program Size: data=9.0 xdata=0 code=391
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

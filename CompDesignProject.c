@@ -1,3 +1,11 @@
+/* Auth: Megan Bird
+ * File: CompDesignProject.c
+ * Course: CEEN-4330 – Microprocessor System Design – University of Nebraska-Lincoln
+ * Lab: Project
+ * Date: 3/14/2017
+ * Desc: 8051 program with ROM, RAM, and I/O
+ */
+ 
 #include <REGX55.H>
 #include <stdio.h>
 
@@ -16,161 +24,127 @@ sbit P3_5 = P3^5;
 sbit P3_6 = P3^6;
 sbit P3_7 = P3^7;
 
-// Prototypes
+// ======================= prototypes =========================== //
 
-typedef unsigned char datum;    /* Set the data bus width to 8 bits.  */
-datum memTestDataBus(volatile datum * address);
-datum * memTestAddressBus(volatile datum * baseAddress, unsigned long nBytes);
+typedef unsigned char byte;
 
-// Main
+void latchSevenSeg();
+void outputSevenSeg( char character );
+void msDelay( unsigned );
+
+// ======================== main ================================ //
 
 void main(void) {
-	datum *addressResult;
 	
-	P1 = 0xFF;		// clear 7-seg
-	
-	addressResult = memTestAddressBus(0x0000,0x8000);
-	if ( addressResult == 0 ) {
-		P1 = 1;
-	}
-	else {
-		P1 = &addressResult;
-	}
-	
-//	if ( memTestAddressBus(0x8000,0x8000) == 0 ) {
-//		P1_3 = 0;
-//	}
+	while (1) {
 
+		outputSevenSeg('0');
+		msDelay(2000);
+		
+		outputSevenSeg('1');
+		msDelay(2000);
+		
+		outputSevenSeg('2');
+		msDelay(2000);
+		
+		outputSevenSeg('3');
+		msDelay(2000);
+		
+		outputSevenSeg('4');
+		msDelay(2000);
+		
+		outputSevenSeg('5');
+		msDelay(2000);
+		
+		outputSevenSeg('6');
+		msDelay(2000);
+		
+		outputSevenSeg('7');
+		msDelay(2000);
+		
+		outputSevenSeg('8');
+		msDelay(2000);
+		
+		outputSevenSeg('9');
+		msDelay(2000);
+		
+		outputSevenSeg('A');
+		msDelay(2000);
+		
+		outputSevenSeg('b');
+		msDelay(2000);
+		
+		outputSevenSeg('C');
+		msDelay(2000);
+		
+		outputSevenSeg('d');
+		msDelay(2000);
+		
+		outputSevenSeg('E');
+		msDelay(2000);
+		
+		outputSevenSeg('F');
+		msDelay(2000);
+		
+		outputSevenSeg('-');
+		msDelay(2000);
+		
+		outputSevenSeg('o');
+		msDelay(2000);
+	}
+	
 	while(1); // Stay off the streets
 	
 } // end main()
 
-/**********************************************************************
- *
- * Function:    memTestDataBus()
- *
- * Description: Test the data bus wiring in a memory region by
- *              performing a walking 1's test at a fixed address
- *              within that region.  The address (and hence the
- *              memory region) is selected by the caller.
- *
- * Notes:       
- *
- * Returns:     0 if the test succeeds.  
- *              A non-zero result is the first pattern that failed.
- *
- **********************************************************************/
-datum memTestDataBus(volatile datum * address)
-{
-    datum pattern;
+// ======================= functions ============================ //
 
+void latchSevenSeg( void ) {
+	
+	P3_0 = 1;
+	P3_0 = 0;
+	
+} // end latchSevenSeg()
 
-    /*
-     * Perform a walking 1's test at the given address.
-     */
-    for (pattern = 1; pattern != 0; pattern <<= 1)
-    {
-        /*
-         * Write the test pattern.
-         */
-        *address = pattern;
+// -------------------------------------------------------------- //
 
-        /*
-         * Read it back (immediately is okay for this test).
-         */
-        if (*address != pattern) 
-        {
-            return (pattern);
-        }
-    }
+void outputSevenSeg( char character ) {
+	
+	switch( character ) {
+		case '0': P1 = ~0x3F; break;
+		case '1':	P1 = ~0x06; break;
+		case '2': P1 = ~0x5B; break;
+		case '3': P1 = ~0x4F; break;
+		case '4': P1 = ~0x66; break;
+		case '5': P1 = ~0x6D; break;
+		case '6': P1 = ~0x7D; break;
+		case '7': P1 = ~0x07; break;
+		case '8': P1 = ~0x7F; break;
+		case '9': P1 = ~0x67; break;
+		case 'A': P1 = ~0x77; break;
+		case 'b': P1 = ~0x7C; break;
+		case 'C': P1 = ~0x39; break;
+		case 'd': P1 = ~0x5E; break;
+		case 'E': P1 = ~0x79; break;
+		case 'F': P1 = ~0x71; break;
+		case '-': P1 = 0xBF; 	break;
+		case 'o':	P1 = 0xFF;  break;  // off
+		default:  P1 = 0xAA; 					// invalid
+	}
+	
+	latchSevenSeg();
+	
+} // end outputSevenSeg()
 
-    return (0);
+// -------------------------------------------------------------- //
 
-}   /* memTestDataBus() */
-
-
-/**********************************************************************
- *
- * Function:    memTestAddressBus()
- *
- * Description: Test the address bus wiring in a memory region by
- *              performing a walking 1's test on the relevant bits
- *              of the address and checking for aliasing. This test
- *              will find single-bit address failures such as stuck
- *              -high, stuck-low, and shorted pins.  The base address
- *              and size of the region are selected by the caller.
- *
- * Notes:       For best results, the selected base address should
- *              have enough LSB 0's to guarantee single address bit
- *              changes.  For example, to test a 64-Kbyte region, 
- *              select a base address on a 64-Kbyte boundary.  Also, 
- *              select the region size as a power-of-two--if at all 
- *              possible.
- *
- * Returns:     NULL if the test succeeds.  
- *              A non-zero result is the first address at which an
- *              aliasing problem was uncovered.  By examining the
- *              contents of memory, it may be possible to gather
- *              additional information about the problem.
- *
- **********************************************************************/
-datum * memTestAddressBus(volatile datum * baseAddress, unsigned long nBytes)
-{
-    unsigned long addressMask = (nBytes/sizeof(datum) - 1);
-    unsigned long offset;
-    unsigned long testOffset;
-
-    datum pattern     = (datum) 0xAAAAAAAA;
-    datum antipattern = (datum) 0x55555555;
-
-
-    /*
-     * Write the default pattern at each of the power-of-two offsets.
-     */
-    for (offset = 1; (offset & addressMask) != 0; offset <<= 1)
-    {
-        baseAddress[offset] = pattern;
-    }
-
-    /* 
-     * Check for address bits stuck high.
-     */
-    testOffset = 0;
-    baseAddress[testOffset] = antipattern;
-
-    for (offset = 1; (offset & addressMask) != 0; offset <<= 1)
-    {
-        if (baseAddress[offset] != pattern)
-        {
-            return ((datum *) &baseAddress[offset]);
-        }
-    }
-
-    baseAddress[testOffset] = pattern;
-
-    /*
-     * Check for address bits stuck low or shorted.
-     */
-    for (testOffset = 1; (testOffset & addressMask) != 0; testOffset <<= 1)
-    {
-        baseAddress[testOffset] = antipattern;
-
-		if (baseAddress[0] != pattern)
-		{
-			return ((datum *) &baseAddress[testOffset]);
-		}
-
-        for (offset = 1; (offset & addressMask) != 0; offset <<= 1)
-        {
-            if ((baseAddress[offset] != pattern) && (offset != testOffset))
-            {
-                return ((datum *) &baseAddress[testOffset]);
-            }
-        }
-
-        baseAddress[testOffset] = pattern;
-    }
-
-    return (NULL);
-
-}   /* memTestAddressBus() */
+void msDelay( unsigned msecs ) {
+	
+	unsigned i;
+	unsigned char j;
+	
+	for(i=0;i<msecs;i++){
+		for(j=0;j<100;j++);
+	}
+	
+} // end msDelay()
