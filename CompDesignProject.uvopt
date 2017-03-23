@@ -174,11 +174,11 @@
       <GroupNumber>1</GroupNumber>
       <FileNumber>1</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\MemoryTest.c</PathWithFileName>
-      <FilenameWithoutPath>MemoryTest.c</FilenameWithoutPath>
+      <PathWithFileName>.\CompDesignProject.c</PathWithFileName>
+      <FilenameWithoutPath>CompDesignProject.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

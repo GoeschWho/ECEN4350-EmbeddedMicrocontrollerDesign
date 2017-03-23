@@ -364,9 +364,9 @@
           <GroupName>Source Group 1</GroupName>
           <Files>
             <File>
-              <FileName>MemoryTest.c</FileName>
+              <FileName>CompDesignProject.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\MemoryTest.c</FilePath>
+              <FilePath>.\CompDesignProject.c</FilePath>
             </File>
           </Files>
         </Group>
