@@ -44,6 +44,7 @@ sbit cs_lcd = P3^3;				// latch
 sbit rs_lcd = P3^4;				// reg select
 sbit e_lcd  = P3^5;				// enable
 // rw tied to ground to always enable read
+sfr lcdPort = 0x90;
 
 // ======================= prototypes =========================== //
 
@@ -73,7 +74,14 @@ void latchKeypad( void );
 void outputSevenSeg( char character );
 struct keypad_data getKeysPressed( void );
 void displayKeyPressed( struct keypad_data keypad );
-void ms_delay( unsigned msecs );
+void lcdCmd( byte cmd );
+void lcdData( byte dat );
+void lcdInit( void );
+void lcdClear( void );
+void lcdChar( byte character );
+void lcdString( volatile char *string );
+void lcdLine( int line );
+void msDelay( unsigned msecs );
 
 // ======================== main ================================ //
 
@@ -81,13 +89,20 @@ void main(void) {
 	
 	struct keypad_data keypad;
 	
-	while (1) {
-		outputSevenSeg('1');
-		ms_delay(1000);
-		outputSevenSeg('5');
-		ms_delay(1000);
-	}
+	char string1[] = "Hello world`";
+	char string2[] = "M&M's`";
 	
+	cs_keypad = 0;
+	cs_sevenSeg = 0;
+	cs_lcd = 0;
+	
+	lcdInit();
+	
+	lcdLine(1);
+	lcdString( &string1 );
+	lcdLine(2);
+	lcdString( &string2 );
+
 	while(1); // Stay off the streets
 	
 } // end main()
@@ -109,6 +124,15 @@ void latchKeypad( void ) {
 	cs_keypad = 0;
 	
 } // end latchKeypad()
+
+// -------------------------------------------------------------- //
+
+void latchLCD( void ) {
+	
+	cs_lcd = 1;
+	cs_lcd = 0;
+	
+} // end latchLCD()
 
 // -------------------------------------------------------------- //
 
@@ -353,7 +377,113 @@ void displayKeyPressed( struct keypad_data keypad ) {
 	
 // -------------------------------------------------------------- //
 
-void ms_delay( unsigned msecs ) {
+void lcdCmd( byte cmd ) {
+	
+	rs_lcd = 0;			// reg select low for command
+	// --- RW tied low for write --- //
+	e_lcd = 1;			// E high for pulse
+	
+	lcdPort = cmd;
+	latchLCD();
+	
+	msDelay(1);			// Need Tpw > 140 ns
+	e_lcd = 0;			// E low to end pulse
+	
+} // end lcdCmd()
+
+// -------------------------------------------------------------- //
+
+void lcdData( byte dat ) {
+	
+	rs_lcd = 1;			// reg select high for data
+	// --- RW tied low for write --- //
+	e_lcd = 1;			// E high for pulse
+	
+	lcdPort = dat;
+	latchLCD();
+	
+	msDelay(1);			// Need Tpw > 140 ns
+	e_lcd = 0;			// E low to end pulse
+	msDelay(1);
+	
+} // end lcdData()
+
+// -------------------------------------------------------------- //
+
+void lcdInit( void ) {	
+	
+	msDelay(50);
+	lcdCmd(0x38);			// Function set
+	msDelay(5);
+	lcdCmd(0x38);			// Function set
+	msDelay(1);
+	lcdCmd(0x0F);			// Display ON/OFF control
+	msDelay(1);
+	lcdCmd(0x01);			// Clear display
+	msDelay(2);
+	
+} // end lcdInit()
+
+// -------------------------------------------------------------- //
+
+void lcdClear( void ) {
+	
+	lcdCmd(0x01);			// Clear display
+	msDelay(2);
+	
+} // end lcdClear()
+
+// -------------------------------------------------------------- //
+
+void lcdChar( byte character ) {
+	
+	lcdData(character);		// send character
+	
+} // end lcdChar()
+
+// -------------------------------------------------------------- //
+
+void lcdString( volatile char *string ) {
+	
+	int i = 0;
+	while( string[i] != '`') {
+		lcdChar( string[i] );
+		i++;
+	}
+	
+} // end lcdString()
+
+// -------------------------------------------------------------- //
+
+void lcdLine( int line ) {
+	
+	switch (line) {
+		case 1: {
+			lcdCmd(0x80);
+			break;
+		}
+		case 2: {
+			lcdCmd(0xC0);
+			break;
+		}
+		case 3: {
+			lcdCmd(0x94);
+			break;
+		}
+		case 4: {
+			lcdCmd(0xD4);
+			break;
+		}
+		default:
+			lcdCmd(0x80);
+		
+	} // end switch
+	
+} // end lcdLine()
+
+// -------------------------------------------------------------- //
+
+void msDelay( unsigned msecs ) {
 	
 	unsigned i;
 	unsigned char j;
