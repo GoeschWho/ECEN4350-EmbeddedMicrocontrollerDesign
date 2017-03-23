@@ -32,12 +32,18 @@ sbit kRow1  = P1^3;
 sbit kRow2  = P1^2;
 sbit kRow3  = P1^1;
 sbit kRow4  = P1^0;
-sbit cs_keypad = P3^1;
+sbit cs_keypad = P3^1;		// latch
 sbit oe_keypad = P3^2;
 
 // Seven-Segment Display
 sfr sevenSegPort = 0x90;
-sbit cs_sevenSeg = P3^0;
+sbit cs_sevenSeg = P3^0;	// latch
+
+// LCD
+sbit cs_lcd = P3^3;				// latch
+sbit rs_lcd = P3^4;				// reg select
+sbit e_lcd  = P3^5;				// enable
+// rw tied to ground to always enable read
 
 // ======================= prototypes =========================== //
 
@@ -67,7 +73,7 @@ void latchKeypad( void );
 void outputSevenSeg( char character );
 struct keypad_data getKeysPressed( void );
 void displayKeyPressed( struct keypad_data keypad );
-void delay( unsigned msecs );
+void ms_delay( unsigned msecs );
 
 // ======================== main ================================ //
 
@@ -76,14 +82,10 @@ void main(void) {
 	struct keypad_data keypad;
 	
 	while (1) {
-		
-		keypad = getKeysPressed();
-//		outputSevenSeg('5');
-		displayKeyPressed( keypad );
-//		outputSevenSeg('5');
-//		delay(2000);
-//		outputSevenSeg('1');
-//		delay(2000);
+		outputSevenSeg('1');
+		ms_delay(1000);
+		outputSevenSeg('5');
+		ms_delay(1000);
 	}
 	
 	while(1); // Stay off the streets
@@ -351,10 +353,12 @@ void displayKeyPressed( struct keypad_data keypad ) {
 	
 // -------------------------------------------------------------- //
 
-void delay( unsigned msecs ) {
+void ms_delay( unsigned msecs ) {
 	
 	unsigned i;
 	unsigned char j;
+	
+	msecs = msecs * 3.23;
 	
 	for(i=0;i<msecs;i++){
 		for(j=0;j<100;j++);
