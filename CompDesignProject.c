@@ -46,6 +46,17 @@ sbit e_lcd  = P3^5;				// enable
 // rw tied to ground to always enable read
 sfr lcdPort = 0x90;
 
+// Mission Control
+enum {ctrl_off,
+			ctrl_ss_latch,
+			ctrl_kp_oe,
+			ctrl_kp_oelatch,
+			ctrl_lcd_cmd_start,
+			ctrl_lcd_cmd_finish,
+			ctrl_lcd_data_start,
+			ctrl_lcd_data_finish };
+			
+
 // ======================= prototypes =========================== //
 
 typedef unsigned char byte;
@@ -81,6 +92,7 @@ void lcdClear( void );
 void lcdChar( byte character );
 void lcdString( volatile char *string );
 void lcdLine( int line );
+void missionControl( int dec );
 void msDelay( unsigned msecs );
 
 // ======================== main ================================ //
@@ -102,6 +114,11 @@ void main(void) {
 	lcdString( &string1 );
 	lcdLine(2);
 	lcdString( &string2 );
+	
+	while (1) {
+		keypad = getKeysPressed();
+		displayKeyPressed( keypad );
+	}
 
 	while(1); // Stay off the streets
 	
@@ -111,8 +128,11 @@ void main(void) {
 
 void latchSevenSeg( void ) {
 	
-	cs_sevenSeg = 1;
-	cs_sevenSeg = 0;
+//	cs_sevenSeg = 1;
+//	cs_sevenSeg = 0;
+	
+	missionControl( ctrl_ss_latch );
+	missionControl( ctrl_off );
 	
 } // end latchSevenSeg()
 
@@ -120,8 +140,11 @@ void latchSevenSeg( void ) {
 
 void latchKeypad( void ) {
 	
-	cs_keypad = 1;
-	cs_keypad = 0;
+//	cs_keypad = 1;
+//	cs_keypad = 0;
+	
+	missionControl( ctrl_kp_oelatch );
+	missionControl( ctrl_kp_oe );
 	
 } // end latchKeypad()
 
@@ -172,7 +195,8 @@ struct keypad_data getKeysPressed( void ) {
 	struct keypad_data keypad;
 	
 	// enable keypad latch output
-	oe_keypad = 0;
+	//oe_keypad = 0;
+	missionControl( ctrl_kp_oe );
 	
 	// Set keypad columns as outputs & rows as inputs
 	kCol1 = 0;
@@ -311,7 +335,8 @@ struct keypad_data getKeysPressed( void ) {
 	latchKeypad();
 	
 	// disable keypad latch output
-	oe_keypad = 1;
+	//oe_keypad = 1;
+	missionControl( ctrl_off );
 	
 	return keypad; 
 	
@@ -379,15 +404,19 @@ void displayKeyPressed( struct keypad_data keypad ) {
 
 void lcdCmd( byte cmd ) {
 	
-	rs_lcd = 0;			// reg select low for command
+	//rs_lcd = 0;			// reg select low for command
 	// --- RW tied low for write --- //
-	e_lcd = 1;			// E high for pulse
+	//e_lcd = 1;			// E high for pulse
+	
+	missionControl( ctrl_lcd_cmd_start );
 	
 	lcdPort = cmd;
-	latchLCD();
+	//latchLCD();
 	
 	msDelay(1);			// Need Tpw > 140 ns
-	e_lcd = 0;			// E low to end pulse
+	//e_lcd = 0;			// E low to end pulse
+	
+	missionControl( ctrl_lcd_cmd_finish );
 	
 } // end lcdCmd()
 
@@ -395,16 +424,19 @@ void lcdCmd( byte cmd ) {
 
 void lcdData( byte dat ) {
 	
-	rs_lcd = 1;			// reg select high for data
+	//rs_lcd = 1;			// reg select high for data
 	// --- RW tied low for write --- //
-	e_lcd = 1;			// E high for pulse
+	//e_lcd = 1;			// E high for pulse
+	
+	missionControl( ctrl_lcd_data_start );
 	
 	lcdPort = dat;
-	latchLCD();
+	//latchLCD();
 	
 	msDelay(1);			// Need Tpw > 140 ns
-	e_lcd = 0;			// E low to end pulse
-	msDelay(1);
+	//e_lcd = 0;			// E low to end pulse
+	
+	missionControl( ctrl_lcd_data_finish );
 	
 } // end lcdData()
 
@@ -480,6 +512,66 @@ void lcdLine( int line ) {
 	} // end switch
 	
 } // end lcdLine()
+
+// -------------------------------------------------------------- //
+
+void missionControl( int dec ) {
+	
+	switch ( dec ) {
+		
+		// The MSB is changed first to avoid false triggers of the LCD enable
+		// line as the enable line never goes high when the MSB is low.
+		case ctrl_off: {
+			P3_2 = 0;
+			P3_1 = 0;
+			P3_0 = 0;
+			break;
+		}
+		case ctrl_ss_latch: {
+			P3_2 = 0;
+			P3_1 = 0;
+			P3_0 = 1;
+			break;
+		}
+		case ctrl_kp_oe: {
+			P3_2 = 0;
+			P3_1 = 1;
+			P3_0 = 0;
+			break;
+		}
+		case ctrl_kp_oelatch: {
+			P3_2 = 0;
+			P3_1 = 1;
+			P3_0 = 1;
+			break;
+		}
+		case ctrl_lcd_cmd_start: {
+			P3_2 = 1;
+			P3_1 = 0;
+			P3_0 = 0;
+			break;
+		}
+		case ctrl_lcd_cmd_finish: {
+			P3_2 = 1;
+			P3_1 = 0;
+			P3_0 = 1;
+			break;
+		}
+		case ctrl_lcd_data_start: {
+			P3_2 = 1;
+			P3_1 = 1;
+			P3_0 = 0;
+			break;
+		}
+		case ctrl_lcd_data_finish: {
+			P3_2 = 1;
+			P3_1 = 1;
+			P3_0 = 1;
+			break;
+		}		
+	} // end switch
+	
+} // end missionControl()
 
 // -------------------------------------------------------------- //
 
