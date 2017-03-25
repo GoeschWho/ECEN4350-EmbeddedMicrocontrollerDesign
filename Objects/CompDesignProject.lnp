@@ -1,3 +1,4 @@
 ".\Objects\CompDesignProject.obj" 
 TO ".\Objects\CompDesignProject" 
 PRINT(".\Listings\CompDesignProject.m51") RAMSIZE(256) 
+CODE( 0X0000-0XFFFF )

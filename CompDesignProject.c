@@ -46,6 +46,11 @@ sbit e_lcd  = P3^5;				// enable
 // rw tied to ground to always enable read
 sfr lcdPort = 0x90;
 
+// ADC
+sbit oe_adc = P3^3;				// latch output enable
+sbit wr_adc = P3^4;				// WR line of ADC
+sfr adcPort = 0x90;
+
 // Mission Control
 enum {ctrl_off,
 			ctrl_ss_latch,
@@ -55,7 +60,16 @@ enum {ctrl_off,
 			ctrl_lcd_cmd_finish,
 			ctrl_lcd_data_start,
 			ctrl_lcd_data_finish };
-			
+
+enum {ctrl_adc_start = 1,
+			ctrl_adc_finish };
+
+sbit dec0 = P3^0;
+sbit dec1 = P3^1;		
+sbit dec2 = P3^2;
+sbit dec3 = P3^3;
+sbit dec4 = P3^4;
+sbit dec5 = P3^5;
 
 // ======================= prototypes =========================== //
 
@@ -92,7 +106,9 @@ void lcdClear( void );
 void lcdChar( byte character );
 void lcdString( volatile char *string );
 void lcdLine( int line );
-void missionControl( int dec );
+float getTemp( void );
+void missionControl1( int dec );
+void missionControl2( int dec );
 void msDelay( unsigned msecs );
 
 // ======================== main ================================ //
@@ -100,25 +116,32 @@ void msDelay( unsigned msecs );
 void main(void) {
 	
 	struct keypad_data keypad;
-	
+
 	char string1[] = "Hello world`";
 	char string2[] = "M&M's`";
 	
-	cs_keypad = 0;
-	cs_sevenSeg = 0;
-	cs_lcd = 0;
+	char tempFStr[] = "+00.0 F`";
+	
+	float degF = 0;
+	
+	missionControl1( ctrl_off );
+	missionControl2( ctrl_off );
 	
 	lcdInit();
-	
-	lcdLine(1);
-	lcdString( &string1 );
-	lcdLine(2);
-	lcdString( &string2 );
 	
 	while (1) {
 		keypad = getKeysPressed();
 		displayKeyPressed( keypad );
-	}
+		
+		lcdClear();
+		
+		degF = getTemp();
+		sprintf( tempFStr, "%+5.1f F`", degF );
+		lcdString( &tempFStr );
+		
+		msDelay(1000);
+		
+	} // end while
 
 	while(1); // Stay off the streets
 	
@@ -131,8 +154,8 @@ void latchSevenSeg( void ) {
 //	cs_sevenSeg = 1;
 //	cs_sevenSeg = 0;
 	
-	missionControl( ctrl_ss_latch );
-	missionControl( ctrl_off );
+	missionControl1( ctrl_ss_latch );
+	missionControl1( ctrl_off );
 	
 } // end latchSevenSeg()
 
@@ -143,19 +166,19 @@ void latchKeypad( void ) {
 //	cs_keypad = 1;
 //	cs_keypad = 0;
 	
-	missionControl( ctrl_kp_oelatch );
-	missionControl( ctrl_kp_oe );
+	missionControl1( ctrl_kp_oelatch );
+	missionControl1( ctrl_kp_oe );
 	
 } // end latchKeypad()
 
 // -------------------------------------------------------------- //
 
-void latchLCD( void ) {
-	
-	cs_lcd = 1;
-	cs_lcd = 0;
-	
-} // end latchLCD()
+//void latchLCD( void ) {
+//	
+//	cs_lcd = 1;
+//	cs_lcd = 0;
+//	
+//} // end latchLCD()
 
 // -------------------------------------------------------------- //
 
@@ -196,7 +219,7 @@ struct keypad_data getKeysPressed( void ) {
 	
 	// enable keypad latch output
 	//oe_keypad = 0;
-	missionControl( ctrl_kp_oe );
+	missionControl1( ctrl_kp_oe );
 	
 	// Set keypad columns as outputs & rows as inputs
 	kCol1 = 0;
@@ -336,7 +359,7 @@ struct keypad_data getKeysPressed( void ) {
 	
 	// disable keypad latch output
 	//oe_keypad = 1;
-	missionControl( ctrl_off );
+	missionControl1( ctrl_off );
 	
 	return keypad; 
 	
@@ -408,7 +431,7 @@ void lcdCmd( byte cmd ) {
 	// --- RW tied low for write --- //
 	//e_lcd = 1;			// E high for pulse
 	
-	missionControl( ctrl_lcd_cmd_start );
+	missionControl1( ctrl_lcd_cmd_start );
 	
 	lcdPort = cmd;
 	//latchLCD();
@@ -416,7 +439,7 @@ void lcdCmd( byte cmd ) {
 	msDelay(1);			// Need Tpw > 140 ns
 	//e_lcd = 0;			// E low to end pulse
 	
-	missionControl( ctrl_lcd_cmd_finish );
+	missionControl1( ctrl_lcd_cmd_finish );
 	
 } // end lcdCmd()
 
@@ -428,7 +451,7 @@ void lcdData( byte dat ) {
 	// --- RW tied low for write --- //
 	//e_lcd = 1;			// E high for pulse
 	
-	missionControl( ctrl_lcd_data_start );
+	missionControl1( ctrl_lcd_data_start );
 	
 	lcdPort = dat;
 	//latchLCD();
@@ -436,7 +459,7 @@ void lcdData( byte dat ) {
 	msDelay(1);			// Need Tpw > 140 ns
 	//e_lcd = 0;			// E low to end pulse
 	
-	missionControl( ctrl_lcd_data_finish );
+	missionControl1( ctrl_lcd_data_finish );
 	
 } // end lcdData()
 
@@ -515,63 +538,168 @@ void lcdLine( int line ) {
 
 // -------------------------------------------------------------- //
 
-void missionControl( int dec ) {
+float getTemp( void ) {
+	
+	//------------ IDEA ------------------------------------------//
+	// change to pass in C or F and returns corresponding value.  //
+	
+	int i = 0;
+	byte sample = 0;
+	float voltage = 0;
+	float degC = 0;
+	float degF = 0;
+	int degCint = 0;
+//	char tempCStr[] = "+00.0 C`";
+//	char tempFStr[] = "+00.0 F`";
+//	char voltStr[] = "+0.0 V`";
+//	char sampStr[] = "55555555`";
+	
+		missionControl2( ctrl_adc_start );
+		missionControl2( ctrl_adc_finish );
+		sample = adcPort;
+		missionControl2( ctrl_off );
+		
+		// voltage reading in 0.3V higher than measured on board
+		voltage = sample * 5 / 256;
+		//voltage = voltage - 0.25;
+		degC = (voltage - 0.5) * 100;
+		degF = degC * (9.0/5.0) + 32.0;
+		
+		return degF;
+		
+//		sprintf( sampStr, "%c`", sample );
+//		sprintf( voltStr, "%+4.1f V`", voltage );
+//		sprintf( tempCStr, "%+5.1f C`", degC );
+//		sprintf( tempFStr, "%+5.1f F`", degF );
+		
+//		lcdLine(1);
+//		lcdString( &sampStr );
+//		lcdLine(2);
+//		lcdString( &voltStr );
+//		lcdLine(3);
+//		lcdString( &tempCStr );
+//		lcdLine(4);
+//		lcdString( &tempFStr );
+	
+} // end getDegF()
+
+// -------------------------------------------------------------- //
+
+void missionControl1( int dec ) {
 	
 	switch ( dec ) {
 		
 		// The MSB is changed first to avoid false triggers of the LCD enable
 		// line as the enable line never goes high when the MSB is low.
 		case ctrl_off: {
-			P3_2 = 0;
-			P3_1 = 0;
-			P3_0 = 0;
+			dec2 = 0;
+			dec1 = 0;
+			dec0 = 0;
 			break;
 		}
 		case ctrl_ss_latch: {
-			P3_2 = 0;
-			P3_1 = 0;
-			P3_0 = 1;
+			dec2 = 0;
+			dec1 = 0;
+			dec0 = 1;
 			break;
 		}
 		case ctrl_kp_oe: {
-			P3_2 = 0;
-			P3_1 = 1;
-			P3_0 = 0;
+			dec2 = 0;
+			dec1 = 1;
+			dec0 = 0;
 			break;
 		}
 		case ctrl_kp_oelatch: {
-			P3_2 = 0;
-			P3_1 = 1;
-			P3_0 = 1;
+			dec2 = 0;
+			dec1 = 1;
+			dec0 = 1;
 			break;
 		}
 		case ctrl_lcd_cmd_start: {
-			P3_2 = 1;
-			P3_1 = 0;
-			P3_0 = 0;
+			dec2 = 1;
+			dec1 = 0;
+			dec0 = 0;
 			break;
 		}
 		case ctrl_lcd_cmd_finish: {
-			P3_2 = 1;
-			P3_1 = 0;
-			P3_0 = 1;
+			dec2 = 1;
+			dec1 = 0;
+			dec0 = 1;
 			break;
 		}
 		case ctrl_lcd_data_start: {
-			P3_2 = 1;
-			P3_1 = 1;
-			P3_0 = 0;
+			dec2 = 1;
+			dec1 = 1;
+			dec0 = 0;
 			break;
 		}
 		case ctrl_lcd_data_finish: {
-			P3_2 = 1;
-			P3_1 = 1;
-			P3_0 = 1;
+			dec2 = 1;
+			dec1 = 1;
+			dec0 = 1;
 			break;
 		}		
 	} // end switch
 	
-} // end missionControl()
+} // end missionControl1()
+
+// -------------------------------------------------------------- //
+
+void missionControl2( int dec ) {
+	
+	switch ( dec ) {
+		case ctrl_off: {
+			dec5 = 0;
+			dec4 = 0;
+			dec3 = 0;
+			break;
+		}
+		case ctrl_adc_start: {
+			dec5 = 0;
+			dec4 = 0;
+			dec3 = 1;
+			break;
+		}
+		case ctrl_adc_finish: {
+			dec5 = 0;
+			dec4 = 1;
+			dec3 = 0;
+			break;
+		}
+		// not used below yet
+		case ctrl_kp_oelatch: {
+			dec5 = 0;
+			dec4 = 1;
+			dec3 = 1;
+			break;
+		}
+		case ctrl_lcd_cmd_start: {
+			dec5 = 1;
+			dec4 = 0;
+			dec3 = 0;
+			break;
+		}
+		case ctrl_lcd_cmd_finish: {
+			dec5 = 1;
+			dec4 = 0;
+			dec3 = 1;
+			break;
+		}
+		case ctrl_lcd_data_start: {
+			dec5 = 1;
+			dec4 = 1;
+			dec3 = 0;
+			break;
+		}
+		case ctrl_lcd_data_finish: {
+			dec5 = 1;
+			dec4 = 1;
+			dec3 = 1;
+			break;
+		}		
+	} // end switch
+	
+} // end missionControl2()
 
 // -------------------------------------------------------------- //
 

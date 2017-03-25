@@ -1,10 +1,10 @@
-C51 COMPILER V9.56.0.0   COMPDESIGNPROJECT                                                 03/24/2017 09:36:27 PAGE 1   
+C51 COMPILER V9.56.0.0   COMPDESIGNPROJECT                                                 03/25/2017 16:55:10 PAGE 1   
 
 
 C51 COMPILER V9.56.0.0, COMPILATION OF MODULE COMPDESIGNPROJECT
 OBJECT MODULE PLACED IN .\Objects\CompDesignProject.obj
-COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE CompDesignProject.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\
-                    -Listings\CompDesignProject.lst) TABS(2) OBJECT(.\Objects\CompDesignProject.obj)
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE CompDesignProject.c LARGE OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PR
+                    -INT(.\Listings\CompDesignProject.lst) TABS(2) OBJECT(.\Objects\CompDesignProject.obj)
 
 line level    source
 
@@ -56,576 +56,708 @@ line level    source
   46          // rw tied to ground to always enable read
   47          sfr lcdPort = 0x90;
   48          
-  49          // Mission Control
-  50          enum {ctrl_off,
-  51                ctrl_ss_latch,
-  52                ctrl_kp_oe,
-  53                ctrl_kp_oelatch,
-  54                ctrl_lcd_cmd_start,
-C51 COMPILER V9.56.0.0   COMPDESIGNPROJECT                                                 03/24/2017 09:36:27 PAGE 2   
+  49          // ADC
+  50          sbit oe_adc = P3^3;       // latch output enable
+  51          sbit wr_adc = P3^4;       // WR line of ADC
+  52          sfr adcPort = 0x90;
+  53          
+  54          // Mission Control
+C51 COMPILER V9.56.0.0   COMPDESIGNPROJECT                                                 03/25/2017 16:55:10 PAGE 2   
 
-  55                ctrl_lcd_cmd_finish,
-  56                ctrl_lcd_data_start,
-  57                ctrl_lcd_data_finish };
-  58                
-  59          
-  60          // ======================= prototypes =========================== //
-  61          
-  62          typedef unsigned char byte;
+  55          enum {ctrl_off,
+  56                ctrl_ss_latch,
+  57                ctrl_kp_oe,
+  58                ctrl_kp_oelatch,
+  59                ctrl_lcd_cmd_start,
+  60                ctrl_lcd_cmd_finish,
+  61                ctrl_lcd_data_start,
+  62                ctrl_lcd_data_finish };
   63          
-  64          struct keypad_data {
-  65            unsigned char k1;
-  66            unsigned char k2;
-  67            unsigned char k3;
-  68            unsigned char k4;
-  69            unsigned char k5;
-  70            unsigned char k6;
-  71            unsigned char k7;
-  72            unsigned char k8;
-  73            unsigned char k9;
-  74            unsigned char k0;
-  75            unsigned char kA;
-  76            unsigned char kB;
-  77            unsigned char kC;
-  78            unsigned char kD;
-  79            unsigned char kstar;
-  80            unsigned char kpound;
-  81          };
-  82          
-  83          void latchSevenSeg( void );
-  84          void latchKeypad( void );
-  85          void outputSevenSeg( char character );
-  86          struct keypad_data getKeysPressed( void );
-  87          void displayKeyPressed( struct keypad_data keypad );
-  88          void lcdCmd( byte cmd );
-  89          void lcdData( byte dat );
-  90          void lcdInit( void );
-  91          void lcdClear( void );
-  92          void lcdChar( byte character );
-  93          void lcdString( volatile char *string );
-  94          void lcdLine( int line );
-  95          void missionControl( int dec );
-  96          void msDelay( unsigned msecs );
-  97          
-  98          // ======================== main ================================ //
-  99          
- 100          void main(void) {
- 101   1        
- 102   1        struct keypad_data keypad;
- 103   1        
- 104   1        char string1[] = "Hello world`";
- 105   1        char string2[] = "M&M's`";
- 106   1        
- 107   1        cs_keypad = 0;
- 108   1        cs_sevenSeg = 0;
- 109   1        cs_lcd = 0;
- 110   1        
- 111   1        lcdInit();
- 112   1        
- 113   1        lcdLine(1);
- 114   1        lcdString( &string1 );
- 115   1        lcdLine(2);
- 116   1        lcdString( &string2 );
-C51 COMPILER V9.56.0.0   COMPDESIGNPROJECT                                                 03/24/2017 09:36:27 PAGE 3   
+  64          enum {ctrl_adc_start = 1,
+  65                ctrl_adc_finish };
+  66          
+  67          sbit dec0 = P3^0;
+  68          sbit dec1 = P3^1;   
+  69          sbit dec2 = P3^2;
+  70          sbit dec3 = P3^3;
+  71          sbit dec4 = P3^4;
+  72          sbit dec5 = P3^5;
+  73          
+  74          // ======================= prototypes =========================== //
+  75          
+  76          typedef unsigned char byte;
+  77          
+  78          struct keypad_data {
+  79            unsigned char k1;
+  80            unsigned char k2;
+  81            unsigned char k3;
+  82            unsigned char k4;
+  83            unsigned char k5;
+  84            unsigned char k6;
+  85            unsigned char k7;
+  86            unsigned char k8;
+  87            unsigned char k9;
+  88            unsigned char k0;
+  89            unsigned char kA;
+  90            unsigned char kB;
+  91            unsigned char kC;
+  92            unsigned char kD;
+  93            unsigned char kstar;
+  94            unsigned char kpound;
+  95          };
+  96          
+  97          void latchSevenSeg( void );
+  98          void latchKeypad( void );
+  99          void outputSevenSeg( char character );
+ 100          struct keypad_data getKeysPressed( void );
+ 101          void displayKeyPressed( struct keypad_data keypad );
+ 102          void lcdCmd( byte cmd );
+ 103          void lcdData( byte dat );
+ 104          void lcdInit( void );
+ 105          void lcdClear( void );
+ 106          void lcdChar( byte character );
+ 107          void lcdString( volatile char *string );
+ 108          void lcdLine( int line );
+ 109          float getTemp( void );
+ 110          void missionControl1( int dec );
+ 111          void missionControl2( int dec );
+ 112          void msDelay( unsigned msecs );
+ 113          
+ 114          // ======================== main ================================ //
+ 115          
+ 116          void main(void) {
+C51 COMPILER V9.56.0.0   COMPDESIGNPROJECT                                                 03/25/2017 16:55:10 PAGE 3   
 
  117   1        
- 118   1        while (1) {
- 119   2          keypad = getKeysPressed();
- 120   2          displayKeyPressed( keypad );
- 121   2        }
- 122   1      
- 123   1        while(1); // Stay off the streets
+ 118   1        struct keypad_data keypad;
+ 119   1      
+ 120   1        char string1[] = "Hello world`";
+ 121   1        char string2[] = "M&M's`";
+ 122   1        
+ 123   1        char tempFStr[] = "+00.0 F`";
  124   1        
- 125   1      } // end main()
- 126          
- 127          // ======================= functions ============================ //
- 128          
- 129          void latchSevenSeg( void ) {
- 130   1        
- 131   1      //  cs_sevenSeg = 1;
- 132   1      //  cs_sevenSeg = 0;
- 133   1        
- 134   1        missionControl( ctrl_ss_latch );
- 135   1        missionControl( ctrl_off );
- 136   1        
- 137   1      } // end latchSevenSeg()
- 138          
- 139          // -------------------------------------------------------------- //
- 140          
- 141          void latchKeypad( void ) {
- 142   1        
- 143   1      //  cs_keypad = 1;
- 144   1      //  cs_keypad = 0;
- 145   1        
- 146   1        missionControl( ctrl_kp_oelatch );
- 147   1        missionControl( ctrl_kp_oe );
- 148   1        
- 149   1      } // end latchKeypad()
- 150          
- 151          // -------------------------------------------------------------- //
- 152          
- 153          void latchLCD( void ) {
- 154   1        
- 155   1        cs_lcd = 1;
- 156   1        cs_lcd = 0;
- 157   1        
- 158   1      } // end latchLCD()
- 159          
- 160          // -------------------------------------------------------------- //
+ 125   1        float degF = 0;
+ 126   1        
+ 127   1        missionControl1( ctrl_off );
+ 128   1        missionControl2( ctrl_off );
+ 129   1        
+ 130   1        lcdInit();
+ 131   1        
+ 132   1        while (1) {
+ 133   2          keypad = getKeysPressed();
+ 134   2          displayKeyPressed( keypad );
+ 135   2          
+ 136   2          lcdClear();
+ 137   2          
+ 138   2          degF = getTemp();
+ 139   2          sprintf( tempFStr, "%+5.1f F`", degF );
+ 140   2          lcdString( &tempFStr );
+ 141   2          
+ 142   2          msDelay(1000);
+ 143   2          
+ 144   2        } // end while
+ 145   1      
+ 146   1        while(1); // Stay off the streets
+ 147   1        
+ 148   1      } // end main()
+ 149          
+ 150          // ======================= functions ============================ //
+ 151          
+ 152          void latchSevenSeg( void ) {
+ 153   1        
+ 154   1      //  cs_sevenSeg = 1;
+ 155   1      //  cs_sevenSeg = 0;
+ 156   1        
+ 157   1        missionControl1( ctrl_ss_latch );
+ 158   1        missionControl1( ctrl_off );
+ 159   1        
+ 160   1      } // end latchSevenSeg()
  161          
- 162          void outputSevenSeg( char character ) {
- 163   1        
- 164   1        switch( character ) {
- 165   2          case '0': sevenSegPort = ~0x3F; break;
- 166   2          case '1': sevenSegPort = ~0x06; break;
- 167   2          case '2': sevenSegPort = ~0x5B; break;
- 168   2          case '3': sevenSegPort = ~0x4F; break;
- 169   2          case '4': sevenSegPort = ~0x66; break;
- 170   2          case '5': sevenSegPort = ~0x6D; break;
- 171   2          case '6': sevenSegPort = ~0x7D; break;
- 172   2          case '7': sevenSegPort = ~0x07; break;
- 173   2          case '8': sevenSegPort = ~0x7F; break;
- 174   2          case '9': sevenSegPort = ~0x67; break;
- 175   2          case 'A': sevenSegPort = ~0x77; break;
- 176   2          case 'b': sevenSegPort = ~0x7C; break;
- 177   2          case 'C': sevenSegPort = ~0x39; break;
- 178   2          case 'd': sevenSegPort = ~0x5E; break;
-C51 COMPILER V9.56.0.0   COMPDESIGNPROJECT                                                 03/24/2017 09:36:27 PAGE 4   
+ 162          // -------------------------------------------------------------- //
+ 163          
+ 164          void latchKeypad( void ) {
+ 165   1        
+ 166   1      //  cs_keypad = 1;
+ 167   1      //  cs_keypad = 0;
+ 168   1        
+ 169   1        missionControl1( ctrl_kp_oelatch );
+ 170   1        missionControl1( ctrl_kp_oe );
+ 171   1        
+ 172   1      } // end latchKeypad()
+ 173          
+ 174          // -------------------------------------------------------------- //
+ 175          
+ 176          //void latchLCD( void ) {
+ 177          //  
+ 178          //  cs_lcd = 1;
+C51 COMPILER V9.56.0.0   COMPDESIGNPROJECT                                                 03/25/2017 16:55:10 PAGE 4   
 
- 179   2          case 'E': sevenSegPort = ~0x79; break;
- 180   2          case 'F': sevenSegPort = ~0x71; break;
- 181   2          case '-': sevenSegPort = 0xBF;  break;
- 182   2          case '.': sevenSegPort = 0x7F;  break;
- 183   2          case 'o': sevenSegPort = 0xFF;  break;  // off
- 184   2          default:  sevenSegPort = 0xAA;          // invalid
- 185   2        }
+ 179          //  cs_lcd = 0;
+ 180          //  
+ 181          //} // end latchLCD()
+ 182          
+ 183          // -------------------------------------------------------------- //
+ 184          
+ 185          void outputSevenSeg( char character ) {
  186   1        
- 187   1        latchSevenSeg();
- 188   1        
- 189   1      } // end outputSevenSeg()
- 190          
- 191          // -------------------------------------------------------------- //
- 192          
- 193          struct keypad_data getKeysPressed( void ) {
- 194   1        
- 195   1        struct keypad_data keypad;
- 196   1        
- 197   1        // enable keypad latch output
- 198   1        //oe_keypad = 0;
- 199   1        missionControl( ctrl_kp_oe );
- 200   1        
- 201   1        // Set keypad columns as outputs & rows as inputs
- 202   1        kCol1 = 0;
- 203   1        kCol2 = 0;
- 204   1        kCol3 = 0;
- 205   1        kCol4 = 0;
- 206   1        kRow1 = 1;
- 207   1        kRow2 = 1;
- 208   1        kRow3 = 1;
- 209   1        kRow4 = 1;
- 210   1        
- 211   1        // scan by columns
- 212   1      
- 213   1        // column 1
- 214   1        kCol1 = 0;
- 215   1        kCol2 = 1;
- 216   1        kCol3 = 1;
- 217   1        kCol4 = 1;
- 218   1        latchKeypad();
+ 187   1        switch( character ) {
+ 188   2          case '0': sevenSegPort = ~0x3F; break;
+ 189   2          case '1': sevenSegPort = ~0x06; break;
+ 190   2          case '2': sevenSegPort = ~0x5B; break;
+ 191   2          case '3': sevenSegPort = ~0x4F; break;
+ 192   2          case '4': sevenSegPort = ~0x66; break;
+ 193   2          case '5': sevenSegPort = ~0x6D; break;
+ 194   2          case '6': sevenSegPort = ~0x7D; break;
+ 195   2          case '7': sevenSegPort = ~0x07; break;
+ 196   2          case '8': sevenSegPort = ~0x7F; break;
+ 197   2          case '9': sevenSegPort = ~0x67; break;
+ 198   2          case 'A': sevenSegPort = ~0x77; break;
+ 199   2          case 'b': sevenSegPort = ~0x7C; break;
+ 200   2          case 'C': sevenSegPort = ~0x39; break;
+ 201   2          case 'd': sevenSegPort = ~0x5E; break;
+ 202   2          case 'E': sevenSegPort = ~0x79; break;
+ 203   2          case 'F': sevenSegPort = ~0x71; break;
+ 204   2          case '-': sevenSegPort = 0xBF;  break;
+ 205   2          case '.': sevenSegPort = 0x7F;  break;
+ 206   2          case 'o': sevenSegPort = 0xFF;  break;  // off
+ 207   2          default:  sevenSegPort = 0xAA;          // invalid
+ 208   2        }
+ 209   1        
+ 210   1        latchSevenSeg();
+ 211   1        
+ 212   1      } // end outputSevenSeg()
+ 213          
+ 214          // -------------------------------------------------------------- //
+ 215          
+ 216          struct keypad_data getKeysPressed( void ) {
+ 217   1        
+ 218   1        struct keypad_data keypad;
  219   1        
- 220   1        if (kRow1 == 0) {
- 221   2          keypad.k1 = 1;
- 222   2        }
- 223   1        else {
- 224   2          keypad.k1 = 0;
- 225   2        }
- 226   1        if (kRow2 == 0) {
- 227   2          keypad.k4 = 1;
- 228   2        }
- 229   1        else {
- 230   2          keypad.k4 = 0;
- 231   2        }
- 232   1        if (kRow3 == 0) {
- 233   2          keypad.k7 = 1;
- 234   2        }
- 235   1        else {
- 236   2          keypad.k7 = 0;
- 237   2        }
- 238   1        if (kRow4 == 0) {
- 239   2          keypad.kstar = 1;
- 240   2        }
-C51 COMPILER V9.56.0.0   COMPDESIGNPROJECT                                                 03/24/2017 09:36:27 PAGE 5   
+ 220   1        // enable keypad latch output
+ 221   1        //oe_keypad = 0;
+ 222   1        missionControl1( ctrl_kp_oe );
+ 223   1        
+ 224   1        // Set keypad columns as outputs & rows as inputs
+ 225   1        kCol1 = 0;
+ 226   1        kCol2 = 0;
+ 227   1        kCol3 = 0;
+ 228   1        kCol4 = 0;
+ 229   1        kRow1 = 1;
+ 230   1        kRow2 = 1;
+ 231   1        kRow3 = 1;
+ 232   1        kRow4 = 1;
+ 233   1        
+ 234   1        // scan by columns
+ 235   1      
+ 236   1        // column 1
+ 237   1        kCol1 = 0;
+ 238   1        kCol2 = 1;
+ 239   1        kCol3 = 1;
+ 240   1        kCol4 = 1;
+C51 COMPILER V9.56.0.0   COMPDESIGNPROJECT                                                 03/25/2017 16:55:10 PAGE 5   
 
- 241   1        else {
- 242   2          keypad.kstar = 0;
- 243   2        }
- 244   1        kCol1 = 1;
- 245   1        
- 246   1        // column 2
- 247   1        kCol2 = 0;
- 248   1        latchKeypad();
- 249   1        
- 250   1        if (kRow1 == 0) {
- 251   2          keypad.k2 = 1;
- 252   2        }
- 253   1        else {
- 254   2          keypad.k2 = 0;
- 255   2        }
- 256   1        if (kRow2 == 0) {
- 257   2          keypad.k5 = 1;
- 258   2        }
- 259   1        else {
- 260   2          keypad.k5 = 0;
- 261   2        }
- 262   1        if (kRow3 == 0) {
- 263   2          keypad.k8 = 1;
- 264   2        }
- 265   1        else {
- 266   2          keypad.k8 = 0;
- 267   2        }
- 268   1        if (kRow4 == 0) {
- 269   2          keypad.k0 = 1;
- 270   2        }
- 271   1        else {
- 272   2          keypad.k0 = 0;
- 273   2        }
- 274   1        kCol2 = 1;
- 275   1        
- 276   1        // column 3
- 277   1        kCol3 = 0;
- 278   1        latchKeypad();
- 279   1        
- 280   1        if (kRow1 == 0) {
- 281   2          keypad.k3 = 1;
- 282   2        }
- 283   1        else {
- 284   2          keypad.k3 = 0;
- 285   2        }
- 286   1        if (kRow2 == 0) {
- 287   2          keypad.k6 = 1;
- 288   2        }
- 289   1        else {
- 290   2          keypad.k6 = 0;
- 291   2        }
- 292   1        if (kRow3 == 0) {
- 293   2          keypad.k9 = 1;
- 294   2        }
- 295   1        else {
- 296   2          keypad.k9 = 0;
- 297   2        }
- 298   1        if (kRow4 == 0) {
- 299   2          keypad.kpound = 1;
- 300   2        }
- 301   1        else {
- 302   2          keypad.kpound = 0;
-C51 COMPILER V9.56.0.0   COMPDESIGNPROJECT                                                 03/24/2017 09:36:27 PAGE 6   
+ 241   1        latchKeypad();
+ 242   1        
+ 243   1        if (kRow1 == 0) {
+ 244   2          keypad.k1 = 1;
+ 245   2        }
+ 246   1        else {
+ 247   2          keypad.k1 = 0;
+ 248   2        }
+ 249   1        if (kRow2 == 0) {
+ 250   2          keypad.k4 = 1;
+ 251   2        }
+ 252   1        else {
+ 253   2          keypad.k4 = 0;
+ 254   2        }
+ 255   1        if (kRow3 == 0) {
+ 256   2          keypad.k7 = 1;
+ 257   2        }
+ 258   1        else {
+ 259   2          keypad.k7 = 0;
+ 260   2        }
+ 261   1        if (kRow4 == 0) {
+ 262   2          keypad.kstar = 1;
+ 263   2        }
+ 264   1        else {
+ 265   2          keypad.kstar = 0;
+ 266   2        }
+ 267   1        kCol1 = 1;
+ 268   1        
+ 269   1        // column 2
+ 270   1        kCol2 = 0;
+ 271   1        latchKeypad();
+ 272   1        
+ 273   1        if (kRow1 == 0) {
+ 274   2          keypad.k2 = 1;
+ 275   2        }
+ 276   1        else {
+ 277   2          keypad.k2 = 0;
+ 278   2        }
+ 279   1        if (kRow2 == 0) {
+ 280   2          keypad.k5 = 1;
+ 281   2        }
+ 282   1        else {
+ 283   2          keypad.k5 = 0;
+ 284   2        }
+ 285   1        if (kRow3 == 0) {
+ 286   2          keypad.k8 = 1;
+ 287   2        }
+ 288   1        else {
+ 289   2          keypad.k8 = 0;
+ 290   2        }
+ 291   1        if (kRow4 == 0) {
+ 292   2          keypad.k0 = 1;
+ 293   2        }
+ 294   1        else {
+ 295   2          keypad.k0 = 0;
+ 296   2        }
+ 297   1        kCol2 = 1;
+ 298   1        
+ 299   1        // column 3
+ 300   1        kCol3 = 0;
+ 301   1        latchKeypad();
+ 302   1        
+C51 COMPILER V9.56.0.0   COMPDESIGNPROJECT                                                 03/25/2017 16:55:10 PAGE 6   
 
- 303   2        }
- 304   1        kCol3 = 1;
- 305   1        
- 306   1        // column 4
- 307   1        kCol4 = 0;
- 308   1        latchKeypad();
- 309   1        
- 310   1        if (kRow1 == 0) {
- 311   2          keypad.kA = 1;
- 312   2        }
- 313   1        else {
- 314   2          keypad.kA = 0;
- 315   2        }
- 316   1        if (kRow2 == 0) {
- 317   2          keypad.kB = 1;
- 318   2        }
- 319   1        else {
- 320   2          keypad.kB = 0;
- 321   2        }
- 322   1        if (kRow3 == 0) {
- 323   2          keypad.kC = 1;
- 324   2        }
- 325   1        else {
- 326   2          keypad.kC = 0;
- 327   2        }
- 328   1        if (kRow4 == 0) {
- 329   2          keypad.kD = 1;
- 330   2        }
- 331   1        else {
- 332   2          keypad.kD = 0;
- 333   2        }
- 334   1        kCol4 = 1;
- 335   1        latchKeypad();
- 336   1        
- 337   1        // disable keypad latch output
- 338   1        //oe_keypad = 1;
- 339   1        missionControl( ctrl_off );
- 340   1        
- 341   1        return keypad; 
- 342   1        
- 343   1      } // end getKeysPressed()
- 344          
- 345          // -------------------------------------------------------------- //
- 346          
- 347          void displayKeyPressed( struct keypad_data keypad ) {
- 348   1        
- 349   1        if ( keypad.k1 == 1 ) {
- 350   2          outputSevenSeg('1');
- 351   2        }
- 352   1        else if ( keypad.k2 == 1 ) {
- 353   2          outputSevenSeg('2');
- 354   2        }
- 355   1        else if ( keypad.k3 == 1 ) {
- 356   2          outputSevenSeg('3');
- 357   2        }
- 358   1        else if ( keypad.k4 == 1 ) {
- 359   2          outputSevenSeg('4');
- 360   2        }
- 361   1        else if ( keypad.k5 == 1 ) {
- 362   2          outputSevenSeg('5');
- 363   2        }
- 364   1        else if ( keypad.k6 == 1 ) {
-C51 COMPILER V9.56.0.0   COMPDESIGNPROJECT                                                 03/24/2017 09:36:27 PAGE 7   
+ 303   1        if (kRow1 == 0) {
+ 304   2          keypad.k3 = 1;
+ 305   2        }
+ 306   1        else {
+ 307   2          keypad.k3 = 0;
+ 308   2        }
+ 309   1        if (kRow2 == 0) {
+ 310   2          keypad.k6 = 1;
+ 311   2        }
+ 312   1        else {
+ 313   2          keypad.k6 = 0;
+ 314   2        }
+ 315   1        if (kRow3 == 0) {
+ 316   2          keypad.k9 = 1;
+ 317   2        }
+ 318   1        else {
+ 319   2          keypad.k9 = 0;
+ 320   2        }
+ 321   1        if (kRow4 == 0) {
+ 322   2          keypad.kpound = 1;
+ 323   2        }
+ 324   1        else {
+ 325   2          keypad.kpound = 0;
+ 326   2        }
+ 327   1        kCol3 = 1;
+ 328   1        
+ 329   1        // column 4
+ 330   1        kCol4 = 0;
+ 331   1        latchKeypad();
+ 332   1        
+ 333   1        if (kRow1 == 0) {
+ 334   2          keypad.kA = 1;
+ 335   2        }
+ 336   1        else {
+ 337   2          keypad.kA = 0;
+ 338   2        }
+ 339   1        if (kRow2 == 0) {
+ 340   2          keypad.kB = 1;
+ 341   2        }
+ 342   1        else {
+ 343   2          keypad.kB = 0;
+ 344   2        }
+ 345   1        if (kRow3 == 0) {
+ 346   2          keypad.kC = 1;
+ 347   2        }
+ 348   1        else {
+ 349   2          keypad.kC = 0;
+ 350   2        }
+ 351   1        if (kRow4 == 0) {
+ 352   2          keypad.kD = 1;
+ 353   2        }
+ 354   1        else {
+ 355   2          keypad.kD = 0;
+ 356   2        }
+ 357   1        kCol4 = 1;
+ 358   1        latchKeypad();
+ 359   1        
+ 360   1        // disable keypad latch output
+ 361   1        //oe_keypad = 1;
+ 362   1        missionControl1( ctrl_off );
+ 363   1        
+ 364   1        return keypad; 
+C51 COMPILER V9.56.0.0   COMPDESIGNPROJECT                                                 03/25/2017 16:55:10 PAGE 7   
 
- 365   2          outputSevenSeg('6');
- 366   2        }
- 367   1        else if ( keypad.k7 == 1 ) {
- 368   2          outputSevenSeg('7');
- 369   2        }
- 370   1        else if ( keypad.k8 == 1 ) {
- 371   2          outputSevenSeg('8');
- 372   2        }
- 373   1        else if ( keypad.k9 == 1 ) {
- 374   2          outputSevenSeg('9');
- 375   2        }
- 376   1        else if ( keypad.kA == 1 ) {
- 377   2          outputSevenSeg('A');
- 378   2        }
- 379   1        else if ( keypad.k0 == 1 ) {
- 380   2          outputSevenSeg('0');
- 381   2        }
- 382   1        else if ( keypad.kB == 1 ) {
- 383   2          outputSevenSeg('b');
- 384   2        }
- 385   1        else if ( keypad.kC == 1 ) {
- 386   2          outputSevenSeg('C');
- 387   2        }
- 388   1        else if ( keypad.kD == 1 ) {
- 389   2          outputSevenSeg('d');
- 390   2        }
- 391   1        else if ( keypad.kstar == 1 ) {
- 392   2          outputSevenSeg('.');
- 393   2        }
- 394   1        else if ( keypad.kpound == 1 ) {
- 395   2          outputSevenSeg('-');
- 396   2        }
- 397   1        else {
- 398   2          outputSevenSeg('o');
- 399   2        }
- 400   1        
- 401   1      } // end displayKeyPressed()
- 402            
- 403          // -------------------------------------------------------------- //
- 404          
- 405          void lcdCmd( byte cmd ) {
- 406   1        
- 407   1        //rs_lcd = 0;     // reg select low for command
- 408   1        // --- RW tied low for write --- //
- 409   1        //e_lcd = 1;      // E high for pulse
- 410   1        
- 411   1        missionControl( ctrl_lcd_cmd_start );
- 412   1        
- 413   1        lcdPort = cmd;
- 414   1        //latchLCD();
- 415   1        
- 416   1        msDelay(1);     // Need Tpw > 140 ns
- 417   1        //e_lcd = 0;      // E low to end pulse
- 418   1        
- 419   1        missionControl( ctrl_lcd_cmd_finish );
- 420   1        
- 421   1      } // end lcdCmd()
- 422          
- 423          // -------------------------------------------------------------- //
- 424          
- 425          void lcdData( byte dat ) {
- 426   1        
-C51 COMPILER V9.56.0.0   COMPDESIGNPROJECT                                                 03/24/2017 09:36:27 PAGE 8   
+ 365   1        
+ 366   1      } // end getKeysPressed()
+ 367          
+ 368          // -------------------------------------------------------------- //
+ 369          
+ 370          void displayKeyPressed( struct keypad_data keypad ) {
+ 371   1        
+ 372   1        if ( keypad.k1 == 1 ) {
+ 373   2          outputSevenSeg('1');
+ 374   2        }
+ 375   1        else if ( keypad.k2 == 1 ) {
+ 376   2          outputSevenSeg('2');
+ 377   2        }
+ 378   1        else if ( keypad.k3 == 1 ) {
+ 379   2          outputSevenSeg('3');
+ 380   2        }
+ 381   1        else if ( keypad.k4 == 1 ) {
+ 382   2          outputSevenSeg('4');
+ 383   2        }
+ 384   1        else if ( keypad.k5 == 1 ) {
+ 385   2          outputSevenSeg('5');
+ 386   2        }
+ 387   1        else if ( keypad.k6 == 1 ) {
+ 388   2          outputSevenSeg('6');
+ 389   2        }
+ 390   1        else if ( keypad.k7 == 1 ) {
+ 391   2          outputSevenSeg('7');
+ 392   2        }
+ 393   1        else if ( keypad.k8 == 1 ) {
+ 394   2          outputSevenSeg('8');
+ 395   2        }
+ 396   1        else if ( keypad.k9 == 1 ) {
+ 397   2          outputSevenSeg('9');
+ 398   2        }
+ 399   1        else if ( keypad.kA == 1 ) {
+ 400   2          outputSevenSeg('A');
+ 401   2        }
+ 402   1        else if ( keypad.k0 == 1 ) {
+ 403   2          outputSevenSeg('0');
+ 404   2        }
+ 405   1        else if ( keypad.kB == 1 ) {
+ 406   2          outputSevenSeg('b');
+ 407   2        }
+ 408   1        else if ( keypad.kC == 1 ) {
+ 409   2          outputSevenSeg('C');
+ 410   2        }
+ 411   1        else if ( keypad.kD == 1 ) {
+ 412   2          outputSevenSeg('d');
+ 413   2        }
+ 414   1        else if ( keypad.kstar == 1 ) {
+ 415   2          outputSevenSeg('.');
+ 416   2        }
+ 417   1        else if ( keypad.kpound == 1 ) {
+ 418   2          outputSevenSeg('-');
+ 419   2        }
+ 420   1        else {
+ 421   2          outputSevenSeg('o');
+ 422   2        }
+ 423   1        
+ 424   1      } // end displayKeyPressed()
+ 425            
+ 426          // -------------------------------------------------------------- //
+C51 COMPILER V9.56.0.0   COMPDESIGNPROJECT                                                 03/25/2017 16:55:10 PAGE 8   
 
- 427   1        //rs_lcd = 1;     // reg select high for data
- 428   1        // --- RW tied low for write --- //
- 429   1        //e_lcd = 1;      // E high for pulse
- 430   1        
- 431   1        missionControl( ctrl_lcd_data_start );
- 432   1        
- 433   1        lcdPort = dat;
- 434   1        //latchLCD();
+ 427          
+ 428          void lcdCmd( byte cmd ) {
+ 429   1        
+ 430   1        //rs_lcd = 0;     // reg select low for command
+ 431   1        // --- RW tied low for write --- //
+ 432   1        //e_lcd = 1;      // E high for pulse
+ 433   1        
+ 434   1        missionControl1( ctrl_lcd_cmd_start );
  435   1        
- 436   1        msDelay(1);     // Need Tpw > 140 ns
- 437   1        //e_lcd = 0;      // E low to end pulse
+ 436   1        lcdPort = cmd;
+ 437   1        //latchLCD();
  438   1        
- 439   1        missionControl( ctrl_lcd_data_finish );
- 440   1        
- 441   1      } // end lcdData()
- 442          
- 443          // -------------------------------------------------------------- //
- 444          
- 445          void lcdInit( void ) {  
- 446   1        
- 447   1        msDelay(50);
- 448   1        lcdCmd(0x38);     // Function set
- 449   1        msDelay(5);
- 450   1        lcdCmd(0x38);     // Function set
- 451   1        msDelay(1);
- 452   1        lcdCmd(0x0F);     // Display ON/OFF control
- 453   1        msDelay(1);
- 454   1        lcdCmd(0x01);     // Clear display
- 455   1        msDelay(2);
- 456   1        
- 457   1      } // end lcdInit()
- 458          
- 459          // -------------------------------------------------------------- //
- 460          
- 461          void lcdClear( void ) {
- 462   1        
- 463   1        lcdCmd(0x01);     // Clear display
- 464   1        msDelay(2);
- 465   1        
- 466   1      } // end lcdClear()
+ 439   1        msDelay(1);     // Need Tpw > 140 ns
+ 440   1        //e_lcd = 0;      // E low to end pulse
+ 441   1        
+ 442   1        missionControl1( ctrl_lcd_cmd_finish );
+ 443   1        
+ 444   1      } // end lcdCmd()
+ 445          
+ 446          // -------------------------------------------------------------- //
+ 447          
+ 448          void lcdData( byte dat ) {
+ 449   1        
+ 450   1        //rs_lcd = 1;     // reg select high for data
+ 451   1        // --- RW tied low for write --- //
+ 452   1        //e_lcd = 1;      // E high for pulse
+ 453   1        
+ 454   1        missionControl1( ctrl_lcd_data_start );
+ 455   1        
+ 456   1        lcdPort = dat;
+ 457   1        //latchLCD();
+ 458   1        
+ 459   1        msDelay(1);     // Need Tpw > 140 ns
+ 460   1        //e_lcd = 0;      // E low to end pulse
+ 461   1        
+ 462   1        missionControl1( ctrl_lcd_data_finish );
+ 463   1        
+ 464   1      } // end lcdData()
+ 465          
+ 466          // -------------------------------------------------------------- //
  467          
- 468          // -------------------------------------------------------------- //
- 469          
- 470          void lcdChar( byte character ) {
- 471   1        
- 472   1        lcdData(character);   // send character
- 473   1        
- 474   1      } // end lcdChar()
- 475          
- 476          // -------------------------------------------------------------- //
- 477          
- 478          void lcdString( volatile char *string ) {
+ 468          void lcdInit( void ) {  
+ 469   1        
+ 470   1        msDelay(50);
+ 471   1        lcdCmd(0x38);     // Function set
+ 472   1        msDelay(5);
+ 473   1        lcdCmd(0x38);     // Function set
+ 474   1        msDelay(1);
+ 475   1        lcdCmd(0x0F);     // Display ON/OFF control
+ 476   1        msDelay(1);
+ 477   1        lcdCmd(0x01);     // Clear display
+ 478   1        msDelay(2);
  479   1        
- 480   1        int i = 0;
- 481   1        while( string[i] != '`') {
- 482   2          lcdChar( string[i] );
- 483   2          i++;
- 484   2        }
+ 480   1      } // end lcdInit()
+ 481          
+ 482          // -------------------------------------------------------------- //
+ 483          
+ 484          void lcdClear( void ) {
  485   1        
- 486   1      } // end lcdString()
- 487          
- 488          // -------------------------------------------------------------- //
-C51 COMPILER V9.56.0.0   COMPDESIGNPROJECT                                                 03/24/2017 09:36:27 PAGE 9   
+ 486   1        lcdCmd(0x01);     // Clear display
+ 487   1        msDelay(2);
+ 488   1        
+C51 COMPILER V9.56.0.0   COMPDESIGNPROJECT                                                 03/25/2017 16:55:10 PAGE 9   
 
- 489          
- 490          void lcdLine( int line ) {
- 491   1        
- 492   1        switch (line) {
- 493   2          case 1: {
- 494   3            lcdCmd(0x80);
- 495   3            break;
- 496   3          }
- 497   2          case 2: {
- 498   3            lcdCmd(0xC0);
- 499   3            break;
- 500   3          }
- 501   2          case 3: {
- 502   3            lcdCmd(0x94);
- 503   3            break;
- 504   3          }
- 505   2          case 4: {
- 506   3            lcdCmd(0xD4);
- 507   3            break;
- 508   3          }
- 509   2          default:
- 510   2            lcdCmd(0x80);
- 511   2          
- 512   2        } // end switch
- 513   1        
- 514   1      } // end lcdLine()
- 515          
- 516          // -------------------------------------------------------------- //
- 517          
- 518          void missionControl( int dec ) {
- 519   1        
- 520   1        switch ( dec ) {
- 521   2          
- 522   2          // The MSB is changed first to avoid false triggers of the LCD enable
- 523   2          // line as the enable line never goes high when the MSB is low.
- 524   2          case ctrl_off: {
- 525   3            P3_2 = 0;
- 526   3            P3_1 = 0;
- 527   3            P3_0 = 0;
- 528   3            break;
- 529   3          }
- 530   2          case ctrl_ss_latch: {
- 531   3            P3_2 = 0;
- 532   3            P3_1 = 0;
- 533   3            P3_0 = 1;
- 534   3            break;
- 535   3          }
- 536   2          case ctrl_kp_oe: {
- 537   3            P3_2 = 0;
- 538   3            P3_1 = 1;
- 539   3            P3_0 = 0;
- 540   3            break;
- 541   3          }
- 542   2          case ctrl_kp_oelatch: {
- 543   3            P3_2 = 0;
- 544   3            P3_1 = 1;
- 545   3            P3_0 = 1;
- 546   3            break;
- 547   3          }
- 548   2          case ctrl_lcd_cmd_start: {
- 549   3            P3_2 = 1;
- 550   3            P3_1 = 0;
-C51 COMPILER V9.56.0.0   COMPDESIGNPROJECT                                                 03/24/2017 09:36:27 PAGE 10  
+ 489   1      } // end lcdClear()
+ 490          
+ 491          // -------------------------------------------------------------- //
+ 492          
+ 493          void lcdChar( byte character ) {
+ 494   1        
+ 495   1        lcdData(character);   // send character
+ 496   1        
+ 497   1      } // end lcdChar()
+ 498          
+ 499          // -------------------------------------------------------------- //
+ 500          
+ 501          void lcdString( volatile char *string ) {
+ 502   1        
+ 503   1        int i = 0;
+ 504   1        while( string[i] != '`') {
+ 505   2          lcdChar( string[i] );
+ 506   2          i++;
+ 507   2        }
+ 508   1        
+ 509   1      } // end lcdString()
+ 510          
+ 511          // -------------------------------------------------------------- //
+ 512          
+ 513          void lcdLine( int line ) {
+ 514   1        
+ 515   1        switch (line) {
+ 516   2          case 1: {
+ 517   3            lcdCmd(0x80);
+ 518   3            break;
+ 519   3          }
+ 520   2          case 2: {
+ 521   3            lcdCmd(0xC0);
+ 522   3            break;
+ 523   3          }
+ 524   2          case 3: {
+ 525   3            lcdCmd(0x94);
+ 526   3            break;
+ 527   3          }
+ 528   2          case 4: {
+ 529   3            lcdCmd(0xD4);
+ 530   3            break;
+ 531   3          }
+ 532   2          default:
+ 533   2            lcdCmd(0x80);
+ 534   2          
+ 535   2        } // end switch
+ 536   1        
+ 537   1      } // end lcdLine()
+ 538          
+ 539          // -------------------------------------------------------------- //
+ 540          
+ 541          float getTemp( void ) {
+ 542   1        
+ 543   1        //------------ IDEA ------------------------------------------//
+ 544   1        // change to pass in C or F and returns corresponding value.  //
+ 545   1        
+ 546   1        int i = 0;
+ 547   1        byte sample = 0;
+ 548   1        float voltage = 0;
+ 549   1        float degC = 0;
+ 550   1        float degF = 0;
+C51 COMPILER V9.56.0.0   COMPDESIGNPROJECT                                                 03/25/2017 16:55:10 PAGE 10  
 
- 551   3            P3_0 = 0;
- 552   3            break;
- 553   3          }
- 554   2          case ctrl_lcd_cmd_finish: {
- 555   3            P3_2 = 1;
- 556   3            P3_1 = 0;
- 557   3            P3_0 = 1;
- 558   3            break;
- 559   3          }
- 560   2          case ctrl_lcd_data_start: {
- 561   3            P3_2 = 1;
- 562   3            P3_1 = 1;
- 563   3            P3_0 = 0;
- 564   3            break;
- 565   3          }
- 566   2          case ctrl_lcd_data_finish: {
- 567   3            P3_2 = 1;
- 568   3            P3_1 = 1;
- 569   3            P3_0 = 1;
- 570   3            break;
- 571   3          }   
- 572   2        } // end switch
- 573   1        
- 574   1      } // end missionControl()
- 575          
- 576          // -------------------------------------------------------------- //
- 577          
- 578          void msDelay( unsigned msecs ) {
- 579   1        
- 580   1        unsigned i;
- 581   1        unsigned char j;
- 582   1        
- 583   1        msecs = msecs * 3.23;
- 584   1        
- 585   1        for(i=0;i<msecs;i++){
- 586   2          for(j=0;j<100;j++);
- 587   2        }
- 588   1        
- 589   1      } // end msDelay()
- 590          
- 591          // -------------------------------------------------------------- //
- 592          
+ 551   1        int degCint = 0;
+ 552   1      //  char tempCStr[] = "+00.0 C`";
+ 553   1      //  char tempFStr[] = "+00.0 F`";
+ 554   1      //  char voltStr[] = "+0.0 V`";
+ 555   1      //  char sampStr[] = "55555555`";
+ 556   1        
+ 557   1          missionControl2( ctrl_adc_start );
+ 558   1          missionControl2( ctrl_adc_finish );
+ 559   1          sample = adcPort;
+ 560   1          missionControl2( ctrl_off );
+ 561   1          
+ 562   1          // voltage reading in 0.3V higher than measured on board
+ 563   1          voltage = sample * 5 / 256;
+ 564   1          //voltage = voltage - 0.25;
+ 565   1          degC = (voltage - 0.5) * 100;
+ 566   1          degF = degC * (9.0/5.0) + 32.0;
+ 567   1          
+ 568   1          return degF;
+ 569   1          
+ 570   1      //    sprintf( sampStr, "%c`", sample );
+ 571   1      //    sprintf( voltStr, "%+4.1f V`", voltage );
+ 572   1      //    sprintf( tempCStr, "%+5.1f C`", degC );
+ 573   1      //    sprintf( tempFStr, "%+5.1f F`", degF );
+ 574   1          
+ 575   1      //    lcdLine(1);
+ 576   1      //    lcdString( &sampStr );
+ 577   1      //    lcdLine(2);
+ 578   1      //    lcdString( &voltStr );
+ 579   1      //    lcdLine(3);
+ 580   1      //    lcdString( &tempCStr );
+ 581   1      //    lcdLine(4);
+ 582   1      //    lcdString( &tempFStr );
+ 583   1        
+ 584   1      } // end getDegF()
+ 585          
+ 586          // -------------------------------------------------------------- //
+ 587          
+ 588          void missionControl1( int dec ) {
+ 589   1        
+ 590   1        switch ( dec ) {
+ 591   2          
+ 592   2          // The MSB is changed first to avoid false triggers of the LCD enable
+ 593   2          // line as the enable line never goes high when the MSB is low.
+ 594   2          case ctrl_off: {
+ 595   3            dec2 = 0;
+ 596   3            dec1 = 0;
+ 597   3            dec0 = 0;
+ 598   3            break;
+ 599   3          }
+ 600   2          case ctrl_ss_latch: {
+ 601   3            dec2 = 0;
+ 602   3            dec1 = 0;
+ 603   3            dec0 = 1;
+ 604   3            break;
+ 605   3          }
+ 606   2          case ctrl_kp_oe: {
+ 607   3            dec2 = 0;
+ 608   3            dec1 = 1;
+ 609   3            dec0 = 0;
+ 610   3            break;
+ 611   3          }
+ 612   2          case ctrl_kp_oelatch: {
+C51 COMPILER V9.56.0.0   COMPDESIGNPROJECT                                                 03/25/2017 16:55:10 PAGE 11  
+
+ 613   3            dec2 = 0;
+ 614   3            dec1 = 1;
+ 615   3            dec0 = 1;
+ 616   3            break;
+ 617   3          }
+ 618   2          case ctrl_lcd_cmd_start: {
+ 619   3            dec2 = 1;
+ 620   3            dec1 = 0;
+ 621   3            dec0 = 0;
+ 622   3            break;
+ 623   3          }
+ 624   2          case ctrl_lcd_cmd_finish: {
+ 625   3            dec2 = 1;
+ 626   3            dec1 = 0;
+ 627   3            dec0 = 1;
+ 628   3            break;
+ 629   3          }
+ 630   2          case ctrl_lcd_data_start: {
+ 631   3            dec2 = 1;
+ 632   3            dec1 = 1;
+ 633   3            dec0 = 0;
+ 634   3            break;
+ 635   3          }
+ 636   2          case ctrl_lcd_data_finish: {
+ 637   3            dec2 = 1;
+ 638   3            dec1 = 1;
+ 639   3            dec0 = 1;
+ 640   3            break;
+ 641   3          }   
+ 642   2        } // end switch
+ 643   1        
+ 644   1      } // end missionControl1()
+ 645          
+ 646          // -------------------------------------------------------------- //
+ 647          
+ 648          void missionControl2( int dec ) {
+ 649   1        
+ 650   1        switch ( dec ) {
+ 651   2          case ctrl_off: {
+ 652   3            dec5 = 0;
+ 653   3            dec4 = 0;
+ 654   3            dec3 = 0;
+ 655   3            break;
+ 656   3          }
+ 657   2          case ctrl_adc_start: {
+ 658   3            dec5 = 0;
+ 659   3            dec4 = 0;
+ 660   3            dec3 = 1;
+ 661   3            break;
+ 662   3          }
+ 663   2          case ctrl_adc_finish: {
+ 664   3            dec5 = 0;
+ 665   3            dec4 = 1;
+ 666   3            dec3 = 0;
+ 667   3            break;
+ 668   3          }
+ 669   2          // not used below yet
+ 670   2          case ctrl_kp_oelatch: {
+ 671   3            dec5 = 0;
+ 672   3            dec4 = 1;
+ 673   3            dec3 = 1;
+ 674   3            break;
+C51 COMPILER V9.56.0.0   COMPDESIGNPROJECT                                                 03/25/2017 16:55:10 PAGE 12  
+
+ 675   3          }
+ 676   2          case ctrl_lcd_cmd_start: {
+ 677   3            dec5 = 1;
+ 678   3            dec4 = 0;
+ 679   3            dec3 = 0;
+ 680   3            break;
+ 681   3          }
+ 682   2          case ctrl_lcd_cmd_finish: {
+ 683   3            dec5 = 1;
+ 684   3            dec4 = 0;
+ 685   3            dec3 = 1;
+ 686   3            break;
+ 687   3          }
+ 688   2          case ctrl_lcd_data_start: {
+ 689   3            dec5 = 1;
+ 690   3            dec4 = 1;
+ 691   3            dec3 = 0;
+ 692   3            break;
+ 693   3          }
+ 694   2          case ctrl_lcd_data_finish: {
+ 695   3            dec5 = 1;
+ 696   3            dec4 = 1;
+ 697   3            dec3 = 1;
+ 698   3            break;
+ 699   3          }   
+ 700   2        } // end switch
+ 701   1        
+ 702   1      } // end missionControl2()
+ 703          
+ 704          // -------------------------------------------------------------- //
+ 705          
+ 706          void msDelay( unsigned msecs ) {
+ 707   1        
+ 708   1        unsigned i;
+ 709   1        unsigned char j;
+ 710   1        
+ 711   1        msecs = msecs * 3.23;
+ 712   1        
+ 713   1        for(i=0;i<msecs;i++){
+ 714   2          for(j=0;j<100;j++);
+ 715   2        }
+ 716   1        
+ 717   1      } // end msDelay()
+ 718          
+ 719          // -------------------------------------------------------------- //
+ 720          
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =   1048    ----
-   CONSTANT SIZE    =     20    ----
-   XDATA SIZE       =   ----    ----
+   CODE SIZE        =   1520    ----
+   CONSTANT SIZE    =     39    ----
+   XDATA SIZE       =   ----     101
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =   ----      75
+   DATA SIZE        =   ----    ----
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
