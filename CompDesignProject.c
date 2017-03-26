@@ -51,6 +51,17 @@ sbit oe_adc = P3^3;				// latch output enable
 sbit wr_adc = P3^4;				// WR line of ADC
 sfr adcPort = 0x90;
 
+// RTC
+sbit rtc_data0 = P1^0;
+sbit rtc_data1 = P1^1;
+sbit rtc_data2 = P1^2;
+sbit rtc_data3 = P1^3;
+sbit rtc_add0 = P1^4;
+sbit rtc_add1 = P1^5;
+sbit rtc_add2 = P1^6;
+sbit rtc_add3 = P1^7;
+sfr rtcPort = 0x90;
+
 // Mission Control
 enum {ctrl_off,
 			ctrl_ss_latch,
@@ -62,7 +73,11 @@ enum {ctrl_off,
 			ctrl_lcd_data_finish };
 
 enum {ctrl_adc_start = 1,
-			ctrl_adc_finish };
+			ctrl_rtc_rd,
+			ctrl_adc_finish,
+			ctrl_rtc_cs1,
+			ctrl_rtc_cs0 = 6,
+			ctrl_rtc_wr };
 
 sbit dec0 = P3^0;
 sbit dec1 = P3^1;		
@@ -94,11 +109,22 @@ struct keypad_data {
 	unsigned char kpound;
 };
 
+struct time_data {
+	byte seconds;
+	byte minutes;
+	byte hours;
+	byte days;
+	byte months;
+	byte years;
+	byte week;
+};
+
 void latchSevenSeg( void );
 void latchKeypad( void );
 void outputSevenSeg( char character );
 struct keypad_data getKeysPressed( void );
 void displayKeyPressed( struct keypad_data keypad );
+
 void lcdCmd( byte cmd );
 void lcdData( byte dat );
 void lcdInit( void );
@@ -106,7 +132,20 @@ void lcdClear( void );
 void lcdChar( byte character );
 void lcdString( volatile char *string );
 void lcdLine( int line );
+void lcdHex( byte hex );
+
 float getTemp( void );
+
+void rtcInit( void );
+void rtcBusy( void );
+void rtcWrite( byte duhdata );
+byte rtcRead( byte duhaddress );
+void rtcRegWrite( byte duhstuff );
+byte rtcRegRead( byte duhstuff );
+void rtcSetTime( struct time_data time );
+struct time_data rtcGetTime( void );
+void rtcPrintTime( struct time_data *time );
+
 void missionControl1( int dec );
 void missionControl2( int dec );
 void msDelay( unsigned msecs );
@@ -116,30 +155,33 @@ void msDelay( unsigned msecs );
 void main(void) {
 	
 	struct keypad_data keypad;
+	struct time_data time;
 
 	char string1[] = "Hello world`";
 	char string2[] = "M&M's`";
 	
-	char tempFStr[] = "+00.0 F`";
+	char iStr[] = "-`";
 	
 	float degF = 0;
+
+	byte i = 0;
 	
 	missionControl1( ctrl_off );
 	missionControl2( ctrl_off );
 	
 	lcdInit();
+	rtcInit();
 	
 	while (1) {
+		
 		keypad = getKeysPressed();
 		displayKeyPressed( keypad );
 		
-		lcdClear();
-		
-		degF = getTemp();
-		sprintf( tempFStr, "%+5.1f F`", degF );
-		lcdString( &tempFStr );
-		
-		msDelay(1000);
+		lcdLine(1);
+		time = rtcGetTime();
+		rtcPrintTime( &time );			   
+
+		msDelay(100);
 		
 	} // end while
 
@@ -538,6 +580,18 @@ void lcdLine( int line ) {
 
 // -------------------------------------------------------------- //
 
+void lcdHex( byte hex ) {
+
+	char hexStr[] = "-`";
+
+  	hex += 0x30;
+	sprintf( hexStr, "%c`", hex );
+	lcdString( &hexStr );
+
+} // end lcdHex()
+
+// -------------------------------------------------------------- //
+
 float getTemp( void ) {
 	
 	//------------ IDEA ------------------------------------------//
@@ -582,6 +636,235 @@ float getTemp( void ) {
 //		lcdString( &tempFStr );
 	
 } // end getDegF()
+
+// -------------------------------------------------------------- //
+
+void rtcInit( void ) {
+	
+	struct time_data time;
+	byte tester;
+
+	time.week = 0;
+	time.years = 17;
+	time.months = 3;
+	time.days = 26;
+	time.hours = 12;
+	time.minutes = 21;
+	time.seconds = 0;
+		
+	// (A)  Start the counter
+	//		 	Inititalize the control registers
+	rtcWrite( 0xF4 );		// Set the CF register to 0100b = 4h
+	rtcWrite( 0xD4 );		// Set the CD register to 0100b = 4h
+	
+	// (B)	Check the status of the BUSY bit
+	rtcBusy();	
+	
+	// (C)	STOP and RESET the counter
+	rtcWrite( 0xF7 );		// Set the CF register to 0111b = 7h
+	
+	// Set the current time in the registers
+	//		(initizlize the S1 to W registers)
+	rtcSetTime( time ); 
+	
+	// (A)	Start the counter and release the HOLD status
+	rtcWrite( 0xF4 );		// Set the CF register to 0100b = 4h
+	rtcWrite( 0xD5 );		// Set the CD register to 0101b = 5h
+
+	// debugging
+	tester = rtcRead( 0x0D );
+	lcdHex( tester );
+	
+} // end rtcInit()
+
+// -------------------------------------------------------------- //
+
+void rtcBusy( void ) {
+	
+	byte duhdata;
+	
+	rtcWrite( 0xD5 );						// Hold bit <- 1
+	duhdata = rtcRead( 0x0D );	// Read from D to get BUSY// Read the BUSY bit
+
+	// If BUSY bit = 0, cont., else HOLD bit <- 0
+	while( duhdata & 0x02 == 2 ) {
+		rtcWrite( 0xD4 );						// HOLD bit <- 0
+		rtcWrite( 0xD5 );						// HOLD bit <- 1
+		duhdata = rtcRead( 0x0D );	// Read from D to get BUSY// Read the BUSY bit
+	}	
+	
+} // end rtcBusy()
+
+// -------------------------------------------------------------- //
+
+void rtcWrite( byte duhdata ) {
+	
+	missionControl2( ctrl_rtc_cs1 );	// set CS1 high
+	rtcPort = duhdata;					// send duhdata
+	missionControl2( ctrl_rtc_cs0 );	// set CS0 low
+	missionControl2( ctrl_rtc_wr );		// set WR low
+	missionControl2( ctrl_rtc_cs0 );	// set WR high
+	missionControl2( ctrl_rtc_cs1 );	// set CS0 high
+	missionControl2( ctrl_off );		// set CS1 low
+	
+} // end rtcWrite()
+
+// -------------------------------------------------------------- //
+
+byte rtcRead( byte duhaddress ) {
+	
+	byte duhdata = 0x00;
+	
+	duhaddress = duhaddress << 4;
+	duhaddress = duhaddress | 0x0F;
+	
+	missionControl2( ctrl_rtc_cs1 );	// set CS1 high
+	rtcPort = duhaddress;				// send duhaddress
+	missionControl2( ctrl_rtc_cs0 );	// set CS0 low
+	missionControl2( ctrl_rtc_rd );		// set RD low
+	duhdata = rtcPort;					// read duhdata
+	duhdata &= 0x0F;					// mask upper nibble of value read in
+	missionControl2( ctrl_rtc_cs0 );	// set RD high
+	missionControl2( ctrl_rtc_cs1 );	// set CS0 high
+	missionControl2( ctrl_off );		// set CS1 low
+	
+	return duhdata;
+	
+} // end rtcRead()
+
+// -------------------------------------------------------------- //
+
+void rtcRegWrite( byte duhstuff ) {
+	
+	rtcBusy();
+	rtcWrite( duhstuff );
+	// HOLD bit <- 0 by rtcWrite when CS1 is cleared
+	
+} // end rtcRegWrite()
+
+// -------------------------------------------------------------- //
+
+byte rtcRegRead( byte duhstuff ) {
+	
+	byte duhdata;
+
+	rtcBusy();
+	duhdata = rtcRead( duhstuff );
+	// HOLD bit <- 0 by rtcWrite when CS1 is cleared
+	return duhdata;
+	
+} // end rtcRegWrite()
+
+// -------------------------------------------------------------- //
+
+void rtcSetTime( struct time_data time ) {
+	
+	byte s1, s10, mi1, mi10, h1, h10, d1, d10, mo1, mo10, y1, y10;
+	
+	// 1-second
+	s1 = time.seconds % 10;
+	rtcRegWrite( 0x00 | s1 );
+	
+	// 10-second
+	s10 = time.seconds / 10;
+	rtcRegWrite( 0x10 | s10 );
+	
+	// 1-minute
+	mi1 = time.minutes % 10;
+	rtcRegWrite( 0x20 | mi1 );
+	
+	// 10-minute
+	mi10 = time.minutes / 10;
+	rtcRegWrite( 0x30 | mi10 );
+	
+	// 1-hour
+	h1 = time.hours % 10;
+	rtcRegWrite( 0x40 | h1 );
+	
+	// 10-hour
+	h10 = time.hours / 10;
+	rtcRegWrite( 0x50 | h10 );
+	
+	// 1-day
+	d1 = time.days % 10;
+	rtcRegWrite( 0x60 | d1 );
+	
+	// 10-day
+	d10 = time.days / 10;
+	rtcRegWrite( 0x70 | d10 );
+	
+	// 1-month
+	mo1 = time.months % 10;
+	rtcRegWrite( 0x80 | mo1 );
+	
+	// 10-month
+	mo10 = time.months / 10;
+	rtcRegWrite( 0x90 | mo10 );
+	
+	// 1-year
+	y1 = time.years % 10;
+	rtcRegWrite( 0xA0 | y1 );
+	
+	// 10-year
+	y10 = time.years / 10;
+	rtcRegWrite( 0xB0 | y10 );
+	
+	// Day of the week
+	rtcRegWrite( 0xC0 | time.week );
+	
+} // end rtcSetTime()
+
+// -------------------------------------------------------------- //
+
+struct time_data rtcGetTime( void ) {
+	
+	struct time_data time;
+	byte s1, s10, mi1, mi10, h1, h10, d1, d10, mo1, mo10, y1, y10, w;
+	
+	s1 = rtcRegRead( 0x00 );
+	s10 = rtcRegRead( 0x01 );
+	time.seconds = s1 + ( s10 * 10 );
+
+	mi1 = rtcRegRead( 0x02 );
+	mi10 = rtcRegRead( 0x03 );
+	time.minutes = mi1 + ( mi10 * 10 );
+
+	h1 = rtcRegRead( 0x04 );
+	h10 = rtcRegRead( 0x05 );
+	time.hours = h1 + ( h10 * 10 );
+
+	d1 = rtcRegRead( 0x06 );
+	d10 = rtcRegRead( 0x07 );
+	time.days = d1 + ( d10 * 10 );
+
+	mo1 = rtcRegRead( 0x08 );
+	mo10 = rtcRegRead( 0x09 );
+	time.months = mo1 + ( mo10 * 10 );
+
+	y1 = rtcRegRead( 0x0A );
+	y10 = rtcRegRead( 0x0B );
+	time.years = y1 + ( y10 * 10 );
+
+	w = rtcRegRead( 0x0C );
+	time.week = w;
+
+	return time;
+	
+} // end rtcSetTime()
+
+// -------------------------------------------------------------- //
+
+void rtcPrintTime( struct time_data *time ) {
+
+	char timeStr[] = "0 00/00/00 00:00:00`";
+
+	sprintf( timeStr, "%d %02d/%02d/%02d %02d:%02d:%02d`", 
+			(int)time->week, 
+			(int)time->months, (int)time->days, (int)time->years, 
+			(int)time->hours, (int)time->minutes, (int)time->seconds );
+	lcdString( &timeStr );
+
+} // end rtcPrintTime()
 
 // -------------------------------------------------------------- //
 
@@ -649,52 +932,52 @@ void missionControl2( int dec ) {
 	
 	switch ( dec ) {
 		case ctrl_off: {
-			dec5 = 0;
 			dec4 = 0;
 			dec3 = 0;
+			dec5 = 0;
 			break;
 		}
 		case ctrl_adc_start: {
-			dec5 = 0;
 			dec4 = 0;
 			dec3 = 1;
+			dec5 = 0;
+			break;
+		}
+		case ctrl_rtc_rd: {
+			dec4 = 1;
+			dec3 = 0;
+			dec5 = 0;
 			break;
 		}
 		case ctrl_adc_finish: {
-			dec5 = 0;
-			dec4 = 1;
-			dec3 = 0;
-			break;
-		}
-		// not used below yet
-		case ctrl_kp_oelatch: {
-			dec5 = 0;
 			dec4 = 1;
 			dec3 = 1;
+			dec5 = 0;
 			break;
 		}
-		case ctrl_lcd_cmd_start: {
-			dec5 = 1;
+		case ctrl_rtc_cs1: {
 			dec4 = 0;
 			dec3 = 0;
+			dec5 = 1;
 			break;
 		}
-		case ctrl_lcd_cmd_finish: {
-			dec5 = 1;
-			dec4 = 0;
-			dec3 = 1;
-			break;
-		}
-		case ctrl_lcd_data_start: {
-			dec5 = 1;
+		// not used
+//		case ctrl_rtc_cs0: {
+//			dec5 = 1;
+//			dec4 = 0;
+//			dec3 = 1;
+//			break;
+//		}
+		case ctrl_rtc_cs0: {
 			dec4 = 1;
 			dec3 = 0;
+			dec5 = 1;
 			break;
 		}
-		case ctrl_lcd_data_finish: {
-			dec5 = 1;
+		case ctrl_rtc_wr: {
 			dec4 = 1;
 			dec3 = 1;
+			dec5 = 1;
 			break;
 		}		
 	} // end switch

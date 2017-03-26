@@ -1,0 +1,986 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\megan\Google Drive\College\S6 - Spring 2017\Comp Design I\Lab\Github\CEEN4330-MicroprocessorSystemDesignProject\CompDesignProject.uvproj
+Project File Date:  03/25/2017
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(727): warning C173: missing return-expression
+COMPDESIGNPROJECT.C(727): warning C290: missing return value
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=128 code=5231
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(727): warning C173: missing return-expression
+COMPDESIGNPROJECT.C(727): warning C290: missing return value
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=129 code=5233
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(727): warning C173: missing return-expression
+COMPDESIGNPROJECT.C(727): warning C290: missing return value
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=129 code=5233
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=129 code=5234
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=129 code=5234
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=129 code=5241
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=129 code=5241
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(169): warning C214: 'Argument': conversion: pointer to non-pointer
+COMPDESIGNPROJECT.C(171): warning C214: 'Argument': conversion: pointer to non-pointer
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=129 code=5255
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=129 code=5251
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(667): error C202: 'sample': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=155 code=5347
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(156): warning C280: 'time': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTCGETTIME?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=163 code=5213
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(156): warning C280: 'time': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTCGETTIME?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=163 code=5239
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(156): warning C280: 'time': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTCGETTIME?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=163 code=5245
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(156): warning C280: 'time': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTCGETTIME?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=163 code=5245
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=129 code=5276
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=129 code=5277
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=129 code=5302
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=129 code=5337
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(675): error C251: illegal octal digit
+Target not created
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=129 code=5298
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=129 code=5336
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=129 code=5276
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=129 code=5247
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=129 code=5247
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+C51 FATAL-ERROR -
+  ACTION:  CREATING OBJECT-FILE
+  FILE:    .\Objects\CompDesignProject.obj
+  ERROR:   CAN'T CREATE FILE
+C51 TERMINATED.
+Target not created
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=129 code=5247
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+C51 FATAL-ERROR -
+  ACTION:  CREATING LIST-FILE
+  FILE:    .\Listings\CompDesignProject.lst
+  ERROR:   CAN'T CREATE FILE
+C51 TERMINATED.
+Target not created
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=129 code=5247
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=129 code=5247
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=129 code=5174
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=129 code=5174
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=129 code=5174
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=129 code=5173
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=129 code=5158
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=129 code=5160
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(643): error C202: 'readStr': undefined identifier
+COMPDESIGNPROJECT.C(644): error C202: 'readStr': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(643): error C202: 'readStr': undefined identifier
+COMPDESIGNPROJECT.C(644): error C202: 'readStr': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(643): error C202: 'readStr': undefined identifier
+COMPDESIGNPROJECT.C(644): error C202: 'readStr': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=139 code=5222
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=139 code=5222
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=139 code=5270
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=140 code=5264
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=140 code=5264
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=140 code=5264
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=140 code=5264
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=133 code=5202
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=133 code=5199
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=133 code=5202
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=142 code=5207
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=140 code=5197
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=140 code=5197
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=140 code=5197
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=140 code=5197
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=140 code=5197
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=140 code=5197
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=140 code=5197
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(174): warning C206: 'delay': missing function-prototype
+COMPDESIGNPROJECT.C(174): error C267: 'delay': requires ANSI-style prototype
+Target not created
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(174): warning C206: 'delay': missing function-prototype
+COMPDESIGNPROJECT.C(174): error C267: 'delay': requires ANSI-style prototype
+Target not created
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=140 code=5207
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=140 code=5207
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=140 code=5207
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(156): warning C280: 'keypad': unreferenced local variable
+COMPDESIGNPROJECT.C(157): warning C280: 'time': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETKEYSPRESSED?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTCGETTIME?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=180 code=5146
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 8 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETKEYSPRESSED?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTCGETTIME?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=180 code=5146
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(156): warning C280: 'keypad': unreferenced local variable
+COMPDESIGNPROJECT.C(157): warning C280: 'time': unreferenced local variable
+C51 FATAL-ERROR -
+  ACTION:  CREATING OBJECT-FILE
+  FILE:    .\Objects\CompDesignProject.obj
+  ERROR:   CAN'T CREATE FILE
+C51 TERMINATED.
+Target not created
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(156): warning C280: 'keypad': unreferenced local variable
+COMPDESIGNPROJECT.C(157): warning C280: 'time': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETKEYSPRESSED?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTCGETTIME?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=180 code=5128
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 8 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETKEYSPRESSED?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTCGETTIME?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=180 code=5128
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=140 code=5189
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(811): warning C280: 'mi1': unreferenced local variable
+COMPDESIGNPROJECT.C(811): warning C280: 'mi10': unreferenced local variable
+COMPDESIGNPROJECT.C(811): warning C280: 'h1': unreferenced local variable
+COMPDESIGNPROJECT.C(811): warning C280: 'h10': unreferenced local variable
+COMPDESIGNPROJECT.C(811): warning C280: 'd1': unreferenced local variable
+COMPDESIGNPROJECT.C(811): warning C280: 'd10': unreferenced local variable
+COMPDESIGNPROJECT.C(811): warning C280: 'mo1': unreferenced local variable
+COMPDESIGNPROJECT.C(811): warning C280: 'mo10': unreferenced local variable
+COMPDESIGNPROJECT.C(811): warning C280: 'y1': unreferenced local variable
+COMPDESIGNPROJECT.C(811): warning C280: 'y10': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=140 code=5189
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 13 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=140 code=5214
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(157): warning C280: 'time': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTCGETTIME?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=158 code=5274
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(184): error C214: illegal pointer conversion
+Target not created
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(157): warning C280: 'time': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTCGETTIME?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=158 code=5274
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(157): warning C280: 'time': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTCGETTIME?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=158 code=5274
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTCGETTIME?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=158 code=5274
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(157): warning C280: 'time': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTCGETTIME?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=158 code=5274
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(157): warning C280: 'time': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTCGETTIME?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=158 code=5279
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(158): warning C280: 'time': unreferenced local variable
+COMPDESIGNPROJECT.C(853): warning C280: 'time': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTCGETTIME?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RTCPRINTTIME?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=161 code=5299
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 7 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(158): warning C280: 'time': unreferenced local variable
+COMPDESIGNPROJECT.C(858): error C200: left side of '.' requires struct/union
+Target not created
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(158): warning C280: 'time': unreferenced local variable
+COMPDESIGNPROJECT.C(859): error C200: left side of '.' requires struct/union
+Target not created
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(158): warning C280: 'time': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RTCGETTIME?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RTCPRINTTIME?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=161 code=5457
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(180): error C181: incompatible operand
+Target not created
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(180): error C181: incompatible operand
+Target not created
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(182): error C181: incompatible operand
+Target not created
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=136 code=5430
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=136 code=5436
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(653): error C141: syntax error near 'byte'
+COMPDESIGNPROJECT.C(653): error C202: 'tester': undefined identifier
+COMPDESIGNPROJECT.C(675): error C202: 'tester': undefined identifier
+COMPDESIGNPROJECT.C(676): error C202: 'tester': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDLINE?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=136 code=5476
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=136 code=5480
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=136 code=5480
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=136 code=5480
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCDCLEAR?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GETTEMP?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=136 code=5486
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
