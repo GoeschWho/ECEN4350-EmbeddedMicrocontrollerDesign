@@ -133,11 +133,11 @@ void mainMenu( void );
 void memoryMenu( void );
 void ioMenu( void );
 void dumpMenu( void );
+void tempMenu( void );
+
 word input4Hex( void );
 word inputHex( void );
 void waitForKeyRelease( void );
-
-
 
 //------- driver prototypes -------//
 void latchSevenSeg( void );
@@ -323,8 +323,7 @@ void ioMenu( void ) {
 			}
 			else if( keypad.k1 == true ) {
 				waitForKeyRelease();
-				lcdChar('1');
-				msDelay(2000);
+				tempMenu();
 				break;
 			}
 			else if( keypad.k2 == true ) {
@@ -467,6 +466,83 @@ void dumpMenu( void ) {
 	} // end main while
 
 } // end dumpMenu()
+
+// -------------------------------------------------------------- //
+
+void tempMenu( void ) {
+
+	struct keypad_data keypad;
+	bool exit = false;
+	int i = 0;
+
+	while( exit == false ) {
+
+		char MenuStr1[] = "Current Temperature`";
+		char MenuStr2[] = "+00.0 F`";
+		//char MenuStr3[] = " `";
+		char MenuStr4[] = "# : Return to I/O   `";
+	
+		lcdClear();
+		lcdString( &MenuStr1 );
+
+		lcdLine(2);
+		sprintf( MenuStr2, "%+5.1f F`", getTemp() );
+		lcdString( &MenuStr2 );
+
+		//lcdLine(3);
+		//lcdString( &MenuStr3 );
+		lcdLine(4);
+		lcdString( &MenuStr4 );
+	
+		while(1) {	
+
+			// slow LCD temp refresh rate down
+			if ( i == 1000 ) {
+				lcdLine(2);
+				sprintf( MenuStr2, "%+5.1f F`", getTemp() );
+				lcdString( &MenuStr2 );
+				i = 0;
+			}
+			else {
+				i++;
+			}
+
+			keypad = getKeysPressed();
+		
+			if( keypad.kpound == true ) {
+				exit = true;
+				waitForKeyRelease();
+				break;
+			}
+			else if( keypad.k1 == true ) {
+				waitForKeyRelease();
+				lcdChar('1');
+				msDelay(2000);
+				break;
+			}
+			else if( keypad.k2 == true ) {
+				waitForKeyRelease();
+				lcdChar('2');
+				msDelay(2000);
+				break;
+			}
+			else if( keypad.k3 == true ) {
+				waitForKeyRelease();
+				lcdChar('3');
+				msDelay(2000);
+				break;
+			}
+			else if( keypad.k4 == true ) {
+				waitForKeyRelease();
+				lcdChar('4');
+				msDelay(2000);
+				break;
+			}
+		} // end option while
+
+	} // end main while
+
+} // end tempMenu()
 
 // -------------------------------------------------------------- //
 
