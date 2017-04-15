@@ -7,13 +7,10 @@ C:\Users\megan\Google Drive\College\S6 - Spring 2017\Comp Design I\Lab\Github\CE
 Project File Date:  04/03/2017
 
 <h2>Output:</h2>
+Build target 'Target 1'
 compiling CompDesignProject.c...
-COMPDESIGNPROJECT.C(326): warning C206: 'tempMenu': missing function-prototype
-COMPDESIGNPROJECT.C(473): error C231: 'tempMenu': redefinition
-COMPDESIGNPROJECT.C(533): error C231: 'tempMenu': redefinition
-CompDesignProject.c - 2 Error(s), 1 Warning(s).
-compiling CompDesignProject.c...
-CompDesignProject.c - 0 Error(s), 0 Warning(s).
+COMPDESIGNPROJECT.C(574): error C141: syntax error near '>'
+Target not created
 Build target 'Target 1'
 compiling CompDesignProject.c...
 linking...
@@ -23,7 +20,7 @@ linking...
     SEGMENT: ?PR?RTCGETTIME?COMPDESIGNPROJECT
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_RTCPRINTTIME?COMPDESIGNPROJECT
-Program Size: data=15.1 xdata=391 code=7993
+Program Size: data=15.1 xdata=391 code=8328
 creating hex file from ".\Objects\CompDesignProject"...
 ".\Objects\CompDesignProject" - 0 Error(s), 3 Warning(s).
 Build target 'Target 1'
@@ -35,7 +32,7 @@ linking...
     SEGMENT: ?PR?RTCGETTIME?COMPDESIGNPROJECT
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_RTCPRINTTIME?COMPDESIGNPROJECT
-Program Size: data=15.1 xdata=391 code=8035
+Program Size: data=15.1 xdata=391 code=8328
 creating hex file from ".\Objects\CompDesignProject"...
 ".\Objects\CompDesignProject" - 0 Error(s), 3 Warning(s).
 Build target 'Target 1'
@@ -47,7 +44,7 @@ linking...
     SEGMENT: ?PR?RTCGETTIME?COMPDESIGNPROJECT
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_RTCPRINTTIME?COMPDESIGNPROJECT
-Program Size: data=15.1 xdata=391 code=8076
+Program Size: data=15.1 xdata=391 code=8328
 creating hex file from ".\Objects\CompDesignProject"...
 ".\Objects\CompDesignProject" - 0 Error(s), 3 Warning(s).
 Build target 'Target 1'
@@ -59,30 +56,73 @@ linking...
     SEGMENT: ?PR?RTCGETTIME?COMPDESIGNPROJECT
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_RTCPRINTTIME?COMPDESIGNPROJECT
-Program Size: data=15.1 xdata=391 code=8078
+Program Size: data=15.1 xdata=391 code=8337
 creating hex file from ".\Objects\CompDesignProject"...
 ".\Objects\CompDesignProject" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(609): error C181: incompatible operand
+COMPDESIGNPROJECT.C(621): error C181: incompatible operand
+Target not created
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(611): error C181: incompatible operand
+COMPDESIGNPROJECT.C(624): error C181: incompatible operand
+Target not created
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(624): error C181: incompatible operand
+Target not created
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(597): warning C280: 'time': unreferenced local variable
+COMPDESIGNPROJECT.C(610): error C253: INTERNAL ERROR (ASMGEN - TRIPLE=02E[02F8B446])
+COMPDESIGNPROJECT.C(610): error C253: INTERNAL ERROR (ASMGEN - TRIPLE=02F[02F8B47B])
+COMPDESIGNPROJECT.C(622): error C253: INTERNAL ERROR (ASMGEN - TRIPLE=044[02F8B8D4])
+COMPDESIGNPROJECT.C(622): error C253: INTERNAL ERROR (ASMGEN - TRIPLE=045[02F8B909])
+Target not created
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(597): warning C280: 'time': unreferenced local variable
+COMPDESIGNPROJECT.C(610): error C253: INTERNAL ERROR (ASMGEN - TRIPLE=02E[0315B446])
+COMPDESIGNPROJECT.C(610): error C253: INTERNAL ERROR (ASMGEN - TRIPLE=02F[0315B47B])
+COMPDESIGNPROJECT.C(622): error C253: INTERNAL ERROR (ASMGEN - TRIPLE=044[0315B8D4])
+COMPDESIGNPROJECT.C(622): error C253: INTERNAL ERROR (ASMGEN - TRIPLE=045[0315B909])
+CompDesignProject.c - 4 Error(s), 1 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=353 code=8553
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(597): warning C280: 'time': unreferenced local variable
+COMPDESIGNPROJECT.C(610): error C253: INTERNAL ERROR (ASMGEN - TRIPLE=02E[0309B446])
+COMPDESIGNPROJECT.C(610): error C253: INTERNAL ERROR (ASMGEN - TRIPLE=02F[0309B47B])
+COMPDESIGNPROJECT.C(622): error C253: INTERNAL ERROR (ASMGEN - TRIPLE=044[0309B8D4])
+COMPDESIGNPROJECT.C(622): error C253: INTERNAL ERROR (ASMGEN - TRIPLE=045[0309B909])
+Target not created
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(610): error C253: INTERNAL ERROR (ASMGEN - TRIPLE=02E[02FB04F6])
+COMPDESIGNPROJECT.C(610): error C253: INTERNAL ERROR (ASMGEN - TRIPLE=02F[02FB052B])
+COMPDESIGNPROJECT.C(622): error C253: INTERNAL ERROR (ASMGEN - TRIPLE=044[02FB0984])
+COMPDESIGNPROJECT.C(622): error C253: INTERNAL ERROR (ASMGEN - TRIPLE=045[02FB09B9])
+Target not created
 Build target 'Target 1'
 compiling CompDesignProject.c...
 linking...
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?RTCGETTIME?COMPDESIGNPROJECT
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_RTCPRINTTIME?COMPDESIGNPROJECT
-Program Size: data=15.1 xdata=391 code=8078
+Program Size: data=15.1 xdata=353 code=8560
 creating hex file from ".\Objects\CompDesignProject"...
-".\Objects\CompDesignProject" - 0 Error(s), 3 Warning(s).
+".\Objects\CompDesignProject" - 0 Error(s), 1 Warning(s).
 Build target 'Target 1'
 compiling CompDesignProject.c...
 linking...
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?RTCGETTIME?COMPDESIGNPROJECT
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_RTCPRINTTIME?COMPDESIGNPROJECT
-Program Size: data=15.1 xdata=391 code=8073
+Program Size: data=15.1 xdata=353 code=8560
 creating hex file from ".\Objects\CompDesignProject"...
-".\Objects\CompDesignProject" - 0 Error(s), 3 Warning(s).
+".\Objects\CompDesignProject" - 0 Error(s), 1 Warning(s).

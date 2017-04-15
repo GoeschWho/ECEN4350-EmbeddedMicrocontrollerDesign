@@ -134,6 +134,8 @@ void memoryMenu( void );
 void ioMenu( void );
 void dumpMenu( void );
 void tempMenu( void );
+void sevenSegMenu( void );
+void timeMenu( void );
 
 word input4Hex( void );
 word inputHex( void );
@@ -328,14 +330,12 @@ void ioMenu( void ) {
 			}
 			else if( keypad.k2 == true ) {
 				waitForKeyRelease();
-				lcdChar('2');
-				msDelay(2000);
+				sevenSegMenu();
 				break;
 			}
 			else if( keypad.k3 == true ) {
 				waitForKeyRelease();
-				lcdChar('3');
-				msDelay(2000);
+				timeMenu();
 				break;
 			}
 			else if( keypad.k4 == true ) {
@@ -514,35 +514,133 @@ void tempMenu( void ) {
 				waitForKeyRelease();
 				break;
 			}
-			else if( keypad.k1 == true ) {
-				waitForKeyRelease();
-				lcdChar('1');
-				msDelay(2000);
-				break;
-			}
-			else if( keypad.k2 == true ) {
-				waitForKeyRelease();
-				lcdChar('2');
-				msDelay(2000);
-				break;
-			}
-			else if( keypad.k3 == true ) {
-				waitForKeyRelease();
-				lcdChar('3');
-				msDelay(2000);
-				break;
-			}
-			else if( keypad.k4 == true ) {
-				waitForKeyRelease();
-				lcdChar('4');
-				msDelay(2000);
-				break;
-			}
+
 		} // end option while
 
 	} // end main while
 
 } // end tempMenu()
+
+// -------------------------------------------------------------- //
+
+void sevenSegMenu( void ) {
+
+	struct keypad_data keypad;
+	bool exit = false;
+	int i = 0;
+
+	while( exit == false ) {
+
+		char MenuStr1[] = "Seven Segment`";
+		char MenuStr2[] = "Display Demo`";
+		//char MenuStr3[] = " `";
+		char MenuStr4[] = "# : Return to I/O`";
+	
+		lcdClear();
+		lcdString( &MenuStr1 );
+
+		lcdLine(2);
+		lcdString( &MenuStr2 );
+
+		//lcdLine(3);
+		//lcdString( &MenuStr3 );
+		lcdLine(4);
+		lcdString( &MenuStr4 );
+	
+		while(1) {	
+
+			keypad = getKeysPressed();
+		
+			if( keypad.kpound == true ) {
+				exit = true;
+				outputSevenSeg('o'); // Turn display off when exiting
+				waitForKeyRelease();
+				break;
+			}
+
+			switch (i) {
+				
+				case 0: sevenSegPort = 0xFE; break;
+				case 1:	sevenSegPort = 0xFD; break;
+				case 2: sevenSegPort = 0xFB; break;
+				case 3: sevenSegPort = 0xF7; break;
+				case 4:	sevenSegPort = 0xEF; break;
+				case 5: sevenSegPort = 0xDF; break;
+				case 6: sevenSegPort = 0xBF; break;
+				case 7: sevenSegPort = 0x7F; break;
+				default: sevenSegPort = 0xFF; break;
+
+			} // end switch
+
+			if( i >= 7 ) {
+				i = 0;
+			} else {
+				i++;
+			}
+
+			latchSevenSeg();
+			msDelay(50);
+
+		} // end option while
+
+	} // end main while
+
+} // end sevenSegMenu()
+
+// -------------------------------------------------------------- //
+
+void timeMenu( void ) {
+
+	struct keypad_data keypad;
+	bool exit = false;
+	int i = 0;
+	struct time_data time;
+
+	while( exit == false ) {
+
+		char MenuStr1[] = "Real Time Clock`";
+		//char MenuStr2[] = "<Time>`";
+		//char MenuStr3[] = " `";
+		char MenuStr4[] = "# : Return to I/O   `";
+	
+		lcdClear();
+		lcdString( &MenuStr1 );
+
+		lcdLine(2);
+		time = rtcGetTime();
+		rtcPrintTime( &time );
+
+		//lcdLine(3);
+		//lcdString( &MenuStr3 );
+		lcdLine(4);
+		lcdString( &MenuStr4 );
+	
+		while(1) {	
+
+			// slow LCD time refresh rate down
+			if ( i == 1000 ) {
+				lcdLine(2);
+				time = rtcGetTime();
+				rtcPrintTime( &time );
+				i = 0;
+			}
+			else {
+				i++;
+			}
+
+			keypad = getKeysPressed();
+		
+			if( keypad.kpound == true ) {
+				exit = true;
+				waitForKeyRelease();
+				break;
+			}
+
+		} // end option while
+
+	} // end main while
+
+} // end timeMenu()
 
 // -------------------------------------------------------------- //
 
@@ -758,7 +856,7 @@ void outputSevenSeg( char character ) {
 	
 	switch( character ) {
 		case '0': sevenSegPort = ~0x3F; break;
-		case '1':	sevenSegPort = ~0x06; break;
+		case '1': sevenSegPort = ~0x06; break;
 		case '2': sevenSegPort = ~0x5B; break;
 		case '3': sevenSegPort = ~0x4F; break;
 		case '4': sevenSegPort = ~0x66; break;
@@ -775,7 +873,7 @@ void outputSevenSeg( char character ) {
 		case 'F': sevenSegPort = ~0x71; break;
 		case '-': sevenSegPort = 0xBF; 	break;
 		case '.': sevenSegPort = 0x7F;	break;
-		case 'o':	sevenSegPort = 0xFF;  break;  // off
+		case 'o': sevenSegPort = 0xFF;  break;  // off
 		default:  sevenSegPort = 0xAA; 					// invalid
 	}
 	
