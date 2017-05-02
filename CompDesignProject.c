@@ -133,11 +133,16 @@ void mainMenu( void );
 void memoryMenu( void );
 void ioMenu( void );
 void dumpMenu( void );
+void moveMenu( void );
+void editMenu( void );
+void findMenu( void );
 void tempMenu( void );
 void sevenSegMenu( void );
 void timeMenu( void );
+void stopwatchMenu( void );
 
 word input4Hex( void );
+byte input2Hex( void );
 word inputHex( void );
 void waitForKeyRelease( void );
 
@@ -270,20 +275,17 @@ void memoryMenu( void ) {
 			}
 			else if( keypad.k2 == true ) {
 				waitForKeyRelease();
-				lcdChar('2');
-				msDelay(2000);
+				moveMenu();
 				break;
 			}
 			else if( keypad.k3 == true ) {
 				waitForKeyRelease();
-				lcdChar('3');
-				msDelay(2000);
+				editMenu();
 				break;
 			}
 			else if( keypad.k4 == true ) {
 				waitForKeyRelease();
-				lcdChar('4');
-				msDelay(2000);
+				findMenu();
 				break;
 			}
 		} // end option while
@@ -302,8 +304,8 @@ void ioMenu( void ) {
 	while( exit == false ) {
 
 		char MenuStr1[] = "I/O Menu`";
-		char MenuStr2[] = "1 : Temp    2 : 7Seg`";
-		char MenuStr3[] = "3 : Time    4 : SetT`";
+		char MenuStr2[] = "1 : Temp   2 : 7-Seg`";
+		char MenuStr3[] = "3 : Time   4 : StopW`";
 		char MenuStr4[] = "# : Return to Main  `";
 	
 		lcdClear();
@@ -340,8 +342,7 @@ void ioMenu( void ) {
 			}
 			else if( keypad.k4 == true ) {
 				waitForKeyRelease();
-				lcdChar('4');
-				msDelay(2000);
+				stopwatchMenu();
 				break;
 			}
 		} // end option while
@@ -363,13 +364,13 @@ void dumpMenu( void ) {
 	int i;
 	
 	char MenuStr1[] = "Dump Setup`";
-	char MenuStr2[] = "Start Addr: `";
+	char MenuStr2[] = "Start Seg Addr: `";
 	char MenuStr3[] = "Block Size: `";
 	char MenuStr4[] = "1:<--  2:-->  #:Exit`";
 
 	exit = false;
 	segment = 0x0000;
-	block = 0xFFFF;
+	block = 0x0000;
 	offset = 0x0000;
 
 	//----------------//
@@ -390,7 +391,9 @@ void dumpMenu( void ) {
 	lcdLine(4);
 	lcdString( &MenuStr3 );
 	// read 4 hex digits from keypad
-	block = input4Hex();
+	while( block == 0x0000 ) {
+		block = input4Hex();
+	}
 
 	//------------------//
 	//   Dump Display   //
@@ -466,6 +469,315 @@ void dumpMenu( void ) {
 	} // end main while
 
 } // end dumpMenu()
+
+// -------------------------------------------------------------- //
+
+void moveMenu( void ) {
+
+	struct keypad_data keypad;
+	bool exit;
+	word sourceSegment;
+	word destSegment;
+	word block;
+	word offset;
+	byte memVal;
+	int i;
+	
+	char MenuStr1[] = "Move Setup`";
+	char MenuStr2[] = "Source Seg Addr: `";
+	char MenuStr3[] = "Dest Seg Addr: `";
+	char MenuStr4[] = "Block Size: `";
+	char MenuStr5[] = "Move Complete`";
+	char MenuStr6[] = "#:Exit`";
+
+	exit = false;
+	sourceSegment = 0x0000;
+	destSegment = 0x0000;
+	block = 0x0000;
+	offset = 0x0000;
+	i = 0;
+
+	//----------------//
+	//   Move Setup   //
+	//----------------//
+
+	// print header and footer
+	lcdClear();
+	lcdString( &MenuStr1 );
+
+	// source address prompt
+	lcdLine(2);
+	lcdString( &MenuStr2 );
+	// read 4 hex digits from keypad
+	sourceSegment = input4Hex(); 
+
+	// dest address prompt
+	lcdLine(3);
+	lcdString( &MenuStr3 );
+	// read 4 hex digits from keypad
+	destSegment = input4Hex();
+
+	// block size prompt
+	lcdLine(4);
+	lcdString( &MenuStr4 );
+	// read 4 hex digits from keypad
+	while( block == 0x0000 ) {
+		block = input4Hex();
+	}
+
+	//------------------//
+	//   Move Display   //
+	//------------------//
+
+	while( exit == false ) {
+
+		// print segment:offset
+		lcdClear();
+		lcdString( &MenuStr5 );
+		lcdLine(4);
+		lcdString( &MenuStr6 );
+//		lcdHexWord( segment );
+//		lcdChar(':');
+//		lcdHexWord( offset );
+		
+
+		// perform move
+		while( (offset + i) < block ) {
+			memVal = XBYTE[ (sourceSegment * 16) + offset + i ]; // get sourceSeg:offset+i
+			XBYTE[ (destSegment * 16) + offset + i ] = memVal;	// move to destSeg:offset+i
+			i++;
+		}	
+			
+		while(1) {	
+			keypad = getKeysPressed();
+		
+			if( keypad.kpound == true ) {
+				exit = true;
+				waitForKeyRelease();
+				break;
+			}
+
+		} // end option while
+
+	} // end main while
+
+} // end moveMenu()
+
+// -------------------------------------------------------------- //
+
+void editMenu( void ) {
+
+	struct keypad_data keypad;
+	bool exit;
+	bool next;
+	word segment;
+	word offset;
+	byte new_value;
+	byte memVal;
+	
+	char MenuStr1[] = "Edit Setup`";
+	char MenuStr2[] = "Segment Addr: `";
+	char MenuStr3[] = "Offset Addr: `";
+	char MenuStr4[] = "New Value: `";
+	char MenuStr5[] = "Edit Complete`";
+	char MenuStr6[] = "0:Continue    #:Exit`";
+
+	exit = false;
+	next = true;
+	segment = 0x0000;
+	offset = 0x0000;
+	new_value = 0xAA;
+
+	//----------------//
+	//   Edit Setup   //
+	//----------------//
+
+	// print header and footer
+	lcdClear();
+	lcdString( &MenuStr1 );
+
+	// segment address prompt
+	lcdLine(2);
+	lcdString( &MenuStr2 );
+	// read 4 hex digits from keypad
+	segment = input4Hex(); 
+
+	// offset address prompt
+	lcdLine(3);
+	lcdString( &MenuStr3 );
+	// read 4 hex digits from keypad
+	offset = input4Hex();
+	
+	//------------------//
+	//   Edit Display   //
+	//------------------//
+
+	while( exit == false ) {
+
+		if( next == true ) {
+
+			// print segment:offset
+			lcdClear();
+			lcdHexWord( segment );
+			lcdChar(':');
+			lcdHexWord( offset );
+			lcdChar(' ');
+
+		   	// print current value
+			memVal = XBYTE[ (segment * 16) + offset ]; // get seg:offset
+			lcdHexByte( memVal );	// print value
+		
+			// new value prompt
+			lcdLine(2);
+			lcdString( &MenuStr4 );
+		
+			// read 2 hex digits from keypad
+			new_value = input2Hex();
+			// store value
+		  	XBYTE[ (segment * 16) + offset ] = new_value;	// move to destSeg:offset
+		
+			// edit complete
+			lcdLine(3);
+			lcdString( &MenuStr5 );
+		
+			// exit prompt
+			lcdLine(4);
+			lcdString( &MenuStr6 );
+
+			offset++;
+
+		} // end next if
+			
+		while(1) {	
+
+			keypad = getKeysPressed();
+		
+			if( keypad.kpound == true ) {
+				next = false;
+				exit = true;
+				waitForKeyRelease();
+				break;
+			}
+
+			if( keypad.k0 == true ) {
+				next = true;
+				waitForKeyRelease();
+				break;
+			}
+
+		} // end option while
+
+	} // end main while
+
+} // end editMenu()
+
+// -------------------------------------------------------------- //
+
+void findMenu( void ) {
+
+	struct keypad_data keypad;
+	bool exit;
+	bool found;
+	word segment;
+	word offset;
+	word block;
+	byte search_value;
+	byte memVal;
+	
+	char MenuStr1[] = "Find Setup`";
+	char MenuStr2[] = "Start Seg Addr: `";
+	char MenuStr3[] = "Block Size: `";
+	char MenuStr4[] = "Search Value: `";
+	char MenuStr5[] = "Value found at`";
+	char MenuStr6[] = "Value not found!`";
+	char MenuStr7[] = "#:Exit`";
+
+	exit = false;
+	found = false;
+	segment = 0x0000;
+	offset = 0x0000;
+	block = 0x0000;
+	search_value = 0xAA;
+
+	//----------------//
+	//   Find Setup   //
+	//----------------//
+
+	// print header and footer
+	lcdClear();
+	lcdString( &MenuStr1 );
+
+	// start address prompt
+	lcdLine(2);
+	lcdString( &MenuStr2 );
+	// read 4 hex digits from keypad
+	segment = input4Hex(); 
+
+	// block size prompt
+	lcdLine(3);
+	lcdString( &MenuStr3 );
+	// read 4 hex digits from keypad
+	block = input4Hex();
+
+	// search value prompt
+	lcdLine(4);
+	lcdString( &MenuStr4 );
+	// read 4 hex digits from keypad
+	search_value = input2Hex();
+	
+	//------------------//
+	//   Find Display   //
+	//------------------//
+
+	// search block for value
+	while( (offset) < block ) {
+		memVal = XBYTE[ (segment * 16) + offset ]; // get seg:offset+i
+		if( memVal == search_value ) {
+		   found = true;
+		   break;
+		}
+		offset++;
+	}
+
+	// print result
+	lcdClear();
+	if( found == true ) {
+		// Value found at ...
+		lcdString( &MenuStr5 );
+		// print segment:offset
+		lcdLine(2);
+		lcdHexWord( segment );
+		lcdChar(':');
+		lcdHexWord( offset );
+		// Footer
+		lcdLine(4);
+		lcdString( &MenuStr7 );
+	}
+	else {
+		// Value not found
+		lcdString( &MenuStr6 );
+		// Footer
+		lcdLine(4);
+		lcdString( &MenuStr7 );
+	}
+
+	while( exit == false ) {
+			
+		while(1) {	
+
+			keypad = getKeysPressed();
+		
+			if( keypad.kpound == true ) {
+				exit = true;
+				waitForKeyRelease();
+				break;
+			}
+
+		} // end option while
+
+	} // end main while
+
+} // end findMenu()
 
 // -------------------------------------------------------------- //
 
@@ -644,6 +956,139 @@ void timeMenu( void ) {
 
 // -------------------------------------------------------------- //
 
+void stopwatchMenu( void ) {
+
+	struct keypad_data keypad;
+	struct time_data original_start_time;
+	struct time_data start_time;
+	struct time_data current_time;
+	struct time_data timer;
+	bool exit;
+	bool running;
+	int i;
+
+	char MenuStr1[] = "Stopwatch`";
+	char MenuStr2[] = "No timer started    `";
+	char MenuStr3[] = "1: Start     2: Stop`";
+	char MenuStr4[] = "3: Clear     #: Exit`";
+
+	exit = false;
+	running = false;
+	i = 0;
+
+	// Initial display
+	lcdClear();
+	lcdString( &MenuStr1 );
+	lcdLine(2);
+	lcdString( &MenuStr2 );
+	lcdLine(3);
+	lcdString( &MenuStr3 );
+	lcdLine(4);
+	lcdString( &MenuStr4 );	
+	
+	while( exit == false ) {
+	
+		while(1) {	
+
+			if ( running == true) {
+				// slow LCD time refresh rate down
+				if ( i == 1000 ) {
+					
+					current_time = rtcGetTime();
+					start_time = original_start_time;
+		
+					//timer = current_time - start_time;
+					// seconds
+					if( current_time.seconds >= start_time.seconds ) {
+						timer.seconds = current_time.seconds - start_time.seconds;
+					}
+					else {
+						timer.seconds = current_time.seconds + 60 - start_time.seconds;
+						current_time.minutes--;
+					}
+					// minutes
+					if( current_time.minutes >= start_time.minutes ) {
+						timer.minutes = current_time.minutes - start_time.minutes;
+					}
+					else {
+						timer.minutes = current_time.minutes + 60 - start_time.minutes;
+						current_time.hours--;
+					}
+					// hours
+					if( current_time.hours >= start_time.hours ) {
+						timer.hours = current_time.hours - start_time.hours;
+					}
+					else {
+						timer.hours = current_time.hours + 24 - start_time.hours;
+						current_time.days--;
+					}
+					// days
+					if( current_time.days >= start_time.days ) {
+						timer.days = current_time.days - start_time.days;
+					}
+					else {
+						timer.days = current_time.days + 30 - start_time.days;
+						current_time.months--;
+					}
+					// months
+					if( current_time.months >= start_time.months ) {
+						timer.months = current_time.months - start_time.months;
+					}
+					else {
+						timer.months = current_time.months + 12 - start_time.months;
+						current_time.years--;
+					}
+					// years
+					timer.years = start_time.years - current_time.years;
+					//
+					timer.week = current_time.week;
+		
+					lcdLine(2);
+					rtcPrintTime( &timer );
+					i = 0;
+				}
+				else {
+					i++;
+				}
+			} // end running
+	
+			keypad = getKeysPressed();
+		
+			if( keypad.kpound == true ) {
+				exit = true;
+				waitForKeyRelease();
+				break;
+			}
+			if( keypad.k1 == true ) {
+				// Start timer
+				running = true;
+				original_start_time = rtcGetTime();
+				waitForKeyRelease();
+				break;
+			}
+			if( keypad.k2 == true ) {
+				// Stop timer
+				running = false;
+				waitForKeyRelease();
+				break;
+			}
+			if( keypad.k3 == true ) {
+				// Clear timer
+				running = false;
+				lcdLine(2);
+				lcdString( &MenuStr2 );
+				waitForKeyRelease();
+				break;
+			}
+	
+		} // end option while
+
+	} // end main while
+
+} // end stopwatchMenu()
+
+// -------------------------------------------------------------- //
+
 word input4Hex( void ) {
 
 	word segment;
@@ -660,7 +1105,27 @@ word input4Hex( void ) {
    
 	return segment;
 
-} // end read4Hex()
+} // end input4Hex()
+
+// -------------------------------------------------------------- //
+
+byte input2Hex( void ) {
+
+	byte value;
+	word input;
+	int i;
+	
+	value = 0x00;
+
+	for( i = 0; i < 2; i++ ) {
+		value = value << 4;
+   		input = inputHex();
+		value = value + input;
+	}
+   
+	return value;
+
+} // end input2Hex()
 
 // -------------------------------------------------------------- //
 
@@ -813,7 +1278,9 @@ void waitForKeyRelease( void ) {
 			exit = false;
 		}
 
-	} // end while	  
+	} // end while
+	
+	msDelay(100);	  
 
 } // end waitForKeyRelease()
 
@@ -841,14 +1308,6 @@ void latchKeypad( void ) {
 	
 } // end latchKeypad()
 
-// -------------------------------------------------------------- //
-
-//void latchLCD( void ) {
-//	
-//	cs_lcd = 1;
-//	cs_lcd = 0;
-//	
-//} // end latchLCD()
 
 // -------------------------------------------------------------- //
 

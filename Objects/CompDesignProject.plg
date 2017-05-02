@@ -7,3 +7,296 @@ C:\Users\megan\Google Drive\College\S6 - Spring 2017\Comp Design I\Lab\Github\CE
 Project File Date:  04/03/2017
 
 <h2>Output:</h2>
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=391 code=10201
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(344): warning C206: 'stopWatchMenu': missing function-prototype
+COMPDESIGNPROJECT.C(1009): error C237: 'timeMenu': function already has a body
+Target not created
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(344): warning C206: 'stopWatchMenu': missing function-prototype
+COMPDESIGNPROJECT.C(1009): error C237: 'timeMenu': function already has a body
+Target not created
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=391 code=10432
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=391 code=10426
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(991): warning C206: 'startStopwatch': missing function-prototype
+COMPDESIGNPROJECT.C(1008): warning C280: 'time': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?STOPWATCHSTART?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  STARTSTOPWATCH
+    MODULE:  .\Objects\CompDesignProject.obj (COMPDESIGNPROJECT)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  STARTSTOPWATCH
+    MODULE:  .\Objects\CompDesignProject.obj (COMPDESIGNPROJECT)
+    ADDRESS: 2446H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  STARTSTOPWATCH
+    MODULE:  .\Objects\CompDesignProject.obj (COMPDESIGNPROJECT)
+    ADDRESS: 24DBH
+Program Size: data=15.1 xdata=458 code=10576
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 7 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(1036): warning C206: 'startStopwatch': missing function-prototype
+COMPDESIGNPROJECT.C(1008): warning C280: 'time': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  STARTSTOPWATCH
+    MODULE:  .\Objects\CompDesignProject.obj (COMPDESIGNPROJECT)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  STARTSTOPWATCH
+    MODULE:  .\Objects\CompDesignProject.obj (COMPDESIGNPROJECT)
+    ADDRESS: 24DBH
+Program Size: data=15.1 xdata=391 code=10576
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(969): error C231: 'exit': redefinition
+COMPDESIGNPROJECT.C(970): error C231: 'running': redefinition
+COMPDESIGNPROJECT.C(973): error C141: syntax error near 'char'
+COMPDESIGNPROJECT.C(974): error C141: syntax error near 'char'
+COMPDESIGNPROJECT.C(975): error C141: syntax error near 'char'
+COMPDESIGNPROJECT.C(976): error C141: syntax error near 'char'
+COMPDESIGNPROJECT.C(980): error C202: 'MenuStr1': undefined identifier
+COMPDESIGNPROJECT.C(982): error C202: 'MenuStr2': undefined identifier
+COMPDESIGNPROJECT.C(984): error C202: 'MenuStr3': undefined identifier
+COMPDESIGNPROJECT.C(986): error C202: 'MenuStr4': undefined identifier
+COMPDESIGNPROJECT.C(993): error C141: syntax error near '='
+COMPDESIGNPROJECT.C(996): error C202: 'original_start_time': undefined identifier
+COMPDESIGNPROJECT.C(1045): error C141: syntax error near 'else'
+COMPDESIGNPROJECT.C(1058): error C202: 'original_start_time': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(970): error C231: 'exit': redefinition
+COMPDESIGNPROJECT.C(971): error C231: 'running': redefinition
+COMPDESIGNPROJECT.C(974): error C141: syntax error near 'char'
+COMPDESIGNPROJECT.C(975): error C141: syntax error near 'char'
+COMPDESIGNPROJECT.C(976): error C141: syntax error near 'char'
+COMPDESIGNPROJECT.C(977): error C141: syntax error near 'char'
+COMPDESIGNPROJECT.C(981): error C202: 'MenuStr1': undefined identifier
+COMPDESIGNPROJECT.C(983): error C202: 'MenuStr2': undefined identifier
+COMPDESIGNPROJECT.C(985): error C202: 'MenuStr3': undefined identifier
+COMPDESIGNPROJECT.C(987): error C202: 'MenuStr4': undefined identifier
+COMPDESIGNPROJECT.C(994): error C141: syntax error near '='
+COMPDESIGNPROJECT.C(1046): error C141: syntax error near 'else'
+Target not created
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(970): error C231: 'exit': redefinition
+COMPDESIGNPROJECT.C(971): error C231: 'running': redefinition
+COMPDESIGNPROJECT.C(974): error C141: syntax error near 'char'
+COMPDESIGNPROJECT.C(975): error C141: syntax error near 'char'
+COMPDESIGNPROJECT.C(976): error C141: syntax error near 'char'
+COMPDESIGNPROJECT.C(977): error C141: syntax error near 'char'
+COMPDESIGNPROJECT.C(981): error C202: 'MenuStr1': undefined identifier
+COMPDESIGNPROJECT.C(983): error C202: 'MenuStr2': undefined identifier
+COMPDESIGNPROJECT.C(985): error C202: 'MenuStr3': undefined identifier
+COMPDESIGNPROJECT.C(987): error C202: 'MenuStr4': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(974): error C141: syntax error near 'char'
+COMPDESIGNPROJECT.C(975): error C141: syntax error near 'char'
+COMPDESIGNPROJECT.C(976): error C141: syntax error near 'char'
+COMPDESIGNPROJECT.C(977): error C141: syntax error near 'char'
+COMPDESIGNPROJECT.C(981): error C202: 'MenuStr1': undefined identifier
+COMPDESIGNPROJECT.C(983): error C202: 'MenuStr2': undefined identifier
+COMPDESIGNPROJECT.C(985): error C202: 'MenuStr3': undefined identifier
+COMPDESIGNPROJECT.C(987): error C202: 'MenuStr4': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=395 code=10834
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=395 code=10834
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(1053): error C204: 'weeks': undefined member
+Target not created
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=395 code=10876
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=395 code=10842
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=395 code=10842
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=395 code=10842
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=395 code=10842
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=395 code=10842
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=395 code=10842
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=395 code=10842
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=395 code=10861
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=395 code=10865
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=399 code=10869
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=399 code=10870
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=399 code=10867
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=399 code=10867
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=399 code=10867
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=399 code=10870
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=399 code=10873
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=399 code=10871
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 1 Warning(s).
