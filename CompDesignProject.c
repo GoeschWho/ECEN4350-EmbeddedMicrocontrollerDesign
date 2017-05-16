@@ -63,7 +63,7 @@ sbit rtc_add2 = P1^6;
 sbit rtc_add3 = P1^7;
 sfr rtcPort = 0x90;
 
-// Mission Control
+// Mission Control 1
 enum {ctrl_off,
 			ctrl_ss_latch,
 			ctrl_kp_oe,
@@ -73,6 +73,7 @@ enum {ctrl_off,
 			ctrl_lcd_data_start,
 			ctrl_lcd_data_finish };
 
+// Mission Control 2
 enum {ctrl_adc_start = 1,
 			ctrl_rtc_rd,
 			ctrl_adc_finish,
@@ -86,12 +87,6 @@ sbit dec2 = P3^2;
 sbit dec3 = P3^3;
 sbit dec4 = P3^4;
 sbit dec5 = P3^5;
-
-// Menus
-
-enum {	menu_main,
-		menu_memory,
-		menu_io };
 
 // ======================= prototypes =========================== //
 
@@ -146,7 +141,7 @@ byte input2Hex( void );
 word inputHex( void );
 void waitForKeyRelease( void );
 
-//------- driver prototypes -------//
+//------- low level prototypes -------//
 void latchSevenSeg( void );
 void latchKeypad( void );
 void outputSevenSeg( char character );
