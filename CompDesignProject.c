@@ -81,9 +81,9 @@ enum {ctrl_adc_start = 1,
 			ctrl_rtc_cs0 = 6,
 			ctrl_rtc_wr };
 
-sbit dec0 = P3^0;
-sbit dec1 = P3^1;		
-sbit dec2 = P3^2;
+sbit dec0 = P3^3;
+sbit dec1 = P3^4;	// Rewired, GAL2 not in use		
+sbit dec2 = P3^2;	// Rewired, GAL2 not in use
 sbit dec3 = P3^3;
 sbit dec4 = P3^4;
 sbit dec5 = P3^5;
@@ -113,28 +113,14 @@ struct keypad_data {
 	bool kpound;
 };
 
-struct time_data {
-	byte seconds;
-	byte minutes;
-	byte hours;
-	byte days;
-	byte months;
-	byte years;
-	byte week;
-};
-
 //------- high level prototyeps -------//
 void mainMenu( void );
 void memoryMenu( void );
-void ioMenu( void );
+void serialMenu( void );
 void dumpMenu( void );
 void moveMenu( void );
 void editMenu( void );
 void findMenu( void );
-void tempMenu( void );
-void sevenSegMenu( void );
-void timeMenu( void );
-void stopwatchMenu( void );
 
 word input4Hex( void );
 byte input2Hex( void );
@@ -159,18 +145,6 @@ void lcdHexWord( word hex );
 void lcdHexByte( byte hex );
 void lcdAsciiByte( byte hex );
 
-float getTemp( void );
-
-void rtcInit( void );
-void rtcBusy( void );
-void rtcWrite( byte duhdata );
-byte rtcRead( byte duhaddress );
-void rtcRegWrite( byte duhstuff );
-byte rtcRegRead( byte duhstuff );
-void rtcSetTime( struct time_data time );
-struct time_data rtcGetTime( void );
-void rtcPrintTime( struct time_data *time );
-
 void missionControl1( int dec );
 void missionControl2( int dec );
 void msDelay( unsigned msecs );
@@ -180,10 +154,10 @@ void msDelay( unsigned msecs );
 void main(void) {
 	
 	missionControl1( ctrl_off );
-	missionControl2( ctrl_off );
+	//missionControl2( ctrl_off );
 	
 	lcdInit();
-	rtcInit();
+	//rtcInit();
 
 	mainMenu();		// Enter main program
 
@@ -202,7 +176,7 @@ void mainMenu( void ) {
 		char MenuStr1[] = "Megan Bird CEEN 4330`";
 		char MenuStr2[] = "--------------------`";
 		char MenuStr3[] = "Main Menu`";
-		char MenuStr4[] = "1 : Memory   2 : I/O`";
+		char MenuStr4[] = "1: Memory  2: Serial`";
 	
 		lcdClear();
 		lcdString( &MenuStr1 );
@@ -223,7 +197,7 @@ void mainMenu( void ) {
 			}
 			else if( keypad.k2 == true ) {
 				waitForKeyRelease();
-				ioMenu();
+				serialMenu();
 				break;
 			}
 		} // end option while
@@ -232,6 +206,144 @@ void mainMenu( void ) {
 
 } // end choiceMainMenu()
 
+// -------------------------------------------------------------- //
+
+void serialMenu( void ) {
+
+	struct keypad_data keypad;
+   	bool exit = false;
+	word baud_rate = 0x0000;
+	bool parity_even = false;
+	bool stop_bits_one = false;
+	word tx_string = 0x0000;
+	int i = 0;
+
+	while( exit == false ) {
+
+		char MenuStr1[] = "Serial Setup`";
+		char MenuStr2[] = "--------------------`";
+		char MenuStr3[] = "Baud Rate: `";
+		char MenuStr4[] = " 1200 2400 4800 9600`";
+		char MenuStr5[] = "Parity: `";
+		char MenuStr6[] = " 1: Odd     2: Even `";
+		char MenuStr7[] = "                    `";
+		char MenuStr8[] = "Even`";
+		char MenuStr9[] = "Odd`";
+		char MenuStr10[]= "Stop Bits: `";
+		char MenuStr11[]= "1`";
+		char MenuStr12[]= "2`";
+		char MenuStr14[]= "Enter 4 chars for TX`";
+		char MenuStr15[]= "Chars transmitted   `";
+		char MenuStr16[]= "# : Return to Main  `";
+	
+		lcdClear();
+		lcdString( &MenuStr1 );
+		lcdLine(2);
+		lcdString( &MenuStr2 );
+
+		// baud prompt
+		while( (baud_rate != 0x1200) && (baud_rate != 0x2400) && (baud_rate != 0x4800) && (baud_rate != 0x9600)) {
+			lcdLine(4);
+			lcdString( &MenuStr4 );
+			lcdLine(3);
+			lcdString( &MenuStr7 );
+			lcdLine(3);
+			lcdString( &MenuStr3 );
+			baud_rate = input4Hex();
+		} // end baud rate input
+
+		// parity prompt
+		lcdLine(4);
+		lcdString( &MenuStr6 );
+		lcdLine(3);
+		lcdString( &MenuStr7 );
+		lcdLine(3);
+		lcdString( &MenuStr5 );
+		while(1) {	
+			keypad = getKeysPressed();
+		
+			if( keypad.k1 == true ) {
+				waitForKeyRelease();
+				parity_even = false;
+				lcdString( &MenuStr9 ); 
+				msDelay(500);
+				break;
+			}
+			else if( keypad.k2 == true ) {
+				waitForKeyRelease();
+				parity_even = true;
+				lcdString( &MenuStr8 );
+				msDelay(500);
+				break;
+			}
+		} // end parity while
+
+		// stop bit prompt
+		lcdLine(4);
+		lcdString( &MenuStr7 );
+		lcdLine(3);
+		lcdString( &MenuStr7 );
+		lcdLine(3);
+		lcdString( &MenuStr10 );
+		while(1) {	
+			keypad = getKeysPressed();
+		
+			if( keypad.k1 == true ) {
+				waitForKeyRelease();
+				stop_bits_one = true;
+				lcdString( &MenuStr11 ); 
+				msDelay(1000);
+				break;
+			}
+			else if( keypad.k2 == true ) {
+				waitForKeyRelease();
+				stop_bits_one = false;
+				lcdString( &MenuStr12 );
+				msDelay(1000);
+				break;
+			}
+		} // end stop bit while
+
+		// characters prompt
+		lcdClear();
+		lcdString( &MenuStr14 );
+		lcdLine(2);
+		tx_string = input4Hex();
+
+		// transmit string
+		TMOD = 0x20;	// Use Timer 1, 8-bit auto-reload
+		switch (baud_rate) {
+			 case (0x1200): TH1 = 0xE8;
+			 case (0x2400): TH1 = 0xF4;
+			 case (0x4800): TH1 = 0xFA;
+			 case (0x9600): TH1 = 0xFD;
+		} // end baud rate switch
+		SCON = 0xC0;
+		TR1 = 1;
+		for (i = 0; i < 4; i++) {
+			SBUF = 0x01;
+			while(TI==0);
+			TI = 0;
+		} // end transmit loop
+
+		// transmit complete
+		lcdLine(3);
+		lcdString( &MenuStr15 );
+		lcdLine(4);
+		lcdString( &MenuStr16 );
+
+		while(1) {	
+			keypad = getKeysPressed();
+	
+			if( keypad.kpound == true ) {
+				exit = true;
+				waitForKeyRelease();
+				break;
+			}
+		} // end option while
+	} // end main while
+
+} // end seerialMenu()
 // -------------------------------------------------------------- //
 
 void memoryMenu( void ) {
@@ -288,64 +400,6 @@ void memoryMenu( void ) {
 	} // end main while
 
 } // end memoryMenu()
-
-// -------------------------------------------------------------- //
-
-void ioMenu( void ) {
-
-	struct keypad_data keypad;
-	bool exit = false;
-
-	while( exit == false ) {
-
-		char MenuStr1[] = "I/O Menu`";
-		char MenuStr2[] = "1 : Temp   2 : 7-Seg`";
-		char MenuStr3[] = "3 : Time   4 : StopW`";
-		char MenuStr4[] = "# : Return to Main  `";
-	
-		lcdClear();
-		lcdString( &MenuStr1 );
-		lcdLine(2);
-		lcdString( &MenuStr2 );
-		lcdLine(3);
-		lcdString( &MenuStr3 );
-		lcdLine(4);
-		lcdString( &MenuStr4 );
-	
-		while(1) {	
-			keypad = getKeysPressed();
-		
-			if( keypad.kpound == true ) {
-				exit = true;
-				waitForKeyRelease();
-				break;
-			}
-			else if( keypad.k1 == true ) {
-				waitForKeyRelease();
-				tempMenu();
-				break;
-			}
-			else if( keypad.k2 == true ) {
-				waitForKeyRelease();
-				sevenSegMenu();
-				break;
-			}
-			else if( keypad.k3 == true ) {
-				waitForKeyRelease();
-				timeMenu();
-				break;
-			}
-			else if( keypad.k4 == true ) {
-				waitForKeyRelease();
-				stopwatchMenu();
-				break;
-			}
-		} // end option while
-
-	} // end main while
-
-} // end ioMenu()
-
 // -------------------------------------------------------------- //
 
 void dumpMenu( void ) {
@@ -773,314 +827,6 @@ void findMenu( void ) {
 	} // end main while
 
 } // end findMenu()
-
-// -------------------------------------------------------------- //
-
-void tempMenu( void ) {
-
-	struct keypad_data keypad;
-	bool exit = false;
-	int i = 0;
-
-	while( exit == false ) {
-
-		char MenuStr1[] = "Current Temperature`";
-		char MenuStr2[] = "+00.0 F`";
-		//char MenuStr3[] = " `";
-		char MenuStr4[] = "# : Return to I/O   `";
-	
-		lcdClear();
-		lcdString( &MenuStr1 );
-
-		lcdLine(2);
-		sprintf( MenuStr2, "%+5.1f F`", getTemp() );
-		lcdString( &MenuStr2 );
-
-		//lcdLine(3);
-		//lcdString( &MenuStr3 );
-		lcdLine(4);
-		lcdString( &MenuStr4 );
-	
-		while(1) {	
-
-			// slow LCD temp refresh rate down
-			if ( i == 1000 ) {
-				lcdLine(2);
-				sprintf( MenuStr2, "%+5.1f F`", getTemp() );
-				lcdString( &MenuStr2 );
-				i = 0;
-			}
-			else {
-				i++;
-			}
-
-			keypad = getKeysPressed();
-		
-			if( keypad.kpound == true ) {
-				exit = true;
-				waitForKeyRelease();
-				break;
-			}
-
-		} // end option while
-
-	} // end main while
-
-} // end tempMenu()
-
-// -------------------------------------------------------------- //
-
-void sevenSegMenu( void ) {
-
-	struct keypad_data keypad;
-	bool exit = false;
-	int i = 0;
-
-	while( exit == false ) {
-
-		char MenuStr1[] = "Seven Segment`";
-		char MenuStr2[] = "Display Demo`";
-		//char MenuStr3[] = " `";
-		char MenuStr4[] = "# : Return to I/O`";
-	
-		lcdClear();
-		lcdString( &MenuStr1 );
-
-		lcdLine(2);
-		lcdString( &MenuStr2 );
-
-		//lcdLine(3);
-		//lcdString( &MenuStr3 );
-		lcdLine(4);
-		lcdString( &MenuStr4 );
-	
-		while(1) {	
-
-			keypad = getKeysPressed();
-		
-			if( keypad.kpound == true ) {
-				exit = true;
-				outputSevenSeg('o'); // Turn display off when exiting
-				waitForKeyRelease();
-				break;
-			}
-
-			switch (i) {
-				
-				case 0: sevenSegPort = 0xFE; break;
-				case 1:	sevenSegPort = 0xFD; break;
-				case 2: sevenSegPort = 0xFB; break;
-				case 3: sevenSegPort = 0xF7; break;
-				case 4:	sevenSegPort = 0xEF; break;
-				case 5: sevenSegPort = 0xDF; break;
-				case 6: sevenSegPort = 0xBF; break;
-				case 7: sevenSegPort = 0x7F; break;
-				default: sevenSegPort = 0xFF; break;
-
-			} // end switch
-
-			if( i >= 7 ) {
-				i = 0;
-			} else {
-				i++;
-			}
-
-			latchSevenSeg();
-			msDelay(50);
-
-		} // end option while
-
-	} // end main while
-
-} // end sevenSegMenu()
-
-// -------------------------------------------------------------- //
-
-void timeMenu( void ) {
-
-	struct keypad_data keypad;
-	bool exit = false;
-	int i = 0;
-	struct time_data time;
-
-	while( exit == false ) {
-
-		char MenuStr1[] = "Real Time Clock`";
-		//char MenuStr2[] = "<Time>`";
-		//char MenuStr3[] = " `";
-		char MenuStr4[] = "# : Return to I/O   `";
-	
-		lcdClear();
-		lcdString( &MenuStr1 );
-
-		lcdLine(2);
-		time = rtcGetTime();
-		rtcPrintTime( &time );
-
-		//lcdLine(3);
-		//lcdString( &MenuStr3 );
-		lcdLine(4);
-		lcdString( &MenuStr4 );
-	
-		while(1) {	
-
-			// slow LCD time refresh rate down
-			if ( i == 1000 ) {
-				lcdLine(2);
-				time = rtcGetTime();
-				rtcPrintTime( &time );
-				i = 0;
-			}
-			else {
-				i++;
-			}
-
-			keypad = getKeysPressed();
-		
-			if( keypad.kpound == true ) {
-				exit = true;
-				waitForKeyRelease();
-				break;
-			}
-
-		} // end option while
-
-	} // end main while
-
-} // end timeMenu()
-
-// -------------------------------------------------------------- //
-
-void stopwatchMenu( void ) {
-
-	struct keypad_data keypad;
-	struct time_data original_start_time;
-	struct time_data start_time;
-	struct time_data current_time;
-	struct time_data timer;
-	bool exit;
-	bool running;
-	int i;
-
-	char MenuStr1[] = "Stopwatch`";
-	char MenuStr2[] = "No timer started    `";
-	char MenuStr3[] = "1: Start     2: Stop`";
-	char MenuStr4[] = "3: Clear     #: Exit`";
-
-	exit = false;
-	running = false;
-	i = 0;
-
-	// Initial display
-	lcdClear();
-	lcdString( &MenuStr1 );
-	lcdLine(2);
-	lcdString( &MenuStr2 );
-	lcdLine(3);
-	lcdString( &MenuStr3 );
-	lcdLine(4);
-	lcdString( &MenuStr4 );	
-	
-	while( exit == false ) {
-	
-		while(1) {	
-
-			if ( running == true) {
-				// slow LCD time refresh rate down
-				if ( i == 1000 ) {
-					
-					current_time = rtcGetTime();
-					start_time = original_start_time;
-		
-					//timer = current_time - start_time;
-					// seconds
-					if( current_time.seconds >= start_time.seconds ) {
-						timer.seconds = current_time.seconds - start_time.seconds;
-					}
-					else {
-						timer.seconds = current_time.seconds + 60 - start_time.seconds;
-						current_time.minutes--;
-					}
-					// minutes
-					if( current_time.minutes >= start_time.minutes ) {
-						timer.minutes = current_time.minutes - start_time.minutes;
-					}
-					else {
-						timer.minutes = current_time.minutes + 60 - start_time.minutes;
-						current_time.hours--;
-					}
-					// hours
-					if( current_time.hours >= start_time.hours ) {
-						timer.hours = current_time.hours - start_time.hours;
-					}
-					else {
-						timer.hours = current_time.hours + 24 - start_time.hours;
-						current_time.days--;
-					}
-					// days
-					if( current_time.days >= start_time.days ) {
-						timer.days = current_time.days - start_time.days;
-					}
-					else {
-						timer.days = current_time.days + 30 - start_time.days;
-						current_time.months--;
-					}
-					// months
-					if( current_time.months >= start_time.months ) {
-						timer.months = current_time.months - start_time.months;
-					}
-					else {
-						timer.months = current_time.months + 12 - start_time.months;
-						current_time.years--;
-					}
-					// years
-					timer.years = start_time.years - current_time.years;
-					//
-					timer.week = current_time.week;
-		
-					lcdLine(2);
-					rtcPrintTime( &timer );
-					i = 0;
-				}
-				else {
-					i++;
-				}
-			} // end running
-	
-			keypad = getKeysPressed();
-		
-			if( keypad.kpound == true ) {
-				exit = true;
-				waitForKeyRelease();
-				break;
-			}
-			if( keypad.k1 == true ) {
-				// Start timer
-				running = true;
-				original_start_time = rtcGetTime();
-				waitForKeyRelease();
-				break;
-			}
-			if( keypad.k2 == true ) {
-				// Stop timer
-				running = false;
-				waitForKeyRelease();
-				break;
-			}
-			if( keypad.k3 == true ) {
-				// Clear timer
-				running = false;
-				lcdLine(2);
-				lcdString( &MenuStr2 );
-				waitForKeyRelease();
-				break;
-			}
-	
-		} // end option while
-
-	} // end main while
-
-} // end stopwatchMenu()
 
 // -------------------------------------------------------------- //
 
@@ -1546,7 +1292,6 @@ void displayKeyPressed( struct keypad_data keypad ) {
 	}
 	
 } // end displayKeyPressed()
-	
 // -------------------------------------------------------------- //
 
 void lcdCmd( byte cmd ) {
@@ -1694,277 +1439,6 @@ void lcdAsciiByte( byte hex ) {
 	lcdChar( hex );
 
 } // end lcdHexWord()
-
-// -------------------------------------------------------------- //
-
-float getTemp( void ) {
-	
-	//------------ IDEA ------------------------------------------//
-	// change to pass in C or F and returns corresponding value.  //
-	
-	int i = 0;
-	byte sample = 0;
-	float voltage = 0;
-	float degC = 0;
-	float degF = 0;
-	int degCint = 0;
-//	char tempCStr[] = "+00.0 C`";
-//	char tempFStr[] = "+00.0 F`";
-//	char voltStr[] = "+0.0 V`";
-//	char sampStr[] = "55555555`";
-	
-		missionControl2( ctrl_adc_start );
-		missionControl2( ctrl_adc_finish );
-		sample = adcPort;
-		missionControl2( ctrl_off );
-		
-		// voltage reading in 0.3V higher than measured on board
-		voltage = sample * 5 / 256;
-		//voltage = voltage - 0.25;
-		degC = (voltage - 0.5) * 100;
-		degF = degC * (9.0/5.0) + 32.0;
-		
-		return degF;
-		
-//		sprintf( sampStr, "%c`", sample );
-//		sprintf( voltStr, "%+4.1f V`", voltage );
-//		sprintf( tempCStr, "%+5.1f C`", degC );
-//		sprintf( tempFStr, "%+5.1f F`", degF );
-		
-//		lcdLine(1);
-//		lcdString( &sampStr );
-//		lcdLine(2);
-//		lcdString( &voltStr );
-//		lcdLine(3);
-//		lcdString( &tempCStr );
-//		lcdLine(4);
-//		lcdString( &tempFStr );
-	
-} // end getDegF()
-
-// -------------------------------------------------------------- //
-
-void rtcInit( void ) {
-	
-	struct time_data time;
-
-	time.week = 0;
-	time.years = 17;
-	time.months = 3;
-	time.days = 26;
-	time.hours = 12;
-	time.minutes = 21;
-	time.seconds = 0;
-		
-	// (A)  Start the counter
-	//		 	Inititalize the control registers
-	rtcWrite( 0xF4 );		// Set the CF register to 0100b = 4h
-	rtcWrite( 0xD4 );		// Set the CD register to 0100b = 4h
-	
-	// (B)	Check the status of the BUSY bit
-	rtcBusy();	
-	
-	// (C)	STOP and RESET the counter
-	rtcWrite( 0xF7 );		// Set the CF register to 0111b = 7h
-	
-	// Set the current time in the registers
-	//		(initizlize the S1 to W registers)
-	rtcSetTime( time ); 
-	
-	// (A)	Start the counter and release the HOLD status
-	rtcWrite( 0xF4 );		// Set the CF register to 0100b = 4h
-	rtcWrite( 0xD5 );		// Set the CD register to 0101b = 5h
-	
-} // end rtcInit()
-
-// -------------------------------------------------------------- //
-
-void rtcBusy( void ) {
-	
-	byte duhdata;
-	
-	rtcWrite( 0xD5 );						// Hold bit <- 1
-	duhdata = rtcRead( 0x0D );	// Read from D to get BUSY// Read the BUSY bit
-
-	// If BUSY bit = 0, cont., else HOLD bit <- 0
-	while( duhdata & 0x02 == 2 ) {
-		rtcWrite( 0xD4 );						// HOLD bit <- 0
-		rtcWrite( 0xD5 );						// HOLD bit <- 1
-		duhdata = rtcRead( 0x0D );	// Read from D to get BUSY// Read the BUSY bit
-	}	
-	
-} // end rtcBusy()
-
-// -------------------------------------------------------------- //
-
-void rtcWrite( byte duhdata ) {
-	
-	missionControl2( ctrl_rtc_cs1 );	// set CS1 high
-	rtcPort = duhdata;					// send duhdata
-	missionControl2( ctrl_rtc_cs0 );	// set CS0 low
-	missionControl2( ctrl_rtc_wr );		// set WR low
-	missionControl2( ctrl_rtc_cs0 );	// set WR high
-	missionControl2( ctrl_rtc_cs1 );	// set CS0 high
-	missionControl2( ctrl_off );		// set CS1 low
-	
-} // end rtcWrite()
-
-// -------------------------------------------------------------- //
-
-byte rtcRead( byte duhaddress ) {
-	
-	byte duhdata = 0x00;
-	
-	duhaddress = duhaddress << 4;
-	duhaddress = duhaddress | 0x0F;
-	
-	missionControl2( ctrl_rtc_cs1 );	// set CS1 high
-	rtcPort = duhaddress;				// send duhaddress
-	missionControl2( ctrl_rtc_cs0 );	// set CS0 low
-	missionControl2( ctrl_rtc_rd );		// set RD low
-	duhdata = rtcPort;					// read duhdata
-	duhdata &= 0x0F;					// mask upper nibble of value read in
-	missionControl2( ctrl_rtc_cs0 );	// set RD high
-	missionControl2( ctrl_rtc_cs1 );	// set CS0 high
-	missionControl2( ctrl_off );		// set CS1 low
-	
-	return duhdata;
-	
-} // end rtcRead()
-
-// -------------------------------------------------------------- //
-
-void rtcRegWrite( byte duhstuff ) {
-	
-	rtcBusy();
-	rtcWrite( duhstuff );
-	// HOLD bit <- 0 by rtcWrite when CS1 is cleared
-	
-} // end rtcRegWrite()
-
-// -------------------------------------------------------------- //
-
-byte rtcRegRead( byte duhstuff ) {
-	
-	byte duhdata;
-
-	rtcBusy();
-	duhdata = rtcRead( duhstuff );
-	// HOLD bit <- 0 by rtcWrite when CS1 is cleared
-	return duhdata;
-	
-} // end rtcRegWrite()
-
-// -------------------------------------------------------------- //
-
-void rtcSetTime( struct time_data time ) {
-	
-	byte s1, s10, mi1, mi10, h1, h10, d1, d10, mo1, mo10, y1, y10;
-	
-	// 1-second
-	s1 = time.seconds % 10;
-	rtcRegWrite( 0x00 | s1 );
-	
-	// 10-second
-	s10 = time.seconds / 10;
-	rtcRegWrite( 0x10 | s10 );
-	
-	// 1-minute
-	mi1 = time.minutes % 10;
-	rtcRegWrite( 0x20 | mi1 );
-	
-	// 10-minute
-	mi10 = time.minutes / 10;
-	rtcRegWrite( 0x30 | mi10 );
-	
-	// 1-hour
-	h1 = time.hours % 10;
-	rtcRegWrite( 0x40 | h1 );
-	
-	// 10-hour
-	h10 = time.hours / 10;
-	rtcRegWrite( 0x50 | h10 );
-	
-	// 1-day
-	d1 = time.days % 10;
-	rtcRegWrite( 0x60 | d1 );
-	
-	// 10-day
-	d10 = time.days / 10;
-	rtcRegWrite( 0x70 | d10 );
-	
-	// 1-month
-	mo1 = time.months % 10;
-	rtcRegWrite( 0x80 | mo1 );
-	
-	// 10-month
-	mo10 = time.months / 10;
-	rtcRegWrite( 0x90 | mo10 );
-	
-	// 1-year
-	y1 = time.years % 10;
-	rtcRegWrite( 0xA0 | y1 );
-	
-	// 10-year
-	y10 = time.years / 10;
-	rtcRegWrite( 0xB0 | y10 );
-	
-	// Day of the week
-	rtcRegWrite( 0xC0 | time.week );
-	
-} // end rtcSetTime()
-
-// -------------------------------------------------------------- //
-
-struct time_data rtcGetTime( void ) {
-	
-	struct time_data time;
-	byte s1, s10, mi1, mi10, h1, h10, d1, d10, mo1, mo10, y1, y10, w;
-	
-	s1 = rtcRegRead( 0x00 );
-	s10 = rtcRegRead( 0x01 );
-	time.seconds = s1 + ( s10 * 10 );
-
-	mi1 = rtcRegRead( 0x02 );
-	mi10 = rtcRegRead( 0x03 );
-	time.minutes = mi1 + ( mi10 * 10 );
-
-	h1 = rtcRegRead( 0x04 );
-	h10 = rtcRegRead( 0x05 );
-	time.hours = h1 + ( h10 * 10 );
-
-	d1 = rtcRegRead( 0x06 );
-	d10 = rtcRegRead( 0x07 );
-	time.days = d1 + ( d10 * 10 );
-
-	mo1 = rtcRegRead( 0x08 );
-	mo10 = rtcRegRead( 0x09 );
-	time.months = mo1 + ( mo10 * 10 );
-
-	y1 = rtcRegRead( 0x0A );
-	y10 = rtcRegRead( 0x0B );
-	time.years = y1 + ( y10 * 10 );
-
-	w = rtcRegRead( 0x0C );
-	time.week = w;
-
-	return time;
-	
-} // end rtcSetTime()
-
-// -------------------------------------------------------------- //
-
-void rtcPrintTime( struct time_data *time ) {
-
-	char timeStr[] = "0 00/00/00 00:00:00`";
-
-	sprintf( timeStr, "%d %02d/%02d/%02d %02d:%02d:%02d`", 
-			(int)time->week, 
-			(int)time->months, (int)time->days, (int)time->years, 
-			(int)time->hours, (int)time->minutes, (int)time->seconds );
-	lcdString( &timeStr );
-
-} // end rtcPrintTime()
 
 // -------------------------------------------------------------- //
 
