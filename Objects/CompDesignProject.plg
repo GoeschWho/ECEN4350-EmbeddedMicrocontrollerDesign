@@ -9,79 +9,12 @@ Project File Date:  09/16/2017
 <h2>Output:</h2>
 Build target 'Target 1'
 compiling CompDesignProject.c...
-COMPDESIGNPROJECT.C(226): warning C206: 'serialMenu': missing function-prototype
-linking...
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?SEVENSEGMENU?COMPDESIGNPROJECT
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_MISSIONCONTROL2?COMPDESIGNPROJECT
-*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
-    SYMBOL:  SERIALMENU
-    MODULE:  .\Objects\CompDesignProject.obj (COMPDESIGNPROJECT)
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  SERIALMENU
-    MODULE:  .\Objects\CompDesignProject.obj (COMPDESIGNPROJECT)
-    ADDRESS: 1C0EH
-Program Size: data=15.1 xdata=458 code=8204
-creating hex file from ".\Objects\CompDesignProject"...
-".\Objects\CompDesignProject" - 0 Error(s), 6 Warning(s).
-Build target 'Target 1'
-compiling CompDesignProject.c...
-COMPDESIGNPROJECT.C(226): warning C206: 'serialMenu': missing function-prototype
-COMPDESIGNPROJECT.C(237): error C231: 'serialMenu': redefinition
-COMPDESIGNPROJECT.C(257): error C202: 'buad_rate': undefined identifier
-COMPDESIGNPROJECT.C(267): error C202: 'exit': undefined identifier
-COMPDESIGNPROJECT.C(271): error C202: 'exit': undefined identifier
-COMPDESIGNPROJECT.C(279): error C231: 'serialMenu': redefinition
-Target not created
-Build target 'Target 1'
-compiling CompDesignProject.c...
-COMPDESIGNPROJECT.C(241): error C202: 'buad_rate': undefined identifier
-COMPDESIGNPROJECT.C(251): error C202: 'exit': undefined identifier
-COMPDESIGNPROJECT.C(255): error C202: 'exit': undefined identifier
-Target not created
-Build target 'Target 1'
-compiling CompDesignProject.c...
-COMPDESIGNPROJECT.C(242): error C202: 'buad_rate': undefined identifier
-Target not created
-Build target 'Target 1'
-compiling CompDesignProject.c...
-COMPDESIGNPROJECT.C(230): error C141: syntax error near 'char'
-COMPDESIGNPROJECT.C(231): error C141: syntax error near 'char'
-COMPDESIGNPROJECT.C(232): error C141: syntax error near 'char'
-COMPDESIGNPROJECT.C(233): error C141: syntax error near 'char'
-COMPDESIGNPROJECT.C(236): error C202: 'MenuStr1': undefined identifier
-COMPDESIGNPROJECT.C(238): error C202: 'MenuStr2': undefined identifier
-COMPDESIGNPROJECT.C(240): error C202: 'buad_rate': undefined identifier
-COMPDESIGNPROJECT.C(243): error C202: 'MenuStr3': undefined identifier
-COMPDESIGNPROJECT.C(245): error C202: 'MenuStr4': undefined identifier
-Target not created
-Build target 'Target 1'
-compiling CompDesignProject.c...
-COMPDESIGNPROJECT.C(241): error C202: 'buad_rate': undefined identifier
-Target not created
-Build target 'Target 1'
-compiling CompDesignProject.c...
-linking...
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?SEVENSEGMENU?COMPDESIGNPROJECT
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_MISSIONCONTROL2?COMPDESIGNPROJECT
-Program Size: data=15.1 xdata=458 code=8501
-creating hex file from ".\Objects\CompDesignProject"...
-".\Objects\CompDesignProject" - 0 Error(s), 3 Warning(s).
-Build target 'Target 1'
-compiling CompDesignProject.c...
 linking...
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_MISSIONCONTROL2?COMPDESIGNPROJECT
-Program Size: data=15.1 xdata=391 code=8160
+Program Size: data=15.1 xdata=414 code=8915
 creating hex file from ".\Objects\CompDesignProject"...
 ".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
 Build target 'Target 1'
@@ -91,7 +24,7 @@ linking...
     SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_MISSIONCONTROL2?COMPDESIGNPROJECT
-Program Size: data=15.1 xdata=391 code=8160
+Program Size: data=15.1 xdata=414 code=8937
 creating hex file from ".\Objects\CompDesignProject"...
 ".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
 Build target 'Target 1'
@@ -101,13 +34,72 @@ linking...
     SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_MISSIONCONTROL2?COMPDESIGNPROJECT
-Program Size: data=15.1 xdata=391 code=8160
+Program Size: data=15.1 xdata=405 code=8841
 creating hex file from ".\Objects\CompDesignProject"...
 ".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
 Build target 'Target 1'
 compiling CompDesignProject.c...
-COMPDESIGNPROJECT.C(251): error C202: 'end': undefined identifier
-COMPDESIGNPROJECT.C(251): error C141: syntax error near 'main'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_MISSIONCONTROL2?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=405 code=8859
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_MISSIONCONTROL2?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=405 code=8859
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_MISSIONCONTROL2?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=405 code=8859
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_MISSIONCONTROL2?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=405 code=8773
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_MISSIONCONTROL2?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=405 code=8773
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_MISSIONCONTROL2?COMPDESIGNPROJECT
+Program Size: data=15.1 xdata=405 code=8859
+creating hex file from ".\Objects\CompDesignProject"...
+".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling CompDesignProject.c...
+COMPDESIGNPROJECT.C(311): error C202: 'baudrate': undefined identifier
 Target not created
 Build target 'Target 1'
 compiling CompDesignProject.c...
@@ -116,7 +108,7 @@ linking...
     SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_MISSIONCONTROL2?COMPDESIGNPROJECT
-Program Size: data=15.1 xdata=391 code=8165
+Program Size: data=15.1 xdata=409 code=8868
 creating hex file from ".\Objects\CompDesignProject"...
 ".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
 Build target 'Target 1'
@@ -126,7 +118,7 @@ linking...
     SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_MISSIONCONTROL2?COMPDESIGNPROJECT
-Program Size: data=15.1 xdata=391 code=8165
+Program Size: data=15.1 xdata=405 code=8865
 creating hex file from ".\Objects\CompDesignProject"...
 ".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
 Build target 'Target 1'
@@ -136,7 +128,7 @@ linking...
     SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_MISSIONCONTROL2?COMPDESIGNPROJECT
-Program Size: data=15.1 xdata=391 code=8314
+Program Size: data=15.1 xdata=405 code=8847
 creating hex file from ".\Objects\CompDesignProject"...
 ".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
 Build target 'Target 1'
@@ -146,7 +138,7 @@ linking...
     SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_MISSIONCONTROL2?COMPDESIGNPROJECT
-Program Size: data=15.1 xdata=391 code=8377
+Program Size: data=15.1 xdata=405 code=8847
 creating hex file from ".\Objects\CompDesignProject"...
 ".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
 Build target 'Target 1'
@@ -156,7 +148,7 @@ linking...
     SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_MISSIONCONTROL2?COMPDESIGNPROJECT
-Program Size: data=15.1 xdata=391 code=8377
+Program Size: data=15.1 xdata=405 code=8847
 creating hex file from ".\Objects\CompDesignProject"...
 ".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
 Build target 'Target 1'
@@ -166,7 +158,7 @@ linking...
     SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_MISSIONCONTROL2?COMPDESIGNPROJECT
-Program Size: data=15.1 xdata=391 code=8449
+Program Size: data=15.1 xdata=405 code=8847
 creating hex file from ".\Objects\CompDesignProject"...
 ".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
 Build target 'Target 1'
@@ -176,7 +168,7 @@ linking...
     SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_MISSIONCONTROL2?COMPDESIGNPROJECT
-Program Size: data=15.1 xdata=391 code=8625
+Program Size: data=15.1 xdata=405 code=8864
 creating hex file from ".\Objects\CompDesignProject"...
 ".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
 Build target 'Target 1'
@@ -186,74 +178,6 @@ linking...
     SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_MISSIONCONTROL2?COMPDESIGNPROJECT
-Program Size: data=15.1 xdata=391 code=8631
-creating hex file from ".\Objects\CompDesignProject"...
-".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
-Build target 'Target 1'
-compiling CompDesignProject.c...
-linking...
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_MISSIONCONTROL2?COMPDESIGNPROJECT
-Program Size: data=15.1 xdata=391 code=8625
-creating hex file from ".\Objects\CompDesignProject"...
-".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
-Build target 'Target 1'
-compiling CompDesignProject.c...
-linking...
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_MISSIONCONTROL2?COMPDESIGNPROJECT
-Program Size: data=15.1 xdata=431 code=8853
-creating hex file from ".\Objects\CompDesignProject"...
-".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
-Build target 'Target 1'
-compiling CompDesignProject.c...
-linking...
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_MISSIONCONTROL2?COMPDESIGNPROJECT
-Program Size: data=15.1 xdata=409 code=8803
-creating hex file from ".\Objects\CompDesignProject"...
-".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
-Build target 'Target 1'
-compiling CompDesignProject.c...
-linking...
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_MISSIONCONTROL2?COMPDESIGNPROJECT
-Program Size: data=15.1 xdata=409 code=8803
-creating hex file from ".\Objects\CompDesignProject"...
-".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
-Build target 'Target 1'
-compiling CompDesignProject.c...
-COMPDESIGNPROJECT.C(322): error C141: syntax error near 'int'
-COMPDESIGNPROJECT.C(322): error C202: 'i': undefined identifier
-COMPDESIGNPROJECT.C(322): error C202: 'i': undefined identifier
-COMPDESIGNPROJECT.C(322): error C202: 'i': undefined identifier
-COMPDESIGNPROJECT.C(322): error C141: syntax error near ')'
-Target not created
-Build target 'Target 1'
-compiling CompDesignProject.c...
-linking...
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_MISSIONCONTROL2?COMPDESIGNPROJECT
-Program Size: data=15.1 xdata=411 code=8950
-creating hex file from ".\Objects\CompDesignProject"...
-".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).
-Build target 'Target 1'
-compiling CompDesignProject.c...
-linking...
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?DISPLAYKEYPRESSED?COMPDESIGNPROJECT
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_MISSIONCONTROL2?COMPDESIGNPROJECT
-Program Size: data=15.1 xdata=411 code=8950
+Program Size: data=15.1 xdata=405 code=8872
 creating hex file from ".\Objects\CompDesignProject"...
 ".\Objects\CompDesignProject" - 0 Error(s), 2 Warning(s).

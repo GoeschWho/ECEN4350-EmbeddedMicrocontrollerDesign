@@ -213,8 +213,8 @@ void serialMenu( void ) {
 	struct keypad_data keypad;
    	bool exit = false;
 	word baud_rate = 0x0000;
-	bool parity_even = false;
-	bool stop_bits_one = false;
+	bool parity = false;
+	bool stop_bits = false;
 	word tx_string = 0x0000;
 	int i = 0;
 
@@ -222,16 +222,16 @@ void serialMenu( void ) {
 
 		char MenuStr1[] = "Serial Setup`";
 		char MenuStr2[] = "--------------------`";
+
 		char MenuStr3[] = "Baud Rate: `";
 		char MenuStr4[] = " 1200 2400 4800 9600`";
-		char MenuStr5[] = "Parity: `";
-		char MenuStr6[] = " 1: Odd     2: Even `";
+
+		char MenuStr5[] = "Use parity bit?`";
 		char MenuStr7[] = "                    `";
-		char MenuStr8[] = "Even`";
-		char MenuStr9[] = "Odd`";
-		char MenuStr10[]= "Stop Bits: `";
-		char MenuStr11[]= "1`";
-		char MenuStr12[]= "2`";
+
+		char MenuStr10[]= "Start & stop bits?`";
+		char MenuStr11[]= " 1: Yes     2: No`";
+
 		char MenuStr14[]= "Enter 4 chars for TX`";
 		char MenuStr15[]= "Chars transmitted   `";
 		char MenuStr16[]= "# : Return to Main  `";
@@ -241,43 +241,6 @@ void serialMenu( void ) {
 		lcdLine(2);
 		lcdString( &MenuStr2 );
 
-		// baud prompt
-		while( (baud_rate != 0x1200) && (baud_rate != 0x2400) && (baud_rate != 0x4800) && (baud_rate != 0x9600)) {
-			lcdLine(4);
-			lcdString( &MenuStr4 );
-			lcdLine(3);
-			lcdString( &MenuStr7 );
-			lcdLine(3);
-			lcdString( &MenuStr3 );
-			baud_rate = input4Hex();
-		} // end baud rate input
-
-		// parity prompt
-		lcdLine(4);
-		lcdString( &MenuStr6 );
-		lcdLine(3);
-		lcdString( &MenuStr7 );
-		lcdLine(3);
-		lcdString( &MenuStr5 );
-		while(1) {	
-			keypad = getKeysPressed();
-		
-			if( keypad.k1 == true ) {
-				waitForKeyRelease();
-				parity_even = false;
-				lcdString( &MenuStr9 ); 
-				msDelay(500);
-				break;
-			}
-			else if( keypad.k2 == true ) {
-				waitForKeyRelease();
-				parity_even = true;
-				lcdString( &MenuStr8 );
-				msDelay(500);
-				break;
-			}
-		} // end parity while
-
 		// stop bit prompt
 		lcdLine(4);
 		lcdString( &MenuStr7 );
@@ -285,24 +248,59 @@ void serialMenu( void ) {
 		lcdString( &MenuStr7 );
 		lcdLine(3);
 		lcdString( &MenuStr10 );
+		lcdLine(4);
+		lcdString( &MenuStr11 );
+
 		while(1) {	
 			keypad = getKeysPressed();
 		
 			if( keypad.k1 == true ) {
 				waitForKeyRelease();
-				stop_bits_one = true;
-				lcdString( &MenuStr11 ); 
-				msDelay(1000);
+				stop_bits = true; 
 				break;
 			}
 			else if( keypad.k2 == true ) {
 				waitForKeyRelease();
-				stop_bits_one = false;
-				lcdString( &MenuStr12 );
-				msDelay(1000);
+				stop_bits = false;
 				break;
 			}
 		} // end stop bit while
+
+		// parity prompt
+		if (stop_bits == true) {
+			lcdLine(3);
+			lcdString( &MenuStr7 );
+			lcdLine(3);
+			lcdString( &MenuStr5 );
+	
+			while(1) {	
+				keypad = getKeysPressed();
+			
+				if( keypad.k1 == true ) {
+					waitForKeyRelease();
+					parity = true;
+					break;
+				}
+				else if( keypad.k2 == true ) {
+					waitForKeyRelease();
+					parity = false;
+					break;
+				}
+			} // end parity while
+		} // end parity prompt
+
+		if (stop_bits == true) {
+			// baud prompt
+			while( (baud_rate != 0x1200) && (baud_rate != 0x2400) && (baud_rate != 0x4800) && (baud_rate != 0x9600)) {
+				lcdLine(4);
+				lcdString( &MenuStr4 );
+				lcdLine(3);
+				lcdString( &MenuStr7 );
+				lcdLine(3);
+				lcdString( &MenuStr3 );
+				baud_rate = input4Hex();
+			} // end baud rate input
+		} // end baud rate prompt
 
 		// characters prompt
 		lcdClear();
@@ -310,23 +308,46 @@ void serialMenu( void ) {
 		lcdLine(2);
 		tx_string = input4Hex();
 
-		// transmit string
+		// set transmit settings
 		TMOD = 0x20;	// Use Timer 1, 8-bit auto-reload
-		switch (baud_rate) {
-			 case (0x1200): TH1 = 0xE8;
-			 case (0x2400): TH1 = 0xF4;
-			 case (0x4800): TH1 = 0xFA;
-			 case (0x9600): TH1 = 0xFD;
-		} // end baud rate switch
-		SCON = 0xC0;
-		TR1 = 1;
-		for (i = 0; i < 4; i++) {
-			SBUF = 0x01;
-			while(TI==0);
-			TI = 0;
-		} // end transmit loop
 
-		// transmit complete
+		switch (baud_rate) {
+			 case (0x1200): TH1 = 0xE6; break;
+			 case (0x2400): TH1 = 0xF3; break;
+			 case (0x4800): TH1 = 0xFA; break;
+			 case (0x9600): TH1 = 0xFD; break;
+		} // end baud rate switch
+
+		if (stop_bits == false) {	// use mode 0
+			SCON = 0x10;
+		}
+		else if (parity == false) {	// use mode 1
+			SCON = 0x50;		   	
+		}
+		else {				  		// use mode 3
+			SCON = 0xC0;	
+		}
+
+		// transmit
+		TR1 = 1;
+		ACC = (tx_string>>8) & 0xFF;
+		if (P) {	// set parity bit
+			SCON = SCON | 0x08;
+		}
+		SBUF = (tx_string>>8) & 0xFF;
+		while(TI==0);
+		TI = 0;
+
+		SCON = SCON &0xF7; // clear parity bit
+		ACC = tx_string & 0xFF;
+		if (P) {	// set parity bit
+			SCON = SCON | 0x08;
+		}
+		SBUF = tx_string & 0xFF;
+		while(TI==0);
+		TI = 0;
+
+		// transmit complete message
 		lcdLine(3);
 		lcdString( &MenuStr15 );
 		lcdLine(4);
