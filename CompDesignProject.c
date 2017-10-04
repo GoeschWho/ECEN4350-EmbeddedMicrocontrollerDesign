@@ -128,11 +128,8 @@ word inputHex( void );
 void waitForKeyRelease( void );
 
 //------- low level prototypes -------//
-void latchSevenSeg( void );
 void latchKeypad( void );
-void outputSevenSeg( char character );
 struct keypad_data getKeysPressed( void );
-void displayKeyPressed( struct keypad_data keypad );
 
 void lcdCmd( byte cmd );
 void lcdData( byte dat );
@@ -146,7 +143,6 @@ void lcdHexByte( byte hex );
 void lcdAsciiByte( byte hex );
 
 void missionControl1( int dec );
-void missionControl2( int dec );
 void msDelay( unsigned msecs );
 
 // ======================== main ================================ //
@@ -1048,18 +1044,6 @@ void waitForKeyRelease( void ) {
 
 // -------------------------------------------------------------- //
 
-void latchSevenSeg( void ) {
-	
-//	cs_sevenSeg = 1;
-//	cs_sevenSeg = 0;
-	
-	missionControl1( ctrl_ss_latch );
-	missionControl1( ctrl_off );
-	
-} // end latchSevenSeg()
-
-// -------------------------------------------------------------- //
-
 void latchKeypad( void ) {
 	
 //	cs_keypad = 1;
@@ -1070,37 +1054,6 @@ void latchKeypad( void ) {
 	
 } // end latchKeypad()
 
-
-// -------------------------------------------------------------- //
-
-void outputSevenSeg( char character ) {
-	
-	switch( character ) {
-		case '0': sevenSegPort = ~0x3F; break;
-		case '1': sevenSegPort = ~0x06; break;
-		case '2': sevenSegPort = ~0x5B; break;
-		case '3': sevenSegPort = ~0x4F; break;
-		case '4': sevenSegPort = ~0x66; break;
-		case '5': sevenSegPort = ~0x6D; break;
-		case '6': sevenSegPort = ~0x7D; break;
-		case '7': sevenSegPort = ~0x07; break;
-		case '8': sevenSegPort = ~0x7F; break;
-		case '9': sevenSegPort = ~0x67; break;
-		case 'A': sevenSegPort = ~0x77; break;
-		case 'b': sevenSegPort = ~0x7C; break;
-		case 'C': sevenSegPort = ~0x39; break;
-		case 'd': sevenSegPort = ~0x5E; break;
-		case 'E': sevenSegPort = ~0x79; break;
-		case 'F': sevenSegPort = ~0x71; break;
-		case '-': sevenSegPort = 0xBF; 	break;
-		case '.': sevenSegPort = 0x7F;	break;
-		case 'o': sevenSegPort = 0xFF;  break;  // off
-		default:  sevenSegPort = 0xAA; 					// invalid
-	}
-	
-	latchSevenSeg();
-	
-} // end outputSevenSeg()
 
 // -------------------------------------------------------------- //
 
@@ -1256,63 +1209,6 @@ struct keypad_data getKeysPressed( void ) {
 	
 } // end getKeysPressed()
 
-// -------------------------------------------------------------- //
-
-void displayKeyPressed( struct keypad_data keypad ) {
-	
-	if ( keypad.k1 == 1 ) {
-		outputSevenSeg('1');
-	}
-	else if ( keypad.k2 == 1 ) {
-		outputSevenSeg('2');
-	}
-	else if ( keypad.k3 == 1 ) {
-		outputSevenSeg('3');
-	}
-	else if ( keypad.k4 == 1 ) {
-		outputSevenSeg('4');
-	}
-	else if ( keypad.k5 == 1 ) {
-		outputSevenSeg('5');
-	}
-	else if ( keypad.k6 == 1 ) {
-		outputSevenSeg('6');
-	}
-	else if ( keypad.k7 == 1 ) {
-		outputSevenSeg('7');
-	}
-	else if ( keypad.k8 == 1 ) {
-		outputSevenSeg('8');
-	}
-	else if ( keypad.k9 == 1 ) {
-		outputSevenSeg('9');
-	}
-	else if ( keypad.kA == 1 ) {
-		outputSevenSeg('A');
-	}
-	else if ( keypad.k0 == 1 ) {
-		outputSevenSeg('0');
-	}
-	else if ( keypad.kB == 1 ) {
-		outputSevenSeg('b');
-	}
-	else if ( keypad.kC == 1 ) {
-		outputSevenSeg('C');
-	}
-	else if ( keypad.kD == 1 ) {
-		outputSevenSeg('d');
-	}
-	else if ( keypad.kstar == 1 ) {
-		outputSevenSeg('.');
-	}
-	else if ( keypad.kpound == 1 ) {
-		outputSevenSeg('-');
-	}
-	else {
-		outputSevenSeg('o');
-	}
-	
-} // end displayKeyPressed()
 // -------------------------------------------------------------- //
 
 void lcdCmd( byte cmd ) {
@@ -1520,64 +1416,6 @@ void missionControl1( int dec ) {
 	} // end switch
 	
 } // end missionControl1()
-
-// -------------------------------------------------------------- //
-
-void missionControl2( int dec ) {
-	
-	switch ( dec ) {
-		case ctrl_off: {
-			dec4 = 0;
-			dec3 = 0;
-			dec5 = 0;
-			break;
-		}
-		case ctrl_adc_start: {
-			dec4 = 0;
-			dec3 = 1;
-			dec5 = 0;
-			break;
-		}
-		case ctrl_rtc_rd: {
-			dec4 = 1;
-			dec3 = 0;
-			dec5 = 0;
-			break;
-		}
-		case ctrl_adc_finish: {
-			dec4 = 1;
-			dec3 = 1;
-			dec5 = 0;
-			break;
-		}
-		case ctrl_rtc_cs1: {
-			dec4 = 0;
-			dec3 = 0;
-			dec5 = 1;
-			break;
-		}
-		// not used
-//		case ctrl_rtc_cs0: {
-//			dec5 = 1;
-//			dec4 = 0;
-//			dec3 = 1;
-//			break;
-//		}
-		case ctrl_rtc_cs0: {
-			dec4 = 1;
-			dec3 = 0;
-			dec5 = 1;
-			break;
-		}
-		case ctrl_rtc_wr: {
-			dec4 = 1;
-			dec3 = 1;
-			dec5 = 1;
-			break;
-		}		
-	} // end switch
-	
-} // end missionControl2()
 
 // -------------------------------------------------------------- //
 
