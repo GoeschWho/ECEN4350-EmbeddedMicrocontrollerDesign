@@ -9,9 +9,15 @@
  *
  * ========================================
 */
-#include <project.h>
 
+/* Includes */
+#include <project.h>
+#include <gfx.h>
+
+/* Function Delarations */
 void StackEventHandler( uint32 eventCode, void *eventParam );
+systemticks_t gfxSystemTicks(void);
+systemticks_t gfxMillisecondsToTicks(delaytime_t ms);
 
 /* define the test register to switch the PA/LNA hardware control pins */
 #define CYREG_SRSS_TST_DDFT_CTRL 0x40030008
@@ -21,12 +27,15 @@ int main()
      CyGlobalIntEnable;   /* Enable global interrupts */
     
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
-
-    CyBle_Start( StackEventHandler );
+    CySysTickStart();
+    gfxInit();    
     
+    CyBle_Start( StackEventHandler );
+
     for(;;)
     {
         /* Place your application code here */
+        //gfxSleepMilliseconds(500);
         CyBle_ProcessEvents();
     }
 }
@@ -56,3 +65,11 @@ void StackEventHandler( uint32 eventCode, void *eventParam )
 }    
             
 /* [] END OF FILE */
+
+systemticks_t gfxSystemTicks() {
+    return CySysTickGetValue();
+}
+
+systemticks_t gfxMillisecondsToTicks(delaytime_t ms) {
+    return ms;
+}

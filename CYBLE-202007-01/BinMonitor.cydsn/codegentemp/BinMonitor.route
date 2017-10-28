@@ -1,0 +1,38 @@
+net ClockBlock_HFClk
+	term   ":m0s8clockblockcell.hfclk"
+	switch ":m0s8clockblockcell.hfclk==>:interrupt_12.clock"
+	term   ":interrupt_12.clock"
+end ClockBlock_HFClk
+net \BLE_1:Net_15\
+	term   ":p4blecell.interrupt"
+	switch ":p4blecell.interrupt==>:interrupt_idmux_12.in_0"
+	switch ":interrupt_idmux_12.interrupt_idmux_12__out==>:interrupt_12.interrupt"
+	term   ":interrupt_12.interrupt"
+end \BLE_1:Net_15\
+net \SPI_1:Net_1297\
+	term   ":ioport1:pin6.fb"
+	switch ":ioport1:pin6.fb==>:ioport1:hsiom_in6.hsiom6_in"
+	switch ":ioport1:hsiom_in6.fixed_DPSLP_3==>:m0s8scbcell_0__select_s__hsiom_permute.ioport1__fixed_out_p6_DPSLP_3"
+	switch ":m0s8scbcell_0__select_s__hsiom_permute.m0s8scbcell_0__select_s==>:m0s8scbcell_0.select_s"
+	term   ":m0s8scbcell_0.select_s"
+end \SPI_1:Net_1297\
+net \SPI_1:miso_s_wire\
+	term   ":m0s8scbcell_0.miso_s"
+	switch ":m0s8scbcell_0.miso_s==>:ioport0:hsiom_out5.fixed_DPSLP_3"
+	switch ":ioport0:hsiom_out5.hsiom5_out==>:ioport0:pin5.pin_input"
+	term   ":ioport0:pin5.pin_input"
+end \SPI_1:miso_s_wire\
+net \SPI_1:mosi_s_wire\
+	term   ":ioport0:pin4.fb"
+	switch ":ioport0:pin4.fb==>:ioport0:hsiom_in4.hsiom4_in"
+	switch ":ioport0:hsiom_in4.fixed_DPSLP_3==>:m0s8scbcell_0__mosi_s__hsiom_permute.ioport0__fixed_out_p4_DPSLP_3"
+	switch ":m0s8scbcell_0__mosi_s__hsiom_permute.m0s8scbcell_0__mosi_s==>:m0s8scbcell_0.mosi_s"
+	term   ":m0s8scbcell_0.mosi_s"
+end \SPI_1:mosi_s_wire\
+net \SPI_1:sclk_s_wire\
+	term   ":ioport1:pin7.fb"
+	switch ":ioport1:pin7.fb==>:ioport1:hsiom_in7.hsiom7_in"
+	switch ":ioport1:hsiom_in7.fixed_DPSLP_3==>:m0s8scbcell_0__sclk_s__hsiom_permute.ioport1__fixed_out_p7_DPSLP_3"
+	switch ":m0s8scbcell_0__sclk_s__hsiom_permute.m0s8scbcell_0__sclk_s==>:m0s8scbcell_0.sclk_s"
+	term   ":m0s8scbcell_0.sclk_s"
+end \SPI_1:sclk_s_wire\
