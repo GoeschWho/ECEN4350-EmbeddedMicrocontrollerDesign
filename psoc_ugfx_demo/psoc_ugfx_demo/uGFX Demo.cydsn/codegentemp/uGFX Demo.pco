@@ -1,0 +1,54 @@
+# uGFX Demo
+# 2016-08-05 10:27:48Z
+
+# IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 0
+# IO_1@[IOP=(1)][IoId=(1)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 1
+# IO_3@[IOP=(1)][IoId=(3)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 3
+set_location "\LCD_SPI:BSPIM:mosi_pre_reg_split\" 0 3 1 0
+set_location "ClockBlock" clockblockcell -1 -1 0
+set_io "LCD_CS(0)" iocell 2 7
+set_io "LCD_SCK(0)" iocell 2 6
+set_io "LCD_MOSI(0)" iocell 2 5
+set_io "LCD_MISO(0)" iocell 2 4
+set_io "LCD_DC(0)" iocell 2 3
+set_io "LCD_RST(0)" iocell 2 0
+set_location "\LCD_SPI:BSPIM:load_rx_data\" 1 4 0 2
+set_location "Net_310" 0 4 1 2
+set_location "\LCD_SPI:BSPIM:tx_status_0\" 0 4 0 2
+set_location "\LCD_SPI:BSPIM:tx_status_4\" 0 3 0 1
+set_location "\LCD_SPI:BSPIM:rx_status_6\" 1 3 0 1
+set_location "\Systick_Counter:CounterUDB:status_0\" 2 1 0 0
+set_location "\Systick_Counter:CounterUDB:status_2\" 2 1 0 1
+set_location "\Systick_Counter:CounterUDB:count_enable\" 3 0 0 0
+set_location "\LCD_SPI:RxInternalInterrupt\" interrupt -1 -1 0
+set_location "__ONE__" 3 4 1 2
+set_location "\LCD_SPI:BSPIM:BitCounter\" 1 4 7
+set_location "\LCD_SPI:BSPIM:mosi_pre_reg_split_1\" 0 4 0 0
+set_location "\LCD_SPI:BSPIM:TxStsReg\" 0 3 4
+set_location "\LCD_SPI:BSPIM:RxStsReg\" 1 3 4
+set_location "\LCD_SPI:BSPIM:sR8:Dp:u0\" 0 3 2
+set_location "\LCD_SPI:TxInternalInterrupt\" interrupt -1 -1 1
+set_location "\Systick_Counter:CounterUDB:sCTRLReg:ctrlreg\" 3 0 6
+set_location "\Systick_Counter:CounterUDB:sSTSReg:stsreg\" 2 1 4
+set_location "\Systick_Counter:CounterUDB:sC32:counterdp:u0\" 2 0 2
+set_location "\Systick_Counter:CounterUDB:sC32:counterdp:u1\" 3 0 2
+set_location "\Systick_Counter:CounterUDB:sC32:counterdp:u2\" 3 1 2
+set_location "\Systick_Counter:CounterUDB:sC32:counterdp:u3\" 2 1 2
+set_location "\Systick_Timer:TimerHW\" timercell -1 -1 0
+set_location "\LCD_SPI:BSPIM:state_2\" 1 4 1 0
+set_location "\LCD_SPI:BSPIM:state_1\" 1 3 0 2
+set_location "\LCD_SPI:BSPIM:state_0\" 1 4 1 3
+set_location "Net_313" 0 3 0 2
+set_location "\LCD_SPI:BSPIM:mosi_hs_reg\" 0 4 1 0
+set_location "\LCD_SPI:BSPIM:mosi_pre_reg\" 0 3 0 0
+set_location "\LCD_SPI:BSPIM:load_cond\" 1 4 0 0
+set_location "\LCD_SPI:BSPIM:mosi_from_dp_reg\" 0 4 1 1
+set_location "\LCD_SPI:BSPIM:ld_ident\" 1 4 1 1
+set_location "\LCD_SPI:BSPIM:cnt_enable\" 1 4 0 1
+set_location "Net_315" 0 4 0 1
+set_location "\Systick_Counter:CounterUDB:overflow_reg_i\" 2 1 0 3
+set_location "\Systick_Counter:CounterUDB:prevCompare\" 2 1 0 2
+set_location "\Systick_Counter:CounterUDB:count_stored_i\" 3 0 0 1

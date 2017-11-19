@@ -28,14 +28,20 @@ int main()
     
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
     CySysTickStart();
-    gfxInit();    
+    
+    // Initialize the uGFX library
+    gfxInit();
+    
+    // Change the display orientation
+    //gdispSetOrientation(GDISP_ROTATE_LANDSCAPE);
+    
     
     CyBle_Start( StackEventHandler );
-
+    
     for(;;)
     {
         /* Place your application code here */
-        //gfxSleepMilliseconds(500);
+        gfxSleepMilliseconds(500);
         CyBle_ProcessEvents();
     }
 }
@@ -64,7 +70,7 @@ void StackEventHandler( uint32 eventCode, void *eventParam )
     }
 }    
             
-/* [] END OF FILE */
+
 
 systemticks_t gfxSystemTicks() {
     return CySysTickGetValue();
@@ -73,3 +79,5 @@ systemticks_t gfxSystemTicks() {
 systemticks_t gfxMillisecondsToTicks(delaytime_t ms) {
     return ms;
 }
+
+/* [] END OF FILE */

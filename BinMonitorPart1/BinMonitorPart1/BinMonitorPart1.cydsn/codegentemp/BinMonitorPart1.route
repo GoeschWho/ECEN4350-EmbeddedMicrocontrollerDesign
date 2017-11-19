@@ -1,0 +1,38 @@
+net ClockBlock_HFClk
+	term   ":m0s8clockblockcell.hfclk"
+	switch ":m0s8clockblockcell.hfclk==>:interrupt_17.clock"
+	term   ":interrupt_17.clock"
+	switch ":m0s8clockblockcell.hfclk==>:interrupt_12.clock"
+	term   ":interrupt_12.clock"
+end ClockBlock_HFClk
+net Net_431
+	term   ":m0s8tcpwmcell_0.interrupt"
+	switch ":m0s8tcpwmcell_0.interrupt==>:interrupt_idmux_17.in_0"
+	switch ":interrupt_idmux_17.interrupt_idmux_17__out==>:interrupt_17.interrupt"
+	term   ":interrupt_17.interrupt"
+end Net_431
+net \BLE_1:Net_15\
+	term   ":p4blecell.interrupt"
+	switch ":p4blecell.interrupt==>:interrupt_idmux_12.in_0"
+	switch ":interrupt_idmux_12.interrupt_idmux_12__out==>:interrupt_12.interrupt"
+	term   ":interrupt_12.interrupt"
+end \BLE_1:Net_15\
+net \LCDSPI:miso_m_wire\
+	term   ":ioport0:pin5.fb"
+	switch ":ioport0:pin5.fb==>:ioport0:hsiom_in5.hsiom5_in"
+	switch ":ioport0:hsiom_in5.fixed_DPSLP_3==>:m0s8scbcell_0__miso_m__hsiom_permute.ioport0__fixed_out_p5_DPSLP_3"
+	switch ":m0s8scbcell_0__miso_m__hsiom_permute.m0s8scbcell_0__miso_m==>:m0s8scbcell_0.miso_m"
+	term   ":m0s8scbcell_0.miso_m"
+end \LCDSPI:miso_m_wire\
+net \LCDSPI:mosi_m_wire\
+	term   ":m0s8scbcell_0.mosi_m"
+	switch ":m0s8scbcell_0.mosi_m==>:ioport0:hsiom_out4.fixed_DPSLP_3"
+	switch ":ioport0:hsiom_out4.hsiom4_out==>:ioport0:pin4.pin_input"
+	term   ":ioport0:pin4.pin_input"
+end \LCDSPI:mosi_m_wire\
+net \LCDSPI:sclk_m_wire\
+	term   ":m0s8scbcell_0.sclk_m"
+	switch ":m0s8scbcell_0.sclk_m==>:ioport1:hsiom_out7.fixed_DPSLP_3"
+	switch ":ioport1:hsiom_out7.hsiom7_out==>:ioport1:pin7.pin_input"
+	term   ":ioport1:pin7.pin_input"
+end \LCDSPI:sclk_m_wire\

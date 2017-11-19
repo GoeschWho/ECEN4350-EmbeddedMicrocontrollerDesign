@@ -11,200 +11,6 @@
 <CyGuid_f44455c5-3770-4452-b988-0a7a7ff46256 type_name="CyDesigner.Common.ProjMgmt.Model.CyConfigDependencies" version="1">
 <dependency_info name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM0" xml_contents_version="2">
 <CyGuid_1173175f-1b9b-4ad4-a065-754a48a27021 type_name="CyDesigner.Common.Base.CyFileDeps" version="1">
-<file name=".\CortexM0\ARM_GCC_541\Debug\main.o">
-<dep name=".\Generated_Source\PSoC4\BLE_1.h" />
-<dep name=".\Generated_Source\PSoC4\BLE_1_HAL_PVT.h" />
-<dep name=".\Generated_Source\PSoC4\BLE_1_STACK_PVT.h" />
-<dep name=".\Generated_Source\PSoC4\BLE_1_Stack.h" />
-<dep name=".\Generated_Source\PSoC4\BLE_1_StackGap.h" />
-<dep name=".\Generated_Source\PSoC4\BLE_1_StackGatt.h" />
-<dep name=".\Generated_Source\PSoC4\BLE_1_StackGattClient.h" />
-<dep name=".\Generated_Source\PSoC4\BLE_1_StackGattDb.h" />
-<dep name=".\Generated_Source\PSoC4\BLE_1_StackGattServer.h" />
-<dep name=".\Generated_Source\PSoC4\BLE_1_StackHostMain.h" />
-<dep name=".\Generated_Source\PSoC4\BLE_1_StackL2cap.h" />
-<dep name=".\Generated_Source\PSoC4\BLE_1_bas.h" />
-<dep name=".\Generated_Source\PSoC4\BLE_1_bless_isr.h" />
-<dep name=".\Generated_Source\PSoC4\BLE_1_dis.h" />
-<dep name=".\Generated_Source\PSoC4\BLE_1_eventHandler.h" />
-<dep name=".\Generated_Source\PSoC4\BLE_1_gatt.h" />
-<dep name=".\Generated_Source\PSoC4\BLE_1_hids.h" />
-<dep name=".\Generated_Source\PSoC4\BLE_1_scps.h" />
-<dep name=".\Generated_Source\PSoC4\CyDMA.h" />
-<dep name=".\Generated_Source\PSoC4\CyFlash.h" />
-<dep name=".\Generated_Source\PSoC4\CyLFClk.h" />
-<dep name=".\Generated_Source\PSoC4\CyLib.h" />
-<dep name=".\Generated_Source\PSoC4\LED_BLUE.h" />
-<dep name=".\Generated_Source\PSoC4\LED_BLUE_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\LED_GREEN.h" />
-<dep name=".\Generated_Source\PSoC4\LED_GREEN_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\SPI_1.h" />
-<dep name=".\Generated_Source\PSoC4\SPI_1_BOOT.h" />
-<dep name=".\Generated_Source\PSoC4\SPI_1_PINS.h" />
-<dep name=".\Generated_Source\PSoC4\SPI_1_PVT.h" />
-<dep name=".\Generated_Source\PSoC4\SPI_1_SCBCLK.h" />
-<dep name=".\Generated_Source\PSoC4\SPI_1_SPI_UART.h" />
-<dep name=".\Generated_Source\PSoC4\SPI_1_SPI_UART_PVT.h" />
-<dep name=".\Generated_Source\PSoC4\SPI_1_miso_s.h" />
-<dep name=".\Generated_Source\PSoC4\SPI_1_miso_s_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\SPI_1_mosi_s.h" />
-<dep name=".\Generated_Source\PSoC4\SPI_1_mosi_s_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\SPI_1_sclk_s.h" />
-<dep name=".\Generated_Source\PSoC4\SPI_1_sclk_s_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\SPI_1_ss_s.h" />
-<dep name=".\Generated_Source\PSoC4\SPI_1_ss_s_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\cmsis_armcc.h" />
-<dep name=".\Generated_Source\PSoC4\cmsis_compiler.h" />
-<dep name=".\Generated_Source\PSoC4\cmsis_gcc.h" />
-<dep name=".\Generated_Source\PSoC4\core_cm0.h" />
-<dep name=".\Generated_Source\PSoC4\core_cm0_psoc4.h" />
-<dep name=".\Generated_Source\PSoC4\cyPm.h" />
-<dep name=".\Generated_Source\PSoC4\cydevice_trm.h" />
-<dep name=".\Generated_Source\PSoC4\cydisabledsheets.h" />
-<dep name=".\Generated_Source\PSoC4\cyfitter.h" />
-<dep name=".\Generated_Source\PSoC4\cyfitter_cfg.h" />
-<dep name=".\Generated_Source\PSoC4\cypins.h" />
-<dep name=".\Generated_Source\PSoC4\cytypes.h" />
-<dep name=".\Generated_Source\PSoC4\project.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\gfx.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\gfxconf.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gadc\gadc.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gadc\gadc_options.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gadc\gadc_rules.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gaudio\gaudio.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gaudio\gaudio_options.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gaudio\gaudio_rules.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gdisp\gdisp.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gdisp\gdisp_options.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gdisp\gdisp_rules.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gdriver\gdriver_options.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gdriver\gdriver_rules.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gevent\gevent.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gevent\gevent_options.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gevent\gevent_rules.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gfile\gfile.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gfile\gfile_options.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gfile\gfile_rules.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gfx_compilers.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\ginput\ginput.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\ginput\ginput_options.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\ginput\ginput_rules.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gmisc\gmisc.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gmisc\gmisc_options.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gmisc\gmisc_rules.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gos\gos.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gos\gos_options.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gos\gos_rules.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gqueue\gqueue.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gqueue\gqueue_options.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gqueue\gqueue_rules.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gtimer\gtimer.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gtimer\gtimer_options.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gtimer\gtimer_rules.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gtrans\gtrans.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gtrans\gtrans_options.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gtrans\gtrans_rules.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gwin\gwin.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gwin\gwin_options.h" />
-<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gwin\gwin_rules.h" />
-<dep name=".\main.c" />
-</file>
-<file name=".\Generated_Source\PSoC4\BLE_1.h" />
-<file name=".\Generated_Source\PSoC4\BLE_1_HAL_PVT.h" />
-<file name=".\Generated_Source\PSoC4\BLE_1_STACK_PVT.h" />
-<file name=".\Generated_Source\PSoC4\BLE_1_Stack.h" />
-<file name=".\Generated_Source\PSoC4\BLE_1_StackGap.h" />
-<file name=".\Generated_Source\PSoC4\BLE_1_StackGatt.h" />
-<file name=".\Generated_Source\PSoC4\BLE_1_StackGattClient.h" />
-<file name=".\Generated_Source\PSoC4\BLE_1_StackGattDb.h" />
-<file name=".\Generated_Source\PSoC4\BLE_1_StackGattServer.h" />
-<file name=".\Generated_Source\PSoC4\BLE_1_StackHostMain.h" />
-<file name=".\Generated_Source\PSoC4\BLE_1_StackL2cap.h" />
-<file name=".\Generated_Source\PSoC4\BLE_1_bas.h" />
-<file name=".\Generated_Source\PSoC4\BLE_1_bless_isr.h" />
-<file name=".\Generated_Source\PSoC4\BLE_1_dis.h" />
-<file name=".\Generated_Source\PSoC4\BLE_1_eventHandler.h" />
-<file name=".\Generated_Source\PSoC4\BLE_1_gatt.h" />
-<file name=".\Generated_Source\PSoC4\BLE_1_hids.h" />
-<file name=".\Generated_Source\PSoC4\BLE_1_scps.h" />
-<file name=".\Generated_Source\PSoC4\CyDMA.h" />
-<file name=".\Generated_Source\PSoC4\CyFlash.h" />
-<file name=".\Generated_Source\PSoC4\CyLFClk.h" />
-<file name=".\Generated_Source\PSoC4\CyLib.h" />
-<file name=".\Generated_Source\PSoC4\LED_BLUE.h" />
-<file name=".\Generated_Source\PSoC4\LED_BLUE_aliases.h" />
-<file name=".\Generated_Source\PSoC4\LED_GREEN.h" />
-<file name=".\Generated_Source\PSoC4\LED_GREEN_aliases.h" />
-<file name=".\Generated_Source\PSoC4\SPI_1.h" />
-<file name=".\Generated_Source\PSoC4\SPI_1_BOOT.h" />
-<file name=".\Generated_Source\PSoC4\SPI_1_PINS.h" />
-<file name=".\Generated_Source\PSoC4\SPI_1_PVT.h" />
-<file name=".\Generated_Source\PSoC4\SPI_1_SCBCLK.h" />
-<file name=".\Generated_Source\PSoC4\SPI_1_SPI_UART.h" />
-<file name=".\Generated_Source\PSoC4\SPI_1_SPI_UART_PVT.h" />
-<file name=".\Generated_Source\PSoC4\SPI_1_miso_s.h" />
-<file name=".\Generated_Source\PSoC4\SPI_1_miso_s_aliases.h" />
-<file name=".\Generated_Source\PSoC4\SPI_1_mosi_s.h" />
-<file name=".\Generated_Source\PSoC4\SPI_1_mosi_s_aliases.h" />
-<file name=".\Generated_Source\PSoC4\SPI_1_sclk_s.h" />
-<file name=".\Generated_Source\PSoC4\SPI_1_sclk_s_aliases.h" />
-<file name=".\Generated_Source\PSoC4\SPI_1_ss_s.h" />
-<file name=".\Generated_Source\PSoC4\SPI_1_ss_s_aliases.h" />
-<file name=".\Generated_Source\PSoC4\cmsis_armcc.h" />
-<file name=".\Generated_Source\PSoC4\cmsis_compiler.h" />
-<file name=".\Generated_Source\PSoC4\cmsis_gcc.h" />
-<file name=".\Generated_Source\PSoC4\core_cm0.h" />
-<file name=".\Generated_Source\PSoC4\core_cm0_psoc4.h" />
-<file name=".\Generated_Source\PSoC4\cyPm.h" />
-<file name=".\Generated_Source\PSoC4\cydevice_trm.h" />
-<file name=".\Generated_Source\PSoC4\cydisabledsheets.h" />
-<file name=".\Generated_Source\PSoC4\cyfitter.h" />
-<file name=".\Generated_Source\PSoC4\cyfitter_cfg.h" />
-<file name=".\Generated_Source\PSoC4\cypins.h" />
-<file name=".\Generated_Source\PSoC4\cytypes.h" />
-<file name=".\Generated_Source\PSoC4\project.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\gfx.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\gfxconf.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gadc\gadc.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gadc\gadc_options.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gadc\gadc_rules.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gaudio\gaudio.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gaudio\gaudio_options.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gaudio\gaudio_rules.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gdisp\gdisp.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gdisp\gdisp_options.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gdisp\gdisp_rules.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gdriver\gdriver_options.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gdriver\gdriver_rules.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gevent\gevent.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gevent\gevent_options.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gevent\gevent_rules.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gfile\gfile.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gfile\gfile_options.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gfile\gfile_rules.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gfx_compilers.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\ginput\ginput.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\ginput\ginput_options.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\ginput\ginput_rules.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gmisc\gmisc.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gmisc\gmisc_options.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gmisc\gmisc_rules.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gos\gos.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gos\gos_options.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gos\gos_rules.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gqueue\gqueue.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gqueue\gqueue_options.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gqueue\gqueue_rules.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gtimer\gtimer.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gtimer\gtimer_options.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gtimer\gtimer_rules.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gtrans\gtrans.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gtrans\gtrans_options.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gtrans\gtrans_rules.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gwin\gwin.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gwin\gwin_options.h" />
-<file name="..\..\ugfx_2.7\ugfx_2.7\src\gwin\gwin_rules.h" />
-<file name=".\main.c" />
 <file name=".\CortexM0\ARM_GCC_541\Debug\BLE_1.o">
 <dep name=".\Generated_Source\PSoC4\BLE_1.c" />
 <dep name=".\Generated_Source\PSoC4\BLE_1.h" />
@@ -233,6 +39,30 @@
 <dep name=".\Generated_Source\PSoC4\cytypes.h" />
 </file>
 <file name=".\Generated_Source\PSoC4\BLE_1.c" />
+<file name=".\Generated_Source\PSoC4\BLE_1.h" />
+<file name=".\Generated_Source\PSoC4\BLE_1_HAL_PVT.h" />
+<file name=".\Generated_Source\PSoC4\BLE_1_STACK_PVT.h" />
+<file name=".\Generated_Source\PSoC4\BLE_1_Stack.h" />
+<file name=".\Generated_Source\PSoC4\BLE_1_StackGap.h" />
+<file name=".\Generated_Source\PSoC4\BLE_1_StackGatt.h" />
+<file name=".\Generated_Source\PSoC4\BLE_1_StackGattClient.h" />
+<file name=".\Generated_Source\PSoC4\BLE_1_StackGattDb.h" />
+<file name=".\Generated_Source\PSoC4\BLE_1_StackGattServer.h" />
+<file name=".\Generated_Source\PSoC4\BLE_1_StackHostMain.h" />
+<file name=".\Generated_Source\PSoC4\BLE_1_StackL2cap.h" />
+<file name=".\Generated_Source\PSoC4\BLE_1_bas.h" />
+<file name=".\Generated_Source\PSoC4\BLE_1_bless_isr.h" />
+<file name=".\Generated_Source\PSoC4\BLE_1_dis.h" />
+<file name=".\Generated_Source\PSoC4\BLE_1_eventHandler.h" />
+<file name=".\Generated_Source\PSoC4\BLE_1_gatt.h" />
+<file name=".\Generated_Source\PSoC4\BLE_1_hids.h" />
+<file name=".\Generated_Source\PSoC4\BLE_1_scps.h" />
+<file name=".\Generated_Source\PSoC4\CyFlash.h" />
+<file name=".\Generated_Source\PSoC4\CyLFClk.h" />
+<file name=".\Generated_Source\PSoC4\CyLib.h" />
+<file name=".\Generated_Source\PSoC4\cydevice_trm.h" />
+<file name=".\Generated_Source\PSoC4\cyfitter.h" />
+<file name=".\Generated_Source\PSoC4\cytypes.h" />
 <file name=".\CortexM0\ARM_GCC_541\Debug\BLE_1_HAL_INT.o">
 <dep name=".\Generated_Source\PSoC4\BLE_1.h" />
 <dep name=".\Generated_Source\PSoC4\BLE_1_HAL_INT.c" />
@@ -462,6 +292,7 @@
 <dep name=".\cyapicallbacks.h" />
 </file>
 <file name=".\Generated_Source\PSoC4\Cm0Start.c" />
+<file name=".\Generated_Source\PSoC4\cyfitter_cfg.h" />
 <file name=".\CortexM0\ARM_GCC_541\Debug\CyDMA.o">
 <dep name=".\Generated_Source\PSoC4\CyDMA.c" />
 <dep name=".\Generated_Source\PSoC4\CyDMA.h" />
@@ -472,6 +303,7 @@
 <dep name=".\Generated_Source\PSoC4\cytypes.h" />
 </file>
 <file name=".\Generated_Source\PSoC4\CyDMA.c" />
+<file name=".\Generated_Source\PSoC4\CyDMA.h" />
 <file name=".\CortexM0\ARM_GCC_541\Debug\CyFlash.o">
 <dep name=".\Generated_Source\PSoC4\CyFlash.c" />
 <dep name=".\Generated_Source\PSoC4\CyFlash.h" />
@@ -511,6 +343,9 @@
 <dep name=".\Generated_Source\PSoC4\cytypes.h" />
 </file>
 <file name=".\Generated_Source\PSoC4\LED_BLUE.c" />
+<file name=".\Generated_Source\PSoC4\LED_BLUE.h" />
+<file name=".\Generated_Source\PSoC4\LED_BLUE_aliases.h" />
+<file name=".\Generated_Source\PSoC4\cypins.h" />
 <file name=".\CortexM0\ARM_GCC_541\Debug\LED_BLUE_PM.o">
 <dep name=".\Generated_Source\PSoC4\LED_BLUE.h" />
 <dep name=".\Generated_Source\PSoC4\LED_BLUE_PM.c" />
@@ -531,6 +366,8 @@
 <dep name=".\Generated_Source\PSoC4\cytypes.h" />
 </file>
 <file name=".\Generated_Source\PSoC4\LED_GREEN.c" />
+<file name=".\Generated_Source\PSoC4\LED_GREEN.h" />
+<file name=".\Generated_Source\PSoC4\LED_GREEN_aliases.h" />
 <file name=".\CortexM0\ARM_GCC_541\Debug\LED_GREEN_PM.o">
 <dep name=".\Generated_Source\PSoC4\LED_GREEN.h" />
 <dep name=".\Generated_Source\PSoC4\LED_GREEN_PM.c" />
@@ -565,6 +402,20 @@
 <dep name=".\Generated_Source\PSoC4\cytypes.h" />
 </file>
 <file name=".\Generated_Source\PSoC4\SPI_1.c" />
+<file name=".\Generated_Source\PSoC4\SPI_1.h" />
+<file name=".\Generated_Source\PSoC4\SPI_1_PINS.h" />
+<file name=".\Generated_Source\PSoC4\SPI_1_PVT.h" />
+<file name=".\Generated_Source\PSoC4\SPI_1_SCBCLK.h" />
+<file name=".\Generated_Source\PSoC4\SPI_1_SPI_UART.h" />
+<file name=".\Generated_Source\PSoC4\SPI_1_SPI_UART_PVT.h" />
+<file name=".\Generated_Source\PSoC4\SPI_1_miso_s.h" />
+<file name=".\Generated_Source\PSoC4\SPI_1_miso_s_aliases.h" />
+<file name=".\Generated_Source\PSoC4\SPI_1_mosi_s.h" />
+<file name=".\Generated_Source\PSoC4\SPI_1_mosi_s_aliases.h" />
+<file name=".\Generated_Source\PSoC4\SPI_1_sclk_s.h" />
+<file name=".\Generated_Source\PSoC4\SPI_1_sclk_s_aliases.h" />
+<file name=".\Generated_Source\PSoC4\SPI_1_ss_s.h" />
+<file name=".\Generated_Source\PSoC4\SPI_1_ss_s_aliases.h" />
 <file name=".\CortexM0\ARM_GCC_541\Debug\SPI_1_BOOT.o">
 <dep name=".\Generated_Source\PSoC4\CyLFClk.h" />
 <dep name=".\Generated_Source\PSoC4\CyLib.h" />
@@ -589,6 +440,7 @@
 <dep name=".\Generated_Source\PSoC4\cytypes.h" />
 </file>
 <file name=".\Generated_Source\PSoC4\SPI_1_BOOT.c" />
+<file name=".\Generated_Source\PSoC4\SPI_1_BOOT.h" />
 <file name=".\CortexM0\ARM_GCC_541\Debug\SPI_1_PM.o">
 <dep name=".\Generated_Source\PSoC4\CyLFClk.h" />
 <dep name=".\Generated_Source\PSoC4\CyLib.h" />
@@ -784,6 +636,7 @@
 <dep name=".\Generated_Source\PSoC4\cytypes.h" />
 </file>
 <file name=".\Generated_Source\PSoC4\cyPm.c" />
+<file name=".\Generated_Source\PSoC4\cyPm.h" />
 <file name=".\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o">
 <dep name=".\Generated_Source\PSoC4\CyLFClk.h" />
 <dep name=".\Generated_Source\PSoC4\CyLib.h" />
@@ -806,7 +659,207 @@
 <dep name=".\Generated_Source\PSoC4\cyutils.c" />
 </file>
 <file name=".\Generated_Source\PSoC4\cyutils.c" />
+<file name=".\CortexM0\ARM_GCC_541\Debug\main.o">
+<dep name=".\Generated_Source\PSoC4\cmsis_armcc.h" />
+<dep name=".\Generated_Source\PSoC4\cmsis_compiler.h" />
+<dep name=".\Generated_Source\PSoC4\cmsis_gcc.h" />
+<dep name=".\Generated_Source\PSoC4\core_cm0.h" />
+<dep name=".\Generated_Source\PSoC4\core_cm0_psoc4.h" />
+<dep name=".\Generated_Source\PSoC4\cydisabledsheets.h" />
+<dep name=".\Generated_Source\PSoC4\project.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875\gdisp_lld_config.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\gfx.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\gfxconf.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gadc\gadc.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gadc\gadc_options.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gadc\gadc_rules.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gaudio\gaudio.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gaudio\gaudio_options.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gaudio\gaudio_rules.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gdisp\gdisp.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gdisp\gdisp_options.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gdisp\gdisp_rules.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gdriver\gdriver_options.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gdriver\gdriver_rules.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gevent\gevent.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gevent\gevent_options.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gevent\gevent_rules.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gfile\gfile.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gfile\gfile_options.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gfile\gfile_rules.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gfx_compilers.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\ginput\ginput.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\ginput\ginput_options.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\ginput\ginput_rules.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gmisc\gmisc.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gmisc\gmisc_options.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gmisc\gmisc_rules.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gos\gos.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gos\gos_options.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gos\gos_rules.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gqueue\gqueue.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gqueue\gqueue_options.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gqueue\gqueue_rules.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gtimer\gtimer.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gtimer\gtimer_options.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gtimer\gtimer_rules.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gtrans\gtrans.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gtrans\gtrans_options.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gtrans\gtrans_rules.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gwin\gwin.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gwin\gwin_options.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gwin\gwin_rules.h" />
+<dep name=".\Generated_Source\PSoC4\BLE_1.h" />
+<dep name=".\Generated_Source\PSoC4\BLE_1_HAL_PVT.h" />
+<dep name=".\Generated_Source\PSoC4\BLE_1_STACK_PVT.h" />
+<dep name=".\Generated_Source\PSoC4\BLE_1_Stack.h" />
+<dep name=".\Generated_Source\PSoC4\BLE_1_StackGap.h" />
+<dep name=".\Generated_Source\PSoC4\BLE_1_StackGatt.h" />
+<dep name=".\Generated_Source\PSoC4\BLE_1_StackGattClient.h" />
+<dep name=".\Generated_Source\PSoC4\BLE_1_StackGattDb.h" />
+<dep name=".\Generated_Source\PSoC4\BLE_1_StackGattServer.h" />
+<dep name=".\Generated_Source\PSoC4\BLE_1_StackHostMain.h" />
+<dep name=".\Generated_Source\PSoC4\BLE_1_StackL2cap.h" />
+<dep name=".\Generated_Source\PSoC4\BLE_1_bas.h" />
+<dep name=".\Generated_Source\PSoC4\BLE_1_bless_isr.h" />
+<dep name=".\Generated_Source\PSoC4\BLE_1_dis.h" />
+<dep name=".\Generated_Source\PSoC4\BLE_1_eventHandler.h" />
+<dep name=".\Generated_Source\PSoC4\BLE_1_gatt.h" />
+<dep name=".\Generated_Source\PSoC4\BLE_1_hids.h" />
+<dep name=".\Generated_Source\PSoC4\BLE_1_scps.h" />
+<dep name=".\Generated_Source\PSoC4\CyDMA.h" />
+<dep name=".\Generated_Source\PSoC4\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC4\CyLFClk.h" />
+<dep name=".\Generated_Source\PSoC4\CyLib.h" />
+<dep name=".\Generated_Source\PSoC4\LED_BLUE.h" />
+<dep name=".\Generated_Source\PSoC4\LED_BLUE_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\LED_GREEN.h" />
+<dep name=".\Generated_Source\PSoC4\LED_GREEN_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\SPI_1.h" />
+<dep name=".\Generated_Source\PSoC4\SPI_1_BOOT.h" />
+<dep name=".\Generated_Source\PSoC4\SPI_1_PINS.h" />
+<dep name=".\Generated_Source\PSoC4\SPI_1_PVT.h" />
+<dep name=".\Generated_Source\PSoC4\SPI_1_SCBCLK.h" />
+<dep name=".\Generated_Source\PSoC4\SPI_1_SPI_UART.h" />
+<dep name=".\Generated_Source\PSoC4\SPI_1_SPI_UART_PVT.h" />
+<dep name=".\Generated_Source\PSoC4\SPI_1_miso_s.h" />
+<dep name=".\Generated_Source\PSoC4\SPI_1_miso_s_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\SPI_1_mosi_s.h" />
+<dep name=".\Generated_Source\PSoC4\SPI_1_mosi_s_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\SPI_1_sclk_s.h" />
+<dep name=".\Generated_Source\PSoC4\SPI_1_sclk_s_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\SPI_1_ss_s.h" />
+<dep name=".\Generated_Source\PSoC4\SPI_1_ss_s_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\cyPm.h" />
+<dep name=".\Generated_Source\PSoC4\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC4\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC4\cyfitter_cfg.h" />
+<dep name=".\Generated_Source\PSoC4\cypins.h" />
+<dep name=".\Generated_Source\PSoC4\cytypes.h" />
+<dep name=".\main.c" />
+</file>
+<file name=".\Generated_Source\PSoC4\cmsis_armcc.h" />
+<file name=".\Generated_Source\PSoC4\cmsis_compiler.h" />
+<file name=".\Generated_Source\PSoC4\cmsis_gcc.h" />
+<file name=".\Generated_Source\PSoC4\core_cm0.h" />
+<file name=".\Generated_Source\PSoC4\core_cm0_psoc4.h" />
+<file name=".\Generated_Source\PSoC4\cydisabledsheets.h" />
+<file name=".\Generated_Source\PSoC4\project.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875\gdisp_lld_config.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\gfx.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\gfxconf.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gadc\gadc.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gadc\gadc_options.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gadc\gadc_rules.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gaudio\gaudio.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gaudio\gaudio_options.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gaudio\gaudio_rules.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gdisp\gdisp.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gdisp\gdisp_options.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gdisp\gdisp_rules.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gdriver\gdriver_options.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gdriver\gdriver_rules.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gevent\gevent.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gevent\gevent_options.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gevent\gevent_rules.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gfile\gfile.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gfile\gfile_options.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gfile\gfile_rules.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gfx_compilers.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\ginput\ginput.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\ginput\ginput_options.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\ginput\ginput_rules.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gmisc\gmisc.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gmisc\gmisc_options.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gmisc\gmisc_rules.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gos\gos.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gos\gos_options.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gos\gos_rules.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gqueue\gqueue.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gqueue\gqueue_options.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gqueue\gqueue_rules.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gtimer\gtimer.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gtimer\gtimer_options.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gtimer\gtimer_rules.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gtrans\gtrans.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gtrans\gtrans_options.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gtrans\gtrans_rules.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gwin\gwin.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gwin\gwin_options.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gwin\gwin_rules.h" />
+<file name=".\main.c" />
+<file name=".\CortexM0\ARM_GCC_541\Debug\gdisp_lld_RA8875.o">
+<dep name="..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875\gdisp_lld_config.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\gfx.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\gfxconf.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gadc\gadc.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gadc\gadc_options.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gadc\gadc_rules.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gaudio\gaudio.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gaudio\gaudio_options.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gaudio\gaudio_rules.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gdisp\gdisp.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gdisp\gdisp_options.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gdisp\gdisp_rules.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gdriver\gdriver_options.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gdriver\gdriver_rules.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gevent\gevent.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gevent\gevent_options.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gevent\gevent_rules.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gfile\gfile.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gfile\gfile_options.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gfile\gfile_rules.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gfx_compilers.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\ginput\ginput.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\ginput\ginput_options.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\ginput\ginput_rules.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gmisc\gmisc.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gmisc\gmisc_options.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gmisc\gmisc_rules.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gos\gos.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gos\gos_options.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gos\gos_rules.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gqueue\gqueue.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gqueue\gqueue_options.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gqueue\gqueue_rules.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gtimer\gtimer.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gtimer\gtimer_options.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gtimer\gtimer_rules.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gtrans\gtrans.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gtrans\gtrans_options.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gtrans\gtrans_rules.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gwin\gwin.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gwin\gwin_options.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gwin\gwin_rules.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\src\gdisp\gdisp_driver.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875\board_RA8875.h" />
+<dep name="..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875\gdisp_lld_RA8875.c" />
+</file>
+<file name="..\..\ugfx_2.7\ugfx_2.7\src\gdisp\gdisp_driver.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875\board_RA8875.h" />
+<file name="..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875\gdisp_lld_RA8875.c" />
 <file name=".\CortexM0\ARM_GCC_541\Debug\gfx_mk.o">
+<dep name="..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875\gdisp_lld_config.h" />
 <dep name="..\..\ugfx_2.7\ugfx_2.7\gfxconf.h" />
 <dep name="..\..\ugfx_2.7\ugfx_2.7\src\gadc\gadc.h" />
 <dep name="..\..\ugfx_2.7\ugfx_2.7\src\gadc\gadc_options.h" />
@@ -894,53 +947,7 @@
 <name v="link_deps">
 <CyGuid_f44455c5-3770-4452-b988-0a7a7ff46256 type_name="CyDesigner.Common.ProjMgmt.Model.CyConfigDependencies" version="1">
 <dependency_info name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM0" xml_contents_version="2">
-<CyGuid_1173175f-1b9b-4ad4-a065-754a48a27021 type_name="CyDesigner.Common.Base.CyFileDeps" version="1">
-<file name=".\CortexM0\ARM_GCC_541\Debug\BinMonitor.hex">
-<dep name=".\CortexM0\ARM_GCC_541\Debug\main.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\gfx_mk.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\cymetadata.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\BLE_1_bas.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\BLE_1.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\BLE_1_gatt.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\BLE_1_eventHandler.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\BLE_1_hids.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\BLE_1_HAL_INT.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\BLE_1_HAL_PVT.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\BLE_1_scps.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\BLE_1_dis.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\LED_GREEN.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\LED_GREEN_PM.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\LED_BLUE.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\LED_BLUE_PM.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\SPI_1.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\SPI_1_SPI_UART.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\SPI_1_PM.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\SPI_1_SPI.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\SPI_1_BOOT.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\SPI_1_SPI_BOOT.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\BLE_1_bless_isr.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\SPI_1_SCBCLK.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\SPI_1_ss_s.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\SPI_1_ss_s_PM.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\SPI_1_miso_s.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\SPI_1_miso_s_PM.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\SPI_1_sclk_s.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\SPI_1_sclk_s_PM.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\SPI_1_mosi_s.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\SPI_1_mosi_s_PM.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\Cm0Start.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\CyFlash.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\CyLib.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\cyPm.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\cyutils.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\CyBootAsmGnu.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\CyDMA.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\CyLFClk.o" />
-<dep name=".\CortexM0\ARM_GCC_541\Debug\BinMonitor.a" />
-<dep name="${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM0\ARM_GCC_541\Debug\CyComponentLibrary.a" />
-</file>
-</CyGuid_1173175f-1b9b-4ad4-a065-754a48a27021>
+<CyGuid_1173175f-1b9b-4ad4-a065-754a48a27021 type_name="CyDesigner.Common.Base.CyFileDeps" version="1" />
 </dependency_info>
 </CyGuid_f44455c5-3770-4452-b988-0a7a7ff46256>
 </name>
@@ -950,48 +957,49 @@
 <CyGuid_b0374e30-ce3a-47f2-ad85-821643292c68 type_name="CyDesigner.Common.ProjMgmt.Common.CyCmdLineData" version="2">
 <genericCmdLineData>
 <name v="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM0">
-<name_val_pair name="main.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="..\..\ugfx_2.7\ugfx_2.7\src\gfx_mk.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\cyfitter_cfg.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\cymetadata.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\BLE_1_bas.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\BLE_1.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\BLE_1_gatt.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\BLE_1_eventHandler.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\BLE_1_hids.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\BLE_1_HAL_INT.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\BLE_1_HAL_PVT.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\BLE_1_scps.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\BLE_1_dis.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\LED_GREEN.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\LED_GREEN_PM.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\LED_BLUE.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\LED_BLUE_PM.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\SPI_1.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\SPI_1_SPI_UART.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\SPI_1_PM.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\SPI_1_SPI.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\SPI_1_BOOT.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\SPI_1_SPI_BOOT.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\BLE_1_bless_isr.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\SPI_1_SCBCLK.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\SPI_1_ss_s.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\SPI_1_ss_s_PM.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\SPI_1_miso_s.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\SPI_1_miso_s_PM.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\SPI_1_sclk_s.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\SPI_1_sclk_s_PM.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\SPI_1_mosi_s.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\SPI_1_mosi_s_PM.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\Cm0Start.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\CyFlash.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\CyLib.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\cyPm.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\cyutils.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="main.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="..\..\ugfx_2.7\ugfx_2.7\src\gfx_mk.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\cyfitter_cfg.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\cymetadata.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\BLE_1_bas.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\BLE_1.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\BLE_1_gatt.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\BLE_1_eventHandler.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\BLE_1_hids.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\BLE_1_HAL_INT.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\BLE_1_HAL_PVT.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\BLE_1_scps.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\BLE_1_dis.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\LED_GREEN.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\LED_GREEN_PM.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\LED_BLUE.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\LED_BLUE_PM.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\SPI_1.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\SPI_1_SPI_UART.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\SPI_1_PM.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\SPI_1_SPI.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\SPI_1_BOOT.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\SPI_1_SPI_BOOT.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\BLE_1_bless_isr.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\SPI_1_SCBCLK.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\SPI_1_ss_s.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\SPI_1_ss_s_PM.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\SPI_1_miso_s.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\SPI_1_miso_s_PM.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\SPI_1_sclk_s.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\SPI_1_sclk_s_PM.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\SPI_1_mosi_s.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\SPI_1_mosi_s_PM.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\Cm0Start.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\CyFlash.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\CyLib.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\cyPm.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\cyutils.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
 <name_val_pair name="Generated_Source\PSoC4\CyBootAsmGnu.s" v="-mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -alh=${OutputDir}/${CompileFile}.lst -g -W" />
-<name_val_pair name="Generated_Source\PSoC4\CyDMA.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
-<name_val_pair name="Generated_Source\PSoC4\CyLFClk.c" v="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\CyDMA.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+<name_val_pair name="Generated_Source\PSoC4\CyLFClk.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
 <name_val_pair name="C:\Users\megan\Google Drive\College\S10 - Fall 2017\ECEN 4350 - Embedded uC Design\Github\ECEN4350-EmbeddedMicrocontrollerDesign\CYBLE-202007-01\BinMonitor.cydsn\CortexM0\ARM_GCC_541\Debug\BinMonitor.hex" v="-mcpu=cortex-m0 -mthumb -L Generated_Source\PSoC4 -Wl,-Map,${OutputDir}/${ProjectShortName}.map -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -O0 -ffat-lto-objects" />
+<name_val_pair name="..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875\gdisp_lld_RA8875.c" v="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
 </name>
 </genericCmdLineData>
 <codeGenCmdLineTag v="-.appdatapath &quot;C:\Users\megan\AppData\Local\Cypress Semiconductor\PSoC Creator\4.1&quot; -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p &quot;C:\Users\megan\Google Drive\College\S10 - Fall 2017\ECEN 4350 - Embedded uC Design\Github\ECEN4350-EmbeddedMicrocontrollerDesign\CYBLE-202007-01\BinMonitor.cydsn\BinMonitor.cyprj&quot; -d CYBLE-202007-01 -s &quot;C:\Users\megan\Google Drive\College\S10 - Fall 2017\ECEN 4350 - Embedded uC Design\Github\ECEN4350-EmbeddedMicrocontrollerDesign\CYBLE-202007-01\BinMonitor.cydsn\Generated_Source\PSoC4&quot; -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE" />
@@ -1468,7 +1476,7 @@
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif</v>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif</v>
 </warp_dep>
-<deps_time v="131531584184150000" />
+<deps_time v="131537042307260534" />
 <top_block v="TopDesign" />
 <last_generation v="7" />
 <pdl_path v="" />
@@ -1478,7 +1486,7 @@
 <dataGuid v="769d31ea-68b1-4f0c-b90a-7c10a43ee563">
 <CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563 type_name="CyDesigner.Common.ProjMgmt.Model.CyLinkCustomData" version="1">
 <link_deps_times>
-<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM0" v="131536808420400000" />
+<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM0" v="131537040115450534" />
 </link_deps_times>
 </CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563>
 </dataGuid>

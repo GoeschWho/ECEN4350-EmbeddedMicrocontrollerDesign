@@ -28,7 +28,7 @@
 
 #define SPI_1_SPI_MODE                   (0u)
 #define SPI_1_SPI_SUB_MODE               (0u)
-#define SPI_1_SPI_CLOCK_MODE             (0u)
+#define SPI_1_SPI_CLOCK_MODE             (3u)
 #define SPI_1_SPI_OVS_FACTOR             (16u)
 #define SPI_1_SPI_MEDIAN_FILTER_ENABLE   (0u)
 #define SPI_1_SPI_LATE_MISO_SAMPLE_ENABLE (0u)

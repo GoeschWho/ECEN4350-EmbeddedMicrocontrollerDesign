@@ -1,0 +1,4631 @@
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"gdisp_lld_ILI9341.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.global	GDISPVMT_OnlyOne
+  19              		.section	.rodata
+  20              		.align	2
+  21              		.type	GDISPVMT_OnlyOne, %object
+  22              		.size	GDISPVMT_OnlyOne, 96
+  23              	GDISPVMT_OnlyOne:
+  24 0000 6700     		.short	103
+  25 0002 0000     		.short	0
+  26 0004 50000000 		.word	80
+  27 0008 00000000 		.word	_gdispInitDriver
+  28 000c 00000000 		.word	_gdispPostInitDriver
+  29 0010 00000000 		.word	_gdispDeInitDriver
+  30 0014 00000000 		.word	gdisp_lld_init
+  31 0018 00000000 		.word	0
+  32 001c 00000000 		.word	gdisp_lld_write_start
+  33 0020 00000000 		.word	0
+  34 0024 00000000 		.word	gdisp_lld_write_color
+  35 0028 00000000 		.word	gdisp_lld_write_stop
+  36 002c 00000000 		.word	gdisp_lld_read_start
+  37 0030 00000000 		.word	gdisp_lld_read_color
+  38 0034 00000000 		.word	gdisp_lld_read_stop
+  39 0038 00000000 		.word	0
+  40 003c 00000000 		.word	0
+  41 0040 00000000 		.word	0
+  42 0044 00000000 		.word	0
+  43 0048 00000000 		.word	0
+  44 004c 00000000 		.word	0
+  45 0050 00000000 		.word	gdisp_lld_control
+  46 0054 00000000 		.word	0
+  47 0058 00000000 		.word	0
+  48 005c 00000000 		.word	0
+  49              		.section	.text.init_board,"ax",%progbits
+  50              		.align	2
+  51              		.thumb
+  52              		.thumb_func
+  53              		.type	init_board, %function
+  54              	init_board:
+  55              	.LFB63:
+  56              		.file 1 "./board_ILI9341.h"
+   1:./board_ILI9341.h **** /*
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 2
+
+
+   2:./board_ILI9341.h ****  * This file is subject to the terms of the GFX License. If a copy of
+   3:./board_ILI9341.h ****  * the license was not distributed with this file, you can obtain one at:
+   4:./board_ILI9341.h ****  *
+   5:./board_ILI9341.h ****  *              http://ugfx.org/license.html
+   6:./board_ILI9341.h ****  */
+   7:./board_ILI9341.h **** 
+   8:./board_ILI9341.h **** /*
+   9:./board_ILI9341.h ****  * This board file uses the SPIM block of the PSoC 5LP platform to
+  10:./board_ILI9341.h ****  * interface an ILI9341 display via SPI.
+  11:./board_ILI9341.h ****  * The SPIM block requires the following configuration:
+  12:./board_ILI9341.h ****  *    + Data bits = 8
+  13:./board_ILI9341.h ****  *    + CPHA = 0
+  14:./board_ILI9341.h ****  *    + CPOL = 0
+  15:./board_ILI9341.h ****  *    + Shift direction = MSB first
+  16:./board_ILI9341.h ****  *    + Enable high-speed mode = true
+  17:./board_ILI9341.h ****  */
+  18:./board_ILI9341.h **** 
+  19:./board_ILI9341.h **** #ifndef _GDISP_LLD_BOARD_H
+  20:./board_ILI9341.h **** #define _GDISP_LLD_BOARD_H
+  21:./board_ILI9341.h ****     
+  22:./board_ILI9341.h **** #include <device.h>
+  23:./board_ILI9341.h **** 
+  24:./board_ILI9341.h **** static GFXINLINE void init_board(GDisplay* g)
+  25:./board_ILI9341.h **** {
+  57              		.loc 1 25 0
+  58              		.cfi_startproc
+  59              		@ args = 0, pretend = 0, frame = 8
+  60              		@ frame_needed = 1, uses_anonymous_args = 0
+  61 0000 80B5     		push	{r7, lr}
+  62              		.cfi_def_cfa_offset 8
+  63              		.cfi_offset 7, -8
+  64              		.cfi_offset 14, -4
+  65 0002 82B0     		sub	sp, sp, #8
+  66              		.cfi_def_cfa_offset 16
+  67 0004 00AF     		add	r7, sp, #0
+  68              		.cfi_def_cfa_register 7
+  69 0006 7860     		str	r0, [r7, #4]
+  26:./board_ILI9341.h ****     // We are not using multiple displays
+  27:./board_ILI9341.h ****     g->board = 0;
+  70              		.loc 1 27 0
+  71 0008 7B68     		ldr	r3, [r7, #4]
+  72 000a 0022     		movs	r2, #0
+  73 000c 9A61     		str	r2, [r3, #24]
+  28:./board_ILI9341.h **** 
+  29:./board_ILI9341.h ****     // SPI
+  30:./board_ILI9341.h ****     LCD_SPI_Init();
+  74              		.loc 1 30 0
+  75 000e FFF7FEFF 		bl	LCD_SPI_Init
+  31:./board_ILI9341.h ****     LCD_SPI_Enable(); 
+  76              		.loc 1 31 0
+  77 0012 FFF7FEFF 		bl	LCD_SPI_Enable
+  32:./board_ILI9341.h ****     LCD_SPI_Start();
+  78              		.loc 1 32 0
+  79 0016 FFF7FEFF 		bl	LCD_SPI_Start
+  33:./board_ILI9341.h **** }
+  80              		.loc 1 33 0
+  81 001a 0837     		adds	r7, r7, #8
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 3
+
+
+  82              		.cfi_def_cfa_offset 8
+  83 001c BD46     		mov	sp, r7
+  84              		.cfi_def_cfa_register 13
+  85              		@ sp needed
+  86 001e 80BD     		pop	{r7, pc}
+  87              		.cfi_endproc
+  88              	.LFE63:
+  89              		.size	init_board, .-init_board
+  90              		.section	.text.post_init_board,"ax",%progbits
+  91              		.align	2
+  92              		.thumb
+  93              		.thumb_func
+  94              		.type	post_init_board, %function
+  95              	post_init_board:
+  96              	.LFB64:
+  34:./board_ILI9341.h **** 
+  35:./board_ILI9341.h **** static GFXINLINE void post_init_board(GDisplay* g)
+  36:./board_ILI9341.h **** {
+  97              		.loc 1 36 0
+  98              		.cfi_startproc
+  99              		@ args = 0, pretend = 0, frame = 8
+ 100              		@ frame_needed = 1, uses_anonymous_args = 0
+ 101              		@ link register save eliminated.
+ 102 0000 80B4     		push	{r7}
+ 103              		.cfi_def_cfa_offset 4
+ 104              		.cfi_offset 7, -4
+ 105 0002 83B0     		sub	sp, sp, #12
+ 106              		.cfi_def_cfa_offset 16
+ 107 0004 00AF     		add	r7, sp, #0
+ 108              		.cfi_def_cfa_register 7
+ 109 0006 7860     		str	r0, [r7, #4]
+  37:./board_ILI9341.h **** 	(void)g;
+  38:./board_ILI9341.h **** }
+ 110              		.loc 1 38 0
+ 111 0008 0C37     		adds	r7, r7, #12
+ 112              		.cfi_def_cfa_offset 4
+ 113 000a BD46     		mov	sp, r7
+ 114              		.cfi_def_cfa_register 13
+ 115              		@ sp needed
+ 116 000c 5DF8047B 		ldr	r7, [sp], #4
+ 117              		.cfi_restore 7
+ 118              		.cfi_def_cfa_offset 0
+ 119 0010 7047     		bx	lr
+ 120              		.cfi_endproc
+ 121              	.LFE64:
+ 122              		.size	post_init_board, .-post_init_board
+ 123 0012 00BF     		.section	.text.setpin_reset,"ax",%progbits
+ 124              		.align	2
+ 125              		.thumb
+ 126              		.thumb_func
+ 127              		.type	setpin_reset, %function
+ 128              	setpin_reset:
+ 129              	.LFB65:
+  39:./board_ILI9341.h **** 
+  40:./board_ILI9341.h **** static GFXINLINE void setpin_reset(GDisplay *g, bool_t state)
+  41:./board_ILI9341.h **** {
+ 130              		.loc 1 41 0
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 4
+
+
+ 131              		.cfi_startproc
+ 132              		@ args = 0, pretend = 0, frame = 8
+ 133              		@ frame_needed = 1, uses_anonymous_args = 0
+ 134 0000 80B5     		push	{r7, lr}
+ 135              		.cfi_def_cfa_offset 8
+ 136              		.cfi_offset 7, -8
+ 137              		.cfi_offset 14, -4
+ 138 0002 82B0     		sub	sp, sp, #8
+ 139              		.cfi_def_cfa_offset 16
+ 140 0004 00AF     		add	r7, sp, #0
+ 141              		.cfi_def_cfa_register 7
+ 142 0006 7860     		str	r0, [r7, #4]
+ 143 0008 0B46     		mov	r3, r1
+ 144 000a FB70     		strb	r3, [r7, #3]
+  42:./board_ILI9341.h **** 	(void)g;
+  43:./board_ILI9341.h ****     
+  44:./board_ILI9341.h ****     if (state) {
+ 145              		.loc 1 44 0
+ 146 000c FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 147 000e 002B     		cmp	r3, #0
+ 148 0010 03D0     		beq	.L4
+  45:./board_ILI9341.h ****         LCD_RST_Write(0);
+ 149              		.loc 1 45 0
+ 150 0012 0020     		movs	r0, #0
+ 151 0014 FFF7FEFF 		bl	LCD_RST_Write
+ 152 0018 02E0     		b	.L3
+ 153              	.L4:
+  46:./board_ILI9341.h ****     } else {
+  47:./board_ILI9341.h ****         LCD_RST_Write(1);
+ 154              		.loc 1 47 0
+ 155 001a 0120     		movs	r0, #1
+ 156 001c FFF7FEFF 		bl	LCD_RST_Write
+ 157              	.L3:
+  48:./board_ILI9341.h ****     }
+  49:./board_ILI9341.h **** }
+ 158              		.loc 1 49 0
+ 159 0020 0837     		adds	r7, r7, #8
+ 160              		.cfi_def_cfa_offset 8
+ 161 0022 BD46     		mov	sp, r7
+ 162              		.cfi_def_cfa_register 13
+ 163              		@ sp needed
+ 164 0024 80BD     		pop	{r7, pc}
+ 165              		.cfi_endproc
+ 166              	.LFE65:
+ 167              		.size	setpin_reset, .-setpin_reset
+ 168 0026 00BF     		.section	.text.set_backlight,"ax",%progbits
+ 169              		.align	2
+ 170              		.thumb
+ 171              		.thumb_func
+ 172              		.type	set_backlight, %function
+ 173              	set_backlight:
+ 174              	.LFB66:
+  50:./board_ILI9341.h **** 
+  51:./board_ILI9341.h **** static GFXINLINE void set_backlight(GDisplay *g, uint8_t percent)
+  52:./board_ILI9341.h **** {
+ 175              		.loc 1 52 0
+ 176              		.cfi_startproc
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 5
+
+
+ 177              		@ args = 0, pretend = 0, frame = 8
+ 178              		@ frame_needed = 1, uses_anonymous_args = 0
+ 179              		@ link register save eliminated.
+ 180 0000 80B4     		push	{r7}
+ 181              		.cfi_def_cfa_offset 4
+ 182              		.cfi_offset 7, -4
+ 183 0002 83B0     		sub	sp, sp, #12
+ 184              		.cfi_def_cfa_offset 16
+ 185 0004 00AF     		add	r7, sp, #0
+ 186              		.cfi_def_cfa_register 7
+ 187 0006 7860     		str	r0, [r7, #4]
+ 188 0008 0B46     		mov	r3, r1
+ 189 000a FB70     		strb	r3, [r7, #3]
+  53:./board_ILI9341.h **** 	(void)g;
+  54:./board_ILI9341.h **** 	(void)percent;
+  55:./board_ILI9341.h **** }
+ 190              		.loc 1 55 0
+ 191 000c 0C37     		adds	r7, r7, #12
+ 192              		.cfi_def_cfa_offset 4
+ 193 000e BD46     		mov	sp, r7
+ 194              		.cfi_def_cfa_register 13
+ 195              		@ sp needed
+ 196 0010 5DF8047B 		ldr	r7, [sp], #4
+ 197              		.cfi_restore 7
+ 198              		.cfi_def_cfa_offset 0
+ 199 0014 7047     		bx	lr
+ 200              		.cfi_endproc
+ 201              	.LFE66:
+ 202              		.size	set_backlight, .-set_backlight
+ 203 0016 00BF     		.section	.text.acquire_bus,"ax",%progbits
+ 204              		.align	2
+ 205              		.thumb
+ 206              		.thumb_func
+ 207              		.type	acquire_bus, %function
+ 208              	acquire_bus:
+ 209              	.LFB67:
+  56:./board_ILI9341.h **** 
+  57:./board_ILI9341.h **** static GFXINLINE void acquire_bus(GDisplay* g)
+  58:./board_ILI9341.h **** {
+ 210              		.loc 1 58 0
+ 211              		.cfi_startproc
+ 212              		@ args = 0, pretend = 0, frame = 8
+ 213              		@ frame_needed = 1, uses_anonymous_args = 0
+ 214              		@ link register save eliminated.
+ 215 0000 80B4     		push	{r7}
+ 216              		.cfi_def_cfa_offset 4
+ 217              		.cfi_offset 7, -4
+ 218 0002 83B0     		sub	sp, sp, #12
+ 219              		.cfi_def_cfa_offset 16
+ 220 0004 00AF     		add	r7, sp, #0
+ 221              		.cfi_def_cfa_register 7
+ 222 0006 7860     		str	r0, [r7, #4]
+  59:./board_ILI9341.h **** 	(void)g;
+  60:./board_ILI9341.h **** }
+ 223              		.loc 1 60 0
+ 224 0008 0C37     		adds	r7, r7, #12
+ 225              		.cfi_def_cfa_offset 4
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 6
+
+
+ 226 000a BD46     		mov	sp, r7
+ 227              		.cfi_def_cfa_register 13
+ 228              		@ sp needed
+ 229 000c 5DF8047B 		ldr	r7, [sp], #4
+ 230              		.cfi_restore 7
+ 231              		.cfi_def_cfa_offset 0
+ 232 0010 7047     		bx	lr
+ 233              		.cfi_endproc
+ 234              	.LFE67:
+ 235              		.size	acquire_bus, .-acquire_bus
+ 236 0012 00BF     		.section	.text.release_bus,"ax",%progbits
+ 237              		.align	2
+ 238              		.thumb
+ 239              		.thumb_func
+ 240              		.type	release_bus, %function
+ 241              	release_bus:
+ 242              	.LFB68:
+  61:./board_ILI9341.h **** 
+  62:./board_ILI9341.h **** static GFXINLINE void release_bus(GDisplay* g)
+  63:./board_ILI9341.h **** {
+ 243              		.loc 1 63 0
+ 244              		.cfi_startproc
+ 245              		@ args = 0, pretend = 0, frame = 8
+ 246              		@ frame_needed = 1, uses_anonymous_args = 0
+ 247              		@ link register save eliminated.
+ 248 0000 80B4     		push	{r7}
+ 249              		.cfi_def_cfa_offset 4
+ 250              		.cfi_offset 7, -4
+ 251 0002 83B0     		sub	sp, sp, #12
+ 252              		.cfi_def_cfa_offset 16
+ 253 0004 00AF     		add	r7, sp, #0
+ 254              		.cfi_def_cfa_register 7
+ 255 0006 7860     		str	r0, [r7, #4]
+  64:./board_ILI9341.h **** 	(void)g;
+  65:./board_ILI9341.h **** }
+ 256              		.loc 1 65 0
+ 257 0008 0C37     		adds	r7, r7, #12
+ 258              		.cfi_def_cfa_offset 4
+ 259 000a BD46     		mov	sp, r7
+ 260              		.cfi_def_cfa_register 13
+ 261              		@ sp needed
+ 262 000c 5DF8047B 		ldr	r7, [sp], #4
+ 263              		.cfi_restore 7
+ 264              		.cfi_def_cfa_offset 0
+ 265 0010 7047     		bx	lr
+ 266              		.cfi_endproc
+ 267              	.LFE68:
+ 268              		.size	release_bus, .-release_bus
+ 269 0012 00BF     		.section	.text.write_index,"ax",%progbits
+ 270              		.align	2
+ 271              		.thumb
+ 272              		.thumb_func
+ 273              		.type	write_index, %function
+ 274              	write_index:
+ 275              	.LFB69:
+  66:./board_ILI9341.h **** 
+  67:./board_ILI9341.h **** static GFXINLINE void write_index(GDisplay* g, uint16_t index)
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 7
+
+
+  68:./board_ILI9341.h **** {
+ 276              		.loc 1 68 0
+ 277              		.cfi_startproc
+ 278              		@ args = 0, pretend = 0, frame = 8
+ 279              		@ frame_needed = 1, uses_anonymous_args = 0
+ 280 0000 80B5     		push	{r7, lr}
+ 281              		.cfi_def_cfa_offset 8
+ 282              		.cfi_offset 7, -8
+ 283              		.cfi_offset 14, -4
+ 284 0002 82B0     		sub	sp, sp, #8
+ 285              		.cfi_def_cfa_offset 16
+ 286 0004 00AF     		add	r7, sp, #0
+ 287              		.cfi_def_cfa_register 7
+ 288 0006 7860     		str	r0, [r7, #4]
+ 289 0008 0B46     		mov	r3, r1
+ 290 000a 7B80     		strh	r3, [r7, #2]	@ movhi
+  69:./board_ILI9341.h **** 	(void)g;
+  70:./board_ILI9341.h ****     
+  71:./board_ILI9341.h ****     LCD_DC_Write(0);
+ 291              		.loc 1 71 0
+ 292 000c 0020     		movs	r0, #0
+ 293 000e FFF7FEFF 		bl	LCD_DC_Write
+  72:./board_ILI9341.h ****     LCD_SPI_WriteTxData(index);
+ 294              		.loc 1 72 0
+ 295 0012 7B88     		ldrh	r3, [r7, #2]	@ movhi
+ 296 0014 DBB2     		uxtb	r3, r3
+ 297 0016 1846     		mov	r0, r3
+ 298 0018 FFF7FEFF 		bl	LCD_SPI_WriteTxData
+  73:./board_ILI9341.h **** }
+ 299              		.loc 1 73 0
+ 300 001c 0837     		adds	r7, r7, #8
+ 301              		.cfi_def_cfa_offset 8
+ 302 001e BD46     		mov	sp, r7
+ 303              		.cfi_def_cfa_register 13
+ 304              		@ sp needed
+ 305 0020 80BD     		pop	{r7, pc}
+ 306              		.cfi_endproc
+ 307              	.LFE69:
+ 308              		.size	write_index, .-write_index
+ 309 0022 00BF     		.section	.text.write_data,"ax",%progbits
+ 310              		.align	2
+ 311              		.thumb
+ 312              		.thumb_func
+ 313              		.type	write_data, %function
+ 314              	write_data:
+ 315              	.LFB70:
+  74:./board_ILI9341.h **** 
+  75:./board_ILI9341.h **** static GFXINLINE void write_data(GDisplay* g, uint16_t data)
+  76:./board_ILI9341.h **** {
+ 316              		.loc 1 76 0
+ 317              		.cfi_startproc
+ 318              		@ args = 0, pretend = 0, frame = 8
+ 319              		@ frame_needed = 1, uses_anonymous_args = 0
+ 320 0000 80B5     		push	{r7, lr}
+ 321              		.cfi_def_cfa_offset 8
+ 322              		.cfi_offset 7, -8
+ 323              		.cfi_offset 14, -4
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 8
+
+
+ 324 0002 82B0     		sub	sp, sp, #8
+ 325              		.cfi_def_cfa_offset 16
+ 326 0004 00AF     		add	r7, sp, #0
+ 327              		.cfi_def_cfa_register 7
+ 328 0006 7860     		str	r0, [r7, #4]
+ 329 0008 0B46     		mov	r3, r1
+ 330 000a 7B80     		strh	r3, [r7, #2]	@ movhi
+  77:./board_ILI9341.h **** 	(void)g;
+  78:./board_ILI9341.h ****     
+  79:./board_ILI9341.h ****     LCD_DC_Write(1);
+ 331              		.loc 1 79 0
+ 332 000c 0120     		movs	r0, #1
+ 333 000e FFF7FEFF 		bl	LCD_DC_Write
+  80:./board_ILI9341.h ****     LCD_SPI_WriteTxData(data);
+ 334              		.loc 1 80 0
+ 335 0012 7B88     		ldrh	r3, [r7, #2]	@ movhi
+ 336 0014 DBB2     		uxtb	r3, r3
+ 337 0016 1846     		mov	r0, r3
+ 338 0018 FFF7FEFF 		bl	LCD_SPI_WriteTxData
+  81:./board_ILI9341.h **** }
+ 339              		.loc 1 81 0
+ 340 001c 0837     		adds	r7, r7, #8
+ 341              		.cfi_def_cfa_offset 8
+ 342 001e BD46     		mov	sp, r7
+ 343              		.cfi_def_cfa_register 13
+ 344              		@ sp needed
+ 345 0020 80BD     		pop	{r7, pc}
+ 346              		.cfi_endproc
+ 347              	.LFE70:
+ 348              		.size	write_data, .-write_data
+ 349 0022 00BF     		.section	.text.setreadmode,"ax",%progbits
+ 350              		.align	2
+ 351              		.thumb
+ 352              		.thumb_func
+ 353              		.type	setreadmode, %function
+ 354              	setreadmode:
+ 355              	.LFB71:
+  82:./board_ILI9341.h **** 
+  83:./board_ILI9341.h **** static GFXINLINE void setreadmode(GDisplay* g)
+  84:./board_ILI9341.h **** {
+ 356              		.loc 1 84 0
+ 357              		.cfi_startproc
+ 358              		@ args = 0, pretend = 0, frame = 8
+ 359              		@ frame_needed = 1, uses_anonymous_args = 0
+ 360              		@ link register save eliminated.
+ 361 0000 80B4     		push	{r7}
+ 362              		.cfi_def_cfa_offset 4
+ 363              		.cfi_offset 7, -4
+ 364 0002 83B0     		sub	sp, sp, #12
+ 365              		.cfi_def_cfa_offset 16
+ 366 0004 00AF     		add	r7, sp, #0
+ 367              		.cfi_def_cfa_register 7
+ 368 0006 7860     		str	r0, [r7, #4]
+  85:./board_ILI9341.h **** 	(void)g;
+  86:./board_ILI9341.h **** }
+ 369              		.loc 1 86 0
+ 370 0008 0C37     		adds	r7, r7, #12
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 9
+
+
+ 371              		.cfi_def_cfa_offset 4
+ 372 000a BD46     		mov	sp, r7
+ 373              		.cfi_def_cfa_register 13
+ 374              		@ sp needed
+ 375 000c 5DF8047B 		ldr	r7, [sp], #4
+ 376              		.cfi_restore 7
+ 377              		.cfi_def_cfa_offset 0
+ 378 0010 7047     		bx	lr
+ 379              		.cfi_endproc
+ 380              	.LFE71:
+ 381              		.size	setreadmode, .-setreadmode
+ 382 0012 00BF     		.section	.text.setwritemode,"ax",%progbits
+ 383              		.align	2
+ 384              		.thumb
+ 385              		.thumb_func
+ 386              		.type	setwritemode, %function
+ 387              	setwritemode:
+ 388              	.LFB72:
+  87:./board_ILI9341.h **** 
+  88:./board_ILI9341.h **** static GFXINLINE void setwritemode(GDisplay* g)
+  89:./board_ILI9341.h **** {
+ 389              		.loc 1 89 0
+ 390              		.cfi_startproc
+ 391              		@ args = 0, pretend = 0, frame = 8
+ 392              		@ frame_needed = 1, uses_anonymous_args = 0
+ 393              		@ link register save eliminated.
+ 394 0000 80B4     		push	{r7}
+ 395              		.cfi_def_cfa_offset 4
+ 396              		.cfi_offset 7, -4
+ 397 0002 83B0     		sub	sp, sp, #12
+ 398              		.cfi_def_cfa_offset 16
+ 399 0004 00AF     		add	r7, sp, #0
+ 400              		.cfi_def_cfa_register 7
+ 401 0006 7860     		str	r0, [r7, #4]
+  90:./board_ILI9341.h **** 	(void)g;
+  91:./board_ILI9341.h **** }
+ 402              		.loc 1 91 0
+ 403 0008 0C37     		adds	r7, r7, #12
+ 404              		.cfi_def_cfa_offset 4
+ 405 000a BD46     		mov	sp, r7
+ 406              		.cfi_def_cfa_register 13
+ 407              		@ sp needed
+ 408 000c 5DF8047B 		ldr	r7, [sp], #4
+ 409              		.cfi_restore 7
+ 410              		.cfi_def_cfa_offset 0
+ 411 0010 7047     		bx	lr
+ 412              		.cfi_endproc
+ 413              	.LFE72:
+ 414              		.size	setwritemode, .-setwritemode
+ 415 0012 00BF     		.section	.text.read_data,"ax",%progbits
+ 416              		.align	2
+ 417              		.thumb
+ 418              		.thumb_func
+ 419              		.type	read_data, %function
+ 420              	read_data:
+ 421              	.LFB73:
+  92:./board_ILI9341.h **** 
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 10
+
+
+  93:./board_ILI9341.h **** static GFXINLINE uint16_t read_data(GDisplay* g)
+  94:./board_ILI9341.h **** {
+ 422              		.loc 1 94 0
+ 423              		.cfi_startproc
+ 424              		@ args = 0, pretend = 0, frame = 8
+ 425              		@ frame_needed = 1, uses_anonymous_args = 0
+ 426 0000 80B5     		push	{r7, lr}
+ 427              		.cfi_def_cfa_offset 8
+ 428              		.cfi_offset 7, -8
+ 429              		.cfi_offset 14, -4
+ 430 0002 82B0     		sub	sp, sp, #8
+ 431              		.cfi_def_cfa_offset 16
+ 432 0004 00AF     		add	r7, sp, #0
+ 433              		.cfi_def_cfa_register 7
+ 434 0006 7860     		str	r0, [r7, #4]
+  95:./board_ILI9341.h **** 	(void)g;
+  96:./board_ILI9341.h ****     
+  97:./board_ILI9341.h **** 	return LCD_SPI_ReadRxData();
+ 435              		.loc 1 97 0
+ 436 0008 FFF7FEFF 		bl	LCD_SPI_ReadRxData
+ 437 000c 0346     		mov	r3, r0
+ 438 000e 9BB2     		uxth	r3, r3
+  98:./board_ILI9341.h **** }
+ 439              		.loc 1 98 0
+ 440 0010 1846     		mov	r0, r3
+ 441 0012 0837     		adds	r7, r7, #8
+ 442              		.cfi_def_cfa_offset 8
+ 443 0014 BD46     		mov	sp, r7
+ 444              		.cfi_def_cfa_register 13
+ 445              		@ sp needed
+ 446 0016 80BD     		pop	{r7, pc}
+ 447              		.cfi_endproc
+ 448              	.LFE73:
+ 449              		.size	read_data, .-read_data
+ 450              		.section	.text.set_viewport,"ax",%progbits
+ 451              		.align	2
+ 452              		.thumb
+ 453              		.thumb_func
+ 454              		.type	set_viewport, %function
+ 455              	set_viewport:
+ 456              	.LFB74:
+ 457              		.file 2 "..\\ugfx_2.6\\drivers\\gdisp\\ILI9341\\gdisp_lld_ILI9341.c"
+   1:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** /*
+   2:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c ****  * This file is subject to the terms of the GFX License. If a copy of
+   3:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c ****  * the license was not distributed with this file, you can obtain one at:
+   4:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c ****  *
+   5:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c ****  *              http://ugfx.org/license.html
+   6:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c ****  */
+   7:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+   8:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** #include "gfx.h"
+   9:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+  10:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** #if GFX_USE_GDISP
+  11:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+  12:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** #if defined(GDISP_SCREEN_HEIGHT)
+  13:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	#warning "GDISP: This low level driver does not support setting a screen size. It is being ignored
+  14:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	#undef GISP_SCREEN_HEIGHT
+  15:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** #endif
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 11
+
+
+  16:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** #if defined(GDISP_SCREEN_WIDTH)
+  17:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	#warning "GDISP: This low level driver does not support setting a screen size. It is being ignored
+  18:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	#undef GDISP_SCREEN_WIDTH
+  19:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** #endif
+  20:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+  21:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** #define GDISP_DRIVER_VMT			GDISPVMT_ILI9341
+  22:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** #include "gdisp_lld_config.h"
+  23:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** #include "../../../src/gdisp/gdisp_driver.h"
+  24:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+  25:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** #include "board_ILI9341.h"
+  26:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+  27:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** /*===========================================================================*/
+  28:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** /* Driver local definitions.                                                 */
+  29:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** /*===========================================================================*/
+  30:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+  31:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** #ifndef GDISP_SCREEN_HEIGHT
+  32:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	#define GDISP_SCREEN_HEIGHT		320
+  33:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** #endif
+  34:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** #ifndef GDISP_SCREEN_WIDTH
+  35:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	#define GDISP_SCREEN_WIDTH		240
+  36:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** #endif
+  37:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** #ifndef GDISP_INITIAL_CONTRAST
+  38:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	#define GDISP_INITIAL_CONTRAST	50
+  39:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** #endif
+  40:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** #ifndef GDISP_INITIAL_BACKLIGHT
+  41:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	#define GDISP_INITIAL_BACKLIGHT	100
+  42:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** #endif
+  43:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+  44:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** #include "ILI9341.h"
+  45:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+  46:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** /*===========================================================================*/
+  47:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** /* Driver local functions.                                                   */
+  48:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** /*===========================================================================*/
+  49:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+  50:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** // Some common routines and macros
+  51:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** #define dummy_read(g)				{ volatile uint16_t dummy; dummy = read_data(g); (void) dummy; }
+  52:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** #define write_reg(g, reg, data)		{ write_index(g, reg); write_data(g, data); }
+  53:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** #define write_data16(g, data)		{ write_data(g, data >> 8); write_data(g, (uint8_t)data); }
+  54:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** #define delay(us)					gfxSleepMicroseconds(us)
+  55:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** #define delayms(ms)					gfxSleepMilliseconds(ms)
+  56:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+  57:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** static void set_viewport(GDisplay *g) {
+ 458              		.loc 2 57 0
+ 459              		.cfi_startproc
+ 460              		@ args = 0, pretend = 0, frame = 8
+ 461              		@ frame_needed = 1, uses_anonymous_args = 0
+ 462 0000 80B5     		push	{r7, lr}
+ 463              		.cfi_def_cfa_offset 8
+ 464              		.cfi_offset 7, -8
+ 465              		.cfi_offset 14, -4
+ 466 0002 82B0     		sub	sp, sp, #8
+ 467              		.cfi_def_cfa_offset 16
+ 468 0004 00AF     		add	r7, sp, #0
+ 469              		.cfi_def_cfa_register 7
+ 470 0006 7860     		str	r0, [r7, #4]
+  58:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_index(g, 0x2A);
+ 471              		.loc 2 58 0
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 12
+
+
+ 472 0008 7868     		ldr	r0, [r7, #4]
+ 473 000a 2A21     		movs	r1, #42
+ 474 000c FFF7FEFF 		bl	write_index
+  59:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, (g->p.x >> 8));
+ 475              		.loc 2 59 0
+ 476 0010 7B68     		ldr	r3, [r7, #4]
+ 477 0012 1B8D     		ldrh	r3, [r3, #40]
+ 478 0014 1BB2     		sxth	r3, r3
+ 479 0016 1B12     		asrs	r3, r3, #8
+ 480 0018 9BB2     		uxth	r3, r3
+ 481 001a 9BB2     		uxth	r3, r3
+ 482 001c 7868     		ldr	r0, [r7, #4]
+ 483 001e 1946     		mov	r1, r3
+ 484 0020 FFF7FEFF 		bl	write_data
+  60:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, (uint8_t) g->p.x);
+ 485              		.loc 2 60 0
+ 486 0024 7B68     		ldr	r3, [r7, #4]
+ 487 0026 1B8D     		ldrh	r3, [r3, #40]
+ 488 0028 DBB2     		uxtb	r3, r3
+ 489 002a 9BB2     		uxth	r3, r3
+ 490 002c 7868     		ldr	r0, [r7, #4]
+ 491 002e 1946     		mov	r1, r3
+ 492 0030 FFF7FEFF 		bl	write_data
+  61:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, (g->p.x + g->p.cx - 1) >> 8);
+ 493              		.loc 2 61 0
+ 494 0034 7B68     		ldr	r3, [r7, #4]
+ 495 0036 1B8D     		ldrh	r3, [r3, #40]
+ 496 0038 1AB2     		sxth	r2, r3
+ 497 003a 7B68     		ldr	r3, [r7, #4]
+ 498 003c 9B8D     		ldrh	r3, [r3, #44]
+ 499 003e 1BB2     		sxth	r3, r3
+ 500 0040 1344     		add	r3, r3, r2
+ 501 0042 013B     		subs	r3, r3, #1
+ 502 0044 1B12     		asrs	r3, r3, #8
+ 503 0046 9BB2     		uxth	r3, r3
+ 504 0048 7868     		ldr	r0, [r7, #4]
+ 505 004a 1946     		mov	r1, r3
+ 506 004c FFF7FEFF 		bl	write_data
+  62:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, (uint8_t) (g->p.x + g->p.cx - 1));
+ 507              		.loc 2 62 0
+ 508 0050 7B68     		ldr	r3, [r7, #4]
+ 509 0052 1B8D     		ldrh	r3, [r3, #40]
+ 510 0054 DAB2     		uxtb	r2, r3
+ 511 0056 7B68     		ldr	r3, [r7, #4]
+ 512 0058 9B8D     		ldrh	r3, [r3, #44]
+ 513 005a DBB2     		uxtb	r3, r3
+ 514 005c 1344     		add	r3, r3, r2
+ 515 005e DBB2     		uxtb	r3, r3
+ 516 0060 013B     		subs	r3, r3, #1
+ 517 0062 DBB2     		uxtb	r3, r3
+ 518 0064 9BB2     		uxth	r3, r3
+ 519 0066 7868     		ldr	r0, [r7, #4]
+ 520 0068 1946     		mov	r1, r3
+ 521 006a FFF7FEFF 		bl	write_data
+  63:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+  64:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_index(g, 0x2B);
+ 522              		.loc 2 64 0
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 13
+
+
+ 523 006e 7868     		ldr	r0, [r7, #4]
+ 524 0070 2B21     		movs	r1, #43
+ 525 0072 FFF7FEFF 		bl	write_index
+  65:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, (g->p.y >> 8));
+ 526              		.loc 2 65 0
+ 527 0076 7B68     		ldr	r3, [r7, #4]
+ 528 0078 5B8D     		ldrh	r3, [r3, #42]
+ 529 007a 1BB2     		sxth	r3, r3
+ 530 007c 1B12     		asrs	r3, r3, #8
+ 531 007e 9BB2     		uxth	r3, r3
+ 532 0080 9BB2     		uxth	r3, r3
+ 533 0082 7868     		ldr	r0, [r7, #4]
+ 534 0084 1946     		mov	r1, r3
+ 535 0086 FFF7FEFF 		bl	write_data
+  66:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, (uint8_t) g->p.y);
+ 536              		.loc 2 66 0
+ 537 008a 7B68     		ldr	r3, [r7, #4]
+ 538 008c 5B8D     		ldrh	r3, [r3, #42]
+ 539 008e DBB2     		uxtb	r3, r3
+ 540 0090 9BB2     		uxth	r3, r3
+ 541 0092 7868     		ldr	r0, [r7, #4]
+ 542 0094 1946     		mov	r1, r3
+ 543 0096 FFF7FEFF 		bl	write_data
+  67:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, (g->p.y + g->p.cy - 1) >> 8);
+ 544              		.loc 2 67 0
+ 545 009a 7B68     		ldr	r3, [r7, #4]
+ 546 009c 5B8D     		ldrh	r3, [r3, #42]
+ 547 009e 1AB2     		sxth	r2, r3
+ 548 00a0 7B68     		ldr	r3, [r7, #4]
+ 549 00a2 DB8D     		ldrh	r3, [r3, #46]
+ 550 00a4 1BB2     		sxth	r3, r3
+ 551 00a6 1344     		add	r3, r3, r2
+ 552 00a8 013B     		subs	r3, r3, #1
+ 553 00aa 1B12     		asrs	r3, r3, #8
+ 554 00ac 9BB2     		uxth	r3, r3
+ 555 00ae 7868     		ldr	r0, [r7, #4]
+ 556 00b0 1946     		mov	r1, r3
+ 557 00b2 FFF7FEFF 		bl	write_data
+  68:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, (uint8_t) (g->p.y + g->p.cy - 1));
+ 558              		.loc 2 68 0
+ 559 00b6 7B68     		ldr	r3, [r7, #4]
+ 560 00b8 5B8D     		ldrh	r3, [r3, #42]
+ 561 00ba DAB2     		uxtb	r2, r3
+ 562 00bc 7B68     		ldr	r3, [r7, #4]
+ 563 00be DB8D     		ldrh	r3, [r3, #46]
+ 564 00c0 DBB2     		uxtb	r3, r3
+ 565 00c2 1344     		add	r3, r3, r2
+ 566 00c4 DBB2     		uxtb	r3, r3
+ 567 00c6 013B     		subs	r3, r3, #1
+ 568 00c8 DBB2     		uxtb	r3, r3
+ 569 00ca 9BB2     		uxth	r3, r3
+ 570 00cc 7868     		ldr	r0, [r7, #4]
+ 571 00ce 1946     		mov	r1, r3
+ 572 00d0 FFF7FEFF 		bl	write_data
+  69:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** }
+ 573              		.loc 2 69 0
+ 574 00d4 0837     		adds	r7, r7, #8
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 14
+
+
+ 575              		.cfi_def_cfa_offset 8
+ 576 00d6 BD46     		mov	sp, r7
+ 577              		.cfi_def_cfa_register 13
+ 578              		@ sp needed
+ 579 00d8 80BD     		pop	{r7, pc}
+ 580              		.cfi_endproc
+ 581              	.LFE74:
+ 582              		.size	set_viewport, .-set_viewport
+ 583 00da 00BF     		.section	.text.gdisp_lld_init,"ax",%progbits
+ 584              		.align	2
+ 585              		.global	gdisp_lld_init
+ 586              		.thumb
+ 587              		.thumb_func
+ 588              		.type	gdisp_lld_init, %function
+ 589              	gdisp_lld_init:
+ 590              	.LFB75:
+  70:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+  71:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** /*===========================================================================*/
+  72:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** /* Driver exported functions.                                                */
+  73:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** /*===========================================================================*/
+  74:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+  75:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** LLDSPEC bool_t gdisp_lld_init(GDisplay *g) {
+ 591              		.loc 2 75 0
+ 592              		.cfi_startproc
+ 593              		@ args = 0, pretend = 0, frame = 8
+ 594              		@ frame_needed = 1, uses_anonymous_args = 0
+ 595 0000 80B5     		push	{r7, lr}
+ 596              		.cfi_def_cfa_offset 8
+ 597              		.cfi_offset 7, -8
+ 598              		.cfi_offset 14, -4
+ 599 0002 82B0     		sub	sp, sp, #8
+ 600              		.cfi_def_cfa_offset 16
+ 601 0004 00AF     		add	r7, sp, #0
+ 602              		.cfi_def_cfa_register 7
+ 603 0006 7860     		str	r0, [r7, #4]
+  76:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	// No private area for this controller
+  77:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	g->priv = 0;
+ 604              		.loc 2 77 0
+ 605 0008 7B68     		ldr	r3, [r7, #4]
+ 606 000a 0022     		movs	r2, #0
+ 607 000c 5A61     		str	r2, [r3, #20]
+  78:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+  79:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	// Initialise the board interface
+  80:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	init_board(g);
+ 608              		.loc 2 80 0
+ 609 000e 7868     		ldr	r0, [r7, #4]
+ 610 0010 FFF7FEFF 		bl	init_board
+  81:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+  82:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	// Hardware reset
+  83:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	setpin_reset(g, TRUE);
+ 611              		.loc 2 83 0
+ 612 0014 7868     		ldr	r0, [r7, #4]
+ 613 0016 FF21     		movs	r1, #255
+ 614 0018 FFF7FEFF 		bl	setpin_reset
+  84:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	gfxSleepMilliseconds(20);
+ 615              		.loc 2 84 0
+ 616 001c 1420     		movs	r0, #20
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 15
+
+
+ 617 001e FFF7FEFF 		bl	gfxSleepMilliseconds
+  85:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	setpin_reset(g, FALSE);
+ 618              		.loc 2 85 0
+ 619 0022 7868     		ldr	r0, [r7, #4]
+ 620 0024 0021     		movs	r1, #0
+ 621 0026 FFF7FEFF 		bl	setpin_reset
+  86:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	gfxSleepMilliseconds(20);
+ 622              		.loc 2 86 0
+ 623 002a 1420     		movs	r0, #20
+ 624 002c FFF7FEFF 		bl	gfxSleepMilliseconds
+  87:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+  88:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	// Get the bus for the following initialisation commands
+  89:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	acquire_bus(g);
+ 625              		.loc 2 89 0
+ 626 0030 7868     		ldr	r0, [r7, #4]
+ 627 0032 FFF7FEFF 		bl	acquire_bus
+  90:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+  91:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_index(g, 0x01); //software reset
+ 628              		.loc 2 91 0
+ 629 0036 7868     		ldr	r0, [r7, #4]
+ 630 0038 0121     		movs	r1, #1
+ 631 003a FFF7FEFF 		bl	write_index
+  92:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	gfxSleepMilliseconds(5);
+ 632              		.loc 2 92 0
+ 633 003e 0520     		movs	r0, #5
+ 634 0040 FFF7FEFF 		bl	gfxSleepMilliseconds
+  93:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_index(g, 0x28);
+ 635              		.loc 2 93 0
+ 636 0044 7868     		ldr	r0, [r7, #4]
+ 637 0046 2821     		movs	r1, #40
+ 638 0048 FFF7FEFF 		bl	write_index
+  94:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	// display off
+  95:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	//---------------------------------------------------------
+  96:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	// magic?
+  97:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_index(g, 0xcf);
+ 639              		.loc 2 97 0
+ 640 004c 7868     		ldr	r0, [r7, #4]
+ 641 004e CF21     		movs	r1, #207
+ 642 0050 FFF7FEFF 		bl	write_index
+  98:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x00);
+ 643              		.loc 2 98 0
+ 644 0054 7868     		ldr	r0, [r7, #4]
+ 645 0056 0021     		movs	r1, #0
+ 646 0058 FFF7FEFF 		bl	write_data
+  99:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x83);
+ 647              		.loc 2 99 0
+ 648 005c 7868     		ldr	r0, [r7, #4]
+ 649 005e 8321     		movs	r1, #131
+ 650 0060 FFF7FEFF 		bl	write_data
+ 100:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x30);
+ 651              		.loc 2 100 0
+ 652 0064 7868     		ldr	r0, [r7, #4]
+ 653 0066 3021     		movs	r1, #48
+ 654 0068 FFF7FEFF 		bl	write_data
+ 101:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+ 102:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_index(g, 0xed);
+ 655              		.loc 2 102 0
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 16
+
+
+ 656 006c 7868     		ldr	r0, [r7, #4]
+ 657 006e ED21     		movs	r1, #237
+ 658 0070 FFF7FEFF 		bl	write_index
+ 103:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x64);
+ 659              		.loc 2 103 0
+ 660 0074 7868     		ldr	r0, [r7, #4]
+ 661 0076 6421     		movs	r1, #100
+ 662 0078 FFF7FEFF 		bl	write_data
+ 104:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x03);
+ 663              		.loc 2 104 0
+ 664 007c 7868     		ldr	r0, [r7, #4]
+ 665 007e 0321     		movs	r1, #3
+ 666 0080 FFF7FEFF 		bl	write_data
+ 105:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x12);
+ 667              		.loc 2 105 0
+ 668 0084 7868     		ldr	r0, [r7, #4]
+ 669 0086 1221     		movs	r1, #18
+ 670 0088 FFF7FEFF 		bl	write_data
+ 106:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x81);
+ 671              		.loc 2 106 0
+ 672 008c 7868     		ldr	r0, [r7, #4]
+ 673 008e 8121     		movs	r1, #129
+ 674 0090 FFF7FEFF 		bl	write_data
+ 107:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_index(g, 0xe8);
+ 675              		.loc 2 107 0
+ 676 0094 7868     		ldr	r0, [r7, #4]
+ 677 0096 E821     		movs	r1, #232
+ 678 0098 FFF7FEFF 		bl	write_index
+ 108:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x85);
+ 679              		.loc 2 108 0
+ 680 009c 7868     		ldr	r0, [r7, #4]
+ 681 009e 8521     		movs	r1, #133
+ 682 00a0 FFF7FEFF 		bl	write_data
+ 109:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x01);
+ 683              		.loc 2 109 0
+ 684 00a4 7868     		ldr	r0, [r7, #4]
+ 685 00a6 0121     		movs	r1, #1
+ 686 00a8 FFF7FEFF 		bl	write_data
+ 110:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x79);
+ 687              		.loc 2 110 0
+ 688 00ac 7868     		ldr	r0, [r7, #4]
+ 689 00ae 7921     		movs	r1, #121
+ 690 00b0 FFF7FEFF 		bl	write_data
+ 111:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_index(g, 0xcb);
+ 691              		.loc 2 111 0
+ 692 00b4 7868     		ldr	r0, [r7, #4]
+ 693 00b6 CB21     		movs	r1, #203
+ 694 00b8 FFF7FEFF 		bl	write_index
+ 112:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x39);
+ 695              		.loc 2 112 0
+ 696 00bc 7868     		ldr	r0, [r7, #4]
+ 697 00be 3921     		movs	r1, #57
+ 698 00c0 FFF7FEFF 		bl	write_data
+ 113:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x2c);
+ 699              		.loc 2 113 0
+ 700 00c4 7868     		ldr	r0, [r7, #4]
+ 701 00c6 2C21     		movs	r1, #44
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 17
+
+
+ 702 00c8 FFF7FEFF 		bl	write_data
+ 114:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x00);
+ 703              		.loc 2 114 0
+ 704 00cc 7868     		ldr	r0, [r7, #4]
+ 705 00ce 0021     		movs	r1, #0
+ 706 00d0 FFF7FEFF 		bl	write_data
+ 115:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x34);
+ 707              		.loc 2 115 0
+ 708 00d4 7868     		ldr	r0, [r7, #4]
+ 709 00d6 3421     		movs	r1, #52
+ 710 00d8 FFF7FEFF 		bl	write_data
+ 116:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x02);
+ 711              		.loc 2 116 0
+ 712 00dc 7868     		ldr	r0, [r7, #4]
+ 713 00de 0221     		movs	r1, #2
+ 714 00e0 FFF7FEFF 		bl	write_data
+ 117:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_index(g, 0xf7);
+ 715              		.loc 2 117 0
+ 716 00e4 7868     		ldr	r0, [r7, #4]
+ 717 00e6 F721     		movs	r1, #247
+ 718 00e8 FFF7FEFF 		bl	write_index
+ 118:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x20);
+ 719              		.loc 2 118 0
+ 720 00ec 7868     		ldr	r0, [r7, #4]
+ 721 00ee 2021     		movs	r1, #32
+ 722 00f0 FFF7FEFF 		bl	write_data
+ 119:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_index(g, 0xea);
+ 723              		.loc 2 119 0
+ 724 00f4 7868     		ldr	r0, [r7, #4]
+ 725 00f6 EA21     		movs	r1, #234
+ 726 00f8 FFF7FEFF 		bl	write_index
+ 120:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x00);
+ 727              		.loc 2 120 0
+ 728 00fc 7868     		ldr	r0, [r7, #4]
+ 729 00fe 0021     		movs	r1, #0
+ 730 0100 FFF7FEFF 		bl	write_data
+ 121:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x00);
+ 731              		.loc 2 121 0
+ 732 0104 7868     		ldr	r0, [r7, #4]
+ 733 0106 0021     		movs	r1, #0
+ 734 0108 FFF7FEFF 		bl	write_data
+ 122:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	//------------power control------------------------------
+ 123:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_index(g, 0xc0); //power control
+ 735              		.loc 2 123 0
+ 736 010c 7868     		ldr	r0, [r7, #4]
+ 737 010e C021     		movs	r1, #192
+ 738 0110 FFF7FEFF 		bl	write_index
+ 124:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x26);
+ 739              		.loc 2 124 0
+ 740 0114 7868     		ldr	r0, [r7, #4]
+ 741 0116 2621     		movs	r1, #38
+ 742 0118 FFF7FEFF 		bl	write_data
+ 125:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_index(g, 0xc1); //power control
+ 743              		.loc 2 125 0
+ 744 011c 7868     		ldr	r0, [r7, #4]
+ 745 011e C121     		movs	r1, #193
+ 746 0120 FFF7FEFF 		bl	write_index
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 18
+
+
+ 126:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x11);
+ 747              		.loc 2 126 0
+ 748 0124 7868     		ldr	r0, [r7, #4]
+ 749 0126 1121     		movs	r1, #17
+ 750 0128 FFF7FEFF 		bl	write_data
+ 127:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	//--------------VCOM
+ 128:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_index(g, 0xc5); //vcom control
+ 751              		.loc 2 128 0
+ 752 012c 7868     		ldr	r0, [r7, #4]
+ 753 012e C521     		movs	r1, #197
+ 754 0130 FFF7FEFF 		bl	write_index
+ 129:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x35);//35
+ 755              		.loc 2 129 0
+ 756 0134 7868     		ldr	r0, [r7, #4]
+ 757 0136 3521     		movs	r1, #53
+ 758 0138 FFF7FEFF 		bl	write_data
+ 130:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x3e);//3E
+ 759              		.loc 2 130 0
+ 760 013c 7868     		ldr	r0, [r7, #4]
+ 761 013e 3E21     		movs	r1, #62
+ 762 0140 FFF7FEFF 		bl	write_data
+ 131:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_index(g, 0xc7); //vcom control
+ 763              		.loc 2 131 0
+ 764 0144 7868     		ldr	r0, [r7, #4]
+ 765 0146 C721     		movs	r1, #199
+ 766 0148 FFF7FEFF 		bl	write_index
+ 132:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0xbe); // 0x94
+ 767              		.loc 2 132 0
+ 768 014c 7868     		ldr	r0, [r7, #4]
+ 769 014e BE21     		movs	r1, #190
+ 770 0150 FFF7FEFF 		bl	write_data
+ 133:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	//------------memory access control------------------------
+ 134:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_index(g, 0x36);
+ 771              		.loc 2 134 0
+ 772 0154 7868     		ldr	r0, [r7, #4]
+ 773 0156 3621     		movs	r1, #54
+ 774 0158 FFF7FEFF 		bl	write_index
+ 135:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	// memory access control
+ 136:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x48); //0048 my,mx,mv,ml,BGR,mh,0.0
+ 775              		.loc 2 136 0
+ 776 015c 7868     		ldr	r0, [r7, #4]
+ 777 015e 4821     		movs	r1, #72
+ 778 0160 FFF7FEFF 		bl	write_data
+ 137:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_index(g, 0x3a); // pixel format set
+ 779              		.loc 2 137 0
+ 780 0164 7868     		ldr	r0, [r7, #4]
+ 781 0166 3A21     		movs	r1, #58
+ 782 0168 FFF7FEFF 		bl	write_index
+ 138:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x55);//16bit /pixel
+ 783              		.loc 2 138 0
+ 784 016c 7868     		ldr	r0, [r7, #4]
+ 785 016e 5521     		movs	r1, #85
+ 786 0170 FFF7FEFF 		bl	write_data
+ 139:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	//----------------- frame rate------------------------------
+ 140:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_index(g, 0xb1);
+ 787              		.loc 2 140 0
+ 788 0174 7868     		ldr	r0, [r7, #4]
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 19
+
+
+ 789 0176 B121     		movs	r1, #177
+ 790 0178 FFF7FEFF 		bl	write_index
+ 141:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	// frame rate
+ 142:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x00);
+ 791              		.loc 2 142 0
+ 792 017c 7868     		ldr	r0, [r7, #4]
+ 793 017e 0021     		movs	r1, #0
+ 794 0180 FFF7FEFF 		bl	write_data
+ 143:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x1B); //70
+ 795              		.loc 2 143 0
+ 796 0184 7868     		ldr	r0, [r7, #4]
+ 797 0186 1B21     		movs	r1, #27
+ 798 0188 FFF7FEFF 		bl	write_data
+ 144:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	//----------------Gamma---------------------------------
+ 145:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_index(g, 0xf2); // 3Gamma Function Disable
+ 799              		.loc 2 145 0
+ 800 018c 7868     		ldr	r0, [r7, #4]
+ 801 018e F221     		movs	r1, #242
+ 802 0190 FFF7FEFF 		bl	write_index
+ 146:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x08);
+ 803              		.loc 2 146 0
+ 804 0194 7868     		ldr	r0, [r7, #4]
+ 805 0196 0821     		movs	r1, #8
+ 806 0198 FFF7FEFF 		bl	write_data
+ 147:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_index(g, 0x26);
+ 807              		.loc 2 147 0
+ 808 019c 7868     		ldr	r0, [r7, #4]
+ 809 019e 2621     		movs	r1, #38
+ 810 01a0 FFF7FEFF 		bl	write_index
+ 148:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x01); // gamma set 4 gamma curve 01/02/04/08
+ 811              		.loc 2 148 0
+ 812 01a4 7868     		ldr	r0, [r7, #4]
+ 813 01a6 0121     		movs	r1, #1
+ 814 01a8 FFF7FEFF 		bl	write_data
+ 149:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+ 150:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_index(g, 0xE0); //positive gamma correction
+ 815              		.loc 2 150 0
+ 816 01ac 7868     		ldr	r0, [r7, #4]
+ 817 01ae E021     		movs	r1, #224
+ 818 01b0 FFF7FEFF 		bl	write_index
+ 151:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x1f);
+ 819              		.loc 2 151 0
+ 820 01b4 7868     		ldr	r0, [r7, #4]
+ 821 01b6 1F21     		movs	r1, #31
+ 822 01b8 FFF7FEFF 		bl	write_data
+ 152:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x1a);
+ 823              		.loc 2 152 0
+ 824 01bc 7868     		ldr	r0, [r7, #4]
+ 825 01be 1A21     		movs	r1, #26
+ 826 01c0 FFF7FEFF 		bl	write_data
+ 153:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x18);
+ 827              		.loc 2 153 0
+ 828 01c4 7868     		ldr	r0, [r7, #4]
+ 829 01c6 1821     		movs	r1, #24
+ 830 01c8 FFF7FEFF 		bl	write_data
+ 154:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x0a);
+ 831              		.loc 2 154 0
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 20
+
+
+ 832 01cc 7868     		ldr	r0, [r7, #4]
+ 833 01ce 0A21     		movs	r1, #10
+ 834 01d0 FFF7FEFF 		bl	write_data
+ 155:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x0f);
+ 835              		.loc 2 155 0
+ 836 01d4 7868     		ldr	r0, [r7, #4]
+ 837 01d6 0F21     		movs	r1, #15
+ 838 01d8 FFF7FEFF 		bl	write_data
+ 156:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x06);
+ 839              		.loc 2 156 0
+ 840 01dc 7868     		ldr	r0, [r7, #4]
+ 841 01de 0621     		movs	r1, #6
+ 842 01e0 FFF7FEFF 		bl	write_data
+ 157:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x45);
+ 843              		.loc 2 157 0
+ 844 01e4 7868     		ldr	r0, [r7, #4]
+ 845 01e6 4521     		movs	r1, #69
+ 846 01e8 FFF7FEFF 		bl	write_data
+ 158:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x87);
+ 847              		.loc 2 158 0
+ 848 01ec 7868     		ldr	r0, [r7, #4]
+ 849 01ee 8721     		movs	r1, #135
+ 850 01f0 FFF7FEFF 		bl	write_data
+ 159:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x32);
+ 851              		.loc 2 159 0
+ 852 01f4 7868     		ldr	r0, [r7, #4]
+ 853 01f6 3221     		movs	r1, #50
+ 854 01f8 FFF7FEFF 		bl	write_data
+ 160:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x0a);
+ 855              		.loc 2 160 0
+ 856 01fc 7868     		ldr	r0, [r7, #4]
+ 857 01fe 0A21     		movs	r1, #10
+ 858 0200 FFF7FEFF 		bl	write_data
+ 161:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x07);
+ 859              		.loc 2 161 0
+ 860 0204 7868     		ldr	r0, [r7, #4]
+ 861 0206 0721     		movs	r1, #7
+ 862 0208 FFF7FEFF 		bl	write_data
+ 162:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x02);
+ 863              		.loc 2 162 0
+ 864 020c 7868     		ldr	r0, [r7, #4]
+ 865 020e 0221     		movs	r1, #2
+ 866 0210 FFF7FEFF 		bl	write_data
+ 163:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x07);
+ 867              		.loc 2 163 0
+ 868 0214 7868     		ldr	r0, [r7, #4]
+ 869 0216 0721     		movs	r1, #7
+ 870 0218 FFF7FEFF 		bl	write_data
+ 164:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x05);
+ 871              		.loc 2 164 0
+ 872 021c 7868     		ldr	r0, [r7, #4]
+ 873 021e 0521     		movs	r1, #5
+ 874 0220 FFF7FEFF 		bl	write_data
+ 165:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x00);
+ 875              		.loc 2 165 0
+ 876 0224 7868     		ldr	r0, [r7, #4]
+ 877 0226 0021     		movs	r1, #0
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 21
+
+
+ 878 0228 FFF7FEFF 		bl	write_data
+ 166:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_index(g, 0xE1); //negamma correction
+ 879              		.loc 2 166 0
+ 880 022c 7868     		ldr	r0, [r7, #4]
+ 881 022e E121     		movs	r1, #225
+ 882 0230 FFF7FEFF 		bl	write_index
+ 167:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x00);
+ 883              		.loc 2 167 0
+ 884 0234 7868     		ldr	r0, [r7, #4]
+ 885 0236 0021     		movs	r1, #0
+ 886 0238 FFF7FEFF 		bl	write_data
+ 168:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x25);
+ 887              		.loc 2 168 0
+ 888 023c 7868     		ldr	r0, [r7, #4]
+ 889 023e 2521     		movs	r1, #37
+ 890 0240 FFF7FEFF 		bl	write_data
+ 169:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x27);
+ 891              		.loc 2 169 0
+ 892 0244 7868     		ldr	r0, [r7, #4]
+ 893 0246 2721     		movs	r1, #39
+ 894 0248 FFF7FEFF 		bl	write_data
+ 170:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x05);
+ 895              		.loc 2 170 0
+ 896 024c 7868     		ldr	r0, [r7, #4]
+ 897 024e 0521     		movs	r1, #5
+ 898 0250 FFF7FEFF 		bl	write_data
+ 171:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x10);
+ 899              		.loc 2 171 0
+ 900 0254 7868     		ldr	r0, [r7, #4]
+ 901 0256 1021     		movs	r1, #16
+ 902 0258 FFF7FEFF 		bl	write_data
+ 172:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x09);
+ 903              		.loc 2 172 0
+ 904 025c 7868     		ldr	r0, [r7, #4]
+ 905 025e 0921     		movs	r1, #9
+ 906 0260 FFF7FEFF 		bl	write_data
+ 173:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x3a);
+ 907              		.loc 2 173 0
+ 908 0264 7868     		ldr	r0, [r7, #4]
+ 909 0266 3A21     		movs	r1, #58
+ 910 0268 FFF7FEFF 		bl	write_data
+ 174:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x78);
+ 911              		.loc 2 174 0
+ 912 026c 7868     		ldr	r0, [r7, #4]
+ 913 026e 7821     		movs	r1, #120
+ 914 0270 FFF7FEFF 		bl	write_data
+ 175:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x4d);
+ 915              		.loc 2 175 0
+ 916 0274 7868     		ldr	r0, [r7, #4]
+ 917 0276 4D21     		movs	r1, #77
+ 918 0278 FFF7FEFF 		bl	write_data
+ 176:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x05);
+ 919              		.loc 2 176 0
+ 920 027c 7868     		ldr	r0, [r7, #4]
+ 921 027e 0521     		movs	r1, #5
+ 922 0280 FFF7FEFF 		bl	write_data
+ 177:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x18);
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 22
+
+
+ 923              		.loc 2 177 0
+ 924 0284 7868     		ldr	r0, [r7, #4]
+ 925 0286 1821     		movs	r1, #24
+ 926 0288 FFF7FEFF 		bl	write_data
+ 178:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x0d);
+ 927              		.loc 2 178 0
+ 928 028c 7868     		ldr	r0, [r7, #4]
+ 929 028e 0D21     		movs	r1, #13
+ 930 0290 FFF7FEFF 		bl	write_data
+ 179:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x38);
+ 931              		.loc 2 179 0
+ 932 0294 7868     		ldr	r0, [r7, #4]
+ 933 0296 3821     		movs	r1, #56
+ 934 0298 FFF7FEFF 		bl	write_data
+ 180:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x3a);
+ 935              		.loc 2 180 0
+ 936 029c 7868     		ldr	r0, [r7, #4]
+ 937 029e 3A21     		movs	r1, #58
+ 938 02a0 FFF7FEFF 		bl	write_data
+ 181:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x1f);
+ 939              		.loc 2 181 0
+ 940 02a4 7868     		ldr	r0, [r7, #4]
+ 941 02a6 1F21     		movs	r1, #31
+ 942 02a8 FFF7FEFF 		bl	write_data
+ 182:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	//--------------ddram ---------------------
+ 183:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_index(g, 0x2a);
+ 943              		.loc 2 183 0
+ 944 02ac 7868     		ldr	r0, [r7, #4]
+ 945 02ae 2A21     		movs	r1, #42
+ 946 02b0 FFF7FEFF 		bl	write_index
+ 184:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	// column set
+ 185:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	// size = 239
+ 186:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x00);
+ 947              		.loc 2 186 0
+ 948 02b4 7868     		ldr	r0, [r7, #4]
+ 949 02b6 0021     		movs	r1, #0
+ 950 02b8 FFF7FEFF 		bl	write_data
+ 187:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x00);
+ 951              		.loc 2 187 0
+ 952 02bc 7868     		ldr	r0, [r7, #4]
+ 953 02be 0021     		movs	r1, #0
+ 954 02c0 FFF7FEFF 		bl	write_data
+ 188:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x00);
+ 955              		.loc 2 188 0
+ 956 02c4 7868     		ldr	r0, [r7, #4]
+ 957 02c6 0021     		movs	r1, #0
+ 958 02c8 FFF7FEFF 		bl	write_data
+ 189:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0xEF);
+ 959              		.loc 2 189 0
+ 960 02cc 7868     		ldr	r0, [r7, #4]
+ 961 02ce EF21     		movs	r1, #239
+ 962 02d0 FFF7FEFF 		bl	write_data
+ 190:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_index(g, 0x2b);
+ 963              		.loc 2 190 0
+ 964 02d4 7868     		ldr	r0, [r7, #4]
+ 965 02d6 2B21     		movs	r1, #43
+ 966 02d8 FFF7FEFF 		bl	write_index
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 23
+
+
+ 191:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	// page address set
+ 192:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	// size = 319
+ 193:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x00);
+ 967              		.loc 2 193 0
+ 968 02dc 7868     		ldr	r0, [r7, #4]
+ 969 02de 0021     		movs	r1, #0
+ 970 02e0 FFF7FEFF 		bl	write_data
+ 194:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x00);
+ 971              		.loc 2 194 0
+ 972 02e4 7868     		ldr	r0, [r7, #4]
+ 973 02e6 0021     		movs	r1, #0
+ 974 02e8 FFF7FEFF 		bl	write_data
+ 195:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x01);
+ 975              		.loc 2 195 0
+ 976 02ec 7868     		ldr	r0, [r7, #4]
+ 977 02ee 0121     		movs	r1, #1
+ 978 02f0 FFF7FEFF 		bl	write_data
+ 196:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x3F);
+ 979              		.loc 2 196 0
+ 980 02f4 7868     		ldr	r0, [r7, #4]
+ 981 02f6 3F21     		movs	r1, #63
+ 982 02f8 FFF7FEFF 		bl	write_data
+ 197:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	// write_index(g, 0x34);
+ 198:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	//write_index(g, 0x35);
+ 199:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	// tearing effect off
+ 200:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	// tearing effect on
+ 201:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	// write_index(g, 0xb4); // display inversion
+ 202:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	// write_data(g, 0x00);
+ 203:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_index(g, 0xb7); //entry mode set
+ 983              		.loc 2 203 0
+ 984 02fc 7868     		ldr	r0, [r7, #4]
+ 985 02fe B721     		movs	r1, #183
+ 986 0300 FFF7FEFF 		bl	write_index
+ 204:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x07);
+ 987              		.loc 2 204 0
+ 988 0304 7868     		ldr	r0, [r7, #4]
+ 989 0306 0721     		movs	r1, #7
+ 990 0308 FFF7FEFF 		bl	write_data
+ 205:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	//-----------------display---------------------
+ 206:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_index(g, 0xb6);
+ 991              		.loc 2 206 0
+ 992 030c 7868     		ldr	r0, [r7, #4]
+ 993 030e B621     		movs	r1, #182
+ 994 0310 FFF7FEFF 		bl	write_index
+ 207:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	// display function control
+ 208:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x0a);
+ 995              		.loc 2 208 0
+ 996 0314 7868     		ldr	r0, [r7, #4]
+ 997 0316 0A21     		movs	r1, #10
+ 998 0318 FFF7FEFF 		bl	write_data
+ 209:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x82);
+ 999              		.loc 2 209 0
+ 1000 031c 7868     		ldr	r0, [r7, #4]
+ 1001 031e 8221     		movs	r1, #130
+ 1002 0320 FFF7FEFF 		bl	write_data
+ 210:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x27);
+ 1003              		.loc 2 210 0
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 24
+
+
+ 1004 0324 7868     		ldr	r0, [r7, #4]
+ 1005 0326 2721     		movs	r1, #39
+ 1006 0328 FFF7FEFF 		bl	write_data
+ 211:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_data(g, 0x00);
+ 1007              		.loc 2 211 0
+ 1008 032c 7868     		ldr	r0, [r7, #4]
+ 1009 032e 0021     		movs	r1, #0
+ 1010 0330 FFF7FEFF 		bl	write_data
+ 212:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_index(g, 0x11); //sleep out
+ 1011              		.loc 2 212 0
+ 1012 0334 7868     		ldr	r0, [r7, #4]
+ 1013 0336 1121     		movs	r1, #17
+ 1014 0338 FFF7FEFF 		bl	write_index
+ 213:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	gfxSleepMilliseconds(100);
+ 1015              		.loc 2 213 0
+ 1016 033c 6420     		movs	r0, #100
+ 1017 033e FFF7FEFF 		bl	gfxSleepMilliseconds
+ 214:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	write_index(g, 0x29); // display on
+ 1018              		.loc 2 214 0
+ 1019 0342 7868     		ldr	r0, [r7, #4]
+ 1020 0344 2921     		movs	r1, #41
+ 1021 0346 FFF7FEFF 		bl	write_index
+ 215:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	gfxSleepMilliseconds(100);
+ 1022              		.loc 2 215 0
+ 1023 034a 6420     		movs	r0, #100
+ 1024 034c FFF7FEFF 		bl	gfxSleepMilliseconds
+ 216:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+ 217:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c ****     // Finish Init
+ 218:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c ****     post_init_board(g);
+ 1025              		.loc 2 218 0
+ 1026 0350 7868     		ldr	r0, [r7, #4]
+ 1027 0352 FFF7FEFF 		bl	post_init_board
+ 219:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+ 220:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c ****  	// Release the bus
+ 221:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	release_bus(g);
+ 1028              		.loc 2 221 0
+ 1029 0356 7868     		ldr	r0, [r7, #4]
+ 1030 0358 FFF7FEFF 		bl	release_bus
+ 222:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	
+ 223:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	/* Turn on the back-light */
+ 224:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	set_backlight(g, GDISP_INITIAL_BACKLIGHT);
+ 1031              		.loc 2 224 0
+ 1032 035c 7868     		ldr	r0, [r7, #4]
+ 1033 035e 6421     		movs	r1, #100
+ 1034 0360 FFF7FEFF 		bl	set_backlight
+ 225:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+ 226:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	/* Initialise the GDISP structure */
+ 227:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	g->g.Width = GDISP_SCREEN_WIDTH;
+ 1035              		.loc 2 227 0
+ 1036 0364 7B68     		ldr	r3, [r7, #4]
+ 1037 0366 F022     		movs	r2, #240
+ 1038 0368 1A81     		strh	r2, [r3, #8]	@ movhi
+ 228:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	g->g.Height = GDISP_SCREEN_HEIGHT;
+ 1039              		.loc 2 228 0
+ 1040 036a 7B68     		ldr	r3, [r7, #4]
+ 1041 036c 4FF4A072 		mov	r2, #320
+ 1042 0370 5A81     		strh	r2, [r3, #10]	@ movhi
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 25
+
+
+ 229:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	g->g.Orientation = GDISP_ROTATE_0;
+ 1043              		.loc 2 229 0
+ 1044 0372 7B68     		ldr	r3, [r7, #4]
+ 1045 0374 0022     		movs	r2, #0
+ 1046 0376 9A81     		strh	r2, [r3, #12]	@ movhi
+ 230:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	g->g.Powermode = powerOn;
+ 1047              		.loc 2 230 0
+ 1048 0378 7B68     		ldr	r3, [r7, #4]
+ 1049 037a 0322     		movs	r2, #3
+ 1050 037c 9A73     		strb	r2, [r3, #14]
+ 231:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	g->g.Backlight = GDISP_INITIAL_BACKLIGHT;
+ 1051              		.loc 2 231 0
+ 1052 037e 7B68     		ldr	r3, [r7, #4]
+ 1053 0380 6422     		movs	r2, #100
+ 1054 0382 DA73     		strb	r2, [r3, #15]
+ 232:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	g->g.Contrast = GDISP_INITIAL_CONTRAST;
+ 1055              		.loc 2 232 0
+ 1056 0384 7B68     		ldr	r3, [r7, #4]
+ 1057 0386 3222     		movs	r2, #50
+ 1058 0388 1A74     		strb	r2, [r3, #16]
+ 233:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	return TRUE;
+ 1059              		.loc 2 233 0
+ 1060 038a FF23     		movs	r3, #255
+ 234:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** }
+ 1061              		.loc 2 234 0
+ 1062 038c 1846     		mov	r0, r3
+ 1063 038e 0837     		adds	r7, r7, #8
+ 1064              		.cfi_def_cfa_offset 8
+ 1065 0390 BD46     		mov	sp, r7
+ 1066              		.cfi_def_cfa_register 13
+ 1067              		@ sp needed
+ 1068 0392 80BD     		pop	{r7, pc}
+ 1069              		.cfi_endproc
+ 1070              	.LFE75:
+ 1071              		.size	gdisp_lld_init, .-gdisp_lld_init
+ 1072              		.section	.text.gdisp_lld_write_start,"ax",%progbits
+ 1073              		.align	2
+ 1074              		.global	gdisp_lld_write_start
+ 1075              		.thumb
+ 1076              		.thumb_func
+ 1077              		.type	gdisp_lld_write_start, %function
+ 1078              	gdisp_lld_write_start:
+ 1079              	.LFB76:
+ 235:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+ 236:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** #if GDISP_HARDWARE_STREAM_WRITE
+ 237:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	LLDSPEC	void gdisp_lld_write_start(GDisplay *g) {
+ 1080              		.loc 2 237 0
+ 1081              		.cfi_startproc
+ 1082              		@ args = 0, pretend = 0, frame = 8
+ 1083              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1084 0000 80B5     		push	{r7, lr}
+ 1085              		.cfi_def_cfa_offset 8
+ 1086              		.cfi_offset 7, -8
+ 1087              		.cfi_offset 14, -4
+ 1088 0002 82B0     		sub	sp, sp, #8
+ 1089              		.cfi_def_cfa_offset 16
+ 1090 0004 00AF     		add	r7, sp, #0
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 26
+
+
+ 1091              		.cfi_def_cfa_register 7
+ 1092 0006 7860     		str	r0, [r7, #4]
+ 238:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 		acquire_bus(g);
+ 1093              		.loc 2 238 0
+ 1094 0008 7868     		ldr	r0, [r7, #4]
+ 1095 000a FFF7FEFF 		bl	acquire_bus
+ 239:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 		set_viewport(g);
+ 1096              		.loc 2 239 0
+ 1097 000e 7868     		ldr	r0, [r7, #4]
+ 1098 0010 FFF7FEFF 		bl	set_viewport
+ 240:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 		write_index(g, 0x2C);
+ 1099              		.loc 2 240 0
+ 1100 0014 7868     		ldr	r0, [r7, #4]
+ 1101 0016 2C21     		movs	r1, #44
+ 1102 0018 FFF7FEFF 		bl	write_index
+ 241:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	}
+ 1103              		.loc 2 241 0
+ 1104 001c 0837     		adds	r7, r7, #8
+ 1105              		.cfi_def_cfa_offset 8
+ 1106 001e BD46     		mov	sp, r7
+ 1107              		.cfi_def_cfa_register 13
+ 1108              		@ sp needed
+ 1109 0020 80BD     		pop	{r7, pc}
+ 1110              		.cfi_endproc
+ 1111              	.LFE76:
+ 1112              		.size	gdisp_lld_write_start, .-gdisp_lld_write_start
+ 1113 0022 00BF     		.section	.text.gdisp_lld_write_color,"ax",%progbits
+ 1114              		.align	2
+ 1115              		.global	gdisp_lld_write_color
+ 1116              		.thumb
+ 1117              		.thumb_func
+ 1118              		.type	gdisp_lld_write_color, %function
+ 1119              	gdisp_lld_write_color:
+ 1120              	.LFB77:
+ 242:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	LLDSPEC	void gdisp_lld_write_color(GDisplay *g) {
+ 1121              		.loc 2 242 0
+ 1122              		.cfi_startproc
+ 1123              		@ args = 0, pretend = 0, frame = 8
+ 1124              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1125 0000 80B5     		push	{r7, lr}
+ 1126              		.cfi_def_cfa_offset 8
+ 1127              		.cfi_offset 7, -8
+ 1128              		.cfi_offset 14, -4
+ 1129 0002 82B0     		sub	sp, sp, #8
+ 1130              		.cfi_def_cfa_offset 16
+ 1131 0004 00AF     		add	r7, sp, #0
+ 1132              		.cfi_def_cfa_register 7
+ 1133 0006 7860     		str	r0, [r7, #4]
+ 243:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 		write_data16(g, gdispColor2Native(g->p.color));
+ 1134              		.loc 2 243 0
+ 1135 0008 7B68     		ldr	r3, [r7, #4]
+ 1136 000a 1B8F     		ldrh	r3, [r3, #56]
+ 1137 000c 1B0A     		lsrs	r3, r3, #8
+ 1138 000e 9BB2     		uxth	r3, r3
+ 1139 0010 7868     		ldr	r0, [r7, #4]
+ 1140 0012 1946     		mov	r1, r3
+ 1141 0014 FFF7FEFF 		bl	write_data
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 27
+
+
+ 1142 0018 7B68     		ldr	r3, [r7, #4]
+ 1143 001a 1B8F     		ldrh	r3, [r3, #56]
+ 1144 001c DBB2     		uxtb	r3, r3
+ 1145 001e 9BB2     		uxth	r3, r3
+ 1146 0020 7868     		ldr	r0, [r7, #4]
+ 1147 0022 1946     		mov	r1, r3
+ 1148 0024 FFF7FEFF 		bl	write_data
+ 244:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	}
+ 1149              		.loc 2 244 0
+ 1150 0028 0837     		adds	r7, r7, #8
+ 1151              		.cfi_def_cfa_offset 8
+ 1152 002a BD46     		mov	sp, r7
+ 1153              		.cfi_def_cfa_register 13
+ 1154              		@ sp needed
+ 1155 002c 80BD     		pop	{r7, pc}
+ 1156              		.cfi_endproc
+ 1157              	.LFE77:
+ 1158              		.size	gdisp_lld_write_color, .-gdisp_lld_write_color
+ 1159 002e 00BF     		.section	.text.gdisp_lld_write_stop,"ax",%progbits
+ 1160              		.align	2
+ 1161              		.global	gdisp_lld_write_stop
+ 1162              		.thumb
+ 1163              		.thumb_func
+ 1164              		.type	gdisp_lld_write_stop, %function
+ 1165              	gdisp_lld_write_stop:
+ 1166              	.LFB78:
+ 245:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	LLDSPEC	void gdisp_lld_write_stop(GDisplay *g) {
+ 1167              		.loc 2 245 0
+ 1168              		.cfi_startproc
+ 1169              		@ args = 0, pretend = 0, frame = 8
+ 1170              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1171 0000 80B5     		push	{r7, lr}
+ 1172              		.cfi_def_cfa_offset 8
+ 1173              		.cfi_offset 7, -8
+ 1174              		.cfi_offset 14, -4
+ 1175 0002 82B0     		sub	sp, sp, #8
+ 1176              		.cfi_def_cfa_offset 16
+ 1177 0004 00AF     		add	r7, sp, #0
+ 1178              		.cfi_def_cfa_register 7
+ 1179 0006 7860     		str	r0, [r7, #4]
+ 246:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 		release_bus(g);
+ 1180              		.loc 2 246 0
+ 1181 0008 7868     		ldr	r0, [r7, #4]
+ 1182 000a FFF7FEFF 		bl	release_bus
+ 247:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	}
+ 1183              		.loc 2 247 0
+ 1184 000e 0837     		adds	r7, r7, #8
+ 1185              		.cfi_def_cfa_offset 8
+ 1186 0010 BD46     		mov	sp, r7
+ 1187              		.cfi_def_cfa_register 13
+ 1188              		@ sp needed
+ 1189 0012 80BD     		pop	{r7, pc}
+ 1190              		.cfi_endproc
+ 1191              	.LFE78:
+ 1192              		.size	gdisp_lld_write_stop, .-gdisp_lld_write_stop
+ 1193              		.section	.text.gdisp_lld_read_start,"ax",%progbits
+ 1194              		.align	2
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 28
+
+
+ 1195              		.global	gdisp_lld_read_start
+ 1196              		.thumb
+ 1197              		.thumb_func
+ 1198              		.type	gdisp_lld_read_start, %function
+ 1199              	gdisp_lld_read_start:
+ 1200              	.LFB79:
+ 248:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** #endif
+ 249:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+ 250:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** #if GDISP_HARDWARE_STREAM_READ
+ 251:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	LLDSPEC	void gdisp_lld_read_start(GDisplay *g) {
+ 1201              		.loc 2 251 0
+ 1202              		.cfi_startproc
+ 1203              		@ args = 0, pretend = 0, frame = 16
+ 1204              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1205 0000 80B5     		push	{r7, lr}
+ 1206              		.cfi_def_cfa_offset 8
+ 1207              		.cfi_offset 7, -8
+ 1208              		.cfi_offset 14, -4
+ 1209 0002 84B0     		sub	sp, sp, #16
+ 1210              		.cfi_def_cfa_offset 24
+ 1211 0004 00AF     		add	r7, sp, #0
+ 1212              		.cfi_def_cfa_register 7
+ 1213 0006 7860     		str	r0, [r7, #4]
+ 252:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 		acquire_bus(g);
+ 1214              		.loc 2 252 0
+ 1215 0008 7868     		ldr	r0, [r7, #4]
+ 1216 000a FFF7FEFF 		bl	acquire_bus
+ 253:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 		set_viewport(g);
+ 1217              		.loc 2 253 0
+ 1218 000e 7868     		ldr	r0, [r7, #4]
+ 1219 0010 FFF7FEFF 		bl	set_viewport
+ 254:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 		write_index(g, 0x2E);
+ 1220              		.loc 2 254 0
+ 1221 0014 7868     		ldr	r0, [r7, #4]
+ 1222 0016 2E21     		movs	r1, #46
+ 1223 0018 FFF7FEFF 		bl	write_index
+ 255:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 		setreadmode(g);
+ 1224              		.loc 2 255 0
+ 1225 001c 7868     		ldr	r0, [r7, #4]
+ 1226 001e FFF7FEFF 		bl	setreadmode
+ 1227              	.LBB2:
+ 256:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 		dummy_read(g);
+ 1228              		.loc 2 256 0
+ 1229 0022 7868     		ldr	r0, [r7, #4]
+ 1230 0024 FFF7FEFF 		bl	read_data
+ 1231 0028 0346     		mov	r3, r0
+ 1232 002a FB81     		strh	r3, [r7, #14]	@ movhi
+ 1233 002c FB89     		ldrh	r3, [r7, #14]	@ movhi
+ 1234              	.LBE2:
+ 257:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	}
+ 1235              		.loc 2 257 0
+ 1236 002e 1037     		adds	r7, r7, #16
+ 1237              		.cfi_def_cfa_offset 8
+ 1238 0030 BD46     		mov	sp, r7
+ 1239              		.cfi_def_cfa_register 13
+ 1240              		@ sp needed
+ 1241 0032 80BD     		pop	{r7, pc}
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 29
+
+
+ 1242              		.cfi_endproc
+ 1243              	.LFE79:
+ 1244              		.size	gdisp_lld_read_start, .-gdisp_lld_read_start
+ 1245              		.section	.text.gdisp_lld_read_color,"ax",%progbits
+ 1246              		.align	2
+ 1247              		.global	gdisp_lld_read_color
+ 1248              		.thumb
+ 1249              		.thumb_func
+ 1250              		.type	gdisp_lld_read_color, %function
+ 1251              	gdisp_lld_read_color:
+ 1252              	.LFB80:
+ 258:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	LLDSPEC	color_t gdisp_lld_read_color(GDisplay *g) {
+ 1253              		.loc 2 258 0
+ 1254              		.cfi_startproc
+ 1255              		@ args = 0, pretend = 0, frame = 16
+ 1256              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1257 0000 80B5     		push	{r7, lr}
+ 1258              		.cfi_def_cfa_offset 8
+ 1259              		.cfi_offset 7, -8
+ 1260              		.cfi_offset 14, -4
+ 1261 0002 84B0     		sub	sp, sp, #16
+ 1262              		.cfi_def_cfa_offset 24
+ 1263 0004 00AF     		add	r7, sp, #0
+ 1264              		.cfi_def_cfa_register 7
+ 1265 0006 7860     		str	r0, [r7, #4]
+ 259:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 		uint16_t	data;
+ 260:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+ 261:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 		data = read_data(g);
+ 1266              		.loc 2 261 0
+ 1267 0008 7868     		ldr	r0, [r7, #4]
+ 1268 000a FFF7FEFF 		bl	read_data
+ 1269 000e 0346     		mov	r3, r0
+ 1270 0010 FB81     		strh	r3, [r7, #14]	@ movhi
+ 262:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 		return gdispNative2Color(data);
+ 1271              		.loc 2 262 0
+ 1272 0012 FB89     		ldrh	r3, [r7, #14]
+ 263:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	}
+ 1273              		.loc 2 263 0
+ 1274 0014 1846     		mov	r0, r3
+ 1275 0016 1037     		adds	r7, r7, #16
+ 1276              		.cfi_def_cfa_offset 8
+ 1277 0018 BD46     		mov	sp, r7
+ 1278              		.cfi_def_cfa_register 13
+ 1279              		@ sp needed
+ 1280 001a 80BD     		pop	{r7, pc}
+ 1281              		.cfi_endproc
+ 1282              	.LFE80:
+ 1283              		.size	gdisp_lld_read_color, .-gdisp_lld_read_color
+ 1284              		.section	.text.gdisp_lld_read_stop,"ax",%progbits
+ 1285              		.align	2
+ 1286              		.global	gdisp_lld_read_stop
+ 1287              		.thumb
+ 1288              		.thumb_func
+ 1289              		.type	gdisp_lld_read_stop, %function
+ 1290              	gdisp_lld_read_stop:
+ 1291              	.LFB81:
+ 264:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	LLDSPEC	void gdisp_lld_read_stop(GDisplay *g) {
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 30
+
+
+ 1292              		.loc 2 264 0
+ 1293              		.cfi_startproc
+ 1294              		@ args = 0, pretend = 0, frame = 8
+ 1295              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1296 0000 80B5     		push	{r7, lr}
+ 1297              		.cfi_def_cfa_offset 8
+ 1298              		.cfi_offset 7, -8
+ 1299              		.cfi_offset 14, -4
+ 1300 0002 82B0     		sub	sp, sp, #8
+ 1301              		.cfi_def_cfa_offset 16
+ 1302 0004 00AF     		add	r7, sp, #0
+ 1303              		.cfi_def_cfa_register 7
+ 1304 0006 7860     		str	r0, [r7, #4]
+ 265:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 		setwritemode(g);
+ 1305              		.loc 2 265 0
+ 1306 0008 7868     		ldr	r0, [r7, #4]
+ 1307 000a FFF7FEFF 		bl	setwritemode
+ 266:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 		release_bus(g);
+ 1308              		.loc 2 266 0
+ 1309 000e 7868     		ldr	r0, [r7, #4]
+ 1310 0010 FFF7FEFF 		bl	release_bus
+ 267:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	}
+ 1311              		.loc 2 267 0
+ 1312 0014 0837     		adds	r7, r7, #8
+ 1313              		.cfi_def_cfa_offset 8
+ 1314 0016 BD46     		mov	sp, r7
+ 1315              		.cfi_def_cfa_register 13
+ 1316              		@ sp needed
+ 1317 0018 80BD     		pop	{r7, pc}
+ 1318              		.cfi_endproc
+ 1319              	.LFE81:
+ 1320              		.size	gdisp_lld_read_stop, .-gdisp_lld_read_stop
+ 1321 001a 00BF     		.section	.text.gdisp_lld_control,"ax",%progbits
+ 1322              		.align	2
+ 1323              		.global	gdisp_lld_control
+ 1324              		.thumb
+ 1325              		.thumb_func
+ 1326              		.type	gdisp_lld_control, %function
+ 1327              	gdisp_lld_control:
+ 1328              	.LFB82:
+ 268:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** #endif
+ 269:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+ 270:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** #if GDISP_NEED_CONTROL && GDISP_HARDWARE_CONTROL
+ 271:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	LLDSPEC void gdisp_lld_control(GDisplay *g) {
+ 1329              		.loc 2 271 0
+ 1330              		.cfi_startproc
+ 1331              		@ args = 0, pretend = 0, frame = 8
+ 1332              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1333 0000 80B5     		push	{r7, lr}
+ 1334              		.cfi_def_cfa_offset 8
+ 1335              		.cfi_offset 7, -8
+ 1336              		.cfi_offset 14, -4
+ 1337 0002 82B0     		sub	sp, sp, #8
+ 1338              		.cfi_def_cfa_offset 16
+ 1339 0004 00AF     		add	r7, sp, #0
+ 1340              		.cfi_def_cfa_register 7
+ 1341 0006 7860     		str	r0, [r7, #4]
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 31
+
+
+ 272:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 		switch(g->p.x) {
+ 1342              		.loc 2 272 0
+ 1343 0008 7B68     		ldr	r3, [r7, #4]
+ 1344 000a 1B8D     		ldrh	r3, [r3, #40]
+ 1345 000c 1BB2     		sxth	r3, r3
+ 1346 000e 012B     		cmp	r3, #1
+ 1347 0010 3CD0     		beq	.L27
+ 1348 0012 022B     		cmp	r3, #2
+ 1349 0014 00F0B080 		beq	.L28
+ 1350 0018 002B     		cmp	r3, #0
+ 1351 001a 00D0     		beq	.L29
+ 273:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 		case GDISP_CONTROL_POWER:
+ 274:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			if (g->g.Powermode == (powermode_t)g->p.ptr)
+ 275:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				return;
+ 276:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			switch((powermode_t)g->p.ptr) {
+ 277:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			case powerOff:
+ 278:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			case powerSleep:
+ 279:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			case powerDeepSleep:
+ 280:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				acquire_bus(g);
+ 281:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				write_reg(g, 0x0010, 0x0001);	/* enter sleep mode */
+ 282:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				release_bus(g);
+ 283:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				break;
+ 284:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			case powerOn:
+ 285:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				acquire_bus(g);
+ 286:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				write_reg(g, 0x0010, 0x0000);	/* leave sleep mode */
+ 287:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				release_bus(g);
+ 288:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				break;
+ 289:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			default:
+ 290:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				return;
+ 291:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			}
+ 292:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			g->g.Powermode = (powermode_t)g->p.ptr;
+ 293:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			return;
+ 294:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+ 295:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 		case GDISP_CONTROL_ORIENTATION:
+ 296:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			if (g->g.Orientation == (orientation_t)g->p.ptr)
+ 297:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				return;
+ 298:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			switch((orientation_t)g->p.ptr) {
+ 299:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			case GDISP_ROTATE_0:
+ 300:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				acquire_bus(g);
+ 301:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				write_reg(g, 0x36, 0x48);	/* X and Y axes non-inverted */
+ 302:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				release_bus(g);
+ 303:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				g->g.Height = GDISP_SCREEN_HEIGHT;
+ 304:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				g->g.Width = GDISP_SCREEN_WIDTH;
+ 305:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				break;
+ 306:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			case GDISP_ROTATE_90:
+ 307:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				acquire_bus(g);
+ 308:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				write_reg(g, 0x36, 0xE8);	/* Invert X and Y axes */
+ 309:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				release_bus(g);
+ 310:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				g->g.Height = GDISP_SCREEN_WIDTH;
+ 311:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				g->g.Width = GDISP_SCREEN_HEIGHT;
+ 312:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				break;
+ 313:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			case GDISP_ROTATE_180:
+ 314:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				acquire_bus(g);
+ 315:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				write_reg(g, 0x36, 0x88);		/* X and Y axes non-inverted */
+ 316:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				release_bus(g);
+ 317:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				g->g.Height = GDISP_SCREEN_HEIGHT;
+ 318:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				g->g.Width = GDISP_SCREEN_WIDTH;
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 32
+
+
+ 319:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				break;
+ 320:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			case GDISP_ROTATE_270:
+ 321:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				acquire_bus(g);
+ 322:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				write_reg(g, 0x36, 0x28);	/* Invert X and Y axes */
+ 323:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				release_bus(g);
+ 324:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				g->g.Height = GDISP_SCREEN_WIDTH;
+ 325:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				g->g.Width = GDISP_SCREEN_HEIGHT;
+ 326:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				break;
+ 327:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			default:
+ 328:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				return;
+ 329:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			}
+ 330:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			g->g.Orientation = (orientation_t)g->p.ptr;
+ 331:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			return;
+ 332:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+ 333:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c ****         case GDISP_CONTROL_BACKLIGHT:
+ 334:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c ****             if ((unsigned)g->p.ptr > 100)
+ 335:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c ****             	g->p.ptr = (void *)100;
+ 336:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c ****             set_backlight(g, (unsigned)g->p.ptr);
+ 337:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c ****             g->g.Backlight = (unsigned)g->p.ptr;
+ 338:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c ****             return;
+ 339:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+ 340:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 		//case GDISP_CONTROL_CONTRAST:
+ 341:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c ****         default:
+ 342:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c ****             return;
+ 1352              		.loc 2 342 0
+ 1353 001c C1E0     		b	.L25
+ 1354              	.L29:
+ 274:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				return;
+ 1355              		.loc 2 274 0
+ 1356 001e 7B68     		ldr	r3, [r7, #4]
+ 1357 0020 9A7B     		ldrb	r2, [r3, #14]	@ zero_extendqisi2
+ 1358 0022 7B68     		ldr	r3, [r7, #4]
+ 1359 0024 DB6B     		ldr	r3, [r3, #60]
+ 1360 0026 DBB2     		uxtb	r3, r3
+ 1361 0028 9A42     		cmp	r2, r3
+ 1362 002a 00D1     		bne	.L30
+ 275:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			switch((powermode_t)g->p.ptr) {
+ 1363              		.loc 2 275 0
+ 1364 002c B9E0     		b	.L25
+ 1365              	.L30:
+ 276:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			case powerOff:
+ 1366              		.loc 2 276 0
+ 1367 002e 7B68     		ldr	r3, [r7, #4]
+ 1368 0030 DB6B     		ldr	r3, [r3, #60]
+ 1369 0032 DBB2     		uxtb	r3, r3
+ 1370 0034 002B     		cmp	r3, #0
+ 1371 0036 C0F2B380 		blt	.L45
+ 1372 003a 022B     		cmp	r3, #2
+ 1373 003c 02DD     		ble	.L33
+ 1374 003e 032B     		cmp	r3, #3
+ 1375 0040 0FD0     		beq	.L34
+ 290:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			}
+ 1376              		.loc 2 290 0
+ 1377 0042 ADE0     		b	.L45
+ 1378              	.L33:
+ 280:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				write_reg(g, 0x0010, 0x0001);	/* enter sleep mode */
+ 1379              		.loc 2 280 0
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 33
+
+
+ 1380 0044 7868     		ldr	r0, [r7, #4]
+ 1381 0046 FFF7FEFF 		bl	acquire_bus
+ 281:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				release_bus(g);
+ 1382              		.loc 2 281 0
+ 1383 004a 7868     		ldr	r0, [r7, #4]
+ 1384 004c 1021     		movs	r1, #16
+ 1385 004e FFF7FEFF 		bl	write_index
+ 1386 0052 7868     		ldr	r0, [r7, #4]
+ 1387 0054 0121     		movs	r1, #1
+ 1388 0056 FFF7FEFF 		bl	write_data
+ 282:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				break;
+ 1389              		.loc 2 282 0
+ 1390 005a 7868     		ldr	r0, [r7, #4]
+ 1391 005c FFF7FEFF 		bl	release_bus
+ 283:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			case powerOn:
+ 1392              		.loc 2 283 0
+ 1393 0060 0EE0     		b	.L35
+ 1394              	.L34:
+ 285:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				write_reg(g, 0x0010, 0x0000);	/* leave sleep mode */
+ 1395              		.loc 2 285 0
+ 1396 0062 7868     		ldr	r0, [r7, #4]
+ 1397 0064 FFF7FEFF 		bl	acquire_bus
+ 286:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				release_bus(g);
+ 1398              		.loc 2 286 0
+ 1399 0068 7868     		ldr	r0, [r7, #4]
+ 1400 006a 1021     		movs	r1, #16
+ 1401 006c FFF7FEFF 		bl	write_index
+ 1402 0070 7868     		ldr	r0, [r7, #4]
+ 1403 0072 0021     		movs	r1, #0
+ 1404 0074 FFF7FEFF 		bl	write_data
+ 287:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				break;
+ 1405              		.loc 2 287 0
+ 1406 0078 7868     		ldr	r0, [r7, #4]
+ 1407 007a FFF7FEFF 		bl	release_bus
+ 288:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			default:
+ 1408              		.loc 2 288 0
+ 1409 007e 00BF     		nop
+ 1410              	.L35:
+ 292:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			return;
+ 1411              		.loc 2 292 0
+ 1412 0080 7B68     		ldr	r3, [r7, #4]
+ 1413 0082 DB6B     		ldr	r3, [r3, #60]
+ 1414 0084 DAB2     		uxtb	r2, r3
+ 1415 0086 7B68     		ldr	r3, [r7, #4]
+ 1416 0088 9A73     		strb	r2, [r3, #14]
+ 293:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+ 1417              		.loc 2 293 0
+ 1418 008a 8AE0     		b	.L25
+ 1419              	.L27:
+ 296:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				return;
+ 1420              		.loc 2 296 0
+ 1421 008c 7B68     		ldr	r3, [r7, #4]
+ 1422 008e 9A89     		ldrh	r2, [r3, #12]
+ 1423 0090 7B68     		ldr	r3, [r7, #4]
+ 1424 0092 DB6B     		ldr	r3, [r3, #60]
+ 1425 0094 9BB2     		uxth	r3, r3
+ 1426 0096 9A42     		cmp	r2, r3
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 34
+
+
+ 1427 0098 00D1     		bne	.L36
+ 297:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			switch((orientation_t)g->p.ptr) {
+ 1428              		.loc 2 297 0 discriminator 3
+ 1429 009a 82E0     		b	.L25
+ 1430              	.L36:
+ 298:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			case GDISP_ROTATE_0:
+ 1431              		.loc 2 298 0
+ 1432 009c 7B68     		ldr	r3, [r7, #4]
+ 1433 009e DB6B     		ldr	r3, [r3, #60]
+ 1434 00a0 9BB2     		uxth	r3, r3
+ 1435 00a2 5A2B     		cmp	r3, #90
+ 1436 00a4 20D0     		beq	.L38
+ 1437 00a6 5A2B     		cmp	r3, #90
+ 1438 00a8 02DC     		bgt	.L39
+ 1439 00aa 002B     		cmp	r3, #0
+ 1440 00ac 06D0     		beq	.L40
+ 328:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			}
+ 1441              		.loc 2 328 0
+ 1442 00ae 78E0     		b	.L25
+ 1443              	.L39:
+ 298:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			case GDISP_ROTATE_0:
+ 1444              		.loc 2 298 0
+ 1445 00b0 B42B     		cmp	r3, #180
+ 1446 00b2 2FD0     		beq	.L41
+ 1447 00b4 B3F5877F 		cmp	r3, #270
+ 1448 00b8 42D0     		beq	.L42
+ 328:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			}
+ 1449              		.loc 2 328 0
+ 1450 00ba 72E0     		b	.L25
+ 1451              	.L40:
+ 300:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				write_reg(g, 0x36, 0x48);	/* X and Y axes non-inverted */
+ 1452              		.loc 2 300 0
+ 1453 00bc 7868     		ldr	r0, [r7, #4]
+ 1454 00be FFF7FEFF 		bl	acquire_bus
+ 301:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				release_bus(g);
+ 1455              		.loc 2 301 0
+ 1456 00c2 7868     		ldr	r0, [r7, #4]
+ 1457 00c4 3621     		movs	r1, #54
+ 1458 00c6 FFF7FEFF 		bl	write_index
+ 1459 00ca 7868     		ldr	r0, [r7, #4]
+ 1460 00cc 4821     		movs	r1, #72
+ 1461 00ce FFF7FEFF 		bl	write_data
+ 302:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				g->g.Height = GDISP_SCREEN_HEIGHT;
+ 1462              		.loc 2 302 0
+ 1463 00d2 7868     		ldr	r0, [r7, #4]
+ 1464 00d4 FFF7FEFF 		bl	release_bus
+ 303:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				g->g.Width = GDISP_SCREEN_WIDTH;
+ 1465              		.loc 2 303 0
+ 1466 00d8 7B68     		ldr	r3, [r7, #4]
+ 1467 00da 4FF4A072 		mov	r2, #320
+ 1468 00de 5A81     		strh	r2, [r3, #10]	@ movhi
+ 304:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				break;
+ 1469              		.loc 2 304 0
+ 1470 00e0 7B68     		ldr	r3, [r7, #4]
+ 1471 00e2 F022     		movs	r2, #240
+ 1472 00e4 1A81     		strh	r2, [r3, #8]	@ movhi
+ 305:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			case GDISP_ROTATE_90:
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 35
+
+
+ 1473              		.loc 2 305 0
+ 1474 00e6 41E0     		b	.L43
+ 1475              	.L38:
+ 307:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				write_reg(g, 0x36, 0xE8);	/* Invert X and Y axes */
+ 1476              		.loc 2 307 0
+ 1477 00e8 7868     		ldr	r0, [r7, #4]
+ 1478 00ea FFF7FEFF 		bl	acquire_bus
+ 308:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				release_bus(g);
+ 1479              		.loc 2 308 0
+ 1480 00ee 7868     		ldr	r0, [r7, #4]
+ 1481 00f0 3621     		movs	r1, #54
+ 1482 00f2 FFF7FEFF 		bl	write_index
+ 1483 00f6 7868     		ldr	r0, [r7, #4]
+ 1484 00f8 E821     		movs	r1, #232
+ 1485 00fa FFF7FEFF 		bl	write_data
+ 309:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				g->g.Height = GDISP_SCREEN_WIDTH;
+ 1486              		.loc 2 309 0
+ 1487 00fe 7868     		ldr	r0, [r7, #4]
+ 1488 0100 FFF7FEFF 		bl	release_bus
+ 310:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				g->g.Width = GDISP_SCREEN_HEIGHT;
+ 1489              		.loc 2 310 0
+ 1490 0104 7B68     		ldr	r3, [r7, #4]
+ 1491 0106 F022     		movs	r2, #240
+ 1492 0108 5A81     		strh	r2, [r3, #10]	@ movhi
+ 311:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				break;
+ 1493              		.loc 2 311 0
+ 1494 010a 7B68     		ldr	r3, [r7, #4]
+ 1495 010c 4FF4A072 		mov	r2, #320
+ 1496 0110 1A81     		strh	r2, [r3, #8]	@ movhi
+ 312:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			case GDISP_ROTATE_180:
+ 1497              		.loc 2 312 0
+ 1498 0112 2BE0     		b	.L43
+ 1499              	.L41:
+ 314:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				write_reg(g, 0x36, 0x88);		/* X and Y axes non-inverted */
+ 1500              		.loc 2 314 0
+ 1501 0114 7868     		ldr	r0, [r7, #4]
+ 1502 0116 FFF7FEFF 		bl	acquire_bus
+ 315:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				release_bus(g);
+ 1503              		.loc 2 315 0
+ 1504 011a 7868     		ldr	r0, [r7, #4]
+ 1505 011c 3621     		movs	r1, #54
+ 1506 011e FFF7FEFF 		bl	write_index
+ 1507 0122 7868     		ldr	r0, [r7, #4]
+ 1508 0124 8821     		movs	r1, #136
+ 1509 0126 FFF7FEFF 		bl	write_data
+ 316:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				g->g.Height = GDISP_SCREEN_HEIGHT;
+ 1510              		.loc 2 316 0
+ 1511 012a 7868     		ldr	r0, [r7, #4]
+ 1512 012c FFF7FEFF 		bl	release_bus
+ 317:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				g->g.Width = GDISP_SCREEN_WIDTH;
+ 1513              		.loc 2 317 0
+ 1514 0130 7B68     		ldr	r3, [r7, #4]
+ 1515 0132 4FF4A072 		mov	r2, #320
+ 1516 0136 5A81     		strh	r2, [r3, #10]	@ movhi
+ 318:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				break;
+ 1517              		.loc 2 318 0
+ 1518 0138 7B68     		ldr	r3, [r7, #4]
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 36
+
+
+ 1519 013a F022     		movs	r2, #240
+ 1520 013c 1A81     		strh	r2, [r3, #8]	@ movhi
+ 319:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			case GDISP_ROTATE_270:
+ 1521              		.loc 2 319 0
+ 1522 013e 15E0     		b	.L43
+ 1523              	.L42:
+ 321:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				write_reg(g, 0x36, 0x28);	/* Invert X and Y axes */
+ 1524              		.loc 2 321 0
+ 1525 0140 7868     		ldr	r0, [r7, #4]
+ 1526 0142 FFF7FEFF 		bl	acquire_bus
+ 322:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				release_bus(g);
+ 1527              		.loc 2 322 0
+ 1528 0146 7868     		ldr	r0, [r7, #4]
+ 1529 0148 3621     		movs	r1, #54
+ 1530 014a FFF7FEFF 		bl	write_index
+ 1531 014e 7868     		ldr	r0, [r7, #4]
+ 1532 0150 2821     		movs	r1, #40
+ 1533 0152 FFF7FEFF 		bl	write_data
+ 323:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				g->g.Height = GDISP_SCREEN_WIDTH;
+ 1534              		.loc 2 323 0
+ 1535 0156 7868     		ldr	r0, [r7, #4]
+ 1536 0158 FFF7FEFF 		bl	release_bus
+ 324:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				g->g.Width = GDISP_SCREEN_HEIGHT;
+ 1537              		.loc 2 324 0
+ 1538 015c 7B68     		ldr	r3, [r7, #4]
+ 1539 015e F022     		movs	r2, #240
+ 1540 0160 5A81     		strh	r2, [r3, #10]	@ movhi
+ 325:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 				break;
+ 1541              		.loc 2 325 0
+ 1542 0162 7B68     		ldr	r3, [r7, #4]
+ 1543 0164 4FF4A072 		mov	r2, #320
+ 1544 0168 1A81     		strh	r2, [r3, #8]	@ movhi
+ 326:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			default:
+ 1545              		.loc 2 326 0
+ 1546 016a 00BF     		nop
+ 1547              	.L43:
+ 330:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			return;
+ 1548              		.loc 2 330 0
+ 1549 016c 7B68     		ldr	r3, [r7, #4]
+ 1550 016e DB6B     		ldr	r3, [r3, #60]
+ 1551 0170 9AB2     		uxth	r2, r3
+ 1552 0172 7B68     		ldr	r3, [r7, #4]
+ 1553 0174 9A81     		strh	r2, [r3, #12]	@ movhi
+ 331:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+ 1554              		.loc 2 331 0
+ 1555 0176 14E0     		b	.L25
+ 1556              	.L28:
+ 334:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c ****             	g->p.ptr = (void *)100;
+ 1557              		.loc 2 334 0
+ 1558 0178 7B68     		ldr	r3, [r7, #4]
+ 1559 017a DB6B     		ldr	r3, [r3, #60]
+ 1560 017c 642B     		cmp	r3, #100
+ 1561 017e 02D9     		bls	.L44
+ 335:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c ****             set_backlight(g, (unsigned)g->p.ptr);
+ 1562              		.loc 2 335 0
+ 1563 0180 7B68     		ldr	r3, [r7, #4]
+ 1564 0182 6422     		movs	r2, #100
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 37
+
+
+ 1565 0184 DA63     		str	r2, [r3, #60]
+ 1566              	.L44:
+ 336:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c ****             g->g.Backlight = (unsigned)g->p.ptr;
+ 1567              		.loc 2 336 0
+ 1568 0186 7B68     		ldr	r3, [r7, #4]
+ 1569 0188 DB6B     		ldr	r3, [r3, #60]
+ 1570 018a DBB2     		uxtb	r3, r3
+ 1571 018c 7868     		ldr	r0, [r7, #4]
+ 1572 018e 1946     		mov	r1, r3
+ 1573 0190 FFF7FEFF 		bl	set_backlight
+ 337:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c ****             return;
+ 1574              		.loc 2 337 0
+ 1575 0194 7B68     		ldr	r3, [r7, #4]
+ 1576 0196 DB6B     		ldr	r3, [r3, #60]
+ 1577 0198 DAB2     		uxtb	r2, r3
+ 1578 019a 7B68     		ldr	r3, [r7, #4]
+ 1579 019c DA73     		strb	r2, [r3, #15]
+ 338:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 
+ 1580              		.loc 2 338 0
+ 1581 019e 00E0     		b	.L25
+ 1582              	.L45:
+ 290:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 			}
+ 1583              		.loc 2 290 0
+ 1584 01a0 00BF     		nop
+ 1585              	.L25:
+ 343:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 		}
+ 344:..\ugfx_2.6\drivers\gdisp\ILI9341/gdisp_lld_ILI9341.c **** 	}
+ 1586              		.loc 2 344 0
+ 1587 01a2 0837     		adds	r7, r7, #8
+ 1588              		.cfi_def_cfa_offset 8
+ 1589 01a4 BD46     		mov	sp, r7
+ 1590              		.cfi_def_cfa_register 13
+ 1591              		@ sp needed
+ 1592 01a6 80BD     		pop	{r7, pc}
+ 1593              		.cfi_endproc
+ 1594              	.LFE82:
+ 1595              		.size	gdisp_lld_control, .-gdisp_lld_control
+ 1596              		.text
+ 1597              	.Letext0:
+ 1598              		.file 3 "..\\ugfx_2.6/src/gos/gos_raw32.h"
+ 1599              		.file 4 "..\\ugfx_2.6/src/gdisp/gdisp.h"
+ 1600              		.file 5 "..\\ugfx_2.6\\drivers\\gdisp\\ILI9341\\../../../src/gdisp/gdisp_driver.h"
+ 1601              		.file 6 "..\\ugfx_2.6/src/gdisp/gdisp_colors.h"
+ 1602              		.file 7 "c:\\users\\joel\\desktop\\psoc\\psoc_ugfx_demo\\ugfx_2.6\\src\\gdriver\\gdriver.h"
+ 1603              		.file 8 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 1604              		.file 9 "Generated_Source\\PSoC5/core_cm3.h"
+ 1605              		.section	.debug_info,"",%progbits
+ 1606              	.Ldebug_info0:
+ 1607 0000 23090000 		.4byte	0x923
+ 1608 0004 0400     		.2byte	0x4
+ 1609 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1610 000a 04       		.byte	0x4
+ 1611 000b 01       		.uleb128 0x1
+ 1612 000c 9B020000 		.4byte	.LASF109
+ 1613 0010 01       		.byte	0x1
+ 1614 0011 DF040000 		.4byte	.LASF110
+ 1615 0015 BB010000 		.4byte	.LASF111
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 38
+
+
+ 1616 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 1617 001d 00000000 		.4byte	0
+ 1618 0021 00000000 		.4byte	.Ldebug_line0
+ 1619 0025 02       		.uleb128 0x2
+ 1620 0026 A8010000 		.4byte	.LASF2
+ 1621 002a 03       		.byte	0x3
+ 1622 002b 20       		.byte	0x20
+ 1623 002c 30000000 		.4byte	0x30
+ 1624 0030 03       		.uleb128 0x3
+ 1625 0031 01       		.byte	0x1
+ 1626 0032 08       		.byte	0x8
+ 1627 0033 98040000 		.4byte	.LASF0
+ 1628 0037 03       		.uleb128 0x3
+ 1629 0038 01       		.byte	0x1
+ 1630 0039 06       		.byte	0x6
+ 1631 003a 4B050000 		.4byte	.LASF1
+ 1632 003e 02       		.uleb128 0x2
+ 1633 003f 5F020000 		.4byte	.LASF3
+ 1634 0043 03       		.byte	0x3
+ 1635 0044 26       		.byte	0x26
+ 1636 0045 30000000 		.4byte	0x30
+ 1637 0049 02       		.uleb128 0x2
+ 1638 004a F6000000 		.4byte	.LASF4
+ 1639 004e 03       		.byte	0x3
+ 1640 004f 27       		.byte	0x27
+ 1641 0050 54000000 		.4byte	0x54
+ 1642 0054 03       		.uleb128 0x3
+ 1643 0055 02       		.byte	0x2
+ 1644 0056 05       		.byte	0x5
+ 1645 0057 89030000 		.4byte	.LASF5
+ 1646 005b 02       		.uleb128 0x2
+ 1647 005c 74030000 		.4byte	.LASF6
+ 1648 0060 03       		.byte	0x3
+ 1649 0061 28       		.byte	0x28
+ 1650 0062 66000000 		.4byte	0x66
+ 1651 0066 03       		.uleb128 0x3
+ 1652 0067 02       		.byte	0x2
+ 1653 0068 07       		.byte	0x7
+ 1654 0069 57050000 		.4byte	.LASF7
+ 1655 006d 03       		.uleb128 0x3
+ 1656 006e 04       		.byte	0x4
+ 1657 006f 05       		.byte	0x5
+ 1658 0070 93030000 		.4byte	.LASF8
+ 1659 0074 02       		.uleb128 0x2
+ 1660 0075 DA000000 		.4byte	.LASF9
+ 1661 0079 03       		.byte	0x3
+ 1662 007a 2A       		.byte	0x2a
+ 1663 007b 7F000000 		.4byte	0x7f
+ 1664 007f 03       		.uleb128 0x3
+ 1665 0080 04       		.byte	0x4
+ 1666 0081 07       		.byte	0x7
+ 1667 0082 36040000 		.4byte	.LASF10
+ 1668 0086 04       		.uleb128 0x4
+ 1669 0087 04       		.byte	0x4
+ 1670 0088 05       		.byte	0x5
+ 1671 0089 696E7400 		.ascii	"int\000"
+ 1672 008d 03       		.uleb128 0x3
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 39
+
+
+ 1673 008e 04       		.byte	0x4
+ 1674 008f 07       		.byte	0x7
+ 1675 0090 4E000000 		.4byte	.LASF11
+ 1676 0094 05       		.uleb128 0x5
+ 1677 0095 04       		.byte	0x4
+ 1678 0096 02       		.uleb128 0x2
+ 1679 0097 AF050000 		.4byte	.LASF12
+ 1680 009b 04       		.byte	0x4
+ 1681 009c 27       		.byte	0x27
+ 1682 009d 49000000 		.4byte	0x49
+ 1683 00a1 02       		.uleb128 0x2
+ 1684 00a2 F5010000 		.4byte	.LASF13
+ 1685 00a6 04       		.byte	0x4
+ 1686 00a7 54       		.byte	0x54
+ 1687 00a8 AC000000 		.4byte	0xac
+ 1688 00ac 06       		.uleb128 0x6
+ 1689 00ad 04       		.byte	0x4
+ 1690 00ae B2000000 		.4byte	0xb2
+ 1691 00b2 07       		.uleb128 0x7
+ 1692 00b3 B7000000 		.4byte	0xb7
+ 1693 00b7 08       		.uleb128 0x8
+ 1694 00b8 AE000000 		.4byte	.LASF112
+ 1695 00bc 09       		.uleb128 0x9
+ 1696 00bd A2000000 		.4byte	.LASF21
+ 1697 00c1 02       		.byte	0x2
+ 1698 00c2 04       		.byte	0x4
+ 1699 00c3 5C       		.byte	0x5c
+ 1700 00c4 F2000000 		.4byte	0xf2
+ 1701 00c8 0A       		.uleb128 0xa
+ 1702 00c9 99010000 		.4byte	.LASF14
+ 1703 00cd 00       		.sleb128 0
+ 1704 00ce 0A       		.uleb128 0xa
+ 1705 00cf DE030000 		.4byte	.LASF15
+ 1706 00d3 DA00     		.sleb128 90
+ 1707 00d5 0A       		.uleb128 0xa
+ 1708 00d6 C3030000 		.4byte	.LASF16
+ 1709 00da B401     		.sleb128 180
+ 1710 00dc 0A       		.uleb128 0xa
+ 1711 00dd 24000000 		.4byte	.LASF17
+ 1712 00e1 8E02     		.sleb128 270
+ 1713 00e3 0A       		.uleb128 0xa
+ 1714 00e4 67020000 		.4byte	.LASF18
+ 1715 00e8 E807     		.sleb128 1000
+ 1716 00ea 0A       		.uleb128 0xa
+ 1717 00eb 48040000 		.4byte	.LASF19
+ 1718 00ef E907     		.sleb128 1001
+ 1719 00f1 00       		.byte	0
+ 1720 00f2 02       		.uleb128 0x2
+ 1721 00f3 0A020000 		.4byte	.LASF20
+ 1722 00f7 04       		.byte	0x4
+ 1723 00f8 63       		.byte	0x63
+ 1724 00f9 BC000000 		.4byte	0xbc
+ 1725 00fd 09       		.uleb128 0x9
+ 1726 00fe 5F040000 		.4byte	.LASF22
+ 1727 0102 01       		.byte	0x1
+ 1728 0103 04       		.byte	0x4
+ 1729 0104 69       		.byte	0x69
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 40
+
+
+ 1730 0105 22010000 		.4byte	0x122
+ 1731 0109 0A       		.uleb128 0xa
+ 1732 010a FD030000 		.4byte	.LASF23
+ 1733 010e 00       		.sleb128 0
+ 1734 010f 0A       		.uleb128 0xa
+ 1735 0110 29030000 		.4byte	.LASF24
+ 1736 0114 01       		.sleb128 1
+ 1737 0115 0A       		.uleb128 0xa
+ 1738 0116 00000000 		.4byte	.LASF25
+ 1739 011a 02       		.sleb128 2
+ 1740 011b 0A       		.uleb128 0xa
+ 1741 011c 1D020000 		.4byte	.LASF26
+ 1742 0120 03       		.sleb128 3
+ 1743 0121 00       		.byte	0
+ 1744 0122 02       		.uleb128 0x2
+ 1745 0123 8F020000 		.4byte	.LASF27
+ 1746 0127 04       		.byte	0x4
+ 1747 0128 6E       		.byte	0x6e
+ 1748 0129 FD000000 		.4byte	0xfd
+ 1749 012d 02       		.uleb128 0x2
+ 1750 012e 65030000 		.4byte	.LASF28
+ 1751 0132 04       		.byte	0x4
+ 1752 0133 73       		.byte	0x73
+ 1753 0134 38010000 		.4byte	0x138
+ 1754 0138 0B       		.uleb128 0xb
+ 1755 0139 65030000 		.4byte	.LASF28
+ 1756 013d 50       		.byte	0x50
+ 1757 013e 05       		.byte	0x5
+ 1758 013f 3C01     		.2byte	0x13c
+ 1759 0141 E7010000 		.4byte	0x1e7
+ 1760 0145 0C       		.uleb128 0xc
+ 1761 0146 6400     		.ascii	"d\000"
+ 1762 0148 05       		.byte	0x5
+ 1763 0149 3D01     		.2byte	0x13d
+ 1764 014b F3010000 		.4byte	0x1f3
+ 1765 014f 00       		.byte	0
+ 1766 0150 0C       		.uleb128 0xc
+ 1767 0151 6700     		.ascii	"g\000"
+ 1768 0153 05       		.byte	0x5
+ 1769 0154 4701     		.2byte	0x147
+ 1770 0156 D6020000 		.4byte	0x2d6
+ 1771 015a 08       		.byte	0x8
+ 1772 015b 0D       		.uleb128 0xd
+ 1773 015c 05020000 		.4byte	.LASF29
+ 1774 0160 05       		.byte	0x5
+ 1775 0161 4901     		.2byte	0x149
+ 1776 0163 94000000 		.4byte	0x94
+ 1777 0167 14       		.byte	0x14
+ 1778 0168 0D       		.uleb128 0xd
+ 1779 0169 25050000 		.4byte	.LASF30
+ 1780 016d 05       		.byte	0x5
+ 1781 016e 4A01     		.2byte	0x14a
+ 1782 0170 94000000 		.4byte	0x94
+ 1783 0174 18       		.byte	0x18
+ 1784 0175 0D       		.uleb128 0xd
+ 1785 0176 80050000 		.4byte	.LASF31
+ 1786 017a 05       		.byte	0x5
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 41
+
+
+ 1787 017b 4C01     		.2byte	0x14c
+ 1788 017d 3E000000 		.4byte	0x3e
+ 1789 0181 1C       		.byte	0x1c
+ 1790 0182 0D       		.uleb128 0xd
+ 1791 0183 82000000 		.4byte	.LASF32
+ 1792 0187 05       		.byte	0x5
+ 1793 0188 4D01     		.2byte	0x14d
+ 1794 018a 3E000000 		.4byte	0x3e
+ 1795 018e 1D       		.byte	0x1d
+ 1796 018f 0D       		.uleb128 0xd
+ 1797 0190 35000000 		.4byte	.LASF33
+ 1798 0194 05       		.byte	0x5
+ 1799 0195 4E01     		.2byte	0x14e
+ 1800 0197 5B000000 		.4byte	0x5b
+ 1801 019b 1E       		.byte	0x1e
+ 1802 019c 0D       		.uleb128 0xd
+ 1803 019d A9030000 		.4byte	.LASF34
+ 1804 01a1 05       		.byte	0x5
+ 1805 01a2 5A01     		.2byte	0x15a
+ 1806 01a4 96000000 		.4byte	0x96
+ 1807 01a8 20       		.byte	0x20
+ 1808 01a9 0D       		.uleb128 0xd
+ 1809 01aa 1F040000 		.4byte	.LASF35
+ 1810 01ae 05       		.byte	0x5
+ 1811 01af 5A01     		.2byte	0x15a
+ 1812 01b1 96000000 		.4byte	0x96
+ 1813 01b5 22       		.byte	0x22
+ 1814 01b6 0D       		.uleb128 0xd
+ 1815 01b7 B0030000 		.4byte	.LASF36
+ 1816 01bb 05       		.byte	0x5
+ 1817 01bc 5B01     		.2byte	0x15b
+ 1818 01be 96000000 		.4byte	0x96
+ 1819 01c2 24       		.byte	0x24
+ 1820 01c3 0D       		.uleb128 0xd
+ 1821 01c4 26040000 		.4byte	.LASF37
+ 1822 01c8 05       		.byte	0x5
+ 1823 01c9 5B01     		.2byte	0x15b
+ 1824 01cb 96000000 		.4byte	0x96
+ 1825 01cf 26       		.byte	0x26
+ 1826 01d0 0C       		.uleb128 0xc
+ 1827 01d1 7000     		.ascii	"p\000"
+ 1828 01d3 05       		.byte	0x5
+ 1829 01d4 6601     		.2byte	0x166
+ 1830 01d6 32030000 		.4byte	0x332
+ 1831 01da 28       		.byte	0x28
+ 1832 01db 0C       		.uleb128 0xc
+ 1833 01dc 7400     		.ascii	"t\000"
+ 1834 01de 05       		.byte	0x5
+ 1835 01df 7201     		.2byte	0x172
+ 1836 01e1 B4030000 		.4byte	0x3b4
+ 1837 01e5 40       		.byte	0x40
+ 1838 01e6 00       		.byte	0
+ 1839 01e7 0E       		.uleb128 0xe
+ 1840 01e8 B1040000 		.4byte	.LASF38
+ 1841 01ec 06       		.byte	0x6
+ 1842 01ed 9001     		.2byte	0x190
+ 1843 01ef 5B000000 		.4byte	0x5b
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 42
+
+
+ 1844 01f3 0F       		.uleb128 0xf
+ 1845 01f4 53030000 		.4byte	.LASF39
+ 1846 01f8 08       		.byte	0x8
+ 1847 01f9 07       		.byte	0x7
+ 1848 01fa 3A       		.byte	0x3a
+ 1849 01fb 18020000 		.4byte	0x218
+ 1850 01ff 10       		.uleb128 0x10
+ 1851 0200 B9040000 		.4byte	.LASF40
+ 1852 0204 07       		.byte	0x7
+ 1853 0205 3B       		.byte	0x3b
+ 1854 0206 18020000 		.4byte	0x218
+ 1855 020a 00       		.byte	0
+ 1856 020b 11       		.uleb128 0x11
+ 1857 020c 766D7400 		.ascii	"vmt\000"
+ 1858 0210 07       		.byte	0x7
+ 1859 0211 3C       		.byte	0x3c
+ 1860 0212 73020000 		.4byte	0x273
+ 1861 0216 04       		.byte	0x4
+ 1862 0217 00       		.byte	0
+ 1863 0218 06       		.uleb128 0x6
+ 1864 0219 04       		.byte	0x4
+ 1865 021a F3010000 		.4byte	0x1f3
+ 1866 021e 0F       		.uleb128 0xf
+ 1867 021f A6040000 		.4byte	.LASF41
+ 1868 0223 14       		.byte	0x14
+ 1869 0224 07       		.byte	0x7
+ 1870 0225 42       		.byte	0x42
+ 1871 0226 73020000 		.4byte	0x273
+ 1872 022a 10       		.uleb128 0x10
+ 1873 022b 93040000 		.4byte	.LASF42
+ 1874 022f 07       		.byte	0x7
+ 1875 0230 43       		.byte	0x43
+ 1876 0231 5B000000 		.4byte	0x5b
+ 1877 0235 00       		.byte	0
+ 1878 0236 10       		.uleb128 0x10
+ 1879 0237 35000000 		.4byte	.LASF33
+ 1880 023b 07       		.byte	0x7
+ 1881 023c 44       		.byte	0x44
+ 1882 023d 5B000000 		.4byte	0x5b
+ 1883 0241 02       		.byte	0x2
+ 1884 0242 10       		.uleb128 0x10
+ 1885 0243 85040000 		.4byte	.LASF43
+ 1886 0247 07       		.byte	0x7
+ 1887 0248 45       		.byte	0x45
+ 1888 0249 74000000 		.4byte	0x74
+ 1889 024d 04       		.byte	0x4
+ 1890 024e 10       		.uleb128 0x10
+ 1891 024f 1A040000 		.4byte	.LASF44
+ 1892 0253 07       		.byte	0x7
+ 1893 0254 46       		.byte	0x46
+ 1894 0255 AD020000 		.4byte	0x2ad
+ 1895 0259 08       		.byte	0x8
+ 1896 025a 10       		.uleb128 0x10
+ 1897 025b FC010000 		.4byte	.LASF45
+ 1898 025f 07       		.byte	0x7
+ 1899 0260 4A       		.byte	0x4a
+ 1900 0261 BE020000 		.4byte	0x2be
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 43
+
+
+ 1901 0265 0C       		.byte	0xc
+ 1902 0266 10       		.uleb128 0x10
+ 1903 0267 5B000000 		.4byte	.LASF46
+ 1904 026b 07       		.byte	0x7
+ 1905 026c 4B       		.byte	0x4b
+ 1906 026d BE020000 		.4byte	0x2be
+ 1907 0271 10       		.byte	0x10
+ 1908 0272 00       		.byte	0
+ 1909 0273 06       		.uleb128 0x6
+ 1910 0274 04       		.byte	0x4
+ 1911 0275 79020000 		.4byte	0x279
+ 1912 0279 07       		.uleb128 0x7
+ 1913 027a 1E020000 		.4byte	0x21e
+ 1914 027e 02       		.uleb128 0x2
+ 1915 027f 53030000 		.4byte	.LASF39
+ 1916 0283 07       		.byte	0x7
+ 1917 0284 3D       		.byte	0x3d
+ 1918 0285 F3010000 		.4byte	0x1f3
+ 1919 0289 12       		.uleb128 0x12
+ 1920 028a 25000000 		.4byte	0x25
+ 1921 028e A7020000 		.4byte	0x2a7
+ 1922 0292 13       		.uleb128 0x13
+ 1923 0293 A7020000 		.4byte	0x2a7
+ 1924 0297 13       		.uleb128 0x13
+ 1925 0298 94000000 		.4byte	0x94
+ 1926 029c 13       		.uleb128 0x13
+ 1927 029d 8D000000 		.4byte	0x8d
+ 1928 02a1 13       		.uleb128 0x13
+ 1929 02a2 8D000000 		.4byte	0x8d
+ 1930 02a6 00       		.byte	0
+ 1931 02a7 06       		.uleb128 0x6
+ 1932 02a8 04       		.byte	0x4
+ 1933 02a9 7E020000 		.4byte	0x27e
+ 1934 02ad 06       		.uleb128 0x6
+ 1935 02ae 04       		.byte	0x4
+ 1936 02af 89020000 		.4byte	0x289
+ 1937 02b3 14       		.uleb128 0x14
+ 1938 02b4 BE020000 		.4byte	0x2be
+ 1939 02b8 13       		.uleb128 0x13
+ 1940 02b9 A7020000 		.4byte	0x2a7
+ 1941 02bd 00       		.byte	0
+ 1942 02be 06       		.uleb128 0x6
+ 1943 02bf 04       		.byte	0x4
+ 1944 02c0 B3020000 		.4byte	0x2b3
+ 1945 02c4 02       		.uleb128 0x2
+ 1946 02c5 A6040000 		.4byte	.LASF41
+ 1947 02c9 07       		.byte	0x7
+ 1948 02ca 4C       		.byte	0x4c
+ 1949 02cb 1E020000 		.4byte	0x21e
+ 1950 02cf 03       		.uleb128 0x3
+ 1951 02d0 04       		.byte	0x4
+ 1952 02d1 07       		.byte	0x7
+ 1953 02d2 2D040000 		.4byte	.LASF47
+ 1954 02d6 0B       		.uleb128 0xb
+ 1955 02d7 8C010000 		.4byte	.LASF48
+ 1956 02db 0A       		.byte	0xa
+ 1957 02dc 05       		.byte	0x5
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 44
+
+
+ 1958 02dd 4001     		.2byte	0x140
+ 1959 02df 32030000 		.4byte	0x332
+ 1960 02e3 0D       		.uleb128 0xd
+ 1961 02e4 41030000 		.4byte	.LASF49
+ 1962 02e8 05       		.byte	0x5
+ 1963 02e9 4101     		.2byte	0x141
+ 1964 02eb 96000000 		.4byte	0x96
+ 1965 02ef 00       		.byte	0
+ 1966 02f0 0D       		.uleb128 0xd
+ 1967 02f1 E3000000 		.4byte	.LASF50
+ 1968 02f5 05       		.byte	0x5
+ 1969 02f6 4201     		.2byte	0x142
+ 1970 02f8 96000000 		.4byte	0x96
+ 1971 02fc 02       		.byte	0x2
+ 1972 02fd 0D       		.uleb128 0xd
+ 1973 02fe B7030000 		.4byte	.LASF51
+ 1974 0302 05       		.byte	0x5
+ 1975 0303 4301     		.2byte	0x143
+ 1976 0305 F2000000 		.4byte	0xf2
+ 1977 0309 04       		.byte	0x4
+ 1978 030a 0D       		.uleb128 0xd
+ 1979 030b 5B030000 		.4byte	.LASF52
+ 1980 030f 05       		.byte	0x5
+ 1981 0310 4401     		.2byte	0x144
+ 1982 0312 22010000 		.4byte	0x122
+ 1983 0316 06       		.byte	0x6
+ 1984 0317 0D       		.uleb128 0xd
+ 1985 0318 1B050000 		.4byte	.LASF53
+ 1986 031c 05       		.byte	0x5
+ 1987 031d 4501     		.2byte	0x145
+ 1988 031f 3E000000 		.4byte	0x3e
+ 1989 0323 07       		.byte	0x7
+ 1990 0324 0D       		.uleb128 0xd
+ 1991 0325 62000000 		.4byte	.LASF54
+ 1992 0329 05       		.byte	0x5
+ 1993 032a 4601     		.2byte	0x146
+ 1994 032c 3E000000 		.4byte	0x3e
+ 1995 0330 08       		.byte	0x8
+ 1996 0331 00       		.byte	0
+ 1997 0332 15       		.uleb128 0x15
+ 1998 0333 18       		.byte	0x18
+ 1999 0334 05       		.byte	0x5
+ 2000 0335 5F01     		.2byte	0x15f
+ 2001 0337 B4030000 		.4byte	0x3b4
+ 2002 033b 0C       		.uleb128 0xc
+ 2003 033c 7800     		.ascii	"x\000"
+ 2004 033e 05       		.byte	0x5
+ 2005 033f 6001     		.2byte	0x160
+ 2006 0341 96000000 		.4byte	0x96
+ 2007 0345 00       		.byte	0
+ 2008 0346 0C       		.uleb128 0xc
+ 2009 0347 7900     		.ascii	"y\000"
+ 2010 0349 05       		.byte	0x5
+ 2011 034a 6001     		.2byte	0x160
+ 2012 034c 96000000 		.4byte	0x96
+ 2013 0350 02       		.byte	0x2
+ 2014 0351 0C       		.uleb128 0xc
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 45
+
+
+ 2015 0352 637800   		.ascii	"cx\000"
+ 2016 0355 05       		.byte	0x5
+ 2017 0356 6101     		.2byte	0x161
+ 2018 0358 96000000 		.4byte	0x96
+ 2019 035c 04       		.byte	0x4
+ 2020 035d 0C       		.uleb128 0xc
+ 2021 035e 637900   		.ascii	"cy\000"
+ 2022 0361 05       		.byte	0x5
+ 2023 0362 6101     		.2byte	0x161
+ 2024 0364 96000000 		.4byte	0x96
+ 2025 0368 06       		.byte	0x6
+ 2026 0369 0C       		.uleb128 0xc
+ 2027 036a 783100   		.ascii	"x1\000"
+ 2028 036d 05       		.byte	0x5
+ 2029 036e 6201     		.2byte	0x162
+ 2030 0370 96000000 		.4byte	0x96
+ 2031 0374 08       		.byte	0x8
+ 2032 0375 0C       		.uleb128 0xc
+ 2033 0376 793100   		.ascii	"y1\000"
+ 2034 0379 05       		.byte	0x5
+ 2035 037a 6201     		.2byte	0x162
+ 2036 037c 96000000 		.4byte	0x96
+ 2037 0380 0A       		.byte	0xa
+ 2038 0381 0C       		.uleb128 0xc
+ 2039 0382 783200   		.ascii	"x2\000"
+ 2040 0385 05       		.byte	0x5
+ 2041 0386 6301     		.2byte	0x163
+ 2042 0388 96000000 		.4byte	0x96
+ 2043 038c 0C       		.byte	0xc
+ 2044 038d 0C       		.uleb128 0xc
+ 2045 038e 793200   		.ascii	"y2\000"
+ 2046 0391 05       		.byte	0x5
+ 2047 0392 6301     		.2byte	0x163
+ 2048 0394 96000000 		.4byte	0x96
+ 2049 0398 0E       		.byte	0xe
+ 2050 0399 0D       		.uleb128 0xd
+ 2051 039a 86010000 		.4byte	.LASF55
+ 2052 039e 05       		.byte	0x5
+ 2053 039f 6401     		.2byte	0x164
+ 2054 03a1 E7010000 		.4byte	0x1e7
+ 2055 03a5 10       		.byte	0x10
+ 2056 03a6 0C       		.uleb128 0xc
+ 2057 03a7 70747200 		.ascii	"ptr\000"
+ 2058 03ab 05       		.byte	0x5
+ 2059 03ac 6501     		.2byte	0x165
+ 2060 03ae 94000000 		.4byte	0x94
+ 2061 03b2 14       		.byte	0x14
+ 2062 03b3 00       		.byte	0
+ 2063 03b4 15       		.uleb128 0x15
+ 2064 03b5 10       		.byte	0x10
+ 2065 03b6 05       		.byte	0x5
+ 2066 03b7 6C01     		.2byte	0x16c
+ 2067 03b9 19040000 		.4byte	0x419
+ 2068 03bd 0D       		.uleb128 0xd
+ 2069 03be 15040000 		.4byte	.LASF56
+ 2070 03c2 05       		.byte	0x5
+ 2071 03c3 6D01     		.2byte	0x16d
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 46
+
+
+ 2072 03c5 A1000000 		.4byte	0xa1
+ 2073 03c9 00       		.byte	0
+ 2074 03ca 0D       		.uleb128 0xd
+ 2075 03cb 86010000 		.4byte	.LASF55
+ 2076 03cf 05       		.byte	0x5
+ 2077 03d0 6E01     		.2byte	0x16e
+ 2078 03d2 E7010000 		.4byte	0x1e7
+ 2079 03d6 04       		.byte	0x4
+ 2080 03d7 0D       		.uleb128 0xd
+ 2081 03d8 7E010000 		.4byte	.LASF57
+ 2082 03dc 05       		.byte	0x5
+ 2083 03dd 6F01     		.2byte	0x16f
+ 2084 03df E7010000 		.4byte	0x1e7
+ 2085 03e3 06       		.byte	0x6
+ 2086 03e4 0D       		.uleb128 0xd
+ 2087 03e5 A9030000 		.4byte	.LASF34
+ 2088 03e9 05       		.byte	0x5
+ 2089 03ea 7001     		.2byte	0x170
+ 2090 03ec 96000000 		.4byte	0x96
+ 2091 03f0 08       		.byte	0x8
+ 2092 03f1 0D       		.uleb128 0xd
+ 2093 03f2 1F040000 		.4byte	.LASF35
+ 2094 03f6 05       		.byte	0x5
+ 2095 03f7 7001     		.2byte	0x170
+ 2096 03f9 96000000 		.4byte	0x96
+ 2097 03fd 0A       		.byte	0xa
+ 2098 03fe 0D       		.uleb128 0xd
+ 2099 03ff B0030000 		.4byte	.LASF36
+ 2100 0403 05       		.byte	0x5
+ 2101 0404 7101     		.2byte	0x171
+ 2102 0406 96000000 		.4byte	0x96
+ 2103 040a 0C       		.byte	0xc
+ 2104 040b 0D       		.uleb128 0xd
+ 2105 040c 26040000 		.4byte	.LASF37
+ 2106 0410 05       		.byte	0x5
+ 2107 0411 7101     		.2byte	0x171
+ 2108 0413 96000000 		.4byte	0x96
+ 2109 0417 0E       		.byte	0xe
+ 2110 0418 00       		.byte	0
+ 2111 0419 0B       		.uleb128 0xb
+ 2112 041a C5040000 		.4byte	.LASF58
+ 2113 041e 60       		.byte	0x60
+ 2114 041f 05       		.byte	0x5
+ 2115 0420 7A01     		.2byte	0x17a
+ 2116 0422 29050000 		.4byte	0x529
+ 2117 0426 0C       		.uleb128 0xc
+ 2118 0427 6400     		.ascii	"d\000"
+ 2119 0429 05       		.byte	0x5
+ 2120 042a 7B01     		.2byte	0x17b
+ 2121 042c C4020000 		.4byte	0x2c4
+ 2122 0430 00       		.byte	0
+ 2123 0431 0D       		.uleb128 0xd
+ 2124 0432 1A040000 		.4byte	.LASF44
+ 2125 0436 05       		.byte	0x5
+ 2126 0437 7E01     		.2byte	0x17e
+ 2127 0439 3E050000 		.4byte	0x53e
+ 2128 043d 14       		.byte	0x14
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 47
+
+
+ 2129 043e 0D       		.uleb128 0xd
+ 2130 043f 5B000000 		.4byte	.LASF46
+ 2131 0443 05       		.byte	0x5
+ 2132 0444 7F01     		.2byte	0x17f
+ 2133 0446 4F050000 		.4byte	0x54f
+ 2134 044a 18       		.byte	0x18
+ 2135 044b 0D       		.uleb128 0xd
+ 2136 044c 3B000000 		.4byte	.LASF59
+ 2137 0450 05       		.byte	0x5
+ 2138 0451 8001     		.2byte	0x180
+ 2139 0453 4F050000 		.4byte	0x54f
+ 2140 0457 1C       		.byte	0x1c
+ 2141 0458 0D       		.uleb128 0xd
+ 2142 0459 25020000 		.4byte	.LASF60
+ 2143 045d 05       		.byte	0x5
+ 2144 045e 8101     		.2byte	0x181
+ 2145 0460 4F050000 		.4byte	0x54f
+ 2146 0464 20       		.byte	0x20
+ 2147 0465 0D       		.uleb128 0xd
+ 2148 0466 75050000 		.4byte	.LASF61
+ 2149 046a 05       		.byte	0x5
+ 2150 046b 8201     		.2byte	0x182
+ 2151 046d 4F050000 		.4byte	0x54f
+ 2152 0471 24       		.byte	0x24
+ 2153 0472 0D       		.uleb128 0xd
+ 2154 0473 2B050000 		.4byte	.LASF62
+ 2155 0477 05       		.byte	0x5
+ 2156 0478 8301     		.2byte	0x183
+ 2157 047a 4F050000 		.4byte	0x54f
+ 2158 047e 28       		.byte	0x28
+ 2159 047f 0D       		.uleb128 0xd
+ 2160 0480 A5050000 		.4byte	.LASF63
+ 2161 0484 05       		.byte	0x5
+ 2162 0485 8401     		.2byte	0x184
+ 2163 0487 4F050000 		.4byte	0x54f
+ 2164 048b 2C       		.byte	0x2c
+ 2165 048c 0D       		.uleb128 0xd
+ 2166 048d 73040000 		.4byte	.LASF64
+ 2167 0491 05       		.byte	0x5
+ 2168 0492 8501     		.2byte	0x185
+ 2169 0494 64050000 		.4byte	0x564
+ 2170 0498 30       		.byte	0x30
+ 2171 0499 0D       		.uleb128 0xd
+ 2172 049a 0C040000 		.4byte	.LASF65
+ 2173 049e 05       		.byte	0x5
+ 2174 049f 8601     		.2byte	0x186
+ 2175 04a1 4F050000 		.4byte	0x54f
+ 2176 04a5 34       		.byte	0x34
+ 2177 04a6 0D       		.uleb128 0xd
+ 2178 04a7 8D040000 		.4byte	.LASF66
+ 2179 04ab 05       		.byte	0x5
+ 2180 04ac 8701     		.2byte	0x187
+ 2181 04ae 4F050000 		.4byte	0x54f
+ 2182 04b2 38       		.byte	0x38
+ 2183 04b3 0D       		.uleb128 0xd
+ 2184 04b4 78010000 		.4byte	.LASF67
+ 2185 04b8 05       		.byte	0x5
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 48
+
+
+ 2186 04b9 8801     		.2byte	0x188
+ 2187 04bb 4F050000 		.4byte	0x54f
+ 2188 04bf 3C       		.byte	0x3c
+ 2189 04c0 0D       		.uleb128 0xd
+ 2190 04c1 31010000 		.4byte	.LASF68
+ 2191 04c5 05       		.byte	0x5
+ 2192 04c6 8901     		.2byte	0x189
+ 2193 04c8 4F050000 		.4byte	0x54f
+ 2194 04cc 40       		.byte	0x40
+ 2195 04cd 0D       		.uleb128 0xd
+ 2196 04ce A0050000 		.4byte	.LASF69
+ 2197 04d2 05       		.byte	0x5
+ 2198 04d3 8A01     		.2byte	0x18a
+ 2199 04d5 4F050000 		.4byte	0x54f
+ 2200 04d9 44       		.byte	0x44
+ 2201 04da 0C       		.uleb128 0xc
+ 2202 04db 67657400 		.ascii	"get\000"
+ 2203 04df 05       		.byte	0x5
+ 2204 04e0 8B01     		.2byte	0x18b
+ 2205 04e2 64050000 		.4byte	0x564
+ 2206 04e6 48       		.byte	0x48
+ 2207 04e7 0D       		.uleb128 0xd
+ 2208 04e8 2E020000 		.4byte	.LASF70
+ 2209 04ec 05       		.byte	0x5
+ 2210 04ed 8C01     		.2byte	0x18c
+ 2211 04ef 4F050000 		.4byte	0x54f
+ 2212 04f3 4C       		.byte	0x4c
+ 2213 04f4 0D       		.uleb128 0xd
+ 2214 04f5 46000000 		.4byte	.LASF71
+ 2215 04f9 05       		.byte	0x5
+ 2216 04fa 8D01     		.2byte	0x18d
+ 2217 04fc 4F050000 		.4byte	0x54f
+ 2218 0500 50       		.byte	0x50
+ 2219 0501 0D       		.uleb128 0xd
+ 2220 0502 6E030000 		.4byte	.LASF72
+ 2221 0506 05       		.byte	0x5
+ 2222 0507 8E01     		.2byte	0x18e
+ 2223 0509 79050000 		.4byte	0x579
+ 2224 050d 54       		.byte	0x54
+ 2225 050e 0D       		.uleb128 0xd
+ 2226 050f 36010000 		.4byte	.LASF73
+ 2227 0513 05       		.byte	0x5
+ 2228 0514 8F01     		.2byte	0x18f
+ 2229 0516 4F050000 		.4byte	0x54f
+ 2230 051a 58       		.byte	0x58
+ 2231 051b 0D       		.uleb128 0xd
+ 2232 051c 06040000 		.4byte	.LASF74
+ 2233 0520 05       		.byte	0x5
+ 2234 0521 9001     		.2byte	0x190
+ 2235 0523 4F050000 		.4byte	0x54f
+ 2236 0527 5C       		.byte	0x5c
+ 2237 0528 00       		.byte	0
+ 2238 0529 12       		.uleb128 0x12
+ 2239 052a 25000000 		.4byte	0x25
+ 2240 052e 38050000 		.4byte	0x538
+ 2241 0532 13       		.uleb128 0x13
+ 2242 0533 38050000 		.4byte	0x538
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 49
+
+
+ 2243 0537 00       		.byte	0
+ 2244 0538 06       		.uleb128 0x6
+ 2245 0539 04       		.byte	0x4
+ 2246 053a 2D010000 		.4byte	0x12d
+ 2247 053e 06       		.uleb128 0x6
+ 2248 053f 04       		.byte	0x4
+ 2249 0540 29050000 		.4byte	0x529
+ 2250 0544 14       		.uleb128 0x14
+ 2251 0545 4F050000 		.4byte	0x54f
+ 2252 0549 13       		.uleb128 0x13
+ 2253 054a 38050000 		.4byte	0x538
+ 2254 054e 00       		.byte	0
+ 2255 054f 06       		.uleb128 0x6
+ 2256 0550 04       		.byte	0x4
+ 2257 0551 44050000 		.4byte	0x544
+ 2258 0555 12       		.uleb128 0x12
+ 2259 0556 E7010000 		.4byte	0x1e7
+ 2260 055a 64050000 		.4byte	0x564
+ 2261 055e 13       		.uleb128 0x13
+ 2262 055f 38050000 		.4byte	0x538
+ 2263 0563 00       		.byte	0
+ 2264 0564 06       		.uleb128 0x6
+ 2265 0565 04       		.byte	0x4
+ 2266 0566 55050000 		.4byte	0x555
+ 2267 056a 12       		.uleb128 0x12
+ 2268 056b 94000000 		.4byte	0x94
+ 2269 056f 79050000 		.4byte	0x579
+ 2270 0573 13       		.uleb128 0x13
+ 2271 0574 38050000 		.4byte	0x538
+ 2272 0578 00       		.byte	0
+ 2273 0579 06       		.uleb128 0x6
+ 2274 057a 04       		.byte	0x4
+ 2275 057b 6A050000 		.4byte	0x56a
+ 2276 057f 0E       		.uleb128 0xe
+ 2277 0580 C5040000 		.4byte	.LASF58
+ 2278 0584 05       		.byte	0x5
+ 2279 0585 9101     		.2byte	0x191
+ 2280 0587 19040000 		.4byte	0x419
+ 2281 058b 02       		.uleb128 0x2
+ 2282 058c D4030000 		.4byte	.LASF75
+ 2283 0590 08       		.byte	0x8
+ 2284 0591 1D       		.byte	0x1d
+ 2285 0592 30000000 		.4byte	0x30
+ 2286 0596 02       		.uleb128 0x2
+ 2287 0597 3E010000 		.4byte	.LASF76
+ 2288 059b 08       		.byte	0x8
+ 2289 059c 2B       		.byte	0x2b
+ 2290 059d 66000000 		.4byte	0x66
+ 2291 05a1 02       		.uleb128 0x2
+ 2292 05a2 6B000000 		.4byte	.LASF77
+ 2293 05a6 08       		.byte	0x8
+ 2294 05a7 3F       		.byte	0x3f
+ 2295 05a8 6D000000 		.4byte	0x6d
+ 2296 05ac 03       		.uleb128 0x3
+ 2297 05ad 08       		.byte	0x8
+ 2298 05ae 05       		.byte	0x5
+ 2299 05af 51020000 		.4byte	.LASF78
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 50
+
+
+ 2300 05b3 03       		.uleb128 0x3
+ 2301 05b4 08       		.byte	0x8
+ 2302 05b5 07       		.byte	0x7
+ 2303 05b6 1A010000 		.4byte	.LASF79
+ 2304 05ba 03       		.uleb128 0x3
+ 2305 05bb 04       		.byte	0x4
+ 2306 05bc 04       		.byte	0x4
+ 2307 05bd EA000000 		.4byte	.LASF80
+ 2308 05c1 03       		.uleb128 0x3
+ 2309 05c2 08       		.byte	0x8
+ 2310 05c3 04       		.byte	0x4
+ 2311 05c4 99050000 		.4byte	.LASF81
+ 2312 05c8 03       		.uleb128 0x3
+ 2313 05c9 01       		.byte	0x1
+ 2314 05ca 08       		.byte	0x8
+ 2315 05cb 18020000 		.4byte	.LASF82
+ 2316 05cf 16       		.uleb128 0x16
+ 2317 05d0 96050000 		.4byte	0x596
+ 2318 05d4 17       		.uleb128 0x17
+ 2319 05d5 8E050000 		.4byte	.LASF83
+ 2320 05d9 01       		.byte	0x1
+ 2321 05da 18       		.byte	0x18
+ 2322 05db 00000000 		.4byte	.LFB63
+ 2323 05df 20000000 		.4byte	.LFE63-.LFB63
+ 2324 05e3 01       		.uleb128 0x1
+ 2325 05e4 9C       		.byte	0x9c
+ 2326 05e5 F6050000 		.4byte	0x5f6
+ 2327 05e9 18       		.uleb128 0x18
+ 2328 05ea 6700     		.ascii	"g\000"
+ 2329 05ec 01       		.byte	0x1
+ 2330 05ed 18       		.byte	0x18
+ 2331 05ee 38050000 		.4byte	0x538
+ 2332 05f2 02       		.uleb128 0x2
+ 2333 05f3 91       		.byte	0x91
+ 2334 05f4 74       		.sleb128 -12
+ 2335 05f5 00       		.byte	0
+ 2336 05f6 19       		.uleb128 0x19
+ 2337 05f7 0A010000 		.4byte	.LASF84
+ 2338 05fb 01       		.byte	0x1
+ 2339 05fc 23       		.byte	0x23
+ 2340 05fd 00000000 		.4byte	.LFB64
+ 2341 0601 12000000 		.4byte	.LFE64-.LFB64
+ 2342 0605 01       		.uleb128 0x1
+ 2343 0606 9C       		.byte	0x9c
+ 2344 0607 18060000 		.4byte	0x618
+ 2345 060b 18       		.uleb128 0x18
+ 2346 060c 6700     		.ascii	"g\000"
+ 2347 060e 01       		.byte	0x1
+ 2348 060f 23       		.byte	0x23
+ 2349 0610 38050000 		.4byte	0x538
+ 2350 0614 02       		.uleb128 0x2
+ 2351 0615 91       		.byte	0x91
+ 2352 0616 74       		.sleb128 -12
+ 2353 0617 00       		.byte	0
+ 2354 0618 17       		.uleb128 0x17
+ 2355 0619 34030000 		.4byte	.LASF85
+ 2356 061d 01       		.byte	0x1
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 51
+
+
+ 2357 061e 28       		.byte	0x28
+ 2358 061f 00000000 		.4byte	.LFB65
+ 2359 0623 26000000 		.4byte	.LFE65-.LFB65
+ 2360 0627 01       		.uleb128 0x1
+ 2361 0628 9C       		.byte	0x9c
+ 2362 0629 48060000 		.4byte	0x648
+ 2363 062d 18       		.uleb128 0x18
+ 2364 062e 6700     		.ascii	"g\000"
+ 2365 0630 01       		.byte	0x1
+ 2366 0631 28       		.byte	0x28
+ 2367 0632 38050000 		.4byte	0x538
+ 2368 0636 02       		.uleb128 0x2
+ 2369 0637 91       		.byte	0x91
+ 2370 0638 74       		.sleb128 -12
+ 2371 0639 1A       		.uleb128 0x1a
+ 2372 063a 15050000 		.4byte	.LASF86
+ 2373 063e 01       		.byte	0x1
+ 2374 063f 28       		.byte	0x28
+ 2375 0640 25000000 		.4byte	0x25
+ 2376 0644 02       		.uleb128 0x2
+ 2377 0645 91       		.byte	0x91
+ 2378 0646 73       		.sleb128 -13
+ 2379 0647 00       		.byte	0
+ 2380 0648 19       		.uleb128 0x19
+ 2381 0649 94000000 		.4byte	.LASF87
+ 2382 064d 01       		.byte	0x1
+ 2383 064e 33       		.byte	0x33
+ 2384 064f 00000000 		.4byte	.LFB66
+ 2385 0653 16000000 		.4byte	.LFE66-.LFB66
+ 2386 0657 01       		.uleb128 0x1
+ 2387 0658 9C       		.byte	0x9c
+ 2388 0659 78060000 		.4byte	0x678
+ 2389 065d 18       		.uleb128 0x18
+ 2390 065e 6700     		.ascii	"g\000"
+ 2391 0660 01       		.byte	0x1
+ 2392 0661 33       		.byte	0x33
+ 2393 0662 38050000 		.4byte	0x538
+ 2394 0666 02       		.uleb128 0x2
+ 2395 0667 91       		.byte	0x91
+ 2396 0668 74       		.sleb128 -12
+ 2397 0669 1A       		.uleb128 0x1a
+ 2398 066a 7D040000 		.4byte	.LASF88
+ 2399 066e 01       		.byte	0x1
+ 2400 066f 33       		.byte	0x33
+ 2401 0670 8B050000 		.4byte	0x58b
+ 2402 0674 02       		.uleb128 0x2
+ 2403 0675 91       		.byte	0x91
+ 2404 0676 73       		.sleb128 -13
+ 2405 0677 00       		.byte	0
+ 2406 0678 19       		.uleb128 0x19
+ 2407 0679 FE000000 		.4byte	.LASF89
+ 2408 067d 01       		.byte	0x1
+ 2409 067e 39       		.byte	0x39
+ 2410 067f 00000000 		.4byte	.LFB67
+ 2411 0683 12000000 		.4byte	.LFE67-.LFB67
+ 2412 0687 01       		.uleb128 0x1
+ 2413 0688 9C       		.byte	0x9c
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 52
+
+
+ 2414 0689 9A060000 		.4byte	0x69a
+ 2415 068d 18       		.uleb128 0x18
+ 2416 068e 6700     		.ascii	"g\000"
+ 2417 0690 01       		.byte	0x1
+ 2418 0691 39       		.byte	0x39
+ 2419 0692 38050000 		.4byte	0x538
+ 2420 0696 02       		.uleb128 0x2
+ 2421 0697 91       		.byte	0x91
+ 2422 0698 74       		.sleb128 -12
+ 2423 0699 00       		.byte	0
+ 2424 069a 19       		.uleb128 0x19
+ 2425 069b 7D030000 		.4byte	.LASF90
+ 2426 069f 01       		.byte	0x1
+ 2427 06a0 3E       		.byte	0x3e
+ 2428 06a1 00000000 		.4byte	.LFB68
+ 2429 06a5 12000000 		.4byte	.LFE68-.LFB68
+ 2430 06a9 01       		.uleb128 0x1
+ 2431 06aa 9C       		.byte	0x9c
+ 2432 06ab BC060000 		.4byte	0x6bc
+ 2433 06af 18       		.uleb128 0x18
+ 2434 06b0 6700     		.ascii	"g\000"
+ 2435 06b2 01       		.byte	0x1
+ 2436 06b3 3E       		.byte	0x3e
+ 2437 06b4 38050000 		.4byte	0x538
+ 2438 06b8 02       		.uleb128 0x2
+ 2439 06b9 91       		.byte	0x91
+ 2440 06ba 74       		.sleb128 -12
+ 2441 06bb 00       		.byte	0
+ 2442 06bc 17       		.uleb128 0x17
+ 2443 06bd 47030000 		.4byte	.LASF91
+ 2444 06c1 01       		.byte	0x1
+ 2445 06c2 43       		.byte	0x43
+ 2446 06c3 00000000 		.4byte	.LFB69
+ 2447 06c7 22000000 		.4byte	.LFE69-.LFB69
+ 2448 06cb 01       		.uleb128 0x1
+ 2449 06cc 9C       		.byte	0x9c
+ 2450 06cd EC060000 		.4byte	0x6ec
+ 2451 06d1 18       		.uleb128 0x18
+ 2452 06d2 6700     		.ascii	"g\000"
+ 2453 06d4 01       		.byte	0x1
+ 2454 06d5 43       		.byte	0x43
+ 2455 06d6 38050000 		.4byte	0x538
+ 2456 06da 02       		.uleb128 0x2
+ 2457 06db 91       		.byte	0x91
+ 2458 06dc 74       		.sleb128 -12
+ 2459 06dd 1A       		.uleb128 0x1a
+ 2460 06de F0000000 		.4byte	.LASF92
+ 2461 06e2 01       		.byte	0x1
+ 2462 06e3 43       		.byte	0x43
+ 2463 06e4 96050000 		.4byte	0x596
+ 2464 06e8 02       		.uleb128 0x2
+ 2465 06e9 91       		.byte	0x91
+ 2466 06ea 72       		.sleb128 -14
+ 2467 06eb 00       		.byte	0
+ 2468 06ec 17       		.uleb128 0x17
+ 2469 06ed 6A050000 		.4byte	.LASF93
+ 2470 06f1 01       		.byte	0x1
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 53
+
+
+ 2471 06f2 4B       		.byte	0x4b
+ 2472 06f3 00000000 		.4byte	.LFB70
+ 2473 06f7 22000000 		.4byte	.LFE70-.LFB70
+ 2474 06fb 01       		.uleb128 0x1
+ 2475 06fc 9C       		.byte	0x9c
+ 2476 06fd 1C070000 		.4byte	0x71c
+ 2477 0701 18       		.uleb128 0x18
+ 2478 0702 6700     		.ascii	"g\000"
+ 2479 0704 01       		.byte	0x1
+ 2480 0705 4B       		.byte	0x4b
+ 2481 0706 38050000 		.4byte	0x538
+ 2482 070a 02       		.uleb128 0x2
+ 2483 070b 91       		.byte	0x91
+ 2484 070c 74       		.sleb128 -12
+ 2485 070d 1A       		.uleb128 0x1a
+ 2486 070e 4C020000 		.4byte	.LASF94
+ 2487 0712 01       		.byte	0x1
+ 2488 0713 4B       		.byte	0x4b
+ 2489 0714 96050000 		.4byte	0x596
+ 2490 0718 02       		.uleb128 0x2
+ 2491 0719 91       		.byte	0x91
+ 2492 071a 72       		.sleb128 -14
+ 2493 071b 00       		.byte	0
+ 2494 071c 19       		.uleb128 0x19
+ 2495 071d AF010000 		.4byte	.LASF95
+ 2496 0721 01       		.byte	0x1
+ 2497 0722 53       		.byte	0x53
+ 2498 0723 00000000 		.4byte	.LFB71
+ 2499 0727 12000000 		.4byte	.LFE71-.LFB71
+ 2500 072b 01       		.uleb128 0x1
+ 2501 072c 9C       		.byte	0x9c
+ 2502 072d 3E070000 		.4byte	0x73e
+ 2503 0731 18       		.uleb128 0x18
+ 2504 0732 6700     		.ascii	"g\000"
+ 2505 0734 01       		.byte	0x1
+ 2506 0735 53       		.byte	0x53
+ 2507 0736 38050000 		.4byte	0x538
+ 2508 073a 02       		.uleb128 0x2
+ 2509 073b 91       		.byte	0x91
+ 2510 073c 74       		.sleb128 -12
+ 2511 073d 00       		.byte	0
+ 2512 073e 19       		.uleb128 0x19
+ 2513 073f B8000000 		.4byte	.LASF96
+ 2514 0743 01       		.byte	0x1
+ 2515 0744 58       		.byte	0x58
+ 2516 0745 00000000 		.4byte	.LFB72
+ 2517 0749 12000000 		.4byte	.LFE72-.LFB72
+ 2518 074d 01       		.uleb128 0x1
+ 2519 074e 9C       		.byte	0x9c
+ 2520 074f 60070000 		.4byte	0x760
+ 2521 0753 18       		.uleb128 0x18
+ 2522 0754 6700     		.ascii	"g\000"
+ 2523 0756 01       		.byte	0x1
+ 2524 0757 58       		.byte	0x58
+ 2525 0758 38050000 		.4byte	0x538
+ 2526 075c 02       		.uleb128 0x2
+ 2527 075d 91       		.byte	0x91
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 54
+
+
+ 2528 075e 74       		.sleb128 -12
+ 2529 075f 00       		.byte	0
+ 2530 0760 1B       		.uleb128 0x1b
+ 2531 0761 69040000 		.4byte	.LASF113
+ 2532 0765 01       		.byte	0x1
+ 2533 0766 5D       		.byte	0x5d
+ 2534 0767 96050000 		.4byte	0x596
+ 2535 076b 00000000 		.4byte	.LFB73
+ 2536 076f 18000000 		.4byte	.LFE73-.LFB73
+ 2537 0773 01       		.uleb128 0x1
+ 2538 0774 9C       		.byte	0x9c
+ 2539 0775 86070000 		.4byte	0x786
+ 2540 0779 18       		.uleb128 0x18
+ 2541 077a 6700     		.ascii	"g\000"
+ 2542 077c 01       		.byte	0x1
+ 2543 077d 5D       		.byte	0x5d
+ 2544 077e 38050000 		.4byte	0x538
+ 2545 0782 02       		.uleb128 0x2
+ 2546 0783 91       		.byte	0x91
+ 2547 0784 74       		.sleb128 -12
+ 2548 0785 00       		.byte	0
+ 2549 0786 17       		.uleb128 0x17
+ 2550 0787 75000000 		.4byte	.LASF97
+ 2551 078b 02       		.byte	0x2
+ 2552 078c 39       		.byte	0x39
+ 2553 078d 00000000 		.4byte	.LFB74
+ 2554 0791 DA000000 		.4byte	.LFE74-.LFB74
+ 2555 0795 01       		.uleb128 0x1
+ 2556 0796 9C       		.byte	0x9c
+ 2557 0797 A8070000 		.4byte	0x7a8
+ 2558 079b 18       		.uleb128 0x18
+ 2559 079c 6700     		.ascii	"g\000"
+ 2560 079e 02       		.byte	0x2
+ 2561 079f 39       		.byte	0x39
+ 2562 07a0 38050000 		.4byte	0x538
+ 2563 07a4 02       		.uleb128 0x2
+ 2564 07a5 91       		.byte	0x91
+ 2565 07a6 74       		.sleb128 -12
+ 2566 07a7 00       		.byte	0
+ 2567 07a8 1C       		.uleb128 0x1c
+ 2568 07a9 EE030000 		.4byte	.LASF102
+ 2569 07ad 02       		.byte	0x2
+ 2570 07ae 4B       		.byte	0x4b
+ 2571 07af 25000000 		.4byte	0x25
+ 2572 07b3 00000000 		.4byte	.LFB75
+ 2573 07b7 94030000 		.4byte	.LFE75-.LFB75
+ 2574 07bb 01       		.uleb128 0x1
+ 2575 07bc 9C       		.byte	0x9c
+ 2576 07bd CE070000 		.4byte	0x7ce
+ 2577 07c1 18       		.uleb128 0x18
+ 2578 07c2 6700     		.ascii	"g\000"
+ 2579 07c4 02       		.byte	0x2
+ 2580 07c5 4B       		.byte	0x4b
+ 2581 07c6 38050000 		.4byte	0x538
+ 2582 07ca 02       		.uleb128 0x2
+ 2583 07cb 91       		.byte	0x91
+ 2584 07cc 74       		.sleb128 -12
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 55
+
+
+ 2585 07cd 00       		.byte	0
+ 2586 07ce 1D       		.uleb128 0x1d
+ 2587 07cf 35050000 		.4byte	.LASF98
+ 2588 07d3 02       		.byte	0x2
+ 2589 07d4 ED       		.byte	0xed
+ 2590 07d5 00000000 		.4byte	.LFB76
+ 2591 07d9 22000000 		.4byte	.LFE76-.LFB76
+ 2592 07dd 01       		.uleb128 0x1
+ 2593 07de 9C       		.byte	0x9c
+ 2594 07df F0070000 		.4byte	0x7f0
+ 2595 07e3 18       		.uleb128 0x18
+ 2596 07e4 6700     		.ascii	"g\000"
+ 2597 07e6 02       		.byte	0x2
+ 2598 07e7 ED       		.byte	0xed
+ 2599 07e8 38050000 		.4byte	0x538
+ 2600 07ec 02       		.uleb128 0x2
+ 2601 07ed 91       		.byte	0x91
+ 2602 07ee 74       		.sleb128 -12
+ 2603 07ef 00       		.byte	0
+ 2604 07f0 1D       		.uleb128 0x1d
+ 2605 07f1 36020000 		.4byte	.LASF99
+ 2606 07f5 02       		.byte	0x2
+ 2607 07f6 F2       		.byte	0xf2
+ 2608 07f7 00000000 		.4byte	.LFB77
+ 2609 07fb 2E000000 		.4byte	.LFE77-.LFB77
+ 2610 07ff 01       		.uleb128 0x1
+ 2611 0800 9C       		.byte	0x9c
+ 2612 0801 12080000 		.4byte	0x812
+ 2613 0805 18       		.uleb128 0x18
+ 2614 0806 6700     		.ascii	"g\000"
+ 2615 0808 02       		.byte	0x2
+ 2616 0809 F2       		.byte	0xf2
+ 2617 080a 38050000 		.4byte	0x538
+ 2618 080e 02       		.uleb128 0x2
+ 2619 080f 91       		.byte	0x91
+ 2620 0810 74       		.sleb128 -12
+ 2621 0811 00       		.byte	0
+ 2622 0812 1D       		.uleb128 0x1d
+ 2623 0813 C5000000 		.4byte	.LASF100
+ 2624 0817 02       		.byte	0x2
+ 2625 0818 F5       		.byte	0xf5
+ 2626 0819 00000000 		.4byte	.LFB78
+ 2627 081d 14000000 		.4byte	.LFE78-.LFB78
+ 2628 0821 01       		.uleb128 0x1
+ 2629 0822 9C       		.byte	0x9c
+ 2630 0823 34080000 		.4byte	0x834
+ 2631 0827 18       		.uleb128 0x18
+ 2632 0828 6700     		.ascii	"g\000"
+ 2633 082a 02       		.byte	0x2
+ 2634 082b F5       		.byte	0xf5
+ 2635 082c 38050000 		.4byte	0x538
+ 2636 0830 02       		.uleb128 0x2
+ 2637 0831 91       		.byte	0x91
+ 2638 0832 74       		.sleb128 -12
+ 2639 0833 00       		.byte	0
+ 2640 0834 1D       		.uleb128 0x1d
+ 2641 0835 0F000000 		.4byte	.LASF101
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 56
+
+
+ 2642 0839 02       		.byte	0x2
+ 2643 083a FB       		.byte	0xfb
+ 2644 083b 00000000 		.4byte	.LFB79
+ 2645 083f 34000000 		.4byte	.LFE79-.LFB79
+ 2646 0843 01       		.uleb128 0x1
+ 2647 0844 9C       		.byte	0x9c
+ 2648 0845 6F080000 		.4byte	0x86f
+ 2649 0849 18       		.uleb128 0x18
+ 2650 084a 6700     		.ascii	"g\000"
+ 2651 084c 02       		.byte	0x2
+ 2652 084d FB       		.byte	0xfb
+ 2653 084e 38050000 		.4byte	0x538
+ 2654 0852 02       		.uleb128 0x2
+ 2655 0853 91       		.byte	0x91
+ 2656 0854 6C       		.sleb128 -20
+ 2657 0855 1E       		.uleb128 0x1e
+ 2658 0856 22000000 		.4byte	.LBB2
+ 2659 085a 0C000000 		.4byte	.LBE2-.LBB2
+ 2660 085e 1F       		.uleb128 0x1f
+ 2661 085f 72010000 		.4byte	.LASF104
+ 2662 0863 02       		.byte	0x2
+ 2663 0864 0001     		.2byte	0x100
+ 2664 0866 CF050000 		.4byte	0x5cf
+ 2665 086a 02       		.uleb128 0x2
+ 2666 086b 91       		.byte	0x91
+ 2667 086c 76       		.sleb128 -10
+ 2668 086d 00       		.byte	0
+ 2669 086e 00       		.byte	0
+ 2670 086f 20       		.uleb128 0x20
+ 2671 0870 49010000 		.4byte	.LASF103
+ 2672 0874 02       		.byte	0x2
+ 2673 0875 0201     		.2byte	0x102
+ 2674 0877 E7010000 		.4byte	0x1e7
+ 2675 087b 00000000 		.4byte	.LFB80
+ 2676 087f 1C000000 		.4byte	.LFE80-.LFB80
+ 2677 0883 01       		.uleb128 0x1
+ 2678 0884 9C       		.byte	0x9c
+ 2679 0885 A6080000 		.4byte	0x8a6
+ 2680 0889 21       		.uleb128 0x21
+ 2681 088a 6700     		.ascii	"g\000"
+ 2682 088c 02       		.byte	0x2
+ 2683 088d 0201     		.2byte	0x102
+ 2684 088f 38050000 		.4byte	0x538
+ 2685 0893 02       		.uleb128 0x2
+ 2686 0894 91       		.byte	0x91
+ 2687 0895 6C       		.sleb128 -20
+ 2688 0896 1F       		.uleb128 0x1f
+ 2689 0897 4C020000 		.4byte	.LASF94
+ 2690 089b 02       		.byte	0x2
+ 2691 089c 0301     		.2byte	0x103
+ 2692 089e 96050000 		.4byte	0x596
+ 2693 08a2 02       		.uleb128 0x2
+ 2694 08a3 91       		.byte	0x91
+ 2695 08a4 76       		.sleb128 -10
+ 2696 08a5 00       		.byte	0
+ 2697 08a6 22       		.uleb128 0x22
+ 2698 08a7 5E010000 		.4byte	.LASF105
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 57
+
+
+ 2699 08ab 02       		.byte	0x2
+ 2700 08ac 0801     		.2byte	0x108
+ 2701 08ae 00000000 		.4byte	.LFB81
+ 2702 08b2 1A000000 		.4byte	.LFE81-.LFB81
+ 2703 08b6 01       		.uleb128 0x1
+ 2704 08b7 9C       		.byte	0x9c
+ 2705 08b8 CA080000 		.4byte	0x8ca
+ 2706 08bc 21       		.uleb128 0x21
+ 2707 08bd 6700     		.ascii	"g\000"
+ 2708 08bf 02       		.byte	0x2
+ 2709 08c0 0801     		.2byte	0x108
+ 2710 08c2 38050000 		.4byte	0x538
+ 2711 08c6 02       		.uleb128 0x2
+ 2712 08c7 91       		.byte	0x91
+ 2713 08c8 74       		.sleb128 -12
+ 2714 08c9 00       		.byte	0
+ 2715 08ca 22       		.uleb128 0x22
+ 2716 08cb 7D020000 		.4byte	.LASF106
+ 2717 08cf 02       		.byte	0x2
+ 2718 08d0 0F01     		.2byte	0x10f
+ 2719 08d2 00000000 		.4byte	.LFB82
+ 2720 08d6 A8010000 		.4byte	.LFE82-.LFB82
+ 2721 08da 01       		.uleb128 0x1
+ 2722 08db 9C       		.byte	0x9c
+ 2723 08dc EE080000 		.4byte	0x8ee
+ 2724 08e0 21       		.uleb128 0x21
+ 2725 08e1 6700     		.ascii	"g\000"
+ 2726 08e3 02       		.byte	0x2
+ 2727 08e4 0F01     		.2byte	0x10f
+ 2728 08e6 38050000 		.4byte	0x538
+ 2729 08ea 02       		.uleb128 0x2
+ 2730 08eb 91       		.byte	0x91
+ 2731 08ec 74       		.sleb128 -12
+ 2732 08ed 00       		.byte	0
+ 2733 08ee 23       		.uleb128 0x23
+ 2734 08ef 7F050000 		.4byte	0x57f
+ 2735 08f3 FE080000 		.4byte	0x8fe
+ 2736 08f7 24       		.uleb128 0x24
+ 2737 08f8 CF020000 		.4byte	0x2cf
+ 2738 08fc 00       		.byte	0
+ 2739 08fd 00       		.byte	0
+ 2740 08fe 25       		.uleb128 0x25
+ 2741 08ff CE040000 		.4byte	.LASF107
+ 2742 0903 05       		.byte	0x5
+ 2743 0904 DB02     		.2byte	0x2db
+ 2744 0906 10090000 		.4byte	0x910
+ 2745 090a 05       		.uleb128 0x5
+ 2746 090b 03       		.byte	0x3
+ 2747 090c 00000000 		.4byte	GDISPVMT_OnlyOne
+ 2748 0910 07       		.uleb128 0x7
+ 2749 0911 EE080000 		.4byte	0x8ee
+ 2750 0915 26       		.uleb128 0x26
+ 2751 0916 9C030000 		.4byte	.LASF108
+ 2752 091a 09       		.byte	0x9
+ 2753 091b 9606     		.2byte	0x696
+ 2754 091d 21090000 		.4byte	0x921
+ 2755 0921 16       		.uleb128 0x16
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 58
+
+
+ 2756 0922 A1050000 		.4byte	0x5a1
+ 2757 0926 00       		.byte	0
+ 2758              		.section	.debug_abbrev,"",%progbits
+ 2759              	.Ldebug_abbrev0:
+ 2760 0000 01       		.uleb128 0x1
+ 2761 0001 11       		.uleb128 0x11
+ 2762 0002 01       		.byte	0x1
+ 2763 0003 25       		.uleb128 0x25
+ 2764 0004 0E       		.uleb128 0xe
+ 2765 0005 13       		.uleb128 0x13
+ 2766 0006 0B       		.uleb128 0xb
+ 2767 0007 03       		.uleb128 0x3
+ 2768 0008 0E       		.uleb128 0xe
+ 2769 0009 1B       		.uleb128 0x1b
+ 2770 000a 0E       		.uleb128 0xe
+ 2771 000b 55       		.uleb128 0x55
+ 2772 000c 17       		.uleb128 0x17
+ 2773 000d 11       		.uleb128 0x11
+ 2774 000e 01       		.uleb128 0x1
+ 2775 000f 10       		.uleb128 0x10
+ 2776 0010 17       		.uleb128 0x17
+ 2777 0011 00       		.byte	0
+ 2778 0012 00       		.byte	0
+ 2779 0013 02       		.uleb128 0x2
+ 2780 0014 16       		.uleb128 0x16
+ 2781 0015 00       		.byte	0
+ 2782 0016 03       		.uleb128 0x3
+ 2783 0017 0E       		.uleb128 0xe
+ 2784 0018 3A       		.uleb128 0x3a
+ 2785 0019 0B       		.uleb128 0xb
+ 2786 001a 3B       		.uleb128 0x3b
+ 2787 001b 0B       		.uleb128 0xb
+ 2788 001c 49       		.uleb128 0x49
+ 2789 001d 13       		.uleb128 0x13
+ 2790 001e 00       		.byte	0
+ 2791 001f 00       		.byte	0
+ 2792 0020 03       		.uleb128 0x3
+ 2793 0021 24       		.uleb128 0x24
+ 2794 0022 00       		.byte	0
+ 2795 0023 0B       		.uleb128 0xb
+ 2796 0024 0B       		.uleb128 0xb
+ 2797 0025 3E       		.uleb128 0x3e
+ 2798 0026 0B       		.uleb128 0xb
+ 2799 0027 03       		.uleb128 0x3
+ 2800 0028 0E       		.uleb128 0xe
+ 2801 0029 00       		.byte	0
+ 2802 002a 00       		.byte	0
+ 2803 002b 04       		.uleb128 0x4
+ 2804 002c 24       		.uleb128 0x24
+ 2805 002d 00       		.byte	0
+ 2806 002e 0B       		.uleb128 0xb
+ 2807 002f 0B       		.uleb128 0xb
+ 2808 0030 3E       		.uleb128 0x3e
+ 2809 0031 0B       		.uleb128 0xb
+ 2810 0032 03       		.uleb128 0x3
+ 2811 0033 08       		.uleb128 0x8
+ 2812 0034 00       		.byte	0
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 59
+
+
+ 2813 0035 00       		.byte	0
+ 2814 0036 05       		.uleb128 0x5
+ 2815 0037 0F       		.uleb128 0xf
+ 2816 0038 00       		.byte	0
+ 2817 0039 0B       		.uleb128 0xb
+ 2818 003a 0B       		.uleb128 0xb
+ 2819 003b 00       		.byte	0
+ 2820 003c 00       		.byte	0
+ 2821 003d 06       		.uleb128 0x6
+ 2822 003e 0F       		.uleb128 0xf
+ 2823 003f 00       		.byte	0
+ 2824 0040 0B       		.uleb128 0xb
+ 2825 0041 0B       		.uleb128 0xb
+ 2826 0042 49       		.uleb128 0x49
+ 2827 0043 13       		.uleb128 0x13
+ 2828 0044 00       		.byte	0
+ 2829 0045 00       		.byte	0
+ 2830 0046 07       		.uleb128 0x7
+ 2831 0047 26       		.uleb128 0x26
+ 2832 0048 00       		.byte	0
+ 2833 0049 49       		.uleb128 0x49
+ 2834 004a 13       		.uleb128 0x13
+ 2835 004b 00       		.byte	0
+ 2836 004c 00       		.byte	0
+ 2837 004d 08       		.uleb128 0x8
+ 2838 004e 13       		.uleb128 0x13
+ 2839 004f 00       		.byte	0
+ 2840 0050 03       		.uleb128 0x3
+ 2841 0051 0E       		.uleb128 0xe
+ 2842 0052 3C       		.uleb128 0x3c
+ 2843 0053 19       		.uleb128 0x19
+ 2844 0054 00       		.byte	0
+ 2845 0055 00       		.byte	0
+ 2846 0056 09       		.uleb128 0x9
+ 2847 0057 04       		.uleb128 0x4
+ 2848 0058 01       		.byte	0x1
+ 2849 0059 03       		.uleb128 0x3
+ 2850 005a 0E       		.uleb128 0xe
+ 2851 005b 0B       		.uleb128 0xb
+ 2852 005c 0B       		.uleb128 0xb
+ 2853 005d 3A       		.uleb128 0x3a
+ 2854 005e 0B       		.uleb128 0xb
+ 2855 005f 3B       		.uleb128 0x3b
+ 2856 0060 0B       		.uleb128 0xb
+ 2857 0061 01       		.uleb128 0x1
+ 2858 0062 13       		.uleb128 0x13
+ 2859 0063 00       		.byte	0
+ 2860 0064 00       		.byte	0
+ 2861 0065 0A       		.uleb128 0xa
+ 2862 0066 28       		.uleb128 0x28
+ 2863 0067 00       		.byte	0
+ 2864 0068 03       		.uleb128 0x3
+ 2865 0069 0E       		.uleb128 0xe
+ 2866 006a 1C       		.uleb128 0x1c
+ 2867 006b 0D       		.uleb128 0xd
+ 2868 006c 00       		.byte	0
+ 2869 006d 00       		.byte	0
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 60
+
+
+ 2870 006e 0B       		.uleb128 0xb
+ 2871 006f 13       		.uleb128 0x13
+ 2872 0070 01       		.byte	0x1
+ 2873 0071 03       		.uleb128 0x3
+ 2874 0072 0E       		.uleb128 0xe
+ 2875 0073 0B       		.uleb128 0xb
+ 2876 0074 0B       		.uleb128 0xb
+ 2877 0075 3A       		.uleb128 0x3a
+ 2878 0076 0B       		.uleb128 0xb
+ 2879 0077 3B       		.uleb128 0x3b
+ 2880 0078 05       		.uleb128 0x5
+ 2881 0079 01       		.uleb128 0x1
+ 2882 007a 13       		.uleb128 0x13
+ 2883 007b 00       		.byte	0
+ 2884 007c 00       		.byte	0
+ 2885 007d 0C       		.uleb128 0xc
+ 2886 007e 0D       		.uleb128 0xd
+ 2887 007f 00       		.byte	0
+ 2888 0080 03       		.uleb128 0x3
+ 2889 0081 08       		.uleb128 0x8
+ 2890 0082 3A       		.uleb128 0x3a
+ 2891 0083 0B       		.uleb128 0xb
+ 2892 0084 3B       		.uleb128 0x3b
+ 2893 0085 05       		.uleb128 0x5
+ 2894 0086 49       		.uleb128 0x49
+ 2895 0087 13       		.uleb128 0x13
+ 2896 0088 38       		.uleb128 0x38
+ 2897 0089 0B       		.uleb128 0xb
+ 2898 008a 00       		.byte	0
+ 2899 008b 00       		.byte	0
+ 2900 008c 0D       		.uleb128 0xd
+ 2901 008d 0D       		.uleb128 0xd
+ 2902 008e 00       		.byte	0
+ 2903 008f 03       		.uleb128 0x3
+ 2904 0090 0E       		.uleb128 0xe
+ 2905 0091 3A       		.uleb128 0x3a
+ 2906 0092 0B       		.uleb128 0xb
+ 2907 0093 3B       		.uleb128 0x3b
+ 2908 0094 05       		.uleb128 0x5
+ 2909 0095 49       		.uleb128 0x49
+ 2910 0096 13       		.uleb128 0x13
+ 2911 0097 38       		.uleb128 0x38
+ 2912 0098 0B       		.uleb128 0xb
+ 2913 0099 00       		.byte	0
+ 2914 009a 00       		.byte	0
+ 2915 009b 0E       		.uleb128 0xe
+ 2916 009c 16       		.uleb128 0x16
+ 2917 009d 00       		.byte	0
+ 2918 009e 03       		.uleb128 0x3
+ 2919 009f 0E       		.uleb128 0xe
+ 2920 00a0 3A       		.uleb128 0x3a
+ 2921 00a1 0B       		.uleb128 0xb
+ 2922 00a2 3B       		.uleb128 0x3b
+ 2923 00a3 05       		.uleb128 0x5
+ 2924 00a4 49       		.uleb128 0x49
+ 2925 00a5 13       		.uleb128 0x13
+ 2926 00a6 00       		.byte	0
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 61
+
+
+ 2927 00a7 00       		.byte	0
+ 2928 00a8 0F       		.uleb128 0xf
+ 2929 00a9 13       		.uleb128 0x13
+ 2930 00aa 01       		.byte	0x1
+ 2931 00ab 03       		.uleb128 0x3
+ 2932 00ac 0E       		.uleb128 0xe
+ 2933 00ad 0B       		.uleb128 0xb
+ 2934 00ae 0B       		.uleb128 0xb
+ 2935 00af 3A       		.uleb128 0x3a
+ 2936 00b0 0B       		.uleb128 0xb
+ 2937 00b1 3B       		.uleb128 0x3b
+ 2938 00b2 0B       		.uleb128 0xb
+ 2939 00b3 01       		.uleb128 0x1
+ 2940 00b4 13       		.uleb128 0x13
+ 2941 00b5 00       		.byte	0
+ 2942 00b6 00       		.byte	0
+ 2943 00b7 10       		.uleb128 0x10
+ 2944 00b8 0D       		.uleb128 0xd
+ 2945 00b9 00       		.byte	0
+ 2946 00ba 03       		.uleb128 0x3
+ 2947 00bb 0E       		.uleb128 0xe
+ 2948 00bc 3A       		.uleb128 0x3a
+ 2949 00bd 0B       		.uleb128 0xb
+ 2950 00be 3B       		.uleb128 0x3b
+ 2951 00bf 0B       		.uleb128 0xb
+ 2952 00c0 49       		.uleb128 0x49
+ 2953 00c1 13       		.uleb128 0x13
+ 2954 00c2 38       		.uleb128 0x38
+ 2955 00c3 0B       		.uleb128 0xb
+ 2956 00c4 00       		.byte	0
+ 2957 00c5 00       		.byte	0
+ 2958 00c6 11       		.uleb128 0x11
+ 2959 00c7 0D       		.uleb128 0xd
+ 2960 00c8 00       		.byte	0
+ 2961 00c9 03       		.uleb128 0x3
+ 2962 00ca 08       		.uleb128 0x8
+ 2963 00cb 3A       		.uleb128 0x3a
+ 2964 00cc 0B       		.uleb128 0xb
+ 2965 00cd 3B       		.uleb128 0x3b
+ 2966 00ce 0B       		.uleb128 0xb
+ 2967 00cf 49       		.uleb128 0x49
+ 2968 00d0 13       		.uleb128 0x13
+ 2969 00d1 38       		.uleb128 0x38
+ 2970 00d2 0B       		.uleb128 0xb
+ 2971 00d3 00       		.byte	0
+ 2972 00d4 00       		.byte	0
+ 2973 00d5 12       		.uleb128 0x12
+ 2974 00d6 15       		.uleb128 0x15
+ 2975 00d7 01       		.byte	0x1
+ 2976 00d8 27       		.uleb128 0x27
+ 2977 00d9 19       		.uleb128 0x19
+ 2978 00da 49       		.uleb128 0x49
+ 2979 00db 13       		.uleb128 0x13
+ 2980 00dc 01       		.uleb128 0x1
+ 2981 00dd 13       		.uleb128 0x13
+ 2982 00de 00       		.byte	0
+ 2983 00df 00       		.byte	0
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 62
+
+
+ 2984 00e0 13       		.uleb128 0x13
+ 2985 00e1 05       		.uleb128 0x5
+ 2986 00e2 00       		.byte	0
+ 2987 00e3 49       		.uleb128 0x49
+ 2988 00e4 13       		.uleb128 0x13
+ 2989 00e5 00       		.byte	0
+ 2990 00e6 00       		.byte	0
+ 2991 00e7 14       		.uleb128 0x14
+ 2992 00e8 15       		.uleb128 0x15
+ 2993 00e9 01       		.byte	0x1
+ 2994 00ea 27       		.uleb128 0x27
+ 2995 00eb 19       		.uleb128 0x19
+ 2996 00ec 01       		.uleb128 0x1
+ 2997 00ed 13       		.uleb128 0x13
+ 2998 00ee 00       		.byte	0
+ 2999 00ef 00       		.byte	0
+ 3000 00f0 15       		.uleb128 0x15
+ 3001 00f1 13       		.uleb128 0x13
+ 3002 00f2 01       		.byte	0x1
+ 3003 00f3 0B       		.uleb128 0xb
+ 3004 00f4 0B       		.uleb128 0xb
+ 3005 00f5 3A       		.uleb128 0x3a
+ 3006 00f6 0B       		.uleb128 0xb
+ 3007 00f7 3B       		.uleb128 0x3b
+ 3008 00f8 05       		.uleb128 0x5
+ 3009 00f9 01       		.uleb128 0x1
+ 3010 00fa 13       		.uleb128 0x13
+ 3011 00fb 00       		.byte	0
+ 3012 00fc 00       		.byte	0
+ 3013 00fd 16       		.uleb128 0x16
+ 3014 00fe 35       		.uleb128 0x35
+ 3015 00ff 00       		.byte	0
+ 3016 0100 49       		.uleb128 0x49
+ 3017 0101 13       		.uleb128 0x13
+ 3018 0102 00       		.byte	0
+ 3019 0103 00       		.byte	0
+ 3020 0104 17       		.uleb128 0x17
+ 3021 0105 2E       		.uleb128 0x2e
+ 3022 0106 01       		.byte	0x1
+ 3023 0107 03       		.uleb128 0x3
+ 3024 0108 0E       		.uleb128 0xe
+ 3025 0109 3A       		.uleb128 0x3a
+ 3026 010a 0B       		.uleb128 0xb
+ 3027 010b 3B       		.uleb128 0x3b
+ 3028 010c 0B       		.uleb128 0xb
+ 3029 010d 27       		.uleb128 0x27
+ 3030 010e 19       		.uleb128 0x19
+ 3031 010f 11       		.uleb128 0x11
+ 3032 0110 01       		.uleb128 0x1
+ 3033 0111 12       		.uleb128 0x12
+ 3034 0112 06       		.uleb128 0x6
+ 3035 0113 40       		.uleb128 0x40
+ 3036 0114 18       		.uleb128 0x18
+ 3037 0115 9642     		.uleb128 0x2116
+ 3038 0117 19       		.uleb128 0x19
+ 3039 0118 01       		.uleb128 0x1
+ 3040 0119 13       		.uleb128 0x13
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 63
+
+
+ 3041 011a 00       		.byte	0
+ 3042 011b 00       		.byte	0
+ 3043 011c 18       		.uleb128 0x18
+ 3044 011d 05       		.uleb128 0x5
+ 3045 011e 00       		.byte	0
+ 3046 011f 03       		.uleb128 0x3
+ 3047 0120 08       		.uleb128 0x8
+ 3048 0121 3A       		.uleb128 0x3a
+ 3049 0122 0B       		.uleb128 0xb
+ 3050 0123 3B       		.uleb128 0x3b
+ 3051 0124 0B       		.uleb128 0xb
+ 3052 0125 49       		.uleb128 0x49
+ 3053 0126 13       		.uleb128 0x13
+ 3054 0127 02       		.uleb128 0x2
+ 3055 0128 18       		.uleb128 0x18
+ 3056 0129 00       		.byte	0
+ 3057 012a 00       		.byte	0
+ 3058 012b 19       		.uleb128 0x19
+ 3059 012c 2E       		.uleb128 0x2e
+ 3060 012d 01       		.byte	0x1
+ 3061 012e 03       		.uleb128 0x3
+ 3062 012f 0E       		.uleb128 0xe
+ 3063 0130 3A       		.uleb128 0x3a
+ 3064 0131 0B       		.uleb128 0xb
+ 3065 0132 3B       		.uleb128 0x3b
+ 3066 0133 0B       		.uleb128 0xb
+ 3067 0134 27       		.uleb128 0x27
+ 3068 0135 19       		.uleb128 0x19
+ 3069 0136 11       		.uleb128 0x11
+ 3070 0137 01       		.uleb128 0x1
+ 3071 0138 12       		.uleb128 0x12
+ 3072 0139 06       		.uleb128 0x6
+ 3073 013a 40       		.uleb128 0x40
+ 3074 013b 18       		.uleb128 0x18
+ 3075 013c 9742     		.uleb128 0x2117
+ 3076 013e 19       		.uleb128 0x19
+ 3077 013f 01       		.uleb128 0x1
+ 3078 0140 13       		.uleb128 0x13
+ 3079 0141 00       		.byte	0
+ 3080 0142 00       		.byte	0
+ 3081 0143 1A       		.uleb128 0x1a
+ 3082 0144 05       		.uleb128 0x5
+ 3083 0145 00       		.byte	0
+ 3084 0146 03       		.uleb128 0x3
+ 3085 0147 0E       		.uleb128 0xe
+ 3086 0148 3A       		.uleb128 0x3a
+ 3087 0149 0B       		.uleb128 0xb
+ 3088 014a 3B       		.uleb128 0x3b
+ 3089 014b 0B       		.uleb128 0xb
+ 3090 014c 49       		.uleb128 0x49
+ 3091 014d 13       		.uleb128 0x13
+ 3092 014e 02       		.uleb128 0x2
+ 3093 014f 18       		.uleb128 0x18
+ 3094 0150 00       		.byte	0
+ 3095 0151 00       		.byte	0
+ 3096 0152 1B       		.uleb128 0x1b
+ 3097 0153 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 64
+
+
+ 3098 0154 01       		.byte	0x1
+ 3099 0155 03       		.uleb128 0x3
+ 3100 0156 0E       		.uleb128 0xe
+ 3101 0157 3A       		.uleb128 0x3a
+ 3102 0158 0B       		.uleb128 0xb
+ 3103 0159 3B       		.uleb128 0x3b
+ 3104 015a 0B       		.uleb128 0xb
+ 3105 015b 27       		.uleb128 0x27
+ 3106 015c 19       		.uleb128 0x19
+ 3107 015d 49       		.uleb128 0x49
+ 3108 015e 13       		.uleb128 0x13
+ 3109 015f 11       		.uleb128 0x11
+ 3110 0160 01       		.uleb128 0x1
+ 3111 0161 12       		.uleb128 0x12
+ 3112 0162 06       		.uleb128 0x6
+ 3113 0163 40       		.uleb128 0x40
+ 3114 0164 18       		.uleb128 0x18
+ 3115 0165 9642     		.uleb128 0x2116
+ 3116 0167 19       		.uleb128 0x19
+ 3117 0168 01       		.uleb128 0x1
+ 3118 0169 13       		.uleb128 0x13
+ 3119 016a 00       		.byte	0
+ 3120 016b 00       		.byte	0
+ 3121 016c 1C       		.uleb128 0x1c
+ 3122 016d 2E       		.uleb128 0x2e
+ 3123 016e 01       		.byte	0x1
+ 3124 016f 3F       		.uleb128 0x3f
+ 3125 0170 19       		.uleb128 0x19
+ 3126 0171 03       		.uleb128 0x3
+ 3127 0172 0E       		.uleb128 0xe
+ 3128 0173 3A       		.uleb128 0x3a
+ 3129 0174 0B       		.uleb128 0xb
+ 3130 0175 3B       		.uleb128 0x3b
+ 3131 0176 0B       		.uleb128 0xb
+ 3132 0177 27       		.uleb128 0x27
+ 3133 0178 19       		.uleb128 0x19
+ 3134 0179 49       		.uleb128 0x49
+ 3135 017a 13       		.uleb128 0x13
+ 3136 017b 11       		.uleb128 0x11
+ 3137 017c 01       		.uleb128 0x1
+ 3138 017d 12       		.uleb128 0x12
+ 3139 017e 06       		.uleb128 0x6
+ 3140 017f 40       		.uleb128 0x40
+ 3141 0180 18       		.uleb128 0x18
+ 3142 0181 9642     		.uleb128 0x2116
+ 3143 0183 19       		.uleb128 0x19
+ 3144 0184 01       		.uleb128 0x1
+ 3145 0185 13       		.uleb128 0x13
+ 3146 0186 00       		.byte	0
+ 3147 0187 00       		.byte	0
+ 3148 0188 1D       		.uleb128 0x1d
+ 3149 0189 2E       		.uleb128 0x2e
+ 3150 018a 01       		.byte	0x1
+ 3151 018b 3F       		.uleb128 0x3f
+ 3152 018c 19       		.uleb128 0x19
+ 3153 018d 03       		.uleb128 0x3
+ 3154 018e 0E       		.uleb128 0xe
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 65
+
+
+ 3155 018f 3A       		.uleb128 0x3a
+ 3156 0190 0B       		.uleb128 0xb
+ 3157 0191 3B       		.uleb128 0x3b
+ 3158 0192 0B       		.uleb128 0xb
+ 3159 0193 27       		.uleb128 0x27
+ 3160 0194 19       		.uleb128 0x19
+ 3161 0195 11       		.uleb128 0x11
+ 3162 0196 01       		.uleb128 0x1
+ 3163 0197 12       		.uleb128 0x12
+ 3164 0198 06       		.uleb128 0x6
+ 3165 0199 40       		.uleb128 0x40
+ 3166 019a 18       		.uleb128 0x18
+ 3167 019b 9642     		.uleb128 0x2116
+ 3168 019d 19       		.uleb128 0x19
+ 3169 019e 01       		.uleb128 0x1
+ 3170 019f 13       		.uleb128 0x13
+ 3171 01a0 00       		.byte	0
+ 3172 01a1 00       		.byte	0
+ 3173 01a2 1E       		.uleb128 0x1e
+ 3174 01a3 0B       		.uleb128 0xb
+ 3175 01a4 01       		.byte	0x1
+ 3176 01a5 11       		.uleb128 0x11
+ 3177 01a6 01       		.uleb128 0x1
+ 3178 01a7 12       		.uleb128 0x12
+ 3179 01a8 06       		.uleb128 0x6
+ 3180 01a9 00       		.byte	0
+ 3181 01aa 00       		.byte	0
+ 3182 01ab 1F       		.uleb128 0x1f
+ 3183 01ac 34       		.uleb128 0x34
+ 3184 01ad 00       		.byte	0
+ 3185 01ae 03       		.uleb128 0x3
+ 3186 01af 0E       		.uleb128 0xe
+ 3187 01b0 3A       		.uleb128 0x3a
+ 3188 01b1 0B       		.uleb128 0xb
+ 3189 01b2 3B       		.uleb128 0x3b
+ 3190 01b3 05       		.uleb128 0x5
+ 3191 01b4 49       		.uleb128 0x49
+ 3192 01b5 13       		.uleb128 0x13
+ 3193 01b6 02       		.uleb128 0x2
+ 3194 01b7 18       		.uleb128 0x18
+ 3195 01b8 00       		.byte	0
+ 3196 01b9 00       		.byte	0
+ 3197 01ba 20       		.uleb128 0x20
+ 3198 01bb 2E       		.uleb128 0x2e
+ 3199 01bc 01       		.byte	0x1
+ 3200 01bd 3F       		.uleb128 0x3f
+ 3201 01be 19       		.uleb128 0x19
+ 3202 01bf 03       		.uleb128 0x3
+ 3203 01c0 0E       		.uleb128 0xe
+ 3204 01c1 3A       		.uleb128 0x3a
+ 3205 01c2 0B       		.uleb128 0xb
+ 3206 01c3 3B       		.uleb128 0x3b
+ 3207 01c4 05       		.uleb128 0x5
+ 3208 01c5 27       		.uleb128 0x27
+ 3209 01c6 19       		.uleb128 0x19
+ 3210 01c7 49       		.uleb128 0x49
+ 3211 01c8 13       		.uleb128 0x13
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 66
+
+
+ 3212 01c9 11       		.uleb128 0x11
+ 3213 01ca 01       		.uleb128 0x1
+ 3214 01cb 12       		.uleb128 0x12
+ 3215 01cc 06       		.uleb128 0x6
+ 3216 01cd 40       		.uleb128 0x40
+ 3217 01ce 18       		.uleb128 0x18
+ 3218 01cf 9642     		.uleb128 0x2116
+ 3219 01d1 19       		.uleb128 0x19
+ 3220 01d2 01       		.uleb128 0x1
+ 3221 01d3 13       		.uleb128 0x13
+ 3222 01d4 00       		.byte	0
+ 3223 01d5 00       		.byte	0
+ 3224 01d6 21       		.uleb128 0x21
+ 3225 01d7 05       		.uleb128 0x5
+ 3226 01d8 00       		.byte	0
+ 3227 01d9 03       		.uleb128 0x3
+ 3228 01da 08       		.uleb128 0x8
+ 3229 01db 3A       		.uleb128 0x3a
+ 3230 01dc 0B       		.uleb128 0xb
+ 3231 01dd 3B       		.uleb128 0x3b
+ 3232 01de 05       		.uleb128 0x5
+ 3233 01df 49       		.uleb128 0x49
+ 3234 01e0 13       		.uleb128 0x13
+ 3235 01e1 02       		.uleb128 0x2
+ 3236 01e2 18       		.uleb128 0x18
+ 3237 01e3 00       		.byte	0
+ 3238 01e4 00       		.byte	0
+ 3239 01e5 22       		.uleb128 0x22
+ 3240 01e6 2E       		.uleb128 0x2e
+ 3241 01e7 01       		.byte	0x1
+ 3242 01e8 3F       		.uleb128 0x3f
+ 3243 01e9 19       		.uleb128 0x19
+ 3244 01ea 03       		.uleb128 0x3
+ 3245 01eb 0E       		.uleb128 0xe
+ 3246 01ec 3A       		.uleb128 0x3a
+ 3247 01ed 0B       		.uleb128 0xb
+ 3248 01ee 3B       		.uleb128 0x3b
+ 3249 01ef 05       		.uleb128 0x5
+ 3250 01f0 27       		.uleb128 0x27
+ 3251 01f1 19       		.uleb128 0x19
+ 3252 01f2 11       		.uleb128 0x11
+ 3253 01f3 01       		.uleb128 0x1
+ 3254 01f4 12       		.uleb128 0x12
+ 3255 01f5 06       		.uleb128 0x6
+ 3256 01f6 40       		.uleb128 0x40
+ 3257 01f7 18       		.uleb128 0x18
+ 3258 01f8 9642     		.uleb128 0x2116
+ 3259 01fa 19       		.uleb128 0x19
+ 3260 01fb 01       		.uleb128 0x1
+ 3261 01fc 13       		.uleb128 0x13
+ 3262 01fd 00       		.byte	0
+ 3263 01fe 00       		.byte	0
+ 3264 01ff 23       		.uleb128 0x23
+ 3265 0200 01       		.uleb128 0x1
+ 3266 0201 01       		.byte	0x1
+ 3267 0202 49       		.uleb128 0x49
+ 3268 0203 13       		.uleb128 0x13
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 67
+
+
+ 3269 0204 01       		.uleb128 0x1
+ 3270 0205 13       		.uleb128 0x13
+ 3271 0206 00       		.byte	0
+ 3272 0207 00       		.byte	0
+ 3273 0208 24       		.uleb128 0x24
+ 3274 0209 21       		.uleb128 0x21
+ 3275 020a 00       		.byte	0
+ 3276 020b 49       		.uleb128 0x49
+ 3277 020c 13       		.uleb128 0x13
+ 3278 020d 2F       		.uleb128 0x2f
+ 3279 020e 0B       		.uleb128 0xb
+ 3280 020f 00       		.byte	0
+ 3281 0210 00       		.byte	0
+ 3282 0211 25       		.uleb128 0x25
+ 3283 0212 34       		.uleb128 0x34
+ 3284 0213 00       		.byte	0
+ 3285 0214 03       		.uleb128 0x3
+ 3286 0215 0E       		.uleb128 0xe
+ 3287 0216 3A       		.uleb128 0x3a
+ 3288 0217 0B       		.uleb128 0xb
+ 3289 0218 3B       		.uleb128 0x3b
+ 3290 0219 05       		.uleb128 0x5
+ 3291 021a 49       		.uleb128 0x49
+ 3292 021b 13       		.uleb128 0x13
+ 3293 021c 3F       		.uleb128 0x3f
+ 3294 021d 19       		.uleb128 0x19
+ 3295 021e 02       		.uleb128 0x2
+ 3296 021f 18       		.uleb128 0x18
+ 3297 0220 00       		.byte	0
+ 3298 0221 00       		.byte	0
+ 3299 0222 26       		.uleb128 0x26
+ 3300 0223 34       		.uleb128 0x34
+ 3301 0224 00       		.byte	0
+ 3302 0225 03       		.uleb128 0x3
+ 3303 0226 0E       		.uleb128 0xe
+ 3304 0227 3A       		.uleb128 0x3a
+ 3305 0228 0B       		.uleb128 0xb
+ 3306 0229 3B       		.uleb128 0x3b
+ 3307 022a 05       		.uleb128 0x5
+ 3308 022b 49       		.uleb128 0x49
+ 3309 022c 13       		.uleb128 0x13
+ 3310 022d 3F       		.uleb128 0x3f
+ 3311 022e 19       		.uleb128 0x19
+ 3312 022f 3C       		.uleb128 0x3c
+ 3313 0230 19       		.uleb128 0x19
+ 3314 0231 00       		.byte	0
+ 3315 0232 00       		.byte	0
+ 3316 0233 00       		.byte	0
+ 3317              		.section	.debug_aranges,"",%progbits
+ 3318 0000 B4000000 		.4byte	0xb4
+ 3319 0004 0200     		.2byte	0x2
+ 3320 0006 00000000 		.4byte	.Ldebug_info0
+ 3321 000a 04       		.byte	0x4
+ 3322 000b 00       		.byte	0
+ 3323 000c 0000     		.2byte	0
+ 3324 000e 0000     		.2byte	0
+ 3325 0010 00000000 		.4byte	.LFB63
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 68
+
+
+ 3326 0014 20000000 		.4byte	.LFE63-.LFB63
+ 3327 0018 00000000 		.4byte	.LFB64
+ 3328 001c 12000000 		.4byte	.LFE64-.LFB64
+ 3329 0020 00000000 		.4byte	.LFB65
+ 3330 0024 26000000 		.4byte	.LFE65-.LFB65
+ 3331 0028 00000000 		.4byte	.LFB66
+ 3332 002c 16000000 		.4byte	.LFE66-.LFB66
+ 3333 0030 00000000 		.4byte	.LFB67
+ 3334 0034 12000000 		.4byte	.LFE67-.LFB67
+ 3335 0038 00000000 		.4byte	.LFB68
+ 3336 003c 12000000 		.4byte	.LFE68-.LFB68
+ 3337 0040 00000000 		.4byte	.LFB69
+ 3338 0044 22000000 		.4byte	.LFE69-.LFB69
+ 3339 0048 00000000 		.4byte	.LFB70
+ 3340 004c 22000000 		.4byte	.LFE70-.LFB70
+ 3341 0050 00000000 		.4byte	.LFB71
+ 3342 0054 12000000 		.4byte	.LFE71-.LFB71
+ 3343 0058 00000000 		.4byte	.LFB72
+ 3344 005c 12000000 		.4byte	.LFE72-.LFB72
+ 3345 0060 00000000 		.4byte	.LFB73
+ 3346 0064 18000000 		.4byte	.LFE73-.LFB73
+ 3347 0068 00000000 		.4byte	.LFB74
+ 3348 006c DA000000 		.4byte	.LFE74-.LFB74
+ 3349 0070 00000000 		.4byte	.LFB75
+ 3350 0074 94030000 		.4byte	.LFE75-.LFB75
+ 3351 0078 00000000 		.4byte	.LFB76
+ 3352 007c 22000000 		.4byte	.LFE76-.LFB76
+ 3353 0080 00000000 		.4byte	.LFB77
+ 3354 0084 2E000000 		.4byte	.LFE77-.LFB77
+ 3355 0088 00000000 		.4byte	.LFB78
+ 3356 008c 14000000 		.4byte	.LFE78-.LFB78
+ 3357 0090 00000000 		.4byte	.LFB79
+ 3358 0094 34000000 		.4byte	.LFE79-.LFB79
+ 3359 0098 00000000 		.4byte	.LFB80
+ 3360 009c 1C000000 		.4byte	.LFE80-.LFB80
+ 3361 00a0 00000000 		.4byte	.LFB81
+ 3362 00a4 1A000000 		.4byte	.LFE81-.LFB81
+ 3363 00a8 00000000 		.4byte	.LFB82
+ 3364 00ac A8010000 		.4byte	.LFE82-.LFB82
+ 3365 00b0 00000000 		.4byte	0
+ 3366 00b4 00000000 		.4byte	0
+ 3367              		.section	.debug_ranges,"",%progbits
+ 3368              	.Ldebug_ranges0:
+ 3369 0000 00000000 		.4byte	.LFB63
+ 3370 0004 20000000 		.4byte	.LFE63
+ 3371 0008 00000000 		.4byte	.LFB64
+ 3372 000c 12000000 		.4byte	.LFE64
+ 3373 0010 00000000 		.4byte	.LFB65
+ 3374 0014 26000000 		.4byte	.LFE65
+ 3375 0018 00000000 		.4byte	.LFB66
+ 3376 001c 16000000 		.4byte	.LFE66
+ 3377 0020 00000000 		.4byte	.LFB67
+ 3378 0024 12000000 		.4byte	.LFE67
+ 3379 0028 00000000 		.4byte	.LFB68
+ 3380 002c 12000000 		.4byte	.LFE68
+ 3381 0030 00000000 		.4byte	.LFB69
+ 3382 0034 22000000 		.4byte	.LFE69
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 69
+
+
+ 3383 0038 00000000 		.4byte	.LFB70
+ 3384 003c 22000000 		.4byte	.LFE70
+ 3385 0040 00000000 		.4byte	.LFB71
+ 3386 0044 12000000 		.4byte	.LFE71
+ 3387 0048 00000000 		.4byte	.LFB72
+ 3388 004c 12000000 		.4byte	.LFE72
+ 3389 0050 00000000 		.4byte	.LFB73
+ 3390 0054 18000000 		.4byte	.LFE73
+ 3391 0058 00000000 		.4byte	.LFB74
+ 3392 005c DA000000 		.4byte	.LFE74
+ 3393 0060 00000000 		.4byte	.LFB75
+ 3394 0064 94030000 		.4byte	.LFE75
+ 3395 0068 00000000 		.4byte	.LFB76
+ 3396 006c 22000000 		.4byte	.LFE76
+ 3397 0070 00000000 		.4byte	.LFB77
+ 3398 0074 2E000000 		.4byte	.LFE77
+ 3399 0078 00000000 		.4byte	.LFB78
+ 3400 007c 14000000 		.4byte	.LFE78
+ 3401 0080 00000000 		.4byte	.LFB79
+ 3402 0084 34000000 		.4byte	.LFE79
+ 3403 0088 00000000 		.4byte	.LFB80
+ 3404 008c 1C000000 		.4byte	.LFE80
+ 3405 0090 00000000 		.4byte	.LFB81
+ 3406 0094 1A000000 		.4byte	.LFE81
+ 3407 0098 00000000 		.4byte	.LFB82
+ 3408 009c A8010000 		.4byte	.LFE82
+ 3409 00a0 00000000 		.4byte	0
+ 3410 00a4 00000000 		.4byte	0
+ 3411              		.section	.debug_line,"",%progbits
+ 3412              	.Ldebug_line0:
+ 3413 0000 41040000 		.section	.debug_str,"MS",%progbits,1
+ 3413      0200F301 
+ 3413      00000201 
+ 3413      FB0E0D00 
+ 3413      01010101 
+ 3414              	.LASF25:
+ 3415 0000 706F7765 		.ascii	"powerDeepSleep\000"
+ 3415      72446565 
+ 3415      70536C65 
+ 3415      657000
+ 3416              	.LASF101:
+ 3417 000f 67646973 		.ascii	"gdisp_lld_read_start\000"
+ 3417      705F6C6C 
+ 3417      645F7265 
+ 3417      61645F73 
+ 3417      74617274 
+ 3418              	.LASF17:
+ 3419 0024 47444953 		.ascii	"GDISP_ROTATE_270\000"
+ 3419      505F524F 
+ 3419      54415445 
+ 3419      5F323730 
+ 3419      00
+ 3420              	.LASF33:
+ 3421 0035 666C6167 		.ascii	"flags\000"
+ 3421      7300
+ 3422              	.LASF59:
+ 3423 003b 77726974 		.ascii	"writestart\000"
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 70
+
+
+ 3423      65737461 
+ 3423      727400
+ 3424              	.LASF71:
+ 3425 0046 636F6E74 		.ascii	"control\000"
+ 3425      726F6C00 
+ 3426              	.LASF11:
+ 3427 004e 756E7369 		.ascii	"unsigned int\000"
+ 3427      676E6564 
+ 3427      20696E74 
+ 3427      00
+ 3428              	.LASF46:
+ 3429 005b 6465696E 		.ascii	"deinit\000"
+ 3429      697400
+ 3430              	.LASF54:
+ 3431 0062 436F6E74 		.ascii	"Contrast\000"
+ 3431      72617374 
+ 3431      00
+ 3432              	.LASF77:
+ 3433 006b 5F5F696E 		.ascii	"__int32_t\000"
+ 3433      7433325F 
+ 3433      7400
+ 3434              	.LASF97:
+ 3435 0075 7365745F 		.ascii	"set_viewport\000"
+ 3435      76696577 
+ 3435      706F7274 
+ 3435      00
+ 3436              	.LASF32:
+ 3437 0082 636F6E74 		.ascii	"controllerdisplay\000"
+ 3437      726F6C6C 
+ 3437      65726469 
+ 3437      73706C61 
+ 3437      7900
+ 3438              	.LASF87:
+ 3439 0094 7365745F 		.ascii	"set_backlight\000"
+ 3439      6261636B 
+ 3439      6C696768 
+ 3439      7400
+ 3440              	.LASF21:
+ 3441 00a2 6F726965 		.ascii	"orientation\000"
+ 3441      6E746174 
+ 3441      696F6E00 
+ 3442              	.LASF112:
+ 3443 00ae 6D665F66 		.ascii	"mf_font_s\000"
+ 3443      6F6E745F 
+ 3443      7300
+ 3444              	.LASF96:
+ 3445 00b8 73657477 		.ascii	"setwritemode\000"
+ 3445      72697465 
+ 3445      6D6F6465 
+ 3445      00
+ 3446              	.LASF100:
+ 3447 00c5 67646973 		.ascii	"gdisp_lld_write_stop\000"
+ 3447      705F6C6C 
+ 3447      645F7772 
+ 3447      6974655F 
+ 3447      73746F70 
+ 3448              	.LASF9:
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 71
+
+
+ 3449 00da 75696E74 		.ascii	"uint32_t\000"
+ 3449      33325F74 
+ 3449      00
+ 3450              	.LASF50:
+ 3451 00e3 48656967 		.ascii	"Height\000"
+ 3451      687400
+ 3452              	.LASF80:
+ 3453 00ea 666C6F61 		.ascii	"float\000"
+ 3453      7400
+ 3454              	.LASF92:
+ 3455 00f0 696E6465 		.ascii	"index\000"
+ 3455      7800
+ 3456              	.LASF4:
+ 3457 00f6 696E7431 		.ascii	"int16_t\000"
+ 3457      365F7400 
+ 3458              	.LASF89:
+ 3459 00fe 61637175 		.ascii	"acquire_bus\000"
+ 3459      6972655F 
+ 3459      62757300 
+ 3460              	.LASF84:
+ 3461 010a 706F7374 		.ascii	"post_init_board\000"
+ 3461      5F696E69 
+ 3461      745F626F 
+ 3461      61726400 
+ 3462              	.LASF79:
+ 3463 011a 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 3463      206C6F6E 
+ 3463      6720756E 
+ 3463      7369676E 
+ 3463      65642069 
+ 3464              	.LASF68:
+ 3465 0131 66696C6C 		.ascii	"fill\000"
+ 3465      00
+ 3466              	.LASF73:
+ 3467 0136 73657463 		.ascii	"setclip\000"
+ 3467      6C697000 
+ 3468              	.LASF76:
+ 3469 013e 5F5F7569 		.ascii	"__uint16_t\000"
+ 3469      6E743136 
+ 3469      5F7400
+ 3470              	.LASF103:
+ 3471 0149 67646973 		.ascii	"gdisp_lld_read_color\000"
+ 3471      705F6C6C 
+ 3471      645F7265 
+ 3471      61645F63 
+ 3471      6F6C6F72 
+ 3472              	.LASF105:
+ 3473 015e 67646973 		.ascii	"gdisp_lld_read_stop\000"
+ 3473      705F6C6C 
+ 3473      645F7265 
+ 3473      61645F73 
+ 3473      746F7000 
+ 3474              	.LASF104:
+ 3475 0172 64756D6D 		.ascii	"dummy\000"
+ 3475      7900
+ 3476              	.LASF67:
+ 3477 0178 636C6561 		.ascii	"clear\000"
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 72
+
+
+ 3477      7200
+ 3478              	.LASF57:
+ 3479 017e 6267636F 		.ascii	"bgcolor\000"
+ 3479      6C6F7200 
+ 3480              	.LASF55:
+ 3481 0186 636F6C6F 		.ascii	"color\000"
+ 3481      7200
+ 3482              	.LASF48:
+ 3483 018c 47444953 		.ascii	"GDISPControl\000"
+ 3483      50436F6E 
+ 3483      74726F6C 
+ 3483      00
+ 3484              	.LASF14:
+ 3485 0199 47444953 		.ascii	"GDISP_ROTATE_0\000"
+ 3485      505F524F 
+ 3485      54415445 
+ 3485      5F3000
+ 3486              	.LASF2:
+ 3487 01a8 626F6F6C 		.ascii	"bool_t\000"
+ 3487      5F7400
+ 3488              	.LASF95:
+ 3489 01af 73657472 		.ascii	"setreadmode\000"
+ 3489      6561646D 
+ 3489      6F646500 
+ 3490              	.LASF111:
+ 3491 01bb 433A5C55 		.ascii	"C:\\Users\\joel\\Desktop\\psoc\\psoc_ugfx_demo\\uGF"
+ 3491      73657273 
+ 3491      5C6A6F65 
+ 3491      6C5C4465 
+ 3491      736B746F 
+ 3492 01e8 58204465 		.ascii	"X Demo.cydsn\000"
+ 3492      6D6F2E63 
+ 3492      7964736E 
+ 3492      00
+ 3493              	.LASF13:
+ 3494 01f5 666F6E74 		.ascii	"font_t\000"
+ 3494      5F7400
+ 3495              	.LASF45:
+ 3496 01fc 706F7374 		.ascii	"postinit\000"
+ 3496      696E6974 
+ 3496      00
+ 3497              	.LASF29:
+ 3498 0205 70726976 		.ascii	"priv\000"
+ 3498      00
+ 3499              	.LASF20:
+ 3500 020a 6F726965 		.ascii	"orientation_t\000"
+ 3500      6E746174 
+ 3500      696F6E5F 
+ 3500      7400
+ 3501              	.LASF82:
+ 3502 0218 63686172 		.ascii	"char\000"
+ 3502      00
+ 3503              	.LASF26:
+ 3504 021d 706F7765 		.ascii	"powerOn\000"
+ 3504      724F6E00 
+ 3505              	.LASF60:
+ 3506 0225 77726974 		.ascii	"writepos\000"
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 73
+
+
+ 3506      65706F73 
+ 3506      00
+ 3507              	.LASF70:
+ 3508 022e 76736372 		.ascii	"vscroll\000"
+ 3508      6F6C6C00 
+ 3509              	.LASF99:
+ 3510 0236 67646973 		.ascii	"gdisp_lld_write_color\000"
+ 3510      705F6C6C 
+ 3510      645F7772 
+ 3510      6974655F 
+ 3510      636F6C6F 
+ 3511              	.LASF94:
+ 3512 024c 64617461 		.ascii	"data\000"
+ 3512      00
+ 3513              	.LASF78:
+ 3514 0251 6C6F6E67 		.ascii	"long long int\000"
+ 3514      206C6F6E 
+ 3514      6720696E 
+ 3514      7400
+ 3515              	.LASF3:
+ 3516 025f 75696E74 		.ascii	"uint8_t\000"
+ 3516      385F7400 
+ 3517              	.LASF18:
+ 3518 0267 47444953 		.ascii	"GDISP_ROTATE_PORTRAIT\000"
+ 3518      505F524F 
+ 3518      54415445 
+ 3518      5F504F52 
+ 3518      54524149 
+ 3519              	.LASF106:
+ 3520 027d 67646973 		.ascii	"gdisp_lld_control\000"
+ 3520      705F6C6C 
+ 3520      645F636F 
+ 3520      6E74726F 
+ 3520      6C00
+ 3521              	.LASF27:
+ 3522 028f 706F7765 		.ascii	"powermode_t\000"
+ 3522      726D6F64 
+ 3522      655F7400 
+ 3523              	.LASF109:
+ 3524 029b 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 3524      4320342E 
+ 3524      392E3320 
+ 3524      32303135 
+ 3524      30333033 
+ 3525 02ce 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 3525      20726576 
+ 3525      6973696F 
+ 3525      6E203232 
+ 3525      31323230 
+ 3526 0301 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 3526      66756E63 
+ 3526      74696F6E 
+ 3526      2D736563 
+ 3526      74696F6E 
+ 3527              	.LASF24:
+ 3528 0329 706F7765 		.ascii	"powerSleep\000"
+ 3528      72536C65 
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 74
+
+
+ 3528      657000
+ 3529              	.LASF85:
+ 3530 0334 73657470 		.ascii	"setpin_reset\000"
+ 3530      696E5F72 
+ 3530      65736574 
+ 3530      00
+ 3531              	.LASF49:
+ 3532 0341 57696474 		.ascii	"Width\000"
+ 3532      6800
+ 3533              	.LASF91:
+ 3534 0347 77726974 		.ascii	"write_index\000"
+ 3534      655F696E 
+ 3534      64657800 
+ 3535              	.LASF39:
+ 3536 0353 47447269 		.ascii	"GDriver\000"
+ 3536      76657200 
+ 3537              	.LASF52:
+ 3538 035b 506F7765 		.ascii	"Powermode\000"
+ 3538      726D6F64 
+ 3538      6500
+ 3539              	.LASF28:
+ 3540 0365 47446973 		.ascii	"GDisplay\000"
+ 3540      706C6179 
+ 3540      00
+ 3541              	.LASF72:
+ 3542 036e 71756572 		.ascii	"query\000"
+ 3542      7900
+ 3543              	.LASF6:
+ 3544 0374 75696E74 		.ascii	"uint16_t\000"
+ 3544      31365F74 
+ 3544      00
+ 3545              	.LASF90:
+ 3546 037d 72656C65 		.ascii	"release_bus\000"
+ 3546      6173655F 
+ 3546      62757300 
+ 3547              	.LASF5:
+ 3548 0389 73686F72 		.ascii	"short int\000"
+ 3548      7420696E 
+ 3548      7400
+ 3549              	.LASF8:
+ 3550 0393 6C6F6E67 		.ascii	"long int\000"
+ 3550      20696E74 
+ 3550      00
+ 3551              	.LASF108:
+ 3552 039c 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 3552      52784275 
+ 3552      66666572 
+ 3552      00
+ 3553              	.LASF34:
+ 3554 03a9 636C6970 		.ascii	"clipx0\000"
+ 3554      783000
+ 3555              	.LASF36:
+ 3556 03b0 636C6970 		.ascii	"clipx1\000"
+ 3556      783100
+ 3557              	.LASF51:
+ 3558 03b7 4F726965 		.ascii	"Orientation\000"
+ 3558      6E746174 
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 75
+
+
+ 3558      696F6E00 
+ 3559              	.LASF16:
+ 3560 03c3 47444953 		.ascii	"GDISP_ROTATE_180\000"
+ 3560      505F524F 
+ 3560      54415445 
+ 3560      5F313830 
+ 3560      00
+ 3561              	.LASF75:
+ 3562 03d4 5F5F7569 		.ascii	"__uint8_t\000"
+ 3562      6E74385F 
+ 3562      7400
+ 3563              	.LASF15:
+ 3564 03de 47444953 		.ascii	"GDISP_ROTATE_90\000"
+ 3564      505F524F 
+ 3564      54415445 
+ 3564      5F393000 
+ 3565              	.LASF102:
+ 3566 03ee 67646973 		.ascii	"gdisp_lld_init\000"
+ 3566      705F6C6C 
+ 3566      645F696E 
+ 3566      697400
+ 3567              	.LASF23:
+ 3568 03fd 706F7765 		.ascii	"powerOff\000"
+ 3568      724F6666 
+ 3568      00
+ 3569              	.LASF74:
+ 3570 0406 666C7573 		.ascii	"flush\000"
+ 3570      6800
+ 3571              	.LASF65:
+ 3572 040c 72656164 		.ascii	"readstop\000"
+ 3572      73746F70 
+ 3572      00
+ 3573              	.LASF56:
+ 3574 0415 666F6E74 		.ascii	"font\000"
+ 3574      00
+ 3575              	.LASF44:
+ 3576 041a 696E6974 		.ascii	"init\000"
+ 3576      00
+ 3577              	.LASF35:
+ 3578 041f 636C6970 		.ascii	"clipy0\000"
+ 3578      793000
+ 3579              	.LASF37:
+ 3580 0426 636C6970 		.ascii	"clipy1\000"
+ 3580      793100
+ 3581              	.LASF47:
+ 3582 042d 73697A65 		.ascii	"sizetype\000"
+ 3582      74797065 
+ 3582      00
+ 3583              	.LASF10:
+ 3584 0436 6C6F6E67 		.ascii	"long unsigned int\000"
+ 3584      20756E73 
+ 3584      69676E65 
+ 3584      6420696E 
+ 3584      7400
+ 3585              	.LASF19:
+ 3586 0448 47444953 		.ascii	"GDISP_ROTATE_LANDSCAPE\000"
+ 3586      505F524F 
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 76
+
+
+ 3586      54415445 
+ 3586      5F4C414E 
+ 3586      44534341 
+ 3587              	.LASF22:
+ 3588 045f 706F7765 		.ascii	"powermode\000"
+ 3588      726D6F64 
+ 3588      6500
+ 3589              	.LASF113:
+ 3590 0469 72656164 		.ascii	"read_data\000"
+ 3590      5F646174 
+ 3590      6100
+ 3591              	.LASF64:
+ 3592 0473 72656164 		.ascii	"readcolor\000"
+ 3592      636F6C6F 
+ 3592      7200
+ 3593              	.LASF88:
+ 3594 047d 70657263 		.ascii	"percent\000"
+ 3594      656E7400 
+ 3595              	.LASF43:
+ 3596 0485 6F626A73 		.ascii	"objsize\000"
+ 3596      697A6500 
+ 3597              	.LASF66:
+ 3598 048d 70697865 		.ascii	"pixel\000"
+ 3598      6C00
+ 3599              	.LASF42:
+ 3600 0493 74797065 		.ascii	"type\000"
+ 3600      00
+ 3601              	.LASF0:
+ 3602 0498 756E7369 		.ascii	"unsigned char\000"
+ 3602      676E6564 
+ 3602      20636861 
+ 3602      7200
+ 3603              	.LASF41:
+ 3604 04a6 47447269 		.ascii	"GDriverVMT\000"
+ 3604      76657256 
+ 3604      4D5400
+ 3605              	.LASF38:
+ 3606 04b1 636F6C6F 		.ascii	"color_t\000"
+ 3606      725F7400 
+ 3607              	.LASF40:
+ 3608 04b9 64726976 		.ascii	"driverchain\000"
+ 3608      65726368 
+ 3608      61696E00 
+ 3609              	.LASF58:
+ 3610 04c5 47444953 		.ascii	"GDISPVMT\000"
+ 3610      50564D54 
+ 3610      00
+ 3611              	.LASF107:
+ 3612 04ce 47444953 		.ascii	"GDISPVMT_OnlyOne\000"
+ 3612      50564D54 
+ 3612      5F4F6E6C 
+ 3612      794F6E65 
+ 3612      00
+ 3613              	.LASF110:
+ 3614 04df 2E2E5C75 		.ascii	"..\\ugfx_2.6\\drivers\\gdisp\\ILI9341\\gdisp_lld_IL"
+ 3614      6766785F 
+ 3614      322E365C 
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 77
+
+
+ 3614      64726976 
+ 3614      6572735C 
+ 3615 050d 49393334 		.ascii	"I9341.c\000"
+ 3615      312E6300 
+ 3616              	.LASF86:
+ 3617 0515 73746174 		.ascii	"state\000"
+ 3617      6500
+ 3618              	.LASF53:
+ 3619 051b 4261636B 		.ascii	"Backlight\000"
+ 3619      6C696768 
+ 3619      7400
+ 3620              	.LASF30:
+ 3621 0525 626F6172 		.ascii	"board\000"
+ 3621      6400
+ 3622              	.LASF62:
+ 3623 052b 77726974 		.ascii	"writestop\000"
+ 3623      6573746F 
+ 3623      7000
+ 3624              	.LASF98:
+ 3625 0535 67646973 		.ascii	"gdisp_lld_write_start\000"
+ 3625      705F6C6C 
+ 3625      645F7772 
+ 3625      6974655F 
+ 3625      73746172 
+ 3626              	.LASF1:
+ 3627 054b 7369676E 		.ascii	"signed char\000"
+ 3627      65642063 
+ 3627      68617200 
+ 3628              	.LASF7:
+ 3629 0557 73686F72 		.ascii	"short unsigned int\000"
+ 3629      7420756E 
+ 3629      7369676E 
+ 3629      65642069 
+ 3629      6E7400
+ 3630              	.LASF93:
+ 3631 056a 77726974 		.ascii	"write_data\000"
+ 3631      655F6461 
+ 3631      746100
+ 3632              	.LASF61:
+ 3633 0575 77726974 		.ascii	"writecolor\000"
+ 3633      65636F6C 
+ 3633      6F7200
+ 3634              	.LASF31:
+ 3635 0580 73797374 		.ascii	"systemdisplay\000"
+ 3635      656D6469 
+ 3635      73706C61 
+ 3635      7900
+ 3636              	.LASF83:
+ 3637 058e 696E6974 		.ascii	"init_board\000"
+ 3637      5F626F61 
+ 3637      726400
+ 3638              	.LASF81:
+ 3639 0599 646F7562 		.ascii	"double\000"
+ 3639      6C6500
+ 3640              	.LASF69:
+ 3641 05a0 626C6974 		.ascii	"blit\000"
+ 3641      00
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccu8lQ08.s 			page 78
+
+
+ 3642              	.LASF63:
+ 3643 05a5 72656164 		.ascii	"readstart\000"
+ 3643      73746172 
+ 3643      7400
+ 3644              	.LASF12:
+ 3645 05af 636F6F72 		.ascii	"coord_t\000"
+ 3645      645F7400 
+ 3646              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

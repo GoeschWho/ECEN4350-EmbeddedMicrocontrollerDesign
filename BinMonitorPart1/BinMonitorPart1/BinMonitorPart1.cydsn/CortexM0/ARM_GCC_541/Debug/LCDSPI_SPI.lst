@@ -1,0 +1,1566 @@
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccrAOlW3.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"LCDSPI_SPI.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.LCDSPI_SpiInit,"ax",%progbits
+  20              		.align	2
+  21              		.global	LCDSPI_SpiInit
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	LCDSPI_SpiInit, %function
+  25              	LCDSPI_SpiInit:
+  26              	.LFB2:
+  27              		.file 1 "Generated_Source\\PSoC4\\LCDSPI_SPI.c"
+   1:Generated_Source\PSoC4/LCDSPI_SPI.c **** /***************************************************************************//**
+   2:Generated_Source\PSoC4/LCDSPI_SPI.c **** * \file LCDSPI_SPI.c
+   3:Generated_Source\PSoC4/LCDSPI_SPI.c **** * \version 4.0
+   4:Generated_Source\PSoC4/LCDSPI_SPI.c **** *
+   5:Generated_Source\PSoC4/LCDSPI_SPI.c **** * \brief
+   6:Generated_Source\PSoC4/LCDSPI_SPI.c **** *  This file provides the source code to the API for the SCB Component in
+   7:Generated_Source\PSoC4/LCDSPI_SPI.c **** *  SPI mode.
+   8:Generated_Source\PSoC4/LCDSPI_SPI.c **** *
+   9:Generated_Source\PSoC4/LCDSPI_SPI.c **** * Note:
+  10:Generated_Source\PSoC4/LCDSPI_SPI.c **** *
+  11:Generated_Source\PSoC4/LCDSPI_SPI.c **** *******************************************************************************
+  12:Generated_Source\PSoC4/LCDSPI_SPI.c **** * \copyright
+  13:Generated_Source\PSoC4/LCDSPI_SPI.c **** * Copyright 2013-2017, Cypress Semiconductor Corporation.  All rights reserved.
+  14:Generated_Source\PSoC4/LCDSPI_SPI.c **** * You may use this file only in accordance with the license, terms, conditions,
+  15:Generated_Source\PSoC4/LCDSPI_SPI.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  16:Generated_Source\PSoC4/LCDSPI_SPI.c **** * the software package with which this file was provided.
+  17:Generated_Source\PSoC4/LCDSPI_SPI.c **** *******************************************************************************/
+  18:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+  19:Generated_Source\PSoC4/LCDSPI_SPI.c **** #include "LCDSPI_PVT.h"
+  20:Generated_Source\PSoC4/LCDSPI_SPI.c **** #include "LCDSPI_SPI_UART_PVT.h"
+  21:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+  22:Generated_Source\PSoC4/LCDSPI_SPI.c **** #if(LCDSPI_SCB_MODE_UNCONFIG_CONST_CFG)
+  23:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+  24:Generated_Source\PSoC4/LCDSPI_SPI.c ****     /***************************************
+  25:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *  Configuration Structure Initialization
+  26:Generated_Source\PSoC4/LCDSPI_SPI.c ****     ***************************************/
+  27:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+  28:Generated_Source\PSoC4/LCDSPI_SPI.c ****     const LCDSPI_SPI_INIT_STRUCT LCDSPI_configSpi =
+  29:Generated_Source\PSoC4/LCDSPI_SPI.c ****     {
+  30:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SPI_MODE,
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccrAOlW3.s 			page 2
+
+
+  31:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SPI_SUB_MODE,
+  32:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SPI_CLOCK_MODE,
+  33:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SPI_OVS_FACTOR,
+  34:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SPI_MEDIAN_FILTER_ENABLE,
+  35:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SPI_LATE_MISO_SAMPLE_ENABLE,
+  36:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SPI_WAKE_ENABLE,
+  37:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SPI_RX_DATA_BITS_NUM,
+  38:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SPI_TX_DATA_BITS_NUM,
+  39:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SPI_BITS_ORDER,
+  40:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SPI_TRANSFER_SEPARATION,
+  41:Generated_Source\PSoC4/LCDSPI_SPI.c ****         0u,
+  42:Generated_Source\PSoC4/LCDSPI_SPI.c ****         NULL,
+  43:Generated_Source\PSoC4/LCDSPI_SPI.c ****         0u,
+  44:Generated_Source\PSoC4/LCDSPI_SPI.c ****         NULL,
+  45:Generated_Source\PSoC4/LCDSPI_SPI.c ****         (uint32) LCDSPI_SCB_IRQ_INTERNAL,
+  46:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SPI_INTR_RX_MASK,
+  47:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SPI_RX_TRIGGER_LEVEL,
+  48:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SPI_INTR_TX_MASK,
+  49:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SPI_TX_TRIGGER_LEVEL,
+  50:Generated_Source\PSoC4/LCDSPI_SPI.c ****         (uint8) LCDSPI_SPI_BYTE_MODE_ENABLE,
+  51:Generated_Source\PSoC4/LCDSPI_SPI.c ****         (uint8) LCDSPI_SPI_FREE_RUN_SCLK_ENABLE,
+  52:Generated_Source\PSoC4/LCDSPI_SPI.c ****         (uint8) LCDSPI_SPI_SS_POLARITY
+  53:Generated_Source\PSoC4/LCDSPI_SPI.c ****     };
+  54:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+  55:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+  56:Generated_Source\PSoC4/LCDSPI_SPI.c ****     /*******************************************************************************
+  57:Generated_Source\PSoC4/LCDSPI_SPI.c ****     * Function Name: LCDSPI_SpiInit
+  58:Generated_Source\PSoC4/LCDSPI_SPI.c ****     ****************************************************************************//**
+  59:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *
+  60:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *  Configures the LCDSPI for SPI operation.
+  61:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *
+  62:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *  This function is intended specifically to be used when the LCDSPI 
+  63:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *  configuration is set to “Unconfigured LCDSPI” in the customizer. 
+  64:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *  After initializing the LCDSPI in SPI mode using this function, 
+  65:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *  the component can be enabled using the LCDSPI_Start() or 
+  66:Generated_Source\PSoC4/LCDSPI_SPI.c ****     * LCDSPI_Enable() function.
+  67:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *  This function uses a pointer to a structure that provides the configuration 
+  68:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *  settings. This structure contains the same information that would otherwise 
+  69:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *  be provided by the customizer settings.
+  70:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *
+  71:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *  \param config: pointer to a structure that contains the following list of 
+  72:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *   fields. These fields match the selections available in the customizer. 
+  73:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *   Refer to the customizer for further description of the settings.
+  74:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *
+  75:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *******************************************************************************/
+  76:Generated_Source\PSoC4/LCDSPI_SPI.c ****     void LCDSPI_SpiInit(const LCDSPI_SPI_INIT_STRUCT *config)
+  77:Generated_Source\PSoC4/LCDSPI_SPI.c ****     {
+  78:Generated_Source\PSoC4/LCDSPI_SPI.c ****         if(NULL == config)
+  79:Generated_Source\PSoC4/LCDSPI_SPI.c ****         {
+  80:Generated_Source\PSoC4/LCDSPI_SPI.c ****             CYASSERT(0u != 0u); /* Halt execution due to bad function parameter */
+  81:Generated_Source\PSoC4/LCDSPI_SPI.c ****         }
+  82:Generated_Source\PSoC4/LCDSPI_SPI.c ****         else
+  83:Generated_Source\PSoC4/LCDSPI_SPI.c ****         {
+  84:Generated_Source\PSoC4/LCDSPI_SPI.c ****             /* Configure pins */
+  85:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_SetPins(LCDSPI_SCB_MODE_SPI, config->mode, LCDSPI_DUMMY_PARAM);
+  86:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+  87:Generated_Source\PSoC4/LCDSPI_SPI.c ****             /* Store internal configuration */
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccrAOlW3.s 			page 3
+
+
+  88:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_scbMode       = (uint8) LCDSPI_SCB_MODE_SPI;
+  89:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_scbEnableWake = (uint8) config->enableWake;
+  90:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_scbEnableIntr = (uint8) config->enableInterrupt;
+  91:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+  92:Generated_Source\PSoC4/LCDSPI_SPI.c ****             /* Set RX direction internal variables */
+  93:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_rxBuffer      =         config->rxBuffer;
+  94:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_rxDataBits    = (uint8) config->rxDataBits;
+  95:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_rxBufferSize  =         config->rxBufferSize;
+  96:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+  97:Generated_Source\PSoC4/LCDSPI_SPI.c ****             /* Set TX direction internal variables */
+  98:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_txBuffer      =         config->txBuffer;
+  99:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_txDataBits    = (uint8) config->txDataBits;
+ 100:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_txBufferSize  =         config->txBufferSize;
+ 101:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 102:Generated_Source\PSoC4/LCDSPI_SPI.c ****             /* Configure SPI interface */
+ 103:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_CTRL_REG     = LCDSPI_GET_CTRL_OVS(config->oversample)           |
+ 104:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                             LCDSPI_GET_CTRL_BYTE_MODE(config->enableByteMode) |
+ 105:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                             LCDSPI_GET_CTRL_EC_AM_MODE(config->enableWake)    |
+ 106:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                             LCDSPI_CTRL_SPI;
+ 107:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 108:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_SPI_CTRL_REG = LCDSPI_GET_SPI_CTRL_CONTINUOUS    (config->transferSeperation)  |
+ 109:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                             LCDSPI_GET_SPI_CTRL_SELECT_PRECEDE(config->submode &
+ 110:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                                                           LCDSPI_SPI_MODE_TI_PRECED
+ 111:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                             LCDSPI_GET_SPI_CTRL_SCLK_MODE     (config->sclkMode)   
+ 112:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                             LCDSPI_GET_SPI_CTRL_LATE_MISO_SAMPLE(config->enableLate
+ 113:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                             LCDSPI_GET_SPI_CTRL_SCLK_CONTINUOUS(config->enableFreeR
+ 114:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                             LCDSPI_GET_SPI_CTRL_SSEL_POLARITY (config->polaritySs) 
+ 115:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                             LCDSPI_GET_SPI_CTRL_SUB_MODE      (config->submode)    
+ 116:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                             LCDSPI_GET_SPI_CTRL_MASTER_MODE   (config->mode);
+ 117:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 118:Generated_Source\PSoC4/LCDSPI_SPI.c ****             /* Configure RX direction */
+ 119:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_RX_CTRL_REG     =  LCDSPI_GET_RX_CTRL_DATA_WIDTH(config->rxDataBits)         |
+ 120:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                                 LCDSPI_GET_RX_CTRL_BIT_ORDER (config->bitOrder)    
+ 121:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                                 LCDSPI_GET_RX_CTRL_MEDIAN    (config->enableMedianF
+ 122:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                                 LCDSPI_SPI_RX_CTRL;
+ 123:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 124:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_RX_FIFO_CTRL_REG = LCDSPI_GET_RX_FIFO_CTRL_TRIGGER_LEVEL(config->rxTriggerLevel)
+ 125:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 126:Generated_Source\PSoC4/LCDSPI_SPI.c ****             /* Configure TX direction */
+ 127:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_TX_CTRL_REG      = LCDSPI_GET_TX_CTRL_DATA_WIDTH(config->txDataBits) |
+ 128:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                                 LCDSPI_GET_TX_CTRL_BIT_ORDER (config->bitOrder)   |
+ 129:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                                 LCDSPI_SPI_TX_CTRL;
+ 130:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 131:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_TX_FIFO_CTRL_REG = LCDSPI_GET_TX_FIFO_CTRL_TRIGGER_LEVEL(config->txTriggerLevel)
+ 132:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 133:Generated_Source\PSoC4/LCDSPI_SPI.c ****             /* Configure interrupt with SPI handler but do not enable it */
+ 134:Generated_Source\PSoC4/LCDSPI_SPI.c ****             CyIntDisable    (LCDSPI_ISR_NUMBER);
+ 135:Generated_Source\PSoC4/LCDSPI_SPI.c ****             CyIntSetPriority(LCDSPI_ISR_NUMBER, LCDSPI_ISR_PRIORITY);
+ 136:Generated_Source\PSoC4/LCDSPI_SPI.c ****             (void) CyIntSetVector(LCDSPI_ISR_NUMBER, &LCDSPI_SPI_UART_ISR);
+ 137:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 138:Generated_Source\PSoC4/LCDSPI_SPI.c ****             /* Configure interrupt sources */
+ 139:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_INTR_I2C_EC_MASK_REG = LCDSPI_NO_INTR_SOURCES;
+ 140:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_INTR_SPI_EC_MASK_REG = LCDSPI_NO_INTR_SOURCES;
+ 141:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_INTR_SLAVE_MASK_REG  = LCDSPI_GET_SPI_INTR_SLAVE_MASK(config->rxInterruptMask);
+ 142:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_INTR_MASTER_MASK_REG = LCDSPI_GET_SPI_INTR_MASTER_MASK(config->txInterruptMask);
+ 143:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_INTR_RX_MASK_REG     = LCDSPI_GET_SPI_INTR_RX_MASK(config->rxInterruptMask);
+ 144:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_INTR_TX_MASK_REG     = LCDSPI_GET_SPI_INTR_TX_MASK(config->txInterruptMask);
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccrAOlW3.s 			page 4
+
+
+ 145:Generated_Source\PSoC4/LCDSPI_SPI.c ****             
+ 146:Generated_Source\PSoC4/LCDSPI_SPI.c ****             /* Configure TX interrupt sources to restore. */
+ 147:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_IntrTxMask = LO16(LCDSPI_INTR_TX_MASK_REG);
+ 148:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 149:Generated_Source\PSoC4/LCDSPI_SPI.c ****             /* Set active SS0 */
+ 150:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_SpiSetActiveSlaveSelect(LCDSPI_SPI_SLAVE_SELECT0);
+ 151:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 152:Generated_Source\PSoC4/LCDSPI_SPI.c ****             /* Clear RX buffer indexes */
+ 153:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_rxBufferHead     = 0u;
+ 154:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_rxBufferTail     = 0u;
+ 155:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_rxBufferOverflow = 0u;
+ 156:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 157:Generated_Source\PSoC4/LCDSPI_SPI.c ****             /* Clear TX buffer indexes */
+ 158:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_txBufferHead = 0u;
+ 159:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_txBufferTail = 0u;
+ 160:Generated_Source\PSoC4/LCDSPI_SPI.c ****         }
+ 161:Generated_Source\PSoC4/LCDSPI_SPI.c ****     }
+ 162:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 163:Generated_Source\PSoC4/LCDSPI_SPI.c **** #else
+ 164:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 165:Generated_Source\PSoC4/LCDSPI_SPI.c ****     /*******************************************************************************
+ 166:Generated_Source\PSoC4/LCDSPI_SPI.c ****     * Function Name: LCDSPI_SpiInit
+ 167:Generated_Source\PSoC4/LCDSPI_SPI.c ****     ****************************************************************************//**
+ 168:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *
+ 169:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *  Configures the SCB for the SPI operation.
+ 170:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *
+ 171:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *******************************************************************************/
+ 172:Generated_Source\PSoC4/LCDSPI_SPI.c ****     void LCDSPI_SpiInit(void)
+ 173:Generated_Source\PSoC4/LCDSPI_SPI.c ****     {
+  28              		.loc 1 173 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 1, uses_anonymous_args = 0
+  32 0000 80B5     		push	{r7, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 7, -8
+  35              		.cfi_offset 14, -4
+  36 0002 00AF     		add	r7, sp, #0
+  37              		.cfi_def_cfa_register 7
+ 174:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Configure SPI interface */
+ 175:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_CTRL_REG     = LCDSPI_SPI_DEFAULT_CTRL;
+  38              		.loc 1 175 0
+  39 0004 174B     		ldr	r3, .L2
+  40 0006 184A     		ldr	r2, .L2+4
+  41 0008 1A60     		str	r2, [r3]
+ 176:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SPI_CTRL_REG = LCDSPI_SPI_DEFAULT_SPI_CTRL;
+  42              		.loc 1 176 0
+  43 000a 184B     		ldr	r3, .L2+8
+  44 000c 184A     		ldr	r2, .L2+12
+  45 000e 1A60     		str	r2, [r3]
+ 177:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 178:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Configure TX and RX direction */
+ 179:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_RX_CTRL_REG      = LCDSPI_SPI_DEFAULT_RX_CTRL;
+  46              		.loc 1 179 0
+  47 0010 184B     		ldr	r3, .L2+16
+  48 0012 194A     		ldr	r2, .L2+20
+  49 0014 1A60     		str	r2, [r3]
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccrAOlW3.s 			page 5
+
+
+ 180:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_RX_FIFO_CTRL_REG = LCDSPI_SPI_DEFAULT_RX_FIFO_CTRL;
+  50              		.loc 1 180 0
+  51 0016 194B     		ldr	r3, .L2+24
+  52 0018 0722     		movs	r2, #7
+  53 001a 1A60     		str	r2, [r3]
+ 181:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 182:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Configure TX and RX direction */
+ 183:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_TX_CTRL_REG      = LCDSPI_SPI_DEFAULT_TX_CTRL;
+  54              		.loc 1 183 0
+  55 001c 184B     		ldr	r3, .L2+28
+  56 001e 164A     		ldr	r2, .L2+20
+  57 0020 1A60     		str	r2, [r3]
+ 184:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_TX_FIFO_CTRL_REG = LCDSPI_SPI_DEFAULT_TX_FIFO_CTRL;
+  58              		.loc 1 184 0
+  59 0022 184B     		ldr	r3, .L2+32
+  60 0024 0022     		movs	r2, #0
+  61 0026 1A60     		str	r2, [r3]
+ 185:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 186:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Configure interrupt with SPI handler but do not enable it */
+ 187:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #if(LCDSPI_SCB_IRQ_INTERNAL)
+ 188:Generated_Source\PSoC4/LCDSPI_SPI.c ****             CyIntDisable    (LCDSPI_ISR_NUMBER);
+ 189:Generated_Source\PSoC4/LCDSPI_SPI.c ****             CyIntSetPriority(LCDSPI_ISR_NUMBER, LCDSPI_ISR_PRIORITY);
+ 190:Generated_Source\PSoC4/LCDSPI_SPI.c ****             (void) CyIntSetVector(LCDSPI_ISR_NUMBER, &LCDSPI_SPI_UART_ISR);
+ 191:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #endif /* (LCDSPI_SCB_IRQ_INTERNAL) */
+ 192:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 193:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Configure interrupt sources */
+ 194:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_INTR_I2C_EC_MASK_REG = LCDSPI_SPI_DEFAULT_INTR_I2C_EC_MASK;
+  62              		.loc 1 194 0
+  63 0028 174B     		ldr	r3, .L2+36
+  64 002a 0022     		movs	r2, #0
+  65 002c 1A60     		str	r2, [r3]
+ 195:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_INTR_SPI_EC_MASK_REG = LCDSPI_SPI_DEFAULT_INTR_SPI_EC_MASK;
+  66              		.loc 1 195 0
+  67 002e 174B     		ldr	r3, .L2+40
+  68 0030 0022     		movs	r2, #0
+  69 0032 1A60     		str	r2, [r3]
+ 196:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_INTR_SLAVE_MASK_REG  = LCDSPI_SPI_DEFAULT_INTR_SLAVE_MASK;
+  70              		.loc 1 196 0
+  71 0034 164B     		ldr	r3, .L2+44
+  72 0036 0022     		movs	r2, #0
+  73 0038 1A60     		str	r2, [r3]
+ 197:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_INTR_MASTER_MASK_REG = LCDSPI_SPI_DEFAULT_INTR_MASTER_MASK;
+  74              		.loc 1 197 0
+  75 003a 164B     		ldr	r3, .L2+48
+  76 003c 0022     		movs	r2, #0
+  77 003e 1A60     		str	r2, [r3]
+ 198:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_INTR_RX_MASK_REG     = LCDSPI_SPI_DEFAULT_INTR_RX_MASK;
+  78              		.loc 1 198 0
+  79 0040 154B     		ldr	r3, .L2+52
+  80 0042 0022     		movs	r2, #0
+  81 0044 1A60     		str	r2, [r3]
+ 199:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_INTR_TX_MASK_REG     = LCDSPI_SPI_DEFAULT_INTR_TX_MASK;
+  82              		.loc 1 199 0
+  83 0046 154B     		ldr	r3, .L2+56
+  84 0048 0022     		movs	r2, #0
+  85 004a 1A60     		str	r2, [r3]
+ 200:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccrAOlW3.s 			page 6
+
+
+ 201:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Configure TX interrupt sources to restore. */
+ 202:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_IntrTxMask = LO16(LCDSPI_INTR_TX_MASK_REG);
+  86              		.loc 1 202 0
+  87 004c 134B     		ldr	r3, .L2+56
+  88 004e 1B68     		ldr	r3, [r3]
+  89 0050 9AB2     		uxth	r2, r3
+  90 0052 134B     		ldr	r3, .L2+60
+  91 0054 1A80     		strh	r2, [r3]
+ 203:Generated_Source\PSoC4/LCDSPI_SPI.c ****             
+ 204:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Set active SS0 for master */
+ 205:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #if (LCDSPI_SPI_MASTER_CONST)
+ 206:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SpiSetActiveSlaveSelect(LCDSPI_SPI_SLAVE_SELECT0);
+  92              		.loc 1 206 0
+  93 0056 0020     		movs	r0, #0
+  94 0058 FFF7FEFF 		bl	LCDSPI_SpiSetActiveSlaveSelect
+ 207:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #endif /* (LCDSPI_SPI_MASTER_CONST) */
+ 208:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 209:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #if(LCDSPI_INTERNAL_RX_SW_BUFFER_CONST)
+ 210:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_rxBufferHead     = 0u;
+ 211:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_rxBufferTail     = 0u;
+ 212:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_rxBufferOverflow = 0u;
+ 213:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #endif /* (LCDSPI_INTERNAL_RX_SW_BUFFER_CONST) */
+ 214:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 215:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #if(LCDSPI_INTERNAL_TX_SW_BUFFER_CONST)
+ 216:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_txBufferHead = 0u;
+ 217:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_txBufferTail = 0u;
+ 218:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #endif /* (LCDSPI_INTERNAL_TX_SW_BUFFER_CONST) */
+ 219:Generated_Source\PSoC4/LCDSPI_SPI.c ****     }
+  95              		.loc 1 219 0
+  96 005c C046     		nop
+  97 005e BD46     		mov	sp, r7
+  98              		@ sp needed
+  99 0060 80BD     		pop	{r7, pc}
+ 100              	.L3:
+ 101 0062 C046     		.align	2
+ 102              	.L2:
+ 103 0064 00002440 		.word	1076101120
+ 104 0068 0F000001 		.word	16777231
+ 105 006c 20002440 		.word	1076101152
+ 106 0070 0D000080 		.word	-2147483635
+ 107 0074 00032440 		.word	1076101888
+ 108 0078 07010080 		.word	-2147483385
+ 109 007c 04032440 		.word	1076101892
+ 110 0080 00022440 		.word	1076101632
+ 111 0084 04022440 		.word	1076101636
+ 112 0088 880E2440 		.word	1076104840
+ 113 008c C80E2440 		.word	1076104904
+ 114 0090 480F2440 		.word	1076105032
+ 115 0094 080F2440 		.word	1076104968
+ 116 0098 C80F2440 		.word	1076105160
+ 117 009c 880F2440 		.word	1076105096
+ 118 00a0 00000000 		.word	LCDSPI_IntrTxMask
+ 119              		.cfi_endproc
+ 120              	.LFE2:
+ 121              		.size	LCDSPI_SpiInit, .-LCDSPI_SpiInit
+ 122              		.section	.text.LCDSPI_SpiPostEnable,"ax",%progbits
+ 123              		.align	2
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccrAOlW3.s 			page 7
+
+
+ 124              		.global	LCDSPI_SpiPostEnable
+ 125              		.code	16
+ 126              		.thumb_func
+ 127              		.type	LCDSPI_SpiPostEnable, %function
+ 128              	LCDSPI_SpiPostEnable:
+ 129              	.LFB3:
+ 220:Generated_Source\PSoC4/LCDSPI_SPI.c **** #endif /* (LCDSPI_SCB_MODE_UNCONFIG_CONST_CFG) */
+ 221:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 222:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 223:Generated_Source\PSoC4/LCDSPI_SPI.c **** /*******************************************************************************
+ 224:Generated_Source\PSoC4/LCDSPI_SPI.c **** * Function Name: LCDSPI_SpiPostEnable
+ 225:Generated_Source\PSoC4/LCDSPI_SPI.c **** ****************************************************************************//**
+ 226:Generated_Source\PSoC4/LCDSPI_SPI.c **** *
+ 227:Generated_Source\PSoC4/LCDSPI_SPI.c **** *  Restores HSIOM settings for the SPI master output pins (SCLK and/or SS0-SS3) 
+ 228:Generated_Source\PSoC4/LCDSPI_SPI.c **** *  to be controlled by the SCB SPI.
+ 229:Generated_Source\PSoC4/LCDSPI_SPI.c **** *
+ 230:Generated_Source\PSoC4/LCDSPI_SPI.c **** *******************************************************************************/
+ 231:Generated_Source\PSoC4/LCDSPI_SPI.c **** void LCDSPI_SpiPostEnable(void)
+ 232:Generated_Source\PSoC4/LCDSPI_SPI.c **** {
+ 130              		.loc 1 232 0
+ 131              		.cfi_startproc
+ 132              		@ args = 0, pretend = 0, frame = 0
+ 133              		@ frame_needed = 1, uses_anonymous_args = 0
+ 134 0000 80B5     		push	{r7, lr}
+ 135              		.cfi_def_cfa_offset 8
+ 136              		.cfi_offset 7, -8
+ 137              		.cfi_offset 14, -4
+ 138 0002 00AF     		add	r7, sp, #0
+ 139              		.cfi_def_cfa_register 7
+ 233:Generated_Source\PSoC4/LCDSPI_SPI.c **** #if(LCDSPI_SCB_MODE_UNCONFIG_CONST_CFG)
+ 234:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 235:Generated_Source\PSoC4/LCDSPI_SPI.c ****     if (LCDSPI_CHECK_SPI_MASTER)
+ 236:Generated_Source\PSoC4/LCDSPI_SPI.c ****     {
+ 237:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #if (LCDSPI_CTS_SCLK_PIN)
+ 238:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Set SCB SPI to drive output pin */
+ 239:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SET_HSIOM_SEL(LCDSPI_CTS_SCLK_HSIOM_REG, LCDSPI_CTS_SCLK_HSIOM_MASK,
+ 240:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                        LCDSPI_CTS_SCLK_HSIOM_POS, LCDSPI_CTS_SCLK_HSIOM_SEL_SPI);
+ 241:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #endif /* (LCDSPI_CTS_SCLK_PIN) */
+ 242:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 243:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #if (LCDSPI_RTS_SS0_PIN)
+ 244:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Set SCB SPI to drive output pin */
+ 245:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SET_HSIOM_SEL(LCDSPI_RTS_SS0_HSIOM_REG, LCDSPI_RTS_SS0_HSIOM_MASK,
+ 246:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                        LCDSPI_RTS_SS0_HSIOM_POS, LCDSPI_RTS_SS0_HSIOM_SEL_SPI);
+ 247:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #endif /* (LCDSPI_RTS_SS0_PIN) */
+ 248:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 249:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #if (LCDSPI_SS1_PIN)
+ 250:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Set SCB SPI to drive output pin */
+ 251:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SET_HSIOM_SEL(LCDSPI_SS1_HSIOM_REG, LCDSPI_SS1_HSIOM_MASK,
+ 252:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                        LCDSPI_SS1_HSIOM_POS, LCDSPI_SS1_HSIOM_SEL_SPI);
+ 253:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #endif /* (LCDSPI_SS1_PIN) */
+ 254:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 255:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #if (LCDSPI_SS2_PIN)
+ 256:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Set SCB SPI to drive output pin */
+ 257:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SET_HSIOM_SEL(LCDSPI_SS2_HSIOM_REG, LCDSPI_SS2_HSIOM_MASK,
+ 258:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                        LCDSPI_SS2_HSIOM_POS, LCDSPI_SS2_HSIOM_SEL_SPI);
+ 259:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #endif /* (LCDSPI_SS2_PIN) */
+ 260:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccrAOlW3.s 			page 8
+
+
+ 261:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #if (LCDSPI_SS3_PIN)
+ 262:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Set SCB SPI to drive output pin */
+ 263:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SET_HSIOM_SEL(LCDSPI_SS3_HSIOM_REG, LCDSPI_SS3_HSIOM_MASK,
+ 264:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                        LCDSPI_SS3_HSIOM_POS, LCDSPI_SS3_HSIOM_SEL_SPI);
+ 265:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #endif /* (LCDSPI_SS3_PIN) */
+ 266:Generated_Source\PSoC4/LCDSPI_SPI.c ****     }
+ 267:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 268:Generated_Source\PSoC4/LCDSPI_SPI.c **** #else
+ 269:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 270:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #if (LCDSPI_SPI_MASTER_SCLK_PIN)
+ 271:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Set SCB SPI to drive output pin */
+ 272:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SET_HSIOM_SEL(LCDSPI_SCLK_M_HSIOM_REG, LCDSPI_SCLK_M_HSIOM_MASK,
+ 140              		.loc 1 272 0
+ 141 0004 0A4B     		ldr	r3, .L5
+ 142 0006 0A4A     		ldr	r2, .L5
+ 143 0008 1268     		ldr	r2, [r2]
+ 144 000a F021     		movs	r1, #240
+ 145 000c 0906     		lsls	r1, r1, #24
+ 146 000e 0A43     		orrs	r2, r1
+ 147 0010 1A60     		str	r2, [r3]
+ 273:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                        LCDSPI_SCLK_M_HSIOM_POS, LCDSPI_SCLK_M_HSIOM_SEL_SPI);
+ 274:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #endif /* (LCDSPI_MISO_SDA_TX_PIN_PIN) */
+ 275:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 276:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #if (LCDSPI_SPI_MASTER_SS0_PIN)
+ 277:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Set SCB SPI to drive output pin */
+ 278:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SET_HSIOM_SEL(LCDSPI_SS0_M_HSIOM_REG, LCDSPI_SS0_M_HSIOM_MASK,
+ 148              		.loc 1 278 0
+ 149 0012 074B     		ldr	r3, .L5
+ 150 0014 064A     		ldr	r2, .L5
+ 151 0016 1268     		ldr	r2, [r2]
+ 152 0018 F021     		movs	r1, #240
+ 153 001a 0905     		lsls	r1, r1, #20
+ 154 001c 0A43     		orrs	r2, r1
+ 155 001e 1A60     		str	r2, [r3]
+ 279:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                        LCDSPI_SS0_M_HSIOM_POS, LCDSPI_SS0_M_HSIOM_SEL_SPI);
+ 280:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #endif /* (LCDSPI_SPI_MASTER_SS0_PIN) */
+ 281:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 282:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #if (LCDSPI_SPI_MASTER_SS1_PIN)
+ 283:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Set SCB SPI to drive output pin */
+ 284:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SET_HSIOM_SEL(LCDSPI_SS1_M_HSIOM_REG, LCDSPI_SS1_M_HSIOM_MASK,
+ 285:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                        LCDSPI_SS1_M_HSIOM_POS, LCDSPI_SS1_M_HSIOM_SEL_SPI);
+ 286:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #endif /* (LCDSPI_SPI_MASTER_SS1_PIN) */
+ 287:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 288:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #if (LCDSPI_SPI_MASTER_SS2_PIN)
+ 289:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Set SCB SPI to drive output pin */
+ 290:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SET_HSIOM_SEL(LCDSPI_SS2_M_HSIOM_REG, LCDSPI_SS2_M_HSIOM_MASK,
+ 291:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                        LCDSPI_SS2_M_HSIOM_POS, LCDSPI_SS2_M_HSIOM_SEL_SPI);
+ 292:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #endif /* (LCDSPI_SPI_MASTER_SS2_PIN) */
+ 293:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 294:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #if (LCDSPI_SPI_MASTER_SS3_PIN)
+ 295:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Set SCB SPI to drive output pin */
+ 296:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SET_HSIOM_SEL(LCDSPI_SS3_M_HSIOM_REG, LCDSPI_SS3_M_HSIOM_MASK,
+ 297:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                        LCDSPI_SS3_M_HSIOM_POS, LCDSPI_SS3_M_HSIOM_SEL_SPI);
+ 298:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #endif /* (LCDSPI_SPI_MASTER_SS3_PIN) */
+ 299:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 300:Generated_Source\PSoC4/LCDSPI_SPI.c **** #endif /* (LCDSPI_SCB_MODE_UNCONFIG_CONST_CFG) */
+ 301:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccrAOlW3.s 			page 9
+
+
+ 302:Generated_Source\PSoC4/LCDSPI_SPI.c ****     /* Restore TX interrupt sources. */
+ 303:Generated_Source\PSoC4/LCDSPI_SPI.c ****     LCDSPI_SetTxInterruptMode(LCDSPI_IntrTxMask);
+ 156              		.loc 1 303 0
+ 157 0020 044B     		ldr	r3, .L5+4
+ 158 0022 054A     		ldr	r2, .L5+8
+ 159 0024 1288     		ldrh	r2, [r2]
+ 160 0026 1A60     		str	r2, [r3]
+ 304:Generated_Source\PSoC4/LCDSPI_SPI.c **** }
+ 161              		.loc 1 304 0
+ 162 0028 C046     		nop
+ 163 002a BD46     		mov	sp, r7
+ 164              		@ sp needed
+ 165 002c 80BD     		pop	{r7, pc}
+ 166              	.L6:
+ 167 002e C046     		.align	2
+ 168              	.L5:
+ 169 0030 00010240 		.word	1073873152
+ 170 0034 880F2440 		.word	1076105096
+ 171 0038 00000000 		.word	LCDSPI_IntrTxMask
+ 172              		.cfi_endproc
+ 173              	.LFE3:
+ 174              		.size	LCDSPI_SpiPostEnable, .-LCDSPI_SpiPostEnable
+ 175              		.section	.text.LCDSPI_SpiStop,"ax",%progbits
+ 176              		.align	2
+ 177              		.global	LCDSPI_SpiStop
+ 178              		.code	16
+ 179              		.thumb_func
+ 180              		.type	LCDSPI_SpiStop, %function
+ 181              	LCDSPI_SpiStop:
+ 182              	.LFB4:
+ 305:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 306:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 307:Generated_Source\PSoC4/LCDSPI_SPI.c **** /*******************************************************************************
+ 308:Generated_Source\PSoC4/LCDSPI_SPI.c **** * Function Name: LCDSPI_SpiStop
+ 309:Generated_Source\PSoC4/LCDSPI_SPI.c **** ****************************************************************************//**
+ 310:Generated_Source\PSoC4/LCDSPI_SPI.c **** *
+ 311:Generated_Source\PSoC4/LCDSPI_SPI.c **** *  Changes the HSIOM settings for the SPI master output pins 
+ 312:Generated_Source\PSoC4/LCDSPI_SPI.c **** *  (SCLK and/or SS0-SS3) to keep them inactive after the block is disabled. 
+ 313:Generated_Source\PSoC4/LCDSPI_SPI.c **** *  The output pins are controlled by the GPIO data register.
+ 314:Generated_Source\PSoC4/LCDSPI_SPI.c **** *
+ 315:Generated_Source\PSoC4/LCDSPI_SPI.c **** *******************************************************************************/
+ 316:Generated_Source\PSoC4/LCDSPI_SPI.c **** void LCDSPI_SpiStop(void)
+ 317:Generated_Source\PSoC4/LCDSPI_SPI.c **** {
+ 183              		.loc 1 317 0
+ 184              		.cfi_startproc
+ 185              		@ args = 0, pretend = 0, frame = 0
+ 186              		@ frame_needed = 1, uses_anonymous_args = 0
+ 187 0000 80B5     		push	{r7, lr}
+ 188              		.cfi_def_cfa_offset 8
+ 189              		.cfi_offset 7, -8
+ 190              		.cfi_offset 14, -4
+ 191 0002 00AF     		add	r7, sp, #0
+ 192              		.cfi_def_cfa_register 7
+ 318:Generated_Source\PSoC4/LCDSPI_SPI.c **** #if(LCDSPI_SCB_MODE_UNCONFIG_CONST_CFG)
+ 319:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 320:Generated_Source\PSoC4/LCDSPI_SPI.c ****     if (LCDSPI_CHECK_SPI_MASTER)
+ 321:Generated_Source\PSoC4/LCDSPI_SPI.c ****     {
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccrAOlW3.s 			page 10
+
+
+ 322:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #if (LCDSPI_CTS_SCLK_PIN)
+ 323:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Set output pin state after block is disabled */
+ 324:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_uart_cts_spi_sclk_Write(LCDSPI_GET_SPI_SCLK_INACTIVE);
+ 325:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 326:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Set GPIO to drive output pin */
+ 327:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SET_HSIOM_SEL(LCDSPI_CTS_SCLK_HSIOM_REG, LCDSPI_CTS_SCLK_HSIOM_MASK,
+ 328:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                        LCDSPI_CTS_SCLK_HSIOM_POS, LCDSPI_CTS_SCLK_HSIOM_SEL_GPIO);
+ 329:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #endif /* (LCDSPI_uart_cts_spi_sclk_PIN) */
+ 330:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 331:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #if (LCDSPI_RTS_SS0_PIN)
+ 332:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Set output pin state after block is disabled */
+ 333:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_uart_rts_spi_ss0_Write(LCDSPI_GET_SPI_SS0_INACTIVE);
+ 334:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 335:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Set GPIO to drive output pin */
+ 336:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SET_HSIOM_SEL(LCDSPI_RTS_SS0_HSIOM_REG, LCDSPI_RTS_SS0_HSIOM_MASK,
+ 337:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                        LCDSPI_RTS_SS0_HSIOM_POS, LCDSPI_RTS_SS0_HSIOM_SEL_GPIO);
+ 338:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #endif /* (LCDSPI_uart_rts_spi_ss0_PIN) */
+ 339:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 340:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #if (LCDSPI_SS1_PIN)
+ 341:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Set output pin state after block is disabled */
+ 342:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_spi_ss1_Write(LCDSPI_GET_SPI_SS1_INACTIVE);
+ 343:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 344:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Set GPIO to drive output pin */
+ 345:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SET_HSIOM_SEL(LCDSPI_SS1_HSIOM_REG, LCDSPI_SS1_HSIOM_MASK,
+ 346:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                        LCDSPI_SS1_HSIOM_POS, LCDSPI_SS1_HSIOM_SEL_GPIO);
+ 347:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #endif /* (LCDSPI_SS1_PIN) */
+ 348:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 349:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #if (LCDSPI_SS2_PIN)
+ 350:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Set output pin state after block is disabled */
+ 351:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_spi_ss2_Write(LCDSPI_GET_SPI_SS2_INACTIVE);
+ 352:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 353:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Set GPIO to drive output pin */
+ 354:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SET_HSIOM_SEL(LCDSPI_SS2_HSIOM_REG, LCDSPI_SS2_HSIOM_MASK,
+ 355:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                        LCDSPI_SS2_HSIOM_POS, LCDSPI_SS2_HSIOM_SEL_GPIO);
+ 356:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #endif /* (LCDSPI_SS2_PIN) */
+ 357:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 358:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #if (LCDSPI_SS3_PIN)
+ 359:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Set output pin state after block is disabled */
+ 360:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_spi_ss3_Write(LCDSPI_GET_SPI_SS3_INACTIVE);
+ 361:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 362:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Set GPIO to drive output pin */
+ 363:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SET_HSIOM_SEL(LCDSPI_SS3_HSIOM_REG, LCDSPI_SS3_HSIOM_MASK,
+ 364:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                        LCDSPI_SS3_HSIOM_POS, LCDSPI_SS3_HSIOM_SEL_GPIO);
+ 365:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #endif /* (LCDSPI_SS3_PIN) */
+ 366:Generated_Source\PSoC4/LCDSPI_SPI.c ****     
+ 367:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Store TX interrupt sources (exclude level triggered) for master. */
+ 368:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_IntrTxMask = LO16(LCDSPI_GetTxInterruptMode() & LCDSPI_INTR_SPIM_TX_RESTORE);
+ 369:Generated_Source\PSoC4/LCDSPI_SPI.c ****     }
+ 370:Generated_Source\PSoC4/LCDSPI_SPI.c ****     else
+ 371:Generated_Source\PSoC4/LCDSPI_SPI.c ****     {
+ 372:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Store TX interrupt sources (exclude level triggered) for slave. */
+ 373:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_IntrTxMask = LO16(LCDSPI_GetTxInterruptMode() & LCDSPI_INTR_SPIS_TX_RESTORE);
+ 374:Generated_Source\PSoC4/LCDSPI_SPI.c ****     }
+ 375:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 376:Generated_Source\PSoC4/LCDSPI_SPI.c **** #else
+ 377:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 378:Generated_Source\PSoC4/LCDSPI_SPI.c **** #if (LCDSPI_SPI_MASTER_SCLK_PIN)
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccrAOlW3.s 			page 11
+
+
+ 379:Generated_Source\PSoC4/LCDSPI_SPI.c ****     /* Set output pin state after block is disabled */
+ 380:Generated_Source\PSoC4/LCDSPI_SPI.c ****     LCDSPI_sclk_m_Write(LCDSPI_GET_SPI_SCLK_INACTIVE);
+ 193              		.loc 1 380 0
+ 194 0004 154B     		ldr	r3, .L8
+ 195 0006 1B68     		ldr	r3, [r3]
+ 196 0008 0822     		movs	r2, #8
+ 197 000a 1340     		ands	r3, r2
+ 198 000c 5A1E     		subs	r2, r3, #1
+ 199 000e 9341     		sbcs	r3, r3, r2
+ 200 0010 DBB2     		uxtb	r3, r3
+ 201 0012 1800     		movs	r0, r3
+ 202 0014 FFF7FEFF 		bl	LCDSPI_sclk_m_Write
+ 381:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 382:Generated_Source\PSoC4/LCDSPI_SPI.c ****     /* Set GPIO to drive output pin */
+ 383:Generated_Source\PSoC4/LCDSPI_SPI.c ****     LCDSPI_SET_HSIOM_SEL(LCDSPI_SCLK_M_HSIOM_REG, LCDSPI_SCLK_M_HSIOM_MASK,
+ 203              		.loc 1 383 0
+ 204 0018 114B     		ldr	r3, .L8+4
+ 205 001a 114A     		ldr	r2, .L8+4
+ 206 001c 1268     		ldr	r2, [r2]
+ 207 001e 1201     		lsls	r2, r2, #4
+ 208 0020 1209     		lsrs	r2, r2, #4
+ 209 0022 1A60     		str	r2, [r3]
+ 384:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                    LCDSPI_SCLK_M_HSIOM_POS, LCDSPI_SCLK_M_HSIOM_SEL_GPIO);
+ 385:Generated_Source\PSoC4/LCDSPI_SPI.c **** #endif /* (LCDSPI_MISO_SDA_TX_PIN_PIN) */
+ 386:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 387:Generated_Source\PSoC4/LCDSPI_SPI.c **** #if (LCDSPI_SPI_MASTER_SS0_PIN)
+ 388:Generated_Source\PSoC4/LCDSPI_SPI.c ****     /* Set output pin state after block is disabled */
+ 389:Generated_Source\PSoC4/LCDSPI_SPI.c ****     LCDSPI_ss0_m_Write(LCDSPI_GET_SPI_SS0_INACTIVE);
+ 210              		.loc 1 389 0
+ 211 0024 0D4B     		ldr	r3, .L8
+ 212 0026 1A68     		ldr	r2, [r3]
+ 213 0028 8023     		movs	r3, #128
+ 214 002a 5B00     		lsls	r3, r3, #1
+ 215 002c 1340     		ands	r3, r2
+ 216 002e 5A42     		rsbs	r2, r3, #0
+ 217 0030 5341     		adcs	r3, r3, r2
+ 218 0032 DBB2     		uxtb	r3, r3
+ 219 0034 1800     		movs	r0, r3
+ 220 0036 FFF7FEFF 		bl	LCDSPI_ss0_m_Write
+ 390:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 391:Generated_Source\PSoC4/LCDSPI_SPI.c ****     /* Set GPIO to drive output pin */
+ 392:Generated_Source\PSoC4/LCDSPI_SPI.c ****     LCDSPI_SET_HSIOM_SEL(LCDSPI_SS0_M_HSIOM_REG, LCDSPI_SS0_M_HSIOM_MASK,
+ 221              		.loc 1 392 0
+ 222 003a 094B     		ldr	r3, .L8+4
+ 223 003c 084A     		ldr	r2, .L8+4
+ 224 003e 1268     		ldr	r2, [r2]
+ 225 0040 0849     		ldr	r1, .L8+8
+ 226 0042 0A40     		ands	r2, r1
+ 227 0044 1A60     		str	r2, [r3]
+ 393:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                    LCDSPI_SS0_M_HSIOM_POS, LCDSPI_SS0_M_HSIOM_SEL_GPIO);
+ 394:Generated_Source\PSoC4/LCDSPI_SPI.c **** #endif /* (LCDSPI_SPI_MASTER_SS0_PIN) */
+ 395:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 396:Generated_Source\PSoC4/LCDSPI_SPI.c **** #if (LCDSPI_SPI_MASTER_SS1_PIN)
+ 397:Generated_Source\PSoC4/LCDSPI_SPI.c ****     /* Set output pin state after block is disabled */
+ 398:Generated_Source\PSoC4/LCDSPI_SPI.c ****     LCDSPI_ss1_m_Write(LCDSPI_GET_SPI_SS1_INACTIVE);
+ 399:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 400:Generated_Source\PSoC4/LCDSPI_SPI.c ****     /* Set GPIO to drive output pin */
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccrAOlW3.s 			page 12
+
+
+ 401:Generated_Source\PSoC4/LCDSPI_SPI.c ****     LCDSPI_SET_HSIOM_SEL(LCDSPI_SS1_M_HSIOM_REG, LCDSPI_SS1_M_HSIOM_MASK,
+ 402:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                    LCDSPI_SS1_M_HSIOM_POS, LCDSPI_SS1_M_HSIOM_SEL_GPIO);
+ 403:Generated_Source\PSoC4/LCDSPI_SPI.c **** #endif /* (LCDSPI_SPI_MASTER_SS1_PIN) */
+ 404:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 405:Generated_Source\PSoC4/LCDSPI_SPI.c **** #if (LCDSPI_SPI_MASTER_SS2_PIN)
+ 406:Generated_Source\PSoC4/LCDSPI_SPI.c ****     /* Set output pin state after block is disabled */
+ 407:Generated_Source\PSoC4/LCDSPI_SPI.c ****     LCDSPI_ss2_m_Write(LCDSPI_GET_SPI_SS2_INACTIVE);
+ 408:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 409:Generated_Source\PSoC4/LCDSPI_SPI.c ****     /* Set GPIO to drive output pin */
+ 410:Generated_Source\PSoC4/LCDSPI_SPI.c ****     LCDSPI_SET_HSIOM_SEL(LCDSPI_SS2_M_HSIOM_REG, LCDSPI_SS2_M_HSIOM_MASK,
+ 411:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                    LCDSPI_SS2_M_HSIOM_POS, LCDSPI_SS2_M_HSIOM_SEL_GPIO);
+ 412:Generated_Source\PSoC4/LCDSPI_SPI.c **** #endif /* (LCDSPI_SPI_MASTER_SS2_PIN) */
+ 413:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 414:Generated_Source\PSoC4/LCDSPI_SPI.c **** #if (LCDSPI_SPI_MASTER_SS3_PIN)
+ 415:Generated_Source\PSoC4/LCDSPI_SPI.c ****     /* Set output pin state after block is disabled */
+ 416:Generated_Source\PSoC4/LCDSPI_SPI.c ****     LCDSPI_ss3_m_Write(LCDSPI_GET_SPI_SS3_INACTIVE);
+ 417:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 418:Generated_Source\PSoC4/LCDSPI_SPI.c ****     /* Set GPIO to drive output pin */
+ 419:Generated_Source\PSoC4/LCDSPI_SPI.c ****     LCDSPI_SET_HSIOM_SEL(LCDSPI_SS3_M_HSIOM_REG, LCDSPI_SS3_M_HSIOM_MASK,
+ 420:Generated_Source\PSoC4/LCDSPI_SPI.c ****                                    LCDSPI_SS3_M_HSIOM_POS, LCDSPI_SS3_M_HSIOM_SEL_GPIO);
+ 421:Generated_Source\PSoC4/LCDSPI_SPI.c **** #endif /* (LCDSPI_SPI_MASTER_SS3_PIN) */
+ 422:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 423:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #if (LCDSPI_SPI_MASTER_CONST)
+ 424:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Store TX interrupt sources (exclude level triggered). */
+ 425:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_IntrTxMask = LO16(LCDSPI_GetTxInterruptMode() & LCDSPI_INTR_SPIM_TX_RESTORE);
+ 228              		.loc 1 425 0
+ 229 0046 084B     		ldr	r3, .L8+12
+ 230 0048 1B68     		ldr	r3, [r3]
+ 231 004a 9BB2     		uxth	r3, r3
+ 232 004c 2022     		movs	r2, #32
+ 233 004e 1340     		ands	r3, r2
+ 234 0050 9AB2     		uxth	r2, r3
+ 235 0052 064B     		ldr	r3, .L8+16
+ 236 0054 1A80     		strh	r2, [r3]
+ 426:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #else
+ 427:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Store TX interrupt sources (exclude level triggered). */
+ 428:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_IntrTxMask = LO16(LCDSPI_GetTxInterruptMode() & LCDSPI_INTR_SPIS_TX_RESTORE);
+ 429:Generated_Source\PSoC4/LCDSPI_SPI.c ****     #endif /* (LCDSPI_SPI_MASTER_CONST) */
+ 430:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 431:Generated_Source\PSoC4/LCDSPI_SPI.c **** #endif /* (LCDSPI_SCB_MODE_UNCONFIG_CONST_CFG) */
+ 432:Generated_Source\PSoC4/LCDSPI_SPI.c **** }
+ 237              		.loc 1 432 0
+ 238 0056 C046     		nop
+ 239 0058 BD46     		mov	sp, r7
+ 240              		@ sp needed
+ 241 005a 80BD     		pop	{r7, pc}
+ 242              	.L9:
+ 243              		.align	2
+ 244              	.L8:
+ 245 005c 20002440 		.word	1076101152
+ 246 0060 00010240 		.word	1073873152
+ 247 0064 FFFFFFF0 		.word	-251658241
+ 248 0068 880F2440 		.word	1076105096
+ 249 006c 00000000 		.word	LCDSPI_IntrTxMask
+ 250              		.cfi_endproc
+ 251              	.LFE4:
+ 252              		.size	LCDSPI_SpiStop, .-LCDSPI_SpiStop
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccrAOlW3.s 			page 13
+
+
+ 253              		.section	.text.LCDSPI_SpiSetActiveSlaveSelect,"ax",%progbits
+ 254              		.align	2
+ 255              		.global	LCDSPI_SpiSetActiveSlaveSelect
+ 256              		.code	16
+ 257              		.thumb_func
+ 258              		.type	LCDSPI_SpiSetActiveSlaveSelect, %function
+ 259              	LCDSPI_SpiSetActiveSlaveSelect:
+ 260              	.LFB5:
+ 433:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 434:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 435:Generated_Source\PSoC4/LCDSPI_SPI.c **** #if (LCDSPI_SPI_MASTER_CONST)
+ 436:Generated_Source\PSoC4/LCDSPI_SPI.c ****     /*******************************************************************************
+ 437:Generated_Source\PSoC4/LCDSPI_SPI.c ****     * Function Name: LCDSPI_SetActiveSlaveSelect
+ 438:Generated_Source\PSoC4/LCDSPI_SPI.c ****     ****************************************************************************//**
+ 439:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *
+ 440:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *  Selects one of the four slave select lines to be active during the transfer.
+ 441:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *  After initialization the active slave select line is 0.
+ 442:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *  The component should be in one of the following states to change the active
+ 443:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *  slave select signal source correctly:
+ 444:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *   - The component is disabled.
+ 445:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *   - The component has completed transfer (TX FIFO is empty and the
+ 446:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *     SCB_INTR_MASTER_SPI_DONE status is set).
+ 447:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *
+ 448:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *  This function does not check that these conditions are met.
+ 449:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *  This function is only applicable to SPI Master mode of operation.
+ 450:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *
+ 451:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *  \param slaveSelect: slave select line which will be active while the following
+ 452:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *   transfer.
+ 453:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *   - LCDSPI_SPI_SLAVE_SELECT0 - Slave select 0.
+ 454:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *   - LCDSPI_SPI_SLAVE_SELECT1 - Slave select 1.
+ 455:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *   - LCDSPI_SPI_SLAVE_SELECT2 - Slave select 2.
+ 456:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *   - LCDSPI_SPI_SLAVE_SELECT3 - Slave select 3.
+ 457:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *
+ 458:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *******************************************************************************/
+ 459:Generated_Source\PSoC4/LCDSPI_SPI.c ****     void LCDSPI_SpiSetActiveSlaveSelect(uint32 slaveSelect)
+ 460:Generated_Source\PSoC4/LCDSPI_SPI.c ****     {
+ 261              		.loc 1 460 0
+ 262              		.cfi_startproc
+ 263              		@ args = 0, pretend = 0, frame = 16
+ 264              		@ frame_needed = 1, uses_anonymous_args = 0
+ 265 0000 80B5     		push	{r7, lr}
+ 266              		.cfi_def_cfa_offset 8
+ 267              		.cfi_offset 7, -8
+ 268              		.cfi_offset 14, -4
+ 269 0002 84B0     		sub	sp, sp, #16
+ 270              		.cfi_def_cfa_offset 24
+ 271 0004 00AF     		add	r7, sp, #0
+ 272              		.cfi_def_cfa_register 7
+ 273 0006 7860     		str	r0, [r7, #4]
+ 461:Generated_Source\PSoC4/LCDSPI_SPI.c ****         uint32 spiCtrl;
+ 462:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 463:Generated_Source\PSoC4/LCDSPI_SPI.c ****         spiCtrl = LCDSPI_SPI_CTRL_REG;
+ 274              		.loc 1 463 0
+ 275 0008 0A4B     		ldr	r3, .L11
+ 276 000a 1B68     		ldr	r3, [r3]
+ 277 000c FB60     		str	r3, [r7, #12]
+ 464:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccrAOlW3.s 			page 14
+
+
+ 465:Generated_Source\PSoC4/LCDSPI_SPI.c ****         spiCtrl &= (uint32) ~LCDSPI_SPI_CTRL_SLAVE_SELECT_MASK;
+ 278              		.loc 1 465 0
+ 279 000e FB68     		ldr	r3, [r7, #12]
+ 280 0010 094A     		ldr	r2, .L11+4
+ 281 0012 1340     		ands	r3, r2
+ 282 0014 FB60     		str	r3, [r7, #12]
+ 466:Generated_Source\PSoC4/LCDSPI_SPI.c ****         spiCtrl |= (uint32)  LCDSPI_GET_SPI_CTRL_SS(slaveSelect);
+ 283              		.loc 1 466 0
+ 284 0016 7B68     		ldr	r3, [r7, #4]
+ 285 0018 9A06     		lsls	r2, r3, #26
+ 286 001a C023     		movs	r3, #192
+ 287 001c 1B05     		lsls	r3, r3, #20
+ 288 001e 1340     		ands	r3, r2
+ 289 0020 FA68     		ldr	r2, [r7, #12]
+ 290 0022 1343     		orrs	r3, r2
+ 291 0024 FB60     		str	r3, [r7, #12]
+ 467:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 468:Generated_Source\PSoC4/LCDSPI_SPI.c ****         LCDSPI_SPI_CTRL_REG = spiCtrl;
+ 292              		.loc 1 468 0
+ 293 0026 034B     		ldr	r3, .L11
+ 294 0028 FA68     		ldr	r2, [r7, #12]
+ 295 002a 1A60     		str	r2, [r3]
+ 469:Generated_Source\PSoC4/LCDSPI_SPI.c ****     }
+ 296              		.loc 1 469 0
+ 297 002c C046     		nop
+ 298 002e BD46     		mov	sp, r7
+ 299 0030 04B0     		add	sp, sp, #16
+ 300              		@ sp needed
+ 301 0032 80BD     		pop	{r7, pc}
+ 302              	.L12:
+ 303              		.align	2
+ 304              	.L11:
+ 305 0034 20002440 		.word	1076101152
+ 306 0038 FFFFFFF3 		.word	-201326593
+ 307              		.cfi_endproc
+ 308              	.LFE5:
+ 309              		.size	LCDSPI_SpiSetActiveSlaveSelect, .-LCDSPI_SpiSetActiveSlaveSelect
+ 310              		.section	.text.LCDSPI_SpiSetSlaveSelectPolarity,"ax",%progbits
+ 311              		.align	2
+ 312              		.global	LCDSPI_SpiSetSlaveSelectPolarity
+ 313              		.code	16
+ 314              		.thumb_func
+ 315              		.type	LCDSPI_SpiSetSlaveSelectPolarity, %function
+ 316              	LCDSPI_SpiSetSlaveSelectPolarity:
+ 317              	.LFB6:
+ 470:Generated_Source\PSoC4/LCDSPI_SPI.c **** #endif /* (LCDSPI_SPI_MASTER_CONST) */
+ 471:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 472:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 473:Generated_Source\PSoC4/LCDSPI_SPI.c **** #if !(LCDSPI_CY_SCBIP_V0 || LCDSPI_CY_SCBIP_V1)
+ 474:Generated_Source\PSoC4/LCDSPI_SPI.c ****     /*******************************************************************************
+ 475:Generated_Source\PSoC4/LCDSPI_SPI.c ****     * Function Name: LCDSPI_SpiSetSlaveSelectPolarity
+ 476:Generated_Source\PSoC4/LCDSPI_SPI.c ****     ****************************************************************************//**
+ 477:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *
+ 478:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *  Sets active polarity for slave select line.
+ 479:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *  The component should be in one of the following states to change the active
+ 480:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *  slave select signal source correctly:
+ 481:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *   - The component is disabled.
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccrAOlW3.s 			page 15
+
+
+ 482:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *   - The component has completed transfer.
+ 483:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *  
+ 484:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *  This function does not check that these conditions are met.
+ 485:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *
+ 486:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *  \param slaveSelect: slave select line to change active polarity.
+ 487:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *   - LCDSPI_SPI_SLAVE_SELECT0 - Slave select 0.
+ 488:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *   - LCDSPI_SPI_SLAVE_SELECT1 - Slave select 1.
+ 489:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *   - LCDSPI_SPI_SLAVE_SELECT2 - Slave select 2.
+ 490:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *   - LCDSPI_SPI_SLAVE_SELECT3 - Slave select 3.
+ 491:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *
+ 492:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *  \param polarity: active polarity of slave select line.
+ 493:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *   - LCDSPI_SPI_SS_ACTIVE_LOW  - Slave select is active low.
+ 494:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *   - LCDSPI_SPI_SS_ACTIVE_HIGH - Slave select is active high.
+ 495:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *
+ 496:Generated_Source\PSoC4/LCDSPI_SPI.c ****     *******************************************************************************/
+ 497:Generated_Source\PSoC4/LCDSPI_SPI.c ****     void LCDSPI_SpiSetSlaveSelectPolarity(uint32 slaveSelect, uint32 polarity)
+ 498:Generated_Source\PSoC4/LCDSPI_SPI.c ****     {
+ 318              		.loc 1 498 0
+ 319              		.cfi_startproc
+ 320              		@ args = 0, pretend = 0, frame = 16
+ 321              		@ frame_needed = 1, uses_anonymous_args = 0
+ 322 0000 80B5     		push	{r7, lr}
+ 323              		.cfi_def_cfa_offset 8
+ 324              		.cfi_offset 7, -8
+ 325              		.cfi_offset 14, -4
+ 326 0002 84B0     		sub	sp, sp, #16
+ 327              		.cfi_def_cfa_offset 24
+ 328 0004 00AF     		add	r7, sp, #0
+ 329              		.cfi_def_cfa_register 7
+ 330 0006 7860     		str	r0, [r7, #4]
+ 331 0008 3960     		str	r1, [r7]
+ 499:Generated_Source\PSoC4/LCDSPI_SPI.c ****         uint32 ssPolarity;
+ 500:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 501:Generated_Source\PSoC4/LCDSPI_SPI.c ****         /* Get position of the polarity bit associated with slave select line */
+ 502:Generated_Source\PSoC4/LCDSPI_SPI.c ****         ssPolarity = LCDSPI_GET_SPI_CTRL_SSEL_POLARITY((uint32) 1u << slaveSelect);
+ 332              		.loc 1 502 0
+ 333 000a 0122     		movs	r2, #1
+ 334 000c 7B68     		ldr	r3, [r7, #4]
+ 335 000e 9A40     		lsls	r2, r2, r3
+ 336 0010 1300     		movs	r3, r2
+ 337 0012 1A02     		lsls	r2, r3, #8
+ 338 0014 F023     		movs	r3, #240
+ 339 0016 1B01     		lsls	r3, r3, #4
+ 340 0018 1340     		ands	r3, r2
+ 341 001a FB60     		str	r3, [r7, #12]
+ 503:Generated_Source\PSoC4/LCDSPI_SPI.c **** 
+ 504:Generated_Source\PSoC4/LCDSPI_SPI.c ****         if (0u != polarity)
+ 342              		.loc 1 504 0
+ 343 001c 3B68     		ldr	r3, [r7]
+ 344 001e 002B     		cmp	r3, #0
+ 345 0020 06D0     		beq	.L14
+ 505:Generated_Source\PSoC4/LCDSPI_SPI.c ****         {
+ 506:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_SPI_CTRL_REG |= (uint32)  ssPolarity;
+ 346              		.loc 1 506 0
+ 347 0022 094B     		ldr	r3, .L17
+ 348 0024 084A     		ldr	r2, .L17
+ 349 0026 1168     		ldr	r1, [r2]
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccrAOlW3.s 			page 16
+
+
+ 350 0028 FA68     		ldr	r2, [r7, #12]
+ 351 002a 0A43     		orrs	r2, r1
+ 352 002c 1A60     		str	r2, [r3]
+ 507:Generated_Source\PSoC4/LCDSPI_SPI.c ****         }
+ 508:Generated_Source\PSoC4/LCDSPI_SPI.c ****         else
+ 509:Generated_Source\PSoC4/LCDSPI_SPI.c ****         {
+ 510:Generated_Source\PSoC4/LCDSPI_SPI.c ****             LCDSPI_SPI_CTRL_REG &= (uint32) ~ssPolarity;
+ 511:Generated_Source\PSoC4/LCDSPI_SPI.c ****         }
+ 512:Generated_Source\PSoC4/LCDSPI_SPI.c ****     }
+ 353              		.loc 1 512 0
+ 354 002e 06E0     		b	.L16
+ 355              	.L14:
+ 510:Generated_Source\PSoC4/LCDSPI_SPI.c ****         }
+ 356              		.loc 1 510 0
+ 357 0030 054B     		ldr	r3, .L17
+ 358 0032 054A     		ldr	r2, .L17
+ 359 0034 1268     		ldr	r2, [r2]
+ 360 0036 F968     		ldr	r1, [r7, #12]
+ 361 0038 C943     		mvns	r1, r1
+ 362 003a 0A40     		ands	r2, r1
+ 363 003c 1A60     		str	r2, [r3]
+ 364              	.L16:
+ 365              		.loc 1 512 0
+ 366 003e C046     		nop
+ 367 0040 BD46     		mov	sp, r7
+ 368 0042 04B0     		add	sp, sp, #16
+ 369              		@ sp needed
+ 370 0044 80BD     		pop	{r7, pc}
+ 371              	.L18:
+ 372 0046 C046     		.align	2
+ 373              	.L17:
+ 374 0048 20002440 		.word	1076101152
+ 375              		.cfi_endproc
+ 376              	.LFE6:
+ 377              		.size	LCDSPI_SpiSetSlaveSelectPolarity, .-LCDSPI_SpiSetSlaveSelectPolarity
+ 378              		.text
+ 379              	.Letext0:
+ 380              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 381              		.file 3 "Generated_Source\\PSoC4\\LCDSPI_PVT.h"
+ 382              		.section	.debug_info,"",%progbits
+ 383              	.Ldebug_info0:
+ 384 0000 6C010000 		.4byte	0x16c
+ 385 0004 0400     		.2byte	0x4
+ 386 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 387 000a 04       		.byte	0x4
+ 388 000b 01       		.uleb128 0x1
+ 389 000c E0000000 		.4byte	.LASF26
+ 390 0010 0C       		.byte	0xc
+ 391 0011 62000000 		.4byte	.LASF27
+ 392 0015 6E010000 		.4byte	.LASF28
+ 393 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 394 001d 00000000 		.4byte	0
+ 395 0021 00000000 		.4byte	.Ldebug_line0
+ 396 0025 02       		.uleb128 0x2
+ 397 0026 01       		.byte	0x1
+ 398 0027 06       		.byte	0x6
+ 399 0028 AA020000 		.4byte	.LASF0
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccrAOlW3.s 			page 17
+
+
+ 400 002c 02       		.uleb128 0x2
+ 401 002d 01       		.byte	0x1
+ 402 002e 08       		.byte	0x8
+ 403 002f 8C000000 		.4byte	.LASF1
+ 404 0033 02       		.uleb128 0x2
+ 405 0034 02       		.byte	0x2
+ 406 0035 05       		.byte	0x5
+ 407 0036 8B020000 		.4byte	.LASF2
+ 408 003a 02       		.uleb128 0x2
+ 409 003b 02       		.byte	0x2
+ 410 003c 07       		.byte	0x7
+ 411 003d CD000000 		.4byte	.LASF3
+ 412 0041 02       		.uleb128 0x2
+ 413 0042 04       		.byte	0x4
+ 414 0043 05       		.byte	0x5
+ 415 0044 95020000 		.4byte	.LASF4
+ 416 0048 02       		.uleb128 0x2
+ 417 0049 04       		.byte	0x4
+ 418 004a 07       		.byte	0x7
+ 419 004b BB000000 		.4byte	.LASF5
+ 420 004f 02       		.uleb128 0x2
+ 421 0050 08       		.byte	0x8
+ 422 0051 05       		.byte	0x5
+ 423 0052 70020000 		.4byte	.LASF6
+ 424 0056 02       		.uleb128 0x2
+ 425 0057 08       		.byte	0x8
+ 426 0058 07       		.byte	0x7
+ 427 0059 47020000 		.4byte	.LASF7
+ 428 005d 03       		.uleb128 0x3
+ 429 005e 04       		.byte	0x4
+ 430 005f 05       		.byte	0x5
+ 431 0060 696E7400 		.ascii	"int\000"
+ 432 0064 02       		.uleb128 0x2
+ 433 0065 04       		.byte	0x4
+ 434 0066 07       		.byte	0x7
+ 435 0067 3A020000 		.4byte	.LASF8
+ 436 006b 04       		.uleb128 0x4
+ 437 006c 2C020000 		.4byte	.LASF9
+ 438 0070 02       		.byte	0x2
+ 439 0071 D301     		.2byte	0x1d3
+ 440 0073 3A000000 		.4byte	0x3a
+ 441 0077 04       		.uleb128 0x4
+ 442 0078 33020000 		.4byte	.LASF10
+ 443 007c 02       		.byte	0x2
+ 444 007d D401     		.2byte	0x1d4
+ 445 007f 48000000 		.4byte	0x48
+ 446 0083 02       		.uleb128 0x2
+ 447 0084 04       		.byte	0x4
+ 448 0085 04       		.byte	0x4
+ 449 0086 86000000 		.4byte	.LASF11
+ 450 008a 02       		.uleb128 0x2
+ 451 008b 08       		.byte	0x8
+ 452 008c 04       		.byte	0x4
+ 453 008d 25020000 		.4byte	.LASF12
+ 454 0091 02       		.uleb128 0x2
+ 455 0092 01       		.byte	0x1
+ 456 0093 08       		.byte	0x8
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccrAOlW3.s 			page 18
+
+
+ 457 0094 7E020000 		.4byte	.LASF13
+ 458 0098 04       		.uleb128 0x4
+ 459 0099 00000000 		.4byte	.LASF14
+ 460 009d 02       		.byte	0x2
+ 461 009e 7E02     		.2byte	0x27e
+ 462 00a0 A4000000 		.4byte	0xa4
+ 463 00a4 05       		.uleb128 0x5
+ 464 00a5 77000000 		.4byte	0x77
+ 465 00a9 02       		.uleb128 0x2
+ 466 00aa 08       		.byte	0x8
+ 467 00ab 04       		.byte	0x4
+ 468 00ac 9E020000 		.4byte	.LASF15
+ 469 00b0 02       		.uleb128 0x2
+ 470 00b1 04       		.byte	0x4
+ 471 00b2 07       		.byte	0x7
+ 472 00b3 67020000 		.4byte	.LASF16
+ 473 00b7 06       		.uleb128 0x6
+ 474 00b8 21000000 		.4byte	.LASF17
+ 475 00bc 01       		.byte	0x1
+ 476 00bd AC       		.byte	0xac
+ 477 00be 00000000 		.4byte	.LFB2
+ 478 00c2 A4000000 		.4byte	.LFE2-.LFB2
+ 479 00c6 01       		.uleb128 0x1
+ 480 00c7 9C       		.byte	0x9c
+ 481 00c8 07       		.uleb128 0x7
+ 482 00c9 4D000000 		.4byte	.LASF18
+ 483 00cd 01       		.byte	0x1
+ 484 00ce E7       		.byte	0xe7
+ 485 00cf 00000000 		.4byte	.LFB3
+ 486 00d3 3C000000 		.4byte	.LFE3-.LFB3
+ 487 00d7 01       		.uleb128 0x1
+ 488 00d8 9C       		.byte	0x9c
+ 489 00d9 08       		.uleb128 0x8
+ 490 00da 12000000 		.4byte	.LASF19
+ 491 00de 01       		.byte	0x1
+ 492 00df 3C01     		.2byte	0x13c
+ 493 00e1 00000000 		.4byte	.LFB4
+ 494 00e5 70000000 		.4byte	.LFE4-.LFB4
+ 495 00e9 01       		.uleb128 0x1
+ 496 00ea 9C       		.byte	0x9c
+ 497 00eb 09       		.uleb128 0x9
+ 498 00ec B6020000 		.4byte	.LASF20
+ 499 00f0 01       		.byte	0x1
+ 500 00f1 CB01     		.2byte	0x1cb
+ 501 00f3 00000000 		.4byte	.LFB5
+ 502 00f7 3C000000 		.4byte	.LFE5-.LFB5
+ 503 00fb 01       		.uleb128 0x1
+ 504 00fc 9C       		.byte	0x9c
+ 505 00fd 20010000 		.4byte	0x120
+ 506 0101 0A       		.uleb128 0xa
+ 507 0102 06000000 		.4byte	.LASF22
+ 508 0106 01       		.byte	0x1
+ 509 0107 CB01     		.2byte	0x1cb
+ 510 0109 77000000 		.4byte	0x77
+ 511 010d 02       		.uleb128 0x2
+ 512 010e 91       		.byte	0x91
+ 513 010f 6C       		.sleb128 -20
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccrAOlW3.s 			page 19
+
+
+ 514 0110 0B       		.uleb128 0xb
+ 515 0111 83020000 		.4byte	.LASF24
+ 516 0115 01       		.byte	0x1
+ 517 0116 CD01     		.2byte	0x1cd
+ 518 0118 77000000 		.4byte	0x77
+ 519 011c 02       		.uleb128 0x2
+ 520 011d 91       		.byte	0x91
+ 521 011e 74       		.sleb128 -12
+ 522 011f 00       		.byte	0
+ 523 0120 09       		.uleb128 0x9
+ 524 0121 9A000000 		.4byte	.LASF21
+ 525 0125 01       		.byte	0x1
+ 526 0126 F101     		.2byte	0x1f1
+ 527 0128 00000000 		.4byte	.LFB6
+ 528 012c 4C000000 		.4byte	.LFE6-.LFB6
+ 529 0130 01       		.uleb128 0x1
+ 530 0131 9C       		.byte	0x9c
+ 531 0132 64010000 		.4byte	0x164
+ 532 0136 0A       		.uleb128 0xa
+ 533 0137 06000000 		.4byte	.LASF22
+ 534 013b 01       		.byte	0x1
+ 535 013c F101     		.2byte	0x1f1
+ 536 013e 77000000 		.4byte	0x77
+ 537 0142 02       		.uleb128 0x2
+ 538 0143 91       		.byte	0x91
+ 539 0144 6C       		.sleb128 -20
+ 540 0145 0A       		.uleb128 0xa
+ 541 0146 5E020000 		.4byte	.LASF23
+ 542 014a 01       		.byte	0x1
+ 543 014b F101     		.2byte	0x1f1
+ 544 014d 77000000 		.4byte	0x77
+ 545 0151 02       		.uleb128 0x2
+ 546 0152 91       		.byte	0x91
+ 547 0153 68       		.sleb128 -24
+ 548 0154 0B       		.uleb128 0xb
+ 549 0155 30000000 		.4byte	.LASF25
+ 550 0159 01       		.byte	0x1
+ 551 015a F301     		.2byte	0x1f3
+ 552 015c 77000000 		.4byte	0x77
+ 553 0160 02       		.uleb128 0x2
+ 554 0161 91       		.byte	0x91
+ 555 0162 74       		.sleb128 -12
+ 556 0163 00       		.byte	0
+ 557 0164 0C       		.uleb128 0xc
+ 558 0165 3B000000 		.4byte	.LASF29
+ 559 0169 03       		.byte	0x3
+ 560 016a 5B       		.byte	0x5b
+ 561 016b 6B000000 		.4byte	0x6b
+ 562 016f 00       		.byte	0
+ 563              		.section	.debug_abbrev,"",%progbits
+ 564              	.Ldebug_abbrev0:
+ 565 0000 01       		.uleb128 0x1
+ 566 0001 11       		.uleb128 0x11
+ 567 0002 01       		.byte	0x1
+ 568 0003 25       		.uleb128 0x25
+ 569 0004 0E       		.uleb128 0xe
+ 570 0005 13       		.uleb128 0x13
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccrAOlW3.s 			page 20
+
+
+ 571 0006 0B       		.uleb128 0xb
+ 572 0007 03       		.uleb128 0x3
+ 573 0008 0E       		.uleb128 0xe
+ 574 0009 1B       		.uleb128 0x1b
+ 575 000a 0E       		.uleb128 0xe
+ 576 000b 55       		.uleb128 0x55
+ 577 000c 17       		.uleb128 0x17
+ 578 000d 11       		.uleb128 0x11
+ 579 000e 01       		.uleb128 0x1
+ 580 000f 10       		.uleb128 0x10
+ 581 0010 17       		.uleb128 0x17
+ 582 0011 00       		.byte	0
+ 583 0012 00       		.byte	0
+ 584 0013 02       		.uleb128 0x2
+ 585 0014 24       		.uleb128 0x24
+ 586 0015 00       		.byte	0
+ 587 0016 0B       		.uleb128 0xb
+ 588 0017 0B       		.uleb128 0xb
+ 589 0018 3E       		.uleb128 0x3e
+ 590 0019 0B       		.uleb128 0xb
+ 591 001a 03       		.uleb128 0x3
+ 592 001b 0E       		.uleb128 0xe
+ 593 001c 00       		.byte	0
+ 594 001d 00       		.byte	0
+ 595 001e 03       		.uleb128 0x3
+ 596 001f 24       		.uleb128 0x24
+ 597 0020 00       		.byte	0
+ 598 0021 0B       		.uleb128 0xb
+ 599 0022 0B       		.uleb128 0xb
+ 600 0023 3E       		.uleb128 0x3e
+ 601 0024 0B       		.uleb128 0xb
+ 602 0025 03       		.uleb128 0x3
+ 603 0026 08       		.uleb128 0x8
+ 604 0027 00       		.byte	0
+ 605 0028 00       		.byte	0
+ 606 0029 04       		.uleb128 0x4
+ 607 002a 16       		.uleb128 0x16
+ 608 002b 00       		.byte	0
+ 609 002c 03       		.uleb128 0x3
+ 610 002d 0E       		.uleb128 0xe
+ 611 002e 3A       		.uleb128 0x3a
+ 612 002f 0B       		.uleb128 0xb
+ 613 0030 3B       		.uleb128 0x3b
+ 614 0031 05       		.uleb128 0x5
+ 615 0032 49       		.uleb128 0x49
+ 616 0033 13       		.uleb128 0x13
+ 617 0034 00       		.byte	0
+ 618 0035 00       		.byte	0
+ 619 0036 05       		.uleb128 0x5
+ 620 0037 35       		.uleb128 0x35
+ 621 0038 00       		.byte	0
+ 622 0039 49       		.uleb128 0x49
+ 623 003a 13       		.uleb128 0x13
+ 624 003b 00       		.byte	0
+ 625 003c 00       		.byte	0
+ 626 003d 06       		.uleb128 0x6
+ 627 003e 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccrAOlW3.s 			page 21
+
+
+ 628 003f 00       		.byte	0
+ 629 0040 3F       		.uleb128 0x3f
+ 630 0041 19       		.uleb128 0x19
+ 631 0042 03       		.uleb128 0x3
+ 632 0043 0E       		.uleb128 0xe
+ 633 0044 3A       		.uleb128 0x3a
+ 634 0045 0B       		.uleb128 0xb
+ 635 0046 3B       		.uleb128 0x3b
+ 636 0047 0B       		.uleb128 0xb
+ 637 0048 27       		.uleb128 0x27
+ 638 0049 19       		.uleb128 0x19
+ 639 004a 11       		.uleb128 0x11
+ 640 004b 01       		.uleb128 0x1
+ 641 004c 12       		.uleb128 0x12
+ 642 004d 06       		.uleb128 0x6
+ 643 004e 40       		.uleb128 0x40
+ 644 004f 18       		.uleb128 0x18
+ 645 0050 9642     		.uleb128 0x2116
+ 646 0052 19       		.uleb128 0x19
+ 647 0053 00       		.byte	0
+ 648 0054 00       		.byte	0
+ 649 0055 07       		.uleb128 0x7
+ 650 0056 2E       		.uleb128 0x2e
+ 651 0057 00       		.byte	0
+ 652 0058 3F       		.uleb128 0x3f
+ 653 0059 19       		.uleb128 0x19
+ 654 005a 03       		.uleb128 0x3
+ 655 005b 0E       		.uleb128 0xe
+ 656 005c 3A       		.uleb128 0x3a
+ 657 005d 0B       		.uleb128 0xb
+ 658 005e 3B       		.uleb128 0x3b
+ 659 005f 0B       		.uleb128 0xb
+ 660 0060 27       		.uleb128 0x27
+ 661 0061 19       		.uleb128 0x19
+ 662 0062 11       		.uleb128 0x11
+ 663 0063 01       		.uleb128 0x1
+ 664 0064 12       		.uleb128 0x12
+ 665 0065 06       		.uleb128 0x6
+ 666 0066 40       		.uleb128 0x40
+ 667 0067 18       		.uleb128 0x18
+ 668 0068 9742     		.uleb128 0x2117
+ 669 006a 19       		.uleb128 0x19
+ 670 006b 00       		.byte	0
+ 671 006c 00       		.byte	0
+ 672 006d 08       		.uleb128 0x8
+ 673 006e 2E       		.uleb128 0x2e
+ 674 006f 00       		.byte	0
+ 675 0070 3F       		.uleb128 0x3f
+ 676 0071 19       		.uleb128 0x19
+ 677 0072 03       		.uleb128 0x3
+ 678 0073 0E       		.uleb128 0xe
+ 679 0074 3A       		.uleb128 0x3a
+ 680 0075 0B       		.uleb128 0xb
+ 681 0076 3B       		.uleb128 0x3b
+ 682 0077 05       		.uleb128 0x5
+ 683 0078 27       		.uleb128 0x27
+ 684 0079 19       		.uleb128 0x19
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccrAOlW3.s 			page 22
+
+
+ 685 007a 11       		.uleb128 0x11
+ 686 007b 01       		.uleb128 0x1
+ 687 007c 12       		.uleb128 0x12
+ 688 007d 06       		.uleb128 0x6
+ 689 007e 40       		.uleb128 0x40
+ 690 007f 18       		.uleb128 0x18
+ 691 0080 9642     		.uleb128 0x2116
+ 692 0082 19       		.uleb128 0x19
+ 693 0083 00       		.byte	0
+ 694 0084 00       		.byte	0
+ 695 0085 09       		.uleb128 0x9
+ 696 0086 2E       		.uleb128 0x2e
+ 697 0087 01       		.byte	0x1
+ 698 0088 3F       		.uleb128 0x3f
+ 699 0089 19       		.uleb128 0x19
+ 700 008a 03       		.uleb128 0x3
+ 701 008b 0E       		.uleb128 0xe
+ 702 008c 3A       		.uleb128 0x3a
+ 703 008d 0B       		.uleb128 0xb
+ 704 008e 3B       		.uleb128 0x3b
+ 705 008f 05       		.uleb128 0x5
+ 706 0090 27       		.uleb128 0x27
+ 707 0091 19       		.uleb128 0x19
+ 708 0092 11       		.uleb128 0x11
+ 709 0093 01       		.uleb128 0x1
+ 710 0094 12       		.uleb128 0x12
+ 711 0095 06       		.uleb128 0x6
+ 712 0096 40       		.uleb128 0x40
+ 713 0097 18       		.uleb128 0x18
+ 714 0098 9742     		.uleb128 0x2117
+ 715 009a 19       		.uleb128 0x19
+ 716 009b 01       		.uleb128 0x1
+ 717 009c 13       		.uleb128 0x13
+ 718 009d 00       		.byte	0
+ 719 009e 00       		.byte	0
+ 720 009f 0A       		.uleb128 0xa
+ 721 00a0 05       		.uleb128 0x5
+ 722 00a1 00       		.byte	0
+ 723 00a2 03       		.uleb128 0x3
+ 724 00a3 0E       		.uleb128 0xe
+ 725 00a4 3A       		.uleb128 0x3a
+ 726 00a5 0B       		.uleb128 0xb
+ 727 00a6 3B       		.uleb128 0x3b
+ 728 00a7 05       		.uleb128 0x5
+ 729 00a8 49       		.uleb128 0x49
+ 730 00a9 13       		.uleb128 0x13
+ 731 00aa 02       		.uleb128 0x2
+ 732 00ab 18       		.uleb128 0x18
+ 733 00ac 00       		.byte	0
+ 734 00ad 00       		.byte	0
+ 735 00ae 0B       		.uleb128 0xb
+ 736 00af 34       		.uleb128 0x34
+ 737 00b0 00       		.byte	0
+ 738 00b1 03       		.uleb128 0x3
+ 739 00b2 0E       		.uleb128 0xe
+ 740 00b3 3A       		.uleb128 0x3a
+ 741 00b4 0B       		.uleb128 0xb
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccrAOlW3.s 			page 23
+
+
+ 742 00b5 3B       		.uleb128 0x3b
+ 743 00b6 05       		.uleb128 0x5
+ 744 00b7 49       		.uleb128 0x49
+ 745 00b8 13       		.uleb128 0x13
+ 746 00b9 02       		.uleb128 0x2
+ 747 00ba 18       		.uleb128 0x18
+ 748 00bb 00       		.byte	0
+ 749 00bc 00       		.byte	0
+ 750 00bd 0C       		.uleb128 0xc
+ 751 00be 34       		.uleb128 0x34
+ 752 00bf 00       		.byte	0
+ 753 00c0 03       		.uleb128 0x3
+ 754 00c1 0E       		.uleb128 0xe
+ 755 00c2 3A       		.uleb128 0x3a
+ 756 00c3 0B       		.uleb128 0xb
+ 757 00c4 3B       		.uleb128 0x3b
+ 758 00c5 0B       		.uleb128 0xb
+ 759 00c6 49       		.uleb128 0x49
+ 760 00c7 13       		.uleb128 0x13
+ 761 00c8 3F       		.uleb128 0x3f
+ 762 00c9 19       		.uleb128 0x19
+ 763 00ca 3C       		.uleb128 0x3c
+ 764 00cb 19       		.uleb128 0x19
+ 765 00cc 00       		.byte	0
+ 766 00cd 00       		.byte	0
+ 767 00ce 00       		.byte	0
+ 768              		.section	.debug_aranges,"",%progbits
+ 769 0000 3C000000 		.4byte	0x3c
+ 770 0004 0200     		.2byte	0x2
+ 771 0006 00000000 		.4byte	.Ldebug_info0
+ 772 000a 04       		.byte	0x4
+ 773 000b 00       		.byte	0
+ 774 000c 0000     		.2byte	0
+ 775 000e 0000     		.2byte	0
+ 776 0010 00000000 		.4byte	.LFB2
+ 777 0014 A4000000 		.4byte	.LFE2-.LFB2
+ 778 0018 00000000 		.4byte	.LFB3
+ 779 001c 3C000000 		.4byte	.LFE3-.LFB3
+ 780 0020 00000000 		.4byte	.LFB4
+ 781 0024 70000000 		.4byte	.LFE4-.LFB4
+ 782 0028 00000000 		.4byte	.LFB5
+ 783 002c 3C000000 		.4byte	.LFE5-.LFB5
+ 784 0030 00000000 		.4byte	.LFB6
+ 785 0034 4C000000 		.4byte	.LFE6-.LFB6
+ 786 0038 00000000 		.4byte	0
+ 787 003c 00000000 		.4byte	0
+ 788              		.section	.debug_ranges,"",%progbits
+ 789              	.Ldebug_ranges0:
+ 790 0000 00000000 		.4byte	.LFB2
+ 791 0004 A4000000 		.4byte	.LFE2
+ 792 0008 00000000 		.4byte	.LFB3
+ 793 000c 3C000000 		.4byte	.LFE3
+ 794 0010 00000000 		.4byte	.LFB4
+ 795 0014 70000000 		.4byte	.LFE4
+ 796 0018 00000000 		.4byte	.LFB5
+ 797 001c 3C000000 		.4byte	.LFE5
+ 798 0020 00000000 		.4byte	.LFB6
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccrAOlW3.s 			page 24
+
+
+ 799 0024 4C000000 		.4byte	.LFE6
+ 800 0028 00000000 		.4byte	0
+ 801 002c 00000000 		.4byte	0
+ 802              		.section	.debug_line,"",%progbits
+ 803              	.Ldebug_line0:
+ 804 0000 DD000000 		.section	.debug_str,"MS",%progbits,1
+ 804      02005700 
+ 804      00000201 
+ 804      FB0E0D00 
+ 804      01010101 
+ 805              	.LASF14:
+ 806 0000 72656733 		.ascii	"reg32\000"
+ 806      3200
+ 807              	.LASF22:
+ 808 0006 736C6176 		.ascii	"slaveSelect\000"
+ 808      6553656C 
+ 808      65637400 
+ 809              	.LASF19:
+ 810 0012 4C434453 		.ascii	"LCDSPI_SpiStop\000"
+ 810      50495F53 
+ 810      70695374 
+ 810      6F7000
+ 811              	.LASF17:
+ 812 0021 4C434453 		.ascii	"LCDSPI_SpiInit\000"
+ 812      50495F53 
+ 812      7069496E 
+ 812      697400
+ 813              	.LASF25:
+ 814 0030 7373506F 		.ascii	"ssPolarity\000"
+ 814      6C617269 
+ 814      747900
+ 815              	.LASF29:
+ 816 003b 4C434453 		.ascii	"LCDSPI_IntrTxMask\000"
+ 816      50495F49 
+ 816      6E747254 
+ 816      784D6173 
+ 816      6B00
+ 817              	.LASF18:
+ 818 004d 4C434453 		.ascii	"LCDSPI_SpiPostEnable\000"
+ 818      50495F53 
+ 818      7069506F 
+ 818      7374456E 
+ 818      61626C65 
+ 819              	.LASF27:
+ 820 0062 47656E65 		.ascii	"Generated_Source\\PSoC4\\LCDSPI_SPI.c\000"
+ 820      72617465 
+ 820      645F536F 
+ 820      75726365 
+ 820      5C50536F 
+ 821              	.LASF11:
+ 822 0086 666C6F61 		.ascii	"float\000"
+ 822      7400
+ 823              	.LASF1:
+ 824 008c 756E7369 		.ascii	"unsigned char\000"
+ 824      676E6564 
+ 824      20636861 
+ 824      7200
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccrAOlW3.s 			page 25
+
+
+ 825              	.LASF21:
+ 826 009a 4C434453 		.ascii	"LCDSPI_SpiSetSlaveSelectPolarity\000"
+ 826      50495F53 
+ 826      70695365 
+ 826      74536C61 
+ 826      76655365 
+ 827              	.LASF5:
+ 828 00bb 6C6F6E67 		.ascii	"long unsigned int\000"
+ 828      20756E73 
+ 828      69676E65 
+ 828      6420696E 
+ 828      7400
+ 829              	.LASF3:
+ 830 00cd 73686F72 		.ascii	"short unsigned int\000"
+ 830      7420756E 
+ 830      7369676E 
+ 830      65642069 
+ 830      6E7400
+ 831              	.LASF26:
+ 832 00e0 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 832      43313120 
+ 832      352E342E 
+ 832      31203230 
+ 832      31363036 
+ 833 0113 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 833      20726576 
+ 833      6973696F 
+ 833      6E203233 
+ 833      37373135 
+ 834 0146 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 834      66756E63 
+ 834      74696F6E 
+ 834      2D736563 
+ 834      74696F6E 
+ 835              	.LASF28:
+ 836 016e 433A5C55 		.ascii	"C:\\Users\\megan\\Google Drive\\College\\S10 - Fall"
+ 836      73657273 
+ 836      5C6D6567 
+ 836      616E5C47 
+ 836      6F6F676C 
+ 837 019c 20323031 		.ascii	" 2017\\ECEN 4350 - Embedded uC Design\\Github\\ECEN"
+ 837      375C4543 
+ 837      454E2034 
+ 837      33353020 
+ 837      2D20456D 
+ 838 01cc 34333530 		.ascii	"4350-EmbeddedMicrocontrollerDesign\\BinMonitorPart1"
+ 838      2D456D62 
+ 838      65646465 
+ 838      644D6963 
+ 838      726F636F 
+ 839 01fe 5C42696E 		.ascii	"\\BinMonitorPart1\\BinMonitorPart1.cydsn\000"
+ 839      4D6F6E69 
+ 839      746F7250 
+ 839      61727431 
+ 839      5C42696E 
+ 840              	.LASF12:
+ 841 0225 646F7562 		.ascii	"double\000"
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccrAOlW3.s 			page 26
+
+
+ 841      6C6500
+ 842              	.LASF9:
+ 843 022c 75696E74 		.ascii	"uint16\000"
+ 843      313600
+ 844              	.LASF10:
+ 845 0233 75696E74 		.ascii	"uint32\000"
+ 845      333200
+ 846              	.LASF8:
+ 847 023a 756E7369 		.ascii	"unsigned int\000"
+ 847      676E6564 
+ 847      20696E74 
+ 847      00
+ 848              	.LASF7:
+ 849 0247 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 849      206C6F6E 
+ 849      6720756E 
+ 849      7369676E 
+ 849      65642069 
+ 850              	.LASF23:
+ 851 025e 706F6C61 		.ascii	"polarity\000"
+ 851      72697479 
+ 851      00
+ 852              	.LASF16:
+ 853 0267 73697A65 		.ascii	"sizetype\000"
+ 853      74797065 
+ 853      00
+ 854              	.LASF6:
+ 855 0270 6C6F6E67 		.ascii	"long long int\000"
+ 855      206C6F6E 
+ 855      6720696E 
+ 855      7400
+ 856              	.LASF13:
+ 857 027e 63686172 		.ascii	"char\000"
+ 857      00
+ 858              	.LASF24:
+ 859 0283 73706943 		.ascii	"spiCtrl\000"
+ 859      74726C00 
+ 860              	.LASF2:
+ 861 028b 73686F72 		.ascii	"short int\000"
+ 861      7420696E 
+ 861      7400
+ 862              	.LASF4:
+ 863 0295 6C6F6E67 		.ascii	"long int\000"
+ 863      20696E74 
+ 863      00
+ 864              	.LASF15:
+ 865 029e 6C6F6E67 		.ascii	"long double\000"
+ 865      20646F75 
+ 865      626C6500 
+ 866              	.LASF0:
+ 867 02aa 7369676E 		.ascii	"signed char\000"
+ 867      65642063 
+ 867      68617200 
+ 868              	.LASF20:
+ 869 02b6 4C434453 		.ascii	"LCDSPI_SpiSetActiveSlaveSelect\000"
+ 869      50495F53 
+ 869      70695365 
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccrAOlW3.s 			page 27
+
+
+ 869      74416374 
+ 869      69766553 
+ 870              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

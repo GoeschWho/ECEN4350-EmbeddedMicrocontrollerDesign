@@ -1,0 +1,101 @@
+--------------- Rebuild Started: 08/05/2016 12:23:40 Project: uGFX Demo, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+Deleting file ".\ARM_GCC_493\Debug\main.o"
+Deleting file ".\ARM_GCC_493\Debug\gfx_mk.o"
+Deleting file ".\ARM_GCC_493\Debug\gdisp_lld_ILI9341.o"
+Deleting file ".\ARM_GCC_493\Debug\ugfx_raw32_implementations.o"
+Deleting file ".\ARM_GCC_493\Debug\cyfitter_cfg.o"
+Deleting file ".\ARM_GCC_493\Debug\cymetadata.o"
+Deleting file ".\ARM_GCC_493\Debug\Cm3Start.o"
+Deleting file ".\ARM_GCC_493\Debug\CyBootAsmGnu.o"
+Deleting file ".\ARM_GCC_493\Debug\CyDmac.o"
+Deleting file ".\ARM_GCC_493\Debug\CyFlash.o"
+Deleting file ".\ARM_GCC_493\Debug\CyLib.o"
+Deleting file ".\ARM_GCC_493\Debug\cyPm.o"
+Deleting file ".\ARM_GCC_493\Debug\CySpc.o"
+Deleting file ".\ARM_GCC_493\Debug\cyutils.o"
+Deleting file ".\ARM_GCC_493\Debug\LCD_SPI.o"
+Deleting file ".\ARM_GCC_493\Debug\LCD_SPI_PM.o"
+Deleting file ".\ARM_GCC_493\Debug\LCD_SPI_INT.o"
+Deleting file ".\ARM_GCC_493\Debug\LCD_CS.o"
+Deleting file ".\ARM_GCC_493\Debug\LCD_SCK.o"
+Deleting file ".\ARM_GCC_493\Debug\LCD_MOSI.o"
+Deleting file ".\ARM_GCC_493\Debug\LCD_MISO.o"
+Deleting file ".\ARM_GCC_493\Debug\LCD_SPI_IntClock.o"
+Deleting file ".\ARM_GCC_493\Debug\Systick_Counter.o"
+Deleting file ".\ARM_GCC_493\Debug\Systick_Counter_PM.o"
+Deleting file ".\ARM_GCC_493\Debug\LCD_DC.o"
+Deleting file ".\ARM_GCC_493\Debug\LCD_RST.o"
+Deleting file ".\ARM_GCC_493\Debug\Systick_Timer.o"
+Deleting file ".\ARM_GCC_493\Debug\Systick_Timer_PM.o"
+Deleting file ".\ARM_GCC_493\Debug\uGFX Demo.hex"
+Deleting file ".\ARM_GCC_493\Debug\uGFX Demo.elf"
+Deleting file ".\ARM_GCC_493\Debug\uGFX Demo.map"
+Deleting file ".\uGFX Demo.cycdx"
+Deleting file ".\uGFX Demo.svd"
+Deleting file ".\uGFX Demo.rpt"
+Deleting file ".\uGFX Demo_timing.html"
+Deleting file ".\ARM_GCC_493\Debug\.deps\C_FILE.P"
+Deleting file ".\ARM_GCC_493\Debug\.deps\ARM_C_FILE.P"
+Deleting file ".\ARM_GCC_493\Debug\.deps\GNU_ARM_ASM_FILE.P"
+cydsfit.exe -.appdatapath "C:\Users\joel\AppData\Local\Cypress Semiconductor\PSoC Creator\3.3" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -p "C:\Users\joel\Desktop\psoc\psoc_ugfx_demo\uGFX Demo.cydsn\uGFX Demo.cyprj" -d CY8C5888LTI-LP097 -s "C:\Users\joel\Desktop\psoc\psoc_ugfx_demo\uGFX Demo.cydsn\Generated_Source\PSoC5" -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+ADD: pft.M0028: warning: Clock Warning: (LCD_SPI_IntClock's accuracy range '24 MHz +/- 1%, (23.76 MHz - 24.24 MHz)' is not within the specified tolerance range '50 MHz +/- 5%, (47.5 MHz - 52.5 MHz)'.).
+ * C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\SPI_Master_v2_50\SPI_Master_v2_50.cysch (Instance:IntClock)
+ * C:\Users\joel\Desktop\psoc\psoc_ugfx_demo\uGFX Demo.cydsn\uGFX Demo.cydwr (LCD_SPI_IntClock)
+HDL Generation ...
+Synthesis ...
+Place and Route ...
+Tech mapping ...
+Analog Placement ...
+Analog Routing ...
+Analog Code Generation ...
+Digital Placement ...
+Digital Routing ...
+Bitstream Generation ...
+Static timing analysis ...
+Warning: sta.M0021: uGFX Demo_timing.html: Warning-1350: Asynchronous path(s) exist from "CyBUS_CLK(fixed-function)" to "CyBUS_CLK". See the timing report for details. (File=C:\Users\joel\Desktop\psoc\psoc_ugfx_demo\uGFX Demo.cydsn\uGFX Demo_timing.html)
+API Generation ...
+Dependency Generation ...
+Clean Temporary Files ...
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -I..\ugfx_2.6 -I..\ugfx_2.6\src -I..\ugfx_2.6\src\gos -I..\ugfx_2.6\src\gdisp -I..\ugfx_2.6\src\gdisp\fonts -I..\ugfx_2.6\src\gdisp\mcufont -I..\ugfx_2.6\drivers\gdisp\ILI9341 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\ARM_GCC_493\Debug/main.lst -g -ffunction-sections -O0 -ffat-lto-objects -c .\main.c -o .\ARM_GCC_493\Debug\main.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -I..\ugfx_2.6 -I..\ugfx_2.6\src -I..\ugfx_2.6\src\gos -I..\ugfx_2.6\src\gdisp -I..\ugfx_2.6\src\gdisp\fonts -I..\ugfx_2.6\src\gdisp\mcufont -I..\ugfx_2.6\drivers\gdisp\ILI9341 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\ARM_GCC_493\Debug/gfx_mk.lst -g -ffunction-sections -O0 -ffat-lto-objects -c ..\ugfx_2.6\src\gfx_mk.c -o .\ARM_GCC_493\Debug\gfx_mk.o
+In file included from ..\ugfx_2.6\src\../gfx.h:185:0,
+                 from ..\ugfx_2.6\src\gfx.c:16,
+                 from ..\ugfx_2.6\src\gfx_mk.c:8:
+..\ugfx_2.6\src\../src/gdisp/gdisp_rules.h:65:6: warning: #warning "GDISP: GDISP_NEED_ANTIALIAS has been set but your hardware does not support reading back pixels. Anti-aliasing will only occur for filled characters." [-Wcpp]
+     #warning "GDISP: GDISP_NEED_ANTIALIAS has been set but your hardware does not support reading back pixels. Anti-aliasing will only occur for filled characters."
+      ^
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -I..\ugfx_2.6 -I..\ugfx_2.6\src -I..\ugfx_2.6\src\gos -I..\ugfx_2.6\src\gdisp -I..\ugfx_2.6\src\gdisp\fonts -I..\ugfx_2.6\src\gdisp\mcufont -I..\ugfx_2.6\drivers\gdisp\ILI9341 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\ARM_GCC_493\Debug/gdisp_lld_ILI9341.lst -g -ffunction-sections -O0 -ffat-lto-objects -c ..\ugfx_2.6\drivers\gdisp\ILI9341\gdisp_lld_ILI9341.c -o .\ARM_GCC_493\Debug\gdisp_lld_ILI9341.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -I..\ugfx_2.6 -I..\ugfx_2.6\src -I..\ugfx_2.6\src\gos -I..\ugfx_2.6\src\gdisp -I..\ugfx_2.6\src\gdisp\fonts -I..\ugfx_2.6\src\gdisp\mcufont -I..\ugfx_2.6\drivers\gdisp\ILI9341 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\ARM_GCC_493\Debug/ugfx_raw32_implementations.lst -g -ffunction-sections -O0 -ffat-lto-objects -c .\ugfx_raw32_implementations.c -o .\ARM_GCC_493\Debug\ugfx_raw32_implementations.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -I..\ugfx_2.6 -I..\ugfx_2.6\src -I..\ugfx_2.6\src\gos -I..\ugfx_2.6\src\gdisp -I..\ugfx_2.6\src\gdisp\fonts -I..\ugfx_2.6\src\gdisp\mcufont -I..\ugfx_2.6\drivers\gdisp\ILI9341 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\ARM_GCC_493\Debug/cyfitter_cfg.lst -g -ffunction-sections -O0 -ffat-lto-objects -c .\Generated_Source\PSoC5\cyfitter_cfg.c -o .\ARM_GCC_493\Debug\cyfitter_cfg.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -I..\ugfx_2.6 -I..\ugfx_2.6\src -I..\ugfx_2.6\src\gos -I..\ugfx_2.6\src\gdisp -I..\ugfx_2.6\src\gdisp\fonts -I..\ugfx_2.6\src\gdisp\mcufont -I..\ugfx_2.6\drivers\gdisp\ILI9341 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\ARM_GCC_493\Debug/cymetadata.lst -g -ffunction-sections -O0 -ffat-lto-objects -c .\Generated_Source\PSoC5\cymetadata.c -o .\ARM_GCC_493\Debug\cymetadata.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -I..\ugfx_2.6 -I..\ugfx_2.6\src -I..\ugfx_2.6\src\gos -I..\ugfx_2.6\src\gdisp -I..\ugfx_2.6\src\gdisp\fonts -I..\ugfx_2.6\src\gdisp\mcufont -I..\ugfx_2.6\drivers\gdisp\ILI9341 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\ARM_GCC_493\Debug/Cm3Start.lst -g -ffunction-sections -O0 -ffat-lto-objects -c .\Generated_Source\PSoC5\Cm3Start.c -o .\ARM_GCC_493\Debug\Cm3Start.o
+arm-none-eabi-as.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -alh=.\ARM_GCC_493\Debug/CyBootAsmGnu.lst -g -o .\ARM_GCC_493\Debug\CyBootAsmGnu.o .\Generated_Source\PSoC5\CyBootAsmGnu.s
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -I..\ugfx_2.6 -I..\ugfx_2.6\src -I..\ugfx_2.6\src\gos -I..\ugfx_2.6\src\gdisp -I..\ugfx_2.6\src\gdisp\fonts -I..\ugfx_2.6\src\gdisp\mcufont -I..\ugfx_2.6\drivers\gdisp\ILI9341 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\ARM_GCC_493\Debug/CyDmac.lst -g -ffunction-sections -O0 -ffat-lto-objects -c .\Generated_Source\PSoC5\CyDmac.c -o .\ARM_GCC_493\Debug\CyDmac.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -I..\ugfx_2.6 -I..\ugfx_2.6\src -I..\ugfx_2.6\src\gos -I..\ugfx_2.6\src\gdisp -I..\ugfx_2.6\src\gdisp\fonts -I..\ugfx_2.6\src\gdisp\mcufont -I..\ugfx_2.6\drivers\gdisp\ILI9341 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\ARM_GCC_493\Debug/CyFlash.lst -g -ffunction-sections -O0 -ffat-lto-objects -c .\Generated_Source\PSoC5\CyFlash.c -o .\ARM_GCC_493\Debug\CyFlash.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -I..\ugfx_2.6 -I..\ugfx_2.6\src -I..\ugfx_2.6\src\gos -I..\ugfx_2.6\src\gdisp -I..\ugfx_2.6\src\gdisp\fonts -I..\ugfx_2.6\src\gdisp\mcufont -I..\ugfx_2.6\drivers\gdisp\ILI9341 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\ARM_GCC_493\Debug/CyLib.lst -g -ffunction-sections -O0 -ffat-lto-objects -c .\Generated_Source\PSoC5\CyLib.c -o .\ARM_GCC_493\Debug\CyLib.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -I..\ugfx_2.6 -I..\ugfx_2.6\src -I..\ugfx_2.6\src\gos -I..\ugfx_2.6\src\gdisp -I..\ugfx_2.6\src\gdisp\fonts -I..\ugfx_2.6\src\gdisp\mcufont -I..\ugfx_2.6\drivers\gdisp\ILI9341 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\ARM_GCC_493\Debug/cyPm.lst -g -ffunction-sections -O0 -ffat-lto-objects -c .\Generated_Source\PSoC5\cyPm.c -o .\ARM_GCC_493\Debug\cyPm.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -I..\ugfx_2.6 -I..\ugfx_2.6\src -I..\ugfx_2.6\src\gos -I..\ugfx_2.6\src\gdisp -I..\ugfx_2.6\src\gdisp\fonts -I..\ugfx_2.6\src\gdisp\mcufont -I..\ugfx_2.6\drivers\gdisp\ILI9341 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\ARM_GCC_493\Debug/CySpc.lst -g -ffunction-sections -O0 -ffat-lto-objects -c .\Generated_Source\PSoC5\CySpc.c -o .\ARM_GCC_493\Debug\CySpc.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -I..\ugfx_2.6 -I..\ugfx_2.6\src -I..\ugfx_2.6\src\gos -I..\ugfx_2.6\src\gdisp -I..\ugfx_2.6\src\gdisp\fonts -I..\ugfx_2.6\src\gdisp\mcufont -I..\ugfx_2.6\drivers\gdisp\ILI9341 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\ARM_GCC_493\Debug/cyutils.lst -g -ffunction-sections -O0 -ffat-lto-objects -c .\Generated_Source\PSoC5\cyutils.c -o .\ARM_GCC_493\Debug\cyutils.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -I..\ugfx_2.6 -I..\ugfx_2.6\src -I..\ugfx_2.6\src\gos -I..\ugfx_2.6\src\gdisp -I..\ugfx_2.6\src\gdisp\fonts -I..\ugfx_2.6\src\gdisp\mcufont -I..\ugfx_2.6\drivers\gdisp\ILI9341 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\ARM_GCC_493\Debug/LCD_SPI.lst -g -ffunction-sections -O0 -ffat-lto-objects -c .\Generated_Source\PSoC5\LCD_SPI.c -o .\ARM_GCC_493\Debug\LCD_SPI.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -I..\ugfx_2.6 -I..\ugfx_2.6\src -I..\ugfx_2.6\src\gos -I..\ugfx_2.6\src\gdisp -I..\ugfx_2.6\src\gdisp\fonts -I..\ugfx_2.6\src\gdisp\mcufont -I..\ugfx_2.6\drivers\gdisp\ILI9341 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\ARM_GCC_493\Debug/LCD_SPI_PM.lst -g -ffunction-sections -O0 -ffat-lto-objects -c .\Generated_Source\PSoC5\LCD_SPI_PM.c -o .\ARM_GCC_493\Debug\LCD_SPI_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -I..\ugfx_2.6 -I..\ugfx_2.6\src -I..\ugfx_2.6\src\gos -I..\ugfx_2.6\src\gdisp -I..\ugfx_2.6\src\gdisp\fonts -I..\ugfx_2.6\src\gdisp\mcufont -I..\ugfx_2.6\drivers\gdisp\ILI9341 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\ARM_GCC_493\Debug/LCD_SPI_INT.lst -g -ffunction-sections -O0 -ffat-lto-objects -c .\Generated_Source\PSoC5\LCD_SPI_INT.c -o .\ARM_GCC_493\Debug\LCD_SPI_INT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -I..\ugfx_2.6 -I..\ugfx_2.6\src -I..\ugfx_2.6\src\gos -I..\ugfx_2.6\src\gdisp -I..\ugfx_2.6\src\gdisp\fonts -I..\ugfx_2.6\src\gdisp\mcufont -I..\ugfx_2.6\drivers\gdisp\ILI9341 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\ARM_GCC_493\Debug/LCD_CS.lst -g -ffunction-sections -O0 -ffat-lto-objects -c .\Generated_Source\PSoC5\LCD_CS.c -o .\ARM_GCC_493\Debug\LCD_CS.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -I..\ugfx_2.6 -I..\ugfx_2.6\src -I..\ugfx_2.6\src\gos -I..\ugfx_2.6\src\gdisp -I..\ugfx_2.6\src\gdisp\fonts -I..\ugfx_2.6\src\gdisp\mcufont -I..\ugfx_2.6\drivers\gdisp\ILI9341 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\ARM_GCC_493\Debug/LCD_SCK.lst -g -ffunction-sections -O0 -ffat-lto-objects -c .\Generated_Source\PSoC5\LCD_SCK.c -o .\ARM_GCC_493\Debug\LCD_SCK.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -I..\ugfx_2.6 -I..\ugfx_2.6\src -I..\ugfx_2.6\src\gos -I..\ugfx_2.6\src\gdisp -I..\ugfx_2.6\src\gdisp\fonts -I..\ugfx_2.6\src\gdisp\mcufont -I..\ugfx_2.6\drivers\gdisp\ILI9341 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\ARM_GCC_493\Debug/LCD_MOSI.lst -g -ffunction-sections -O0 -ffat-lto-objects -c .\Generated_Source\PSoC5\LCD_MOSI.c -o .\ARM_GCC_493\Debug\LCD_MOSI.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -I..\ugfx_2.6 -I..\ugfx_2.6\src -I..\ugfx_2.6\src\gos -I..\ugfx_2.6\src\gdisp -I..\ugfx_2.6\src\gdisp\fonts -I..\ugfx_2.6\src\gdisp\mcufont -I..\ugfx_2.6\drivers\gdisp\ILI9341 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\ARM_GCC_493\Debug/LCD_MISO.lst -g -ffunction-sections -O0 -ffat-lto-objects -c .\Generated_Source\PSoC5\LCD_MISO.c -o .\ARM_GCC_493\Debug\LCD_MISO.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -I..\ugfx_2.6 -I..\ugfx_2.6\src -I..\ugfx_2.6\src\gos -I..\ugfx_2.6\src\gdisp -I..\ugfx_2.6\src\gdisp\fonts -I..\ugfx_2.6\src\gdisp\mcufont -I..\ugfx_2.6\drivers\gdisp\ILI9341 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\ARM_GCC_493\Debug/LCD_SPI_IntClock.lst -g -ffunction-sections -O0 -ffat-lto-objects -c .\Generated_Source\PSoC5\LCD_SPI_IntClock.c -o .\ARM_GCC_493\Debug\LCD_SPI_IntClock.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -I..\ugfx_2.6 -I..\ugfx_2.6\src -I..\ugfx_2.6\src\gos -I..\ugfx_2.6\src\gdisp -I..\ugfx_2.6\src\gdisp\fonts -I..\ugfx_2.6\src\gdisp\mcufont -I..\ugfx_2.6\drivers\gdisp\ILI9341 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\ARM_GCC_493\Debug/Systick_Counter.lst -g -ffunction-sections -O0 -ffat-lto-objects -c .\Generated_Source\PSoC5\Systick_Counter.c -o .\ARM_GCC_493\Debug\Systick_Counter.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -I..\ugfx_2.6 -I..\ugfx_2.6\src -I..\ugfx_2.6\src\gos -I..\ugfx_2.6\src\gdisp -I..\ugfx_2.6\src\gdisp\fonts -I..\ugfx_2.6\src\gdisp\mcufont -I..\ugfx_2.6\drivers\gdisp\ILI9341 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\ARM_GCC_493\Debug/Systick_Counter_PM.lst -g -ffunction-sections -O0 -ffat-lto-objects -c .\Generated_Source\PSoC5\Systick_Counter_PM.c -o .\ARM_GCC_493\Debug\Systick_Counter_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -I..\ugfx_2.6 -I..\ugfx_2.6\src -I..\ugfx_2.6\src\gos -I..\ugfx_2.6\src\gdisp -I..\ugfx_2.6\src\gdisp\fonts -I..\ugfx_2.6\src\gdisp\mcufont -I..\ugfx_2.6\drivers\gdisp\ILI9341 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\ARM_GCC_493\Debug/LCD_DC.lst -g -ffunction-sections -O0 -ffat-lto-objects -c .\Generated_Source\PSoC5\LCD_DC.c -o .\ARM_GCC_493\Debug\LCD_DC.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -I..\ugfx_2.6 -I..\ugfx_2.6\src -I..\ugfx_2.6\src\gos -I..\ugfx_2.6\src\gdisp -I..\ugfx_2.6\src\gdisp\fonts -I..\ugfx_2.6\src\gdisp\mcufont -I..\ugfx_2.6\drivers\gdisp\ILI9341 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\ARM_GCC_493\Debug/LCD_RST.lst -g -ffunction-sections -O0 -ffat-lto-objects -c .\Generated_Source\PSoC5\LCD_RST.c -o .\ARM_GCC_493\Debug\LCD_RST.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -I..\ugfx_2.6 -I..\ugfx_2.6\src -I..\ugfx_2.6\src\gos -I..\ugfx_2.6\src\gdisp -I..\ugfx_2.6\src\gdisp\fonts -I..\ugfx_2.6\src\gdisp\mcufont -I..\ugfx_2.6\drivers\gdisp\ILI9341 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\ARM_GCC_493\Debug/Systick_Timer.lst -g -ffunction-sections -O0 -ffat-lto-objects -c .\Generated_Source\PSoC5\Systick_Timer.c -o .\ARM_GCC_493\Debug\Systick_Timer.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -I..\ugfx_2.6 -I..\ugfx_2.6\src -I..\ugfx_2.6\src\gos -I..\ugfx_2.6\src\gdisp -I..\ugfx_2.6\src\gdisp\fonts -I..\ugfx_2.6\src\gdisp\mcufont -I..\ugfx_2.6\drivers\gdisp\ILI9341 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\ARM_GCC_493\Debug/Systick_Timer_PM.lst -g -ffunction-sections -O0 -ffat-lto-objects -c .\Generated_Source\PSoC5\Systick_Timer_PM.c -o .\ARM_GCC_493\Debug\Systick_Timer_PM.o
+arm-none-eabi-ar.exe -rs ".\ARM_GCC_493\Debug\uGFX Demo.a" .\ARM_GCC_493\Debug\cyfitter_cfg.o .\ARM_GCC_493\Debug\CyBootAsmGnu.o .\ARM_GCC_493\Debug\CyDmac.o .\ARM_GCC_493\Debug\CyFlash.o .\ARM_GCC_493\Debug\CyLib.o .\ARM_GCC_493\Debug\cyPm.o .\ARM_GCC_493\Debug\CySpc.o .\ARM_GCC_493\Debug\cyutils.o .\ARM_GCC_493\Debug\LCD_SPI.o .\ARM_GCC_493\Debug\LCD_SPI_PM.o .\ARM_GCC_493\Debug\LCD_SPI_INT.o .\ARM_GCC_493\Debug\LCD_CS.o .\ARM_GCC_493\Debug\LCD_SCK.o .\ARM_GCC_493\Debug\LCD_MOSI.o .\ARM_GCC_493\Debug\LCD_MISO.o .\ARM_GCC_493\Debug\LCD_SPI_IntClock.o .\ARM_GCC_493\Debug\Systick_Counter.o .\ARM_GCC_493\Debug\Systick_Counter_PM.o .\ARM_GCC_493\Debug\LCD_DC.o .\ARM_GCC_493\Debug\LCD_RST.o .\ARM_GCC_493\Debug\Systick_Timer.o .\ARM_GCC_493\Debug\Systick_Timer_PM.o
+arm-none-eabi-ar.exe: creating .\ARM_GCC_493\Debug\uGFX Demo.a
+arm-none-eabi-gcc.exe -Wl,--start-group -o ".\ARM_GCC_493\Debug\uGFX Demo.elf" .\ARM_GCC_493\Debug\main.o .\ARM_GCC_493\Debug\gfx_mk.o .\ARM_GCC_493\Debug\gdisp_lld_ILI9341.o .\ARM_GCC_493\Debug\ugfx_raw32_implementations.o .\ARM_GCC_493\Debug\cymetadata.o .\ARM_GCC_493\Debug\Cm3Start.o ".\ARM_GCC_493\Debug\uGFX Demo.a" "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_493\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -g -ffunction-sections -O0 -ffat-lto-objects -L Generated_Source\PSoC5 "-Wl,-Map,.\ARM_GCC_493\Debug/uGFX Demo.map" -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
+cyelftool.exe -C "C:\Users\joel\Desktop\psoc\psoc_ugfx_demo\uGFX Demo.cydsn\ARM_GCC_493\Debug\uGFX Demo.elf" --flash_row_size 256 --flash_size 262144
+cyelftool.exe -S "C:\Users\joel\Desktop\psoc\psoc_ugfx_demo\uGFX Demo.cydsn\ARM_GCC_493\Debug\uGFX Demo.elf"
+Flash used: 63744 of 262144 bytes (24.3 %).
+SRAM used: 23181 of 65536 bytes (35.4 %). Stack: 2048 bytes. Heap: 128 bytes.
+--------------- Rebuild Succeeded: 08/05/2016 12:23:50 ---------------

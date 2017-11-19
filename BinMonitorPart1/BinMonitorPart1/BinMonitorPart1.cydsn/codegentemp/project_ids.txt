@@ -1,0 +1,6 @@
+C:\Users\megan\Google Drive\College\S10 - Fall 2017\ECEN 4350 - Embedded uC Design\Github\ECEN4350-EmbeddedMicrocontrollerDesign\BinMonitorPart1\BinMonitorPart1\BinMonitorPart1.cydsn\BinMonitorPart1.cyprj|1a1c3c47-3667-4691-ba1c-cb95af48b564
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|5898dce4-12a1-4ba8-9984-b2e87230a45d
+C:\Users\megan\Documents\PSoC Creator\4.1\Downloads ( 4.1).cylib\Downloads ( 4.1).cyprj|da7c5501-a869-4cf5-8885-b3fc186ad294
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|64b0cd58-54c8-4571-8bc3-0eda2db83498
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|16c2b51d-e0c1-4c33-bc3c-2be45427de80
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|0e241a90-f844-4bd8-a3e2-a31e176dcc46

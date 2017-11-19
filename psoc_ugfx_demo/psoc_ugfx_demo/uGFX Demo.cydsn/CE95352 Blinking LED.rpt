@@ -1,0 +1,2712 @@
+Loading plugins phase: Elapsed time ==> 0s.162ms
+Initializing data phase: Elapsed time ==> 0s.000ms
+<CYPRESSTAG name="CyDsfit arguments...">
+cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -p C:\Users\joel\Desktop\psoc\helloworld\CE95352 Blinking LED\CE95352 Blinking LED.cydsn\CE95352 Blinking LED.cyprj -d CY8C5888LTI-LP097 -s C:\Users\joel\Desktop\psoc\helloworld\CE95352 Blinking LED\CE95352 Blinking LED.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE</CYPRESSTAG>
+<CYPRESSTAG name="Design elaboration results...">
+ADD: pft.M0028: warning: Clock Warning: (LCD_SPI_IntClock's accuracy range '24 MHz +/- 1%, (23.76 MHz - 24.24 MHz)' is not within the specified tolerance range '50 MHz +/- 5%, (47.5 MHz - 52.5 MHz)'.).
+ * C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\SPI_Master_v2_50\SPI_Master_v2_50.cysch (Instance:IntClock)
+ * C:\Users\joel\Desktop\psoc\helloworld\CE95352 Blinking LED\CE95352 Blinking LED.cydsn\CE95352 Blinking LED.cydwr (LCD_SPI_IntClock)
+
+</CYPRESSTAG>
+Elaboration phase: Elapsed time ==> 1s.072ms
+<CYPRESSTAG name="HDL generation results...">
+</CYPRESSTAG>
+HDL generation phase: Elapsed time ==> 0s.046ms
+<CYPRESSTAG name="Synthesis results...">
+
+     | | | | | | |
+   _________________
+  -|               |-
+  -|               |-
+  -|               |-
+  -|    CYPRESS    |-
+  -|               |-
+  -|               |-   Warp Verilog Synthesis Compiler: Version 6.3 IR 41
+  -|               |-   Copyright (C) 1991-2001 Cypress Semiconductor
+   |_______________|
+     | | | | | | |
+
+======================================================================
+Compiling:  CE95352 Blinking LED.v
+Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\bin/warp.exe
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\joel\Desktop\psoc\helloworld\CE95352 Blinking LED\CE95352 Blinking LED.cydsn\CE95352 Blinking LED.cyprj -dcpsoc3 CE95352 Blinking LED.v -verilog
+======================================================================
+
+======================================================================
+Compiling:  CE95352 Blinking LED.v
+Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\bin/warp.exe
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\joel\Desktop\psoc\helloworld\CE95352 Blinking LED\CE95352 Blinking LED.cydsn\CE95352 Blinking LED.cyprj -dcpsoc3 CE95352 Blinking LED.v -verilog
+======================================================================
+
+======================================================================
+Compiling:  CE95352 Blinking LED.v
+Program  :   vlogfe
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\joel\Desktop\psoc\helloworld\CE95352 Blinking LED\CE95352 Blinking LED.cydsn\CE95352 Blinking LED.cyprj -dcpsoc3 -verilog CE95352 Blinking LED.v
+======================================================================
+
+vlogfe V6.3 IR 41:  Verilog parser
+Fri Aug 05 00:22:34 2016
+
+
+======================================================================
+Compiling:  CE95352 Blinking LED.v
+Program  :   vpp
+Options  :    -yv2 -q10 CE95352 Blinking LED.v
+======================================================================
+
+vpp V6.3 IR 41:  Verilog Pre-Processor
+Fri Aug 05 00:22:34 2016
+
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_SPI_Master_v2_50\B_SPI_Master_v2_50.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\OneTerminal\OneTerminal.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_Counter_v3_0\B_Counter_v3_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.v'
+
+vpp:  No errors.
+
+Library 'work' => directory 'lcpsoc3'
+General_symbol_table
+General_symbol_table
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Using control file 'CE95352 Blinking LED.ctl'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
+
+vlogfe:  No errors.
+
+
+======================================================================
+Compiling:  CE95352 Blinking LED.v
+Program  :   tovif
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\joel\Desktop\psoc\helloworld\CE95352 Blinking LED\CE95352 Blinking LED.cydsn\CE95352 Blinking LED.cyprj -dcpsoc3 -verilog CE95352 Blinking LED.v
+======================================================================
+
+tovif V6.3 IR 41:  High-level synthesis
+Fri Aug 05 00:22:34 2016
+
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking 'C:\Users\joel\Desktop\psoc\helloworld\CE95352 Blinking LED\CE95352 Blinking LED.cydsn\codegentemp\CE95352 Blinking LED.ctl'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
+Linking 'C:\Users\joel\Desktop\psoc\helloworld\CE95352 Blinking LED\CE95352 Blinking LED.cydsn\codegentemp\CE95352 Blinking LED.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_SPI_Master_v2_50\B_SPI_Master_v2_50.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\OneTerminal\OneTerminal.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_Counter_v3_0\B_Counter_v3_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
+
+tovif:  No errors.
+
+
+======================================================================
+Compiling:  CE95352 Blinking LED.v
+Program  :   topld
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\joel\Desktop\psoc\helloworld\CE95352 Blinking LED\CE95352 Blinking LED.cydsn\CE95352 Blinking LED.cyprj -dcpsoc3 -verilog CE95352 Blinking LED.v
+======================================================================
+
+topld V6.3 IR 41:  Synthesis and optimization
+Fri Aug 05 00:22:34 2016
+
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking 'C:\Users\joel\Desktop\psoc\helloworld\CE95352 Blinking LED\CE95352 Blinking LED.cydsn\codegentemp\CE95352 Blinking LED.ctl'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
+Linking 'C:\Users\joel\Desktop\psoc\helloworld\CE95352 Blinking LED\CE95352 Blinking LED.cydsn\codegentemp\CE95352 Blinking LED.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_SPI_Master_v2_50\B_SPI_Master_v2_50.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\OneTerminal\OneTerminal.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_Counter_v3_0\B_Counter_v3_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\lcpsoc3\stdlogic\cpsoc3.vif'.
+
+----------------------------------------------------------
+Detecting unused logic.
+----------------------------------------------------------
+    User names
+	\LCD_SPI:BSPIM:mosi_after_ld\
+	\LCD_SPI:BSPIM:so_send\
+	\LCD_SPI:BSPIM:mosi_cpha_1\
+	\LCD_SPI:BSPIM:pre_mosi\
+	\LCD_SPI:BSPIM:dpcounter_zero\
+	\LCD_SPI:BSPIM:control_7\
+	\LCD_SPI:BSPIM:control_6\
+	\LCD_SPI:BSPIM:control_5\
+	\LCD_SPI:BSPIM:control_4\
+	\LCD_SPI:BSPIM:control_3\
+	\LCD_SPI:BSPIM:control_2\
+	\LCD_SPI:BSPIM:control_1\
+	\LCD_SPI:BSPIM:control_0\
+	\LCD_SPI:Net_294\
+	Net_297
+	Net_602
+	Net_600
+	\Systick_Counter:Net_49\
+	\Systick_Counter:Net_82\
+	\Systick_Counter:Net_95\
+	\Systick_Counter:Net_91\
+	\Systick_Counter:Net_102\
+	\Systick_Counter:CounterUDB:ctrl_cmod_2\
+	\Systick_Counter:CounterUDB:ctrl_cmod_1\
+	\Systick_Counter:CounterUDB:ctrl_cmod_0\
+	Net_601
+	\Systick_Counter:CounterUDB:reload_tc\
+	Net_594
+
+
+Deleted 28 User equations/components.
+Deleted 0 Synthesized equations/components.
+
+------------------------------------------------------
+Alias Detection
+------------------------------------------------------
+Aliasing \LCD_SPI:BSPIM:tx_status_3\ to \LCD_SPI:BSPIM:load_rx_data\
+Aliasing \LCD_SPI:BSPIM:tx_status_6\ to \LCD_SPI:BSPIM:pol_supprt\
+Aliasing \LCD_SPI:BSPIM:tx_status_5\ to \LCD_SPI:BSPIM:pol_supprt\
+Aliasing \LCD_SPI:BSPIM:rx_status_3\ to \LCD_SPI:BSPIM:pol_supprt\
+Aliasing \LCD_SPI:BSPIM:rx_status_2\ to \LCD_SPI:BSPIM:pol_supprt\
+Aliasing \LCD_SPI:BSPIM:rx_status_1\ to \LCD_SPI:BSPIM:pol_supprt\
+Aliasing \LCD_SPI:BSPIM:rx_status_0\ to \LCD_SPI:BSPIM:pol_supprt\
+Aliasing zero to \LCD_SPI:BSPIM:pol_supprt\
+Aliasing \LCD_SPI:Net_289\ to \LCD_SPI:BSPIM:pol_supprt\
+Aliasing tmpOE__LCD_CS_net_0 to one
+Aliasing tmpOE__LCD_SCK_net_0 to one
+Aliasing tmpOE__LCD_MOSI_net_0 to one
+Aliasing tmpOE__LCD_MISO_net_0 to one
+Aliasing \Systick_Counter:Net_89\ to one
+Aliasing \Systick_Counter:CounterUDB:ctrl_capmode_1\ to \LCD_SPI:BSPIM:pol_supprt\
+Aliasing \Systick_Counter:CounterUDB:ctrl_capmode_0\ to \LCD_SPI:BSPIM:pol_supprt\
+Aliasing \Systick_Counter:CounterUDB:capt_rising\ to \LCD_SPI:BSPIM:pol_supprt\
+Aliasing Net_589 to \LCD_SPI:BSPIM:pol_supprt\
+Aliasing tmpOE__LCD_DC_net_0 to one
+Aliasing tmpOE__LCD_RST_net_0 to one
+Aliasing \Systick_Timer:Net_260\ to \LCD_SPI:BSPIM:pol_supprt\
+Aliasing \Systick_Timer:Net_102\ to one
+Aliasing \LCD_SPI:BSPIM:so_send_reg\\D\ to \LCD_SPI:BSPIM:pol_supprt\
+Aliasing \LCD_SPI:BSPIM:dpcounter_one_reg\\D\ to \LCD_SPI:BSPIM:load_rx_data\
+Aliasing \Systick_Counter:CounterUDB:prevCapture\\D\ to \LCD_SPI:BSPIM:pol_supprt\
+Aliasing \Systick_Counter:CounterUDB:cmp_out_reg_i\\D\ to \Systick_Counter:CounterUDB:prevCompare\\D\
+Removing Rhs of wire \LCD_SPI:Net_276\[0] = \LCD_SPI:Net_288\[1]
+Removing Rhs of wire \LCD_SPI:BSPIM:load_rx_data\[8] = \LCD_SPI:BSPIM:dpcounter_one\[9]
+Removing Lhs of wire \LCD_SPI:BSPIM:miso_to_dp\[11] = \LCD_SPI:Net_244\[12]
+Removing Lhs of wire \LCD_SPI:Net_244\[12] = Net_295[105]
+Removing Rhs of wire Net_310[16] = \LCD_SPI:BSPIM:mosi_fin\[17]
+Removing Rhs of wire Net_310[16] = \LCD_SPI:BSPIM:mosi_cpha_0\[18]
+Removing Rhs of wire \LCD_SPI:BSPIM:tx_status_1\[39] = \LCD_SPI:BSPIM:dpMOSI_fifo_empty\[40]
+Removing Rhs of wire \LCD_SPI:BSPIM:tx_status_2\[41] = \LCD_SPI:BSPIM:dpMOSI_fifo_not_full\[42]
+Removing Lhs of wire \LCD_SPI:BSPIM:tx_status_3\[43] = \LCD_SPI:BSPIM:load_rx_data\[8]
+Removing Rhs of wire \LCD_SPI:BSPIM:rx_status_4\[45] = \LCD_SPI:BSPIM:dpMISO_fifo_full\[46]
+Removing Rhs of wire \LCD_SPI:BSPIM:rx_status_5\[47] = \LCD_SPI:BSPIM:dpMISO_fifo_not_empty\[48]
+Removing Lhs of wire \LCD_SPI:BSPIM:tx_status_6\[50] = \LCD_SPI:BSPIM:pol_supprt\[10]
+Removing Lhs of wire \LCD_SPI:BSPIM:tx_status_5\[51] = \LCD_SPI:BSPIM:pol_supprt\[10]
+Removing Lhs of wire \LCD_SPI:BSPIM:rx_status_3\[52] = \LCD_SPI:BSPIM:pol_supprt\[10]
+Removing Lhs of wire \LCD_SPI:BSPIM:rx_status_2\[53] = \LCD_SPI:BSPIM:pol_supprt\[10]
+Removing Lhs of wire \LCD_SPI:BSPIM:rx_status_1\[54] = \LCD_SPI:BSPIM:pol_supprt\[10]
+Removing Lhs of wire \LCD_SPI:BSPIM:rx_status_0\[55] = \LCD_SPI:BSPIM:pol_supprt\[10]
+Removing Rhs of wire \LCD_SPI:Net_273\[65] = \LCD_SPI:BSPIM:pol_supprt\[10]
+Removing Rhs of wire zero[70] = \LCD_SPI:Net_273\[65]
+Removing Lhs of wire \LCD_SPI:Net_289\[107] = zero[70]
+Removing Lhs of wire tmpOE__LCD_CS_net_0[109] = one[6]
+Removing Lhs of wire tmpOE__LCD_SCK_net_0[116] = one[6]
+Removing Lhs of wire tmpOE__LCD_MOSI_net_0[123] = one[6]
+Removing Lhs of wire tmpOE__LCD_MISO_net_0[131] = one[6]
+Removing Lhs of wire \Systick_Counter:Net_89\[141] = one[6]
+Removing Lhs of wire \Systick_Counter:CounterUDB:ctrl_capmode_1\[151] = zero[70]
+Removing Lhs of wire \Systick_Counter:CounterUDB:ctrl_capmode_0\[152] = zero[70]
+Removing Lhs of wire \Systick_Counter:CounterUDB:ctrl_enable\[164] = \Systick_Counter:CounterUDB:control_7\[156]
+Removing Lhs of wire \Systick_Counter:CounterUDB:capt_rising\[166] = zero[70]
+Removing Lhs of wire \Systick_Counter:CounterUDB:capt_falling\[167] = \Systick_Counter:CounterUDB:prevCapture\[165]
+Removing Lhs of wire \Systick_Counter:CounterUDB:reload\[170] = zero[70]
+Removing Lhs of wire Net_589[171] = zero[70]
+Removing Lhs of wire \Systick_Counter:CounterUDB:final_enable\[172] = \Systick_Counter:CounterUDB:control_7\[156]
+Removing Lhs of wire \Systick_Counter:CounterUDB:counter_enable\[173] = \Systick_Counter:CounterUDB:control_7\[156]
+Removing Rhs of wire \Systick_Counter:CounterUDB:status_0\[174] = \Systick_Counter:CounterUDB:cmp_out_status\[175]
+Removing Rhs of wire \Systick_Counter:CounterUDB:status_1\[176] = \Systick_Counter:CounterUDB:per_zero\[177]
+Removing Rhs of wire \Systick_Counter:CounterUDB:status_2\[178] = \Systick_Counter:CounterUDB:overflow_status\[179]
+Removing Rhs of wire \Systick_Counter:CounterUDB:status_3\[180] = \Systick_Counter:CounterUDB:underflow_status\[181]
+Removing Lhs of wire \Systick_Counter:CounterUDB:status_4\[182] = \Systick_Counter:CounterUDB:hwCapture\[169]
+Removing Rhs of wire \Systick_Counter:CounterUDB:status_5\[183] = \Systick_Counter:CounterUDB:fifo_full\[184]
+Removing Rhs of wire \Systick_Counter:CounterUDB:status_6\[185] = \Systick_Counter:CounterUDB:fifo_nempty\[186]
+Removing Lhs of wire \Systick_Counter:CounterUDB:dp_dir\[189] = one[6]
+Removing Rhs of wire \Systick_Counter:CounterUDB:cmp_out_i\[196] = \Systick_Counter:CounterUDB:cmp_less\[197]
+Removing Rhs of wire Net_482[202] = \Systick_Timer:Net_51\[398]
+Removing Lhs of wire \Systick_Counter:CounterUDB:cs_addr_2\[205] = one[6]
+Removing Lhs of wire \Systick_Counter:CounterUDB:cs_addr_1\[206] = \Systick_Counter:CounterUDB:count_enable\[203]
+Removing Lhs of wire \Systick_Counter:CounterUDB:cs_addr_0\[207] = zero[70]
+Removing Lhs of wire tmpOE__LCD_DC_net_0[381] = one[6]
+Removing Lhs of wire tmpOE__LCD_RST_net_0[388] = one[6]
+Removing Lhs of wire \Systick_Timer:Net_260\[396] = zero[70]
+Removing Lhs of wire \Systick_Timer:Net_266\[397] = one[6]
+Removing Lhs of wire \Systick_Timer:Net_102\[402] = one[6]
+Removing Lhs of wire \LCD_SPI:BSPIM:so_send_reg\\D\[403] = zero[70]
+Removing Lhs of wire \LCD_SPI:BSPIM:mosi_reg\\D\[410] = \LCD_SPI:BSPIM:mosi_pre_reg\[32]
+Removing Lhs of wire \LCD_SPI:BSPIM:dpcounter_one_reg\\D\[412] = \LCD_SPI:BSPIM:load_rx_data\[8]
+Removing Lhs of wire \LCD_SPI:BSPIM:mosi_from_dp_reg\\D\[413] = \LCD_SPI:BSPIM:mosi_from_dp\[22]
+Removing Lhs of wire \Systick_Counter:CounterUDB:prevCapture\\D\[417] = zero[70]
+Removing Lhs of wire \Systick_Counter:CounterUDB:overflow_reg_i\\D\[418] = \Systick_Counter:CounterUDB:overflow\[188]
+Removing Lhs of wire \Systick_Counter:CounterUDB:underflow_reg_i\\D\[419] = \Systick_Counter:CounterUDB:underflow\[191]
+Removing Lhs of wire \Systick_Counter:CounterUDB:tc_reg_i\\D\[420] = \Systick_Counter:CounterUDB:tc_i\[194]
+Removing Lhs of wire \Systick_Counter:CounterUDB:prevCompare\\D\[421] = \Systick_Counter:CounterUDB:cmp_out_i\[196]
+Removing Lhs of wire \Systick_Counter:CounterUDB:cmp_out_reg_i\\D\[422] = \Systick_Counter:CounterUDB:cmp_out_i\[196]
+Removing Lhs of wire \Systick_Counter:CounterUDB:count_stored_i\\D\[423] = Net_482[202]
+
+------------------------------------------------------
+Aliased 0 equations, 63 wires.
+------------------------------------------------------
+
+----------------------------------------------------------
+Circuit simplification
+----------------------------------------------------------
+
+Substituting virtuals - pass 1:
+
+Note:  Expanding virtual equation for 'one' (cost = 0):
+one <=  ('1') ;
+
+Note:  Expanding virtual equation for '\LCD_SPI:BSPIM:load_rx_data\' (cost = 1):
+\LCD_SPI:BSPIM:load_rx_data\ <= ((not \LCD_SPI:BSPIM:count_4\ and not \LCD_SPI:BSPIM:count_3\ and not \LCD_SPI:BSPIM:count_2\ and not \LCD_SPI:BSPIM:count_1\ and \LCD_SPI:BSPIM:count_0\));
+
+Note:  Expanding virtual equation for 'zero' (cost = 0):
+zero <=  ('0') ;
+
+Note:  Expanding virtual equation for '\Systick_Counter:CounterUDB:capt_either_edge\' (cost = 0):
+\Systick_Counter:CounterUDB:capt_either_edge\ <= (\Systick_Counter:CounterUDB:prevCapture\);
+
+Note:  Expanding virtual equation for '\Systick_Counter:CounterUDB:overflow\' (cost = 0):
+\Systick_Counter:CounterUDB:overflow\ <= (\Systick_Counter:CounterUDB:per_equal\);
+
+Note:  Expanding virtual equation for '\Systick_Counter:CounterUDB:underflow\' (cost = 0):
+\Systick_Counter:CounterUDB:underflow\ <=  ('0') ;
+
+
+Substituting virtuals - pass 2:
+
+
+----------------------------------------------------------
+Circuit simplification results:
+
+	Expanded 6 signals.
+	Turned 0 signals into soft nodes.
+	Maximum default expansion cost was set at 3.
+----------------------------------------------------------
+
+------------------------------------------------------
+Alias Detection
+------------------------------------------------------
+Aliasing \Systick_Counter:CounterUDB:hwCapture\ to zero
+Aliasing \Systick_Counter:CounterUDB:status_3\ to zero
+Aliasing \Systick_Counter:CounterUDB:underflow\ to zero
+Removing Lhs of wire \Systick_Counter:CounterUDB:hwCapture\[169] = zero[70]
+Removing Lhs of wire \Systick_Counter:CounterUDB:status_3\[180] = zero[70]
+Removing Lhs of wire \Systick_Counter:CounterUDB:underflow\[191] = zero[70]
+Removing Lhs of wire \Systick_Counter:CounterUDB:tc_i\[194] = \Systick_Counter:CounterUDB:per_equal\[190]
+
+------------------------------------------------------
+Aliased 0 equations, 4 wires.
+------------------------------------------------------
+
+----------------------------------------------------------
+Circuit simplification
+----------------------------------------------------------
+
+Eliminating unused logic - pass 1:
+
+
+Eliminating unused logic - pass 2:
+
+
+Substituting virtuals - pass 1:
+
+
+----------------------------------------------------------
+Circuit simplification results:
+
+	Expanded 0 signals.
+	Turned 0 signals into soft nodes.
+	Maximum default expansion cost was set at 3.
+----------------------------------------------------------
+
+topld:  No errors.
+
+CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp
+Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\bin/warp.exe
+Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya "-.fftprj=C:\Users\joel\Desktop\psoc\helloworld\CE95352 Blinking LED\CE95352 Blinking LED.cydsn\CE95352 Blinking LED.cyprj" -dcpsoc3 "CE95352 Blinking LED.v" -verilog
+</CYPRESSTAG>
+Warp synthesis phase: Elapsed time ==> 0s.599ms
+<CYPRESSTAG name="Fitter results...">
+<CYPRESSTAG name="Fitter startup details...">
+cyp3fit: V3.3.0.9604, Family: PSoC3, Started at: Friday, 05 August 2016 00:22:35
+Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\joel\Desktop\psoc\helloworld\CE95352 Blinking LED\CE95352 Blinking LED.cydsn\CE95352 Blinking LED.cyprj -d CY8C5888LTI-LP097 CE95352 Blinking LED.v -verilog
+</CYPRESSTAG>
+<CYPRESSTAG name="Design parsing">
+Design parsing phase: Elapsed time ==> 0s.016ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Tech mapping">
+<CYPRESSTAG name="Initial Mapping" icon="FILE_RPT_TECHM">
+    Converted constant MacroCell: \LCD_SPI:BSPIM:so_send_reg\ from registered to combinatorial
+    Converted constant MacroCell: \Systick_Counter:CounterUDB:prevCapture\ from registered to combinatorial
+    Converted constant MacroCell: \Systick_Counter:CounterUDB:underflow_reg_i\ from registered to combinatorial
+Assigning clock timer_clock to clock BUS_CLK because it is a pass-through
+<CYPRESSTAG name="Global Clock Selection" icon="FILE_RPT_TECHM">
+    Digital Clock 0: Automatic-assigning  clock 'LCD_SPI_IntClock'. Fanout=1, Signal=\LCD_SPI:Net_276\
+</CYPRESSTAG>
+
+Removing unused cells resulting from optimization
+Done removing unused cells.
+<CYPRESSTAG name="UDB Clock/Enable Remapping Results">
+    UDB Clk/Enable \LCD_SPI:BSPIM:ClkEn\: with output requested to be synchronous
+        ClockIn: LCD_SPI_IntClock was determined to be a global clock that is synchronous to BUS_CLK
+        EnableIn: Constant 1 was determined to be synchronous to ClockIn
+        ClockOut: LCD_SPI_IntClock, EnableOut: Constant 1
+    UDB Clk/Enable \Systick_Counter:CounterUDB:clock_enable_block\: with output requested to be synchronous
+        ClockIn: BUS_CLK was determined to be a global clock that is synchronous to BUS_CLK
+        EnableIn: Constant 1 was determined to be synchronous to ClockIn
+        ClockOut: BUS_CLK, EnableOut: Constant 1
+    UDB Clk/Enable \Systick_Counter:CounterUDB:sCTRLReg:cy_psoc3_udb_Ctl_Clk_Sync\: with output requested to be synchronous
+        ClockIn: BUS_CLK was determined to be a global clock that is synchronous to BUS_CLK
+        EnableIn: Constant 1 was determined to be synchronous to ClockIn
+        ClockOut: BUS_CLK, EnableOut: Constant 1
+</CYPRESSTAG>
+
+Removing unused cells resulting from optimization
+Done removing unused cells.
+<CYPRESSTAG name="Duplicate Macrocell detection">
+</CYPRESSTAG>
+</CYPRESSTAG>
+<CYPRESSTAG name="Duplicate Macrocell detection">
+</CYPRESSTAG>
+<CYPRESSTAG name="Design Equations" icon="FILE_RPT_EQUATION">
+
+------------------------------------------------------------
+Design Equations
+------------------------------------------------------------
+    <CYPRESSTAG name="Pin listing">
+
+    ------------------------------------------------------------
+    Pin listing
+    ------------------------------------------------------------
+
+    Pin : Name = LCD_CS(0)
+        Attributes:
+            In Group/Port: True
+            In Sync Option: AUTO
+            Out Sync Option: NOSYNC
+            Interrupt generated: False
+            Interrupt mode: NONE
+            Drive mode: CMOS_OUT
+            VTrip: EITHER
+            Slew: FAST
+            Input Sync needed: False
+            Output Sync needed: False
+            SC shield enabled: False
+            POR State: ANY
+            LCD Mode: COMMON
+            Register Mode: RegComb
+            CaSense Mode: NEITHER
+            Treat as pin: True
+            Is OE Registered: False
+            Uses Analog: False
+            Can contain Digital: True
+            Is SIO: False
+            SIO Output Buf: NONREGULATED
+            SIO Input Buf: SINGLE_ENDED
+            SIO HiFreq: LOW
+            SIO Hyst: DISABLED
+            SIO Vtrip: MULTIPLIER_0_5
+            SIO Multiplier Index: 0
+            SIO RefSel: VCC_IO
+            Required Capabilitites: DIGITAL, ROUTABLE
+            Initial Value: 0
+            IO Voltage: 0
+        PORT MAP (
+            pa_out => LCD_CS(0)__PA ,
+            input => Net_313 ,
+            pad => LCD_CS(0)_PAD );
+        Properties:
+        {
+        }
+
+    Pin : Name = LCD_SCK(0)
+        Attributes:
+            In Group/Port: True
+            In Sync Option: AUTO
+            Out Sync Option: NOSYNC
+            Interrupt generated: False
+            Interrupt mode: NONE
+            Drive mode: CMOS_OUT
+            VTrip: EITHER
+            Slew: FAST
+            Input Sync needed: False
+            Output Sync needed: False
+            SC shield enabled: False
+            POR State: ANY
+            LCD Mode: COMMON
+            Register Mode: RegComb
+            CaSense Mode: NEITHER
+            Treat as pin: True
+            Is OE Registered: False
+            Uses Analog: False
+            Can contain Digital: True
+            Is SIO: False
+            SIO Output Buf: NONREGULATED
+            SIO Input Buf: SINGLE_ENDED
+            SIO HiFreq: LOW
+            SIO Hyst: DISABLED
+            SIO Vtrip: MULTIPLIER_0_5
+            SIO Multiplier Index: 0
+            SIO RefSel: VCC_IO
+            Required Capabilitites: DIGITAL, ROUTABLE
+            Initial Value: 0
+            IO Voltage: 0
+        PORT MAP (
+            pa_out => LCD_SCK(0)__PA ,
+            input => Net_315 ,
+            pad => LCD_SCK(0)_PAD );
+        Properties:
+        {
+        }
+
+    Pin : Name = LCD_MOSI(0)
+        Attributes:
+            In Group/Port: True
+            In Sync Option: AUTO
+            Out Sync Option: NOSYNC
+            Interrupt generated: False
+            Interrupt mode: NONE
+            Drive mode: CMOS_OUT
+            VTrip: EITHER
+            Slew: FAST
+            Input Sync needed: False
+            Output Sync needed: False
+            SC shield enabled: False
+            POR State: ANY
+            LCD Mode: COMMON
+            Register Mode: RegComb
+            CaSense Mode: NEITHER
+            Treat as pin: True
+            Is OE Registered: False
+            Uses Analog: False
+            Can contain Digital: True
+            Is SIO: False
+            SIO Output Buf: NONREGULATED
+            SIO Input Buf: SINGLE_ENDED
+            SIO HiFreq: LOW
+            SIO Hyst: DISABLED
+            SIO Vtrip: MULTIPLIER_0_5
+            SIO Multiplier Index: 0
+            SIO RefSel: VCC_IO
+            Required Capabilitites: DIGITAL, ROUTABLE
+            Initial Value: 0
+            IO Voltage: 0
+        PORT MAP (
+            pa_out => LCD_MOSI(0)__PA ,
+            input => Net_310 ,
+            pad => LCD_MOSI(0)_PAD );
+        Properties:
+        {
+        }
+
+    Pin : Name = LCD_MISO(0)
+        Attributes:
+            In Group/Port: True
+            In Sync Option: NOSYNC
+            Out Sync Option: AUTO
+            Interrupt generated: False
+            Interrupt mode: NONE
+            Drive mode: CMOS_OUT
+            VTrip: CMOS
+            Slew: FAST
+            Input Sync needed: False
+            Output Sync needed: False
+            SC shield enabled: False
+            POR State: ANY
+            LCD Mode: COMMON
+            Register Mode: RegComb
+            CaSense Mode: NEITHER
+            Treat as pin: True
+            Is OE Registered: False
+            Uses Analog: False
+            Can contain Digital: True
+            Is SIO: False
+            SIO Output Buf: NONREGULATED
+            SIO Input Buf: SINGLE_ENDED
+            SIO HiFreq: LOW
+            SIO Hyst: DISABLED
+            SIO Vtrip: MULTIPLIER_0_5
+            SIO Multiplier Index: 0
+            SIO RefSel: VCC_IO
+            Required Capabilitites: DIGITAL, ROUTABLE
+            Initial Value: 0
+            IO Voltage: 0
+        PORT MAP (
+            pa_out => LCD_MISO(0)__PA ,
+            fb => Net_295 ,
+            pad => LCD_MISO(0)_PAD );
+        Properties:
+        {
+        }
+
+    Pin : Name = LCD_DC(0)
+        Attributes:
+            In Group/Port: True
+            In Sync Option: AUTO
+            Out Sync Option: NOSYNC
+            Interrupt generated: False
+            Interrupt mode: NONE
+            Drive mode: CMOS_OUT
+            VTrip: EITHER
+            Slew: FAST
+            Input Sync needed: False
+            Output Sync needed: False
+            SC shield enabled: False
+            POR State: ANY
+            LCD Mode: COMMON
+            Register Mode: RegComb
+            CaSense Mode: NEITHER
+            Treat as pin: True
+            Is OE Registered: False
+            Uses Analog: False
+            Can contain Digital: True
+            Is SIO: False
+            SIO Output Buf: NONREGULATED
+            SIO Input Buf: SINGLE_ENDED
+            SIO HiFreq: LOW
+            SIO Hyst: DISABLED
+            SIO Vtrip: MULTIPLIER_0_5
+            SIO Multiplier Index: 0
+            SIO RefSel: VCC_IO
+            Required Capabilitites: DIGITAL
+            Initial Value: 0
+            IO Voltage: 0
+        PORT MAP (
+            pa_out => LCD_DC(0)__PA ,
+            pad => LCD_DC(0)_PAD );
+        Properties:
+        {
+        }
+
+    Pin : Name = LCD_RST(0)
+        Attributes:
+            In Group/Port: True
+            In Sync Option: AUTO
+            Out Sync Option: NOSYNC
+            Interrupt generated: False
+            Interrupt mode: NONE
+            Drive mode: CMOS_OUT
+            VTrip: EITHER
+            Slew: FAST
+            Input Sync needed: False
+            Output Sync needed: False
+            SC shield enabled: False
+            POR State: ANY
+            LCD Mode: COMMON
+            Register Mode: RegComb
+            CaSense Mode: NEITHER
+            Treat as pin: True
+            Is OE Registered: False
+            Uses Analog: False
+            Can contain Digital: True
+            Is SIO: False
+            SIO Output Buf: NONREGULATED
+            SIO Input Buf: SINGLE_ENDED
+            SIO HiFreq: LOW
+            SIO Hyst: DISABLED
+            SIO Vtrip: MULTIPLIER_0_5
+            SIO Multiplier Index: 0
+            SIO RefSel: VCC_IO
+            Required Capabilitites: DIGITAL
+            Initial Value: 0
+            IO Voltage: 0
+        PORT MAP (
+            pa_out => LCD_RST(0)__PA ,
+            pad => LCD_RST(0)_PAD );
+        Properties:
+        {
+        }
+    </CYPRESSTAG>
+    <CYPRESSTAG name="Macrocell listing" icon="FILE_RPT_EQUATION">
+
+    ------------------------------------------------------------
+    Macrocell listing
+    ------------------------------------------------------------
+
+    MacroCell: Name=\LCD_SPI:BSPIM:mosi_pre_reg_split\, Mode=(Combinatorial)
+        Total # of inputs        : 11
+        Total # of product terms : 8
+            Clock Enable: True
+        Main Equation            : 8 pterms
+        (
+              !\LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * 
+              !\LCD_SPI:BSPIM:state_0\ * \LCD_SPI:BSPIM:mosi_from_dp\ * 
+              \LCD_SPI:BSPIM:count_4\
+            + !\LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * 
+              !\LCD_SPI:BSPIM:state_0\ * \LCD_SPI:BSPIM:mosi_from_dp\ * 
+              \LCD_SPI:BSPIM:count_3\
+            + !\LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * 
+              !\LCD_SPI:BSPIM:state_0\ * \LCD_SPI:BSPIM:mosi_from_dp\ * 
+              \LCD_SPI:BSPIM:count_2\
+            + !\LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * 
+              !\LCD_SPI:BSPIM:state_0\ * \LCD_SPI:BSPIM:mosi_from_dp\ * 
+              \LCD_SPI:BSPIM:count_1\
+            + !\LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * 
+              !\LCD_SPI:BSPIM:state_0\ * \LCD_SPI:BSPIM:mosi_from_dp\ * 
+              !\LCD_SPI:BSPIM:count_0\
+            + \LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * 
+              !\LCD_SPI:BSPIM:state_0\ * \LCD_SPI:BSPIM:mosi_pre_reg\
+            + \LCD_SPI:BSPIM:state_1\ * !\LCD_SPI:BSPIM:state_0\ * 
+              !\LCD_SPI:BSPIM:count_4\ * !\LCD_SPI:BSPIM:count_3\ * 
+              !\LCD_SPI:BSPIM:count_2\ * !\LCD_SPI:BSPIM:count_1\ * 
+              \LCD_SPI:BSPIM:count_0\ * \LCD_SPI:BSPIM:mosi_pre_reg\
+            + \LCD_SPI:BSPIM:state_1\ * \LCD_SPI:BSPIM:state_0\ * 
+              \LCD_SPI:BSPIM:mosi_from_dp\ * !\LCD_SPI:BSPIM:count_4\ * 
+              !\LCD_SPI:BSPIM:count_3\ * !\LCD_SPI:BSPIM:count_2\ * 
+              !\LCD_SPI:BSPIM:count_1\ * !\LCD_SPI:BSPIM:count_0\ * 
+              !\LCD_SPI:BSPIM:ld_ident\
+        );
+        Output = \LCD_SPI:BSPIM:mosi_pre_reg_split\ (fanout=1)
+
+    MacroCell: Name=\LCD_SPI:BSPIM:load_rx_data\, Mode=(Combinatorial)
+        Total # of inputs        : 5
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\LCD_SPI:BSPIM:count_4\ * !\LCD_SPI:BSPIM:count_3\ * 
+              !\LCD_SPI:BSPIM:count_2\ * !\LCD_SPI:BSPIM:count_1\ * 
+              \LCD_SPI:BSPIM:count_0\
+        );
+        Output = \LCD_SPI:BSPIM:load_rx_data\ (fanout=2)
+
+    MacroCell: Name=Net_310, Mode=(Combinatorial)
+        Total # of inputs        : 5
+        Total # of product terms : 3
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        (
+              !\LCD_SPI:BSPIM:state_2\ * !Net_313 * 
+              \LCD_SPI:BSPIM:mosi_hs_reg\
+            + \LCD_SPI:BSPIM:state_1\ * !Net_313 * 
+              \LCD_SPI:BSPIM:mosi_hs_reg\
+            + !\LCD_SPI:BSPIM:state_0\ * !Net_313 * 
+              \LCD_SPI:BSPIM:mosi_hs_reg\
+        );
+        Output = Net_310 (fanout=1)
+
+    MacroCell: Name=\LCD_SPI:BSPIM:tx_status_0\, Mode=(Combinatorial)
+        Total # of inputs        : 3
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_1\ * 
+              \LCD_SPI:BSPIM:state_0\
+        );
+        Output = \LCD_SPI:BSPIM:tx_status_0\ (fanout=1)
+
+    MacroCell: Name=\LCD_SPI:BSPIM:tx_status_4\, Mode=(Combinatorial)
+        Total # of inputs        : 3
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_1\ * 
+              !\LCD_SPI:BSPIM:state_0\
+        );
+        Output = \LCD_SPI:BSPIM:tx_status_4\ (fanout=1)
+
+    MacroCell: Name=\LCD_SPI:BSPIM:rx_status_6\, Mode=(Combinatorial)
+        Total # of inputs        : 6
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\LCD_SPI:BSPIM:count_4\ * !\LCD_SPI:BSPIM:count_3\ * 
+              !\LCD_SPI:BSPIM:count_2\ * !\LCD_SPI:BSPIM:count_1\ * 
+              \LCD_SPI:BSPIM:count_0\ * \LCD_SPI:BSPIM:rx_status_4\
+        );
+        Output = \LCD_SPI:BSPIM:rx_status_6\ (fanout=1)
+
+    MacroCell: Name=\Systick_Counter:CounterUDB:status_0\, Mode=(Combinatorial)
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \Systick_Counter:CounterUDB:cmp_out_i\ * 
+              !\Systick_Counter:CounterUDB:prevCompare\
+        );
+        Output = \Systick_Counter:CounterUDB:status_0\ (fanout=1)
+
+    MacroCell: Name=\Systick_Counter:CounterUDB:status_2\, Mode=(Combinatorial)
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \Systick_Counter:CounterUDB:per_equal\ * 
+              !\Systick_Counter:CounterUDB:overflow_reg_i\
+        );
+        Output = \Systick_Counter:CounterUDB:status_2\ (fanout=1)
+
+    MacroCell: Name=\Systick_Counter:CounterUDB:count_enable\, Mode=(Combinatorial)
+        Total # of inputs        : 3
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \Systick_Counter:CounterUDB:control_7\ * 
+              !\Systick_Counter:CounterUDB:count_stored_i\ * Net_482
+        );
+        Output = \Systick_Counter:CounterUDB:count_enable\ (fanout=4)
+
+    MacroCell: Name=__ONE__, Mode=(Combinatorial)
+        Total # of inputs        : 0
+        Total # of product terms : 0
+            Clock Enable: True
+        Main Equation            : 0 pterms
+        !(
+            0
+        );
+        Output = __ONE__ (fanout=5)
+
+    MacroCell: Name=\LCD_SPI:BSPIM:mosi_pre_reg_split_1\, Mode=(Combinatorial)
+        Total # of inputs        : 10
+        Total # of product terms : 6
+            Clock Enable: True
+        Main Equation            : 6 pterms
+        !(
+              !\LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * 
+              !\LCD_SPI:BSPIM:count_4\ * !\LCD_SPI:BSPIM:count_3\ * 
+              !\LCD_SPI:BSPIM:count_2\ * !\LCD_SPI:BSPIM:count_0\ * 
+              !\LCD_SPI:BSPIM:ld_ident\
+            + !\LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_0\
+            + !\LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:mosi_pre_reg\
+            + \LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_1\ * 
+              \LCD_SPI:BSPIM:state_0\
+            + \LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:mosi_from_dp\
+            + \LCD_SPI:BSPIM:state_1\ * !\LCD_SPI:BSPIM:state_0\
+        );
+        Output = \LCD_SPI:BSPIM:mosi_pre_reg_split_1\ (fanout=1)
+
+    MacroCell: Name=\LCD_SPI:BSPIM:state_2\, Mode=(D-Register)
+        Total # of inputs        : 10
+        Total # of product terms : 4
+        List of special equations: 
+            Clock  = (\LCD_SPI:Net_276\) => Global
+            Clock Enable: True
+        Main Equation            : 4 pterms
+        (
+              !\LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_1\ * 
+              \LCD_SPI:BSPIM:state_0\
+            + \LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * 
+              \LCD_SPI:BSPIM:state_0\
+            + \LCD_SPI:BSPIM:state_1\ * \LCD_SPI:BSPIM:state_0\ * 
+              !\LCD_SPI:BSPIM:count_4\ * !\LCD_SPI:BSPIM:count_3\ * 
+              !\LCD_SPI:BSPIM:count_2\ * \LCD_SPI:BSPIM:count_1\ * 
+              !\LCD_SPI:BSPIM:count_0\ * !\LCD_SPI:BSPIM:ld_ident\
+            + \LCD_SPI:BSPIM:state_1\ * \LCD_SPI:BSPIM:state_0\ * 
+              !\LCD_SPI:BSPIM:count_4\ * !\LCD_SPI:BSPIM:count_3\ * 
+              \LCD_SPI:BSPIM:count_2\ * \LCD_SPI:BSPIM:count_1\ * 
+              !\LCD_SPI:BSPIM:count_0\ * !\LCD_SPI:BSPIM:tx_status_1\
+        );
+        Output = \LCD_SPI:BSPIM:state_2\ (fanout=15)
+
+    MacroCell: Name=\LCD_SPI:BSPIM:state_1\, Mode=(D-Register)
+        Total # of inputs        : 10
+        Total # of product terms : 4
+        List of special equations: 
+            Clock  = (\LCD_SPI:Net_276\) => Global
+            Clock Enable: True
+        Main Equation            : 4 pterms
+        !(
+              !\LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_1\ * 
+              !\LCD_SPI:BSPIM:state_0\
+            + !\LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * 
+              \LCD_SPI:BSPIM:state_0\ * !\LCD_SPI:BSPIM:count_4\ * 
+              !\LCD_SPI:BSPIM:count_3\ * !\LCD_SPI:BSPIM:count_2\ * 
+              \LCD_SPI:BSPIM:count_1\ * !\LCD_SPI:BSPIM:count_0\ * 
+              !\LCD_SPI:BSPIM:ld_ident\
+            + !\LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * 
+              \LCD_SPI:BSPIM:state_0\ * !\LCD_SPI:BSPIM:count_4\ * 
+              !\LCD_SPI:BSPIM:count_3\ * \LCD_SPI:BSPIM:count_2\ * 
+              \LCD_SPI:BSPIM:count_1\ * !\LCD_SPI:BSPIM:count_0\ * 
+              !\LCD_SPI:BSPIM:tx_status_1\
+            + \LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_1\ * 
+              \LCD_SPI:BSPIM:state_0\
+        );
+        Output = \LCD_SPI:BSPIM:state_1\ (fanout=15)
+
+    MacroCell: Name=\LCD_SPI:BSPIM:state_0\, Mode=(T-Register)
+        Total # of inputs        : 10
+        Total # of product terms : 3
+        List of special equations: 
+            Clock  = (\LCD_SPI:Net_276\) => Global
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        !(
+              !\LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_1\ * 
+              \LCD_SPI:BSPIM:state_0\
+            + !\LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_1\ * 
+              \LCD_SPI:BSPIM:tx_status_1\
+            + !\LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_0\ * 
+              !\LCD_SPI:BSPIM:count_4\ * !\LCD_SPI:BSPIM:count_3\ * 
+              !\LCD_SPI:BSPIM:count_2\ * \LCD_SPI:BSPIM:count_1\ * 
+              !\LCD_SPI:BSPIM:count_0\ * !\LCD_SPI:BSPIM:ld_ident\
+        );
+        Output = \LCD_SPI:BSPIM:state_0\ (fanout=15)
+
+    MacroCell: Name=Net_313, Mode=(D-Register)
+        Total # of inputs        : 4
+        Total # of product terms : 3
+        List of special equations: 
+            Clock  = (\LCD_SPI:Net_276\) => Global
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        !(
+              !\LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_1\ * 
+              \LCD_SPI:BSPIM:state_0\
+            + \LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_0\ * !Net_313
+            + \LCD_SPI:BSPIM:state_1\ * !Net_313
+        );
+        Output = Net_313 (fanout=3)
+
+    MacroCell: Name=\LCD_SPI:BSPIM:mosi_hs_reg\, Mode=(D-Register)
+        Total # of inputs        : 6
+        Total # of product terms : 4
+        List of special equations: 
+            Clock  = (\LCD_SPI:Net_276\) => Global
+            Clock Enable: True
+        Main Equation            : 4 pterms
+        (
+              !\LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * 
+              \LCD_SPI:BSPIM:state_0\ * \LCD_SPI:BSPIM:mosi_from_dp_reg\
+            + \LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * 
+              \LCD_SPI:BSPIM:state_0\ * \LCD_SPI:BSPIM:mosi_from_dp\
+            + !\LCD_SPI:BSPIM:state_1\ * \LCD_SPI:BSPIM:mosi_hs_reg\
+            + !\LCD_SPI:BSPIM:state_0\ * \LCD_SPI:BSPIM:mosi_hs_reg\
+        );
+        Output = \LCD_SPI:BSPIM:mosi_hs_reg\ (fanout=2)
+
+    MacroCell: Name=\LCD_SPI:BSPIM:mosi_pre_reg\, Mode=(D-Register)
+        Total # of inputs        : 2
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (\LCD_SPI:Net_276\) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        !(
+              !\LCD_SPI:BSPIM:mosi_pre_reg_split\ * 
+              !\LCD_SPI:BSPIM:mosi_pre_reg_split_1\
+        );
+        Output = \LCD_SPI:BSPIM:mosi_pre_reg\ (fanout=2)
+
+    MacroCell: Name=\LCD_SPI:BSPIM:load_cond\, Mode=(T-Register)
+        Total # of inputs        : 9
+        Total # of product terms : 4
+        List of special equations: 
+            Clock  = (\LCD_SPI:Net_276\) => Global
+            Clock Enable: True
+        Main Equation            : 4 pterms
+        (
+              !\LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:count_4\ * 
+              !\LCD_SPI:BSPIM:count_3\ * !\LCD_SPI:BSPIM:count_2\ * 
+              !\LCD_SPI:BSPIM:count_1\ * !\LCD_SPI:BSPIM:count_0\ * 
+              \LCD_SPI:BSPIM:load_cond\
+            + \LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_1\ * 
+              !\LCD_SPI:BSPIM:state_0\ * !\LCD_SPI:BSPIM:load_cond\
+            + \LCD_SPI:BSPIM:state_1\ * !\LCD_SPI:BSPIM:count_4\ * 
+              !\LCD_SPI:BSPIM:count_3\ * !\LCD_SPI:BSPIM:count_2\ * 
+              !\LCD_SPI:BSPIM:count_1\ * !\LCD_SPI:BSPIM:count_0\ * 
+              \LCD_SPI:BSPIM:load_cond\
+            + \LCD_SPI:BSPIM:state_0\ * !\LCD_SPI:BSPIM:count_4\ * 
+              !\LCD_SPI:BSPIM:count_3\ * !\LCD_SPI:BSPIM:count_2\ * 
+              !\LCD_SPI:BSPIM:count_1\ * !\LCD_SPI:BSPIM:count_0\ * 
+              \LCD_SPI:BSPIM:load_cond\
+        );
+        Output = \LCD_SPI:BSPIM:load_cond\ (fanout=1)
+
+    MacroCell: Name=\LCD_SPI:BSPIM:mosi_from_dp_reg\, Mode=(D-Register)
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (\LCD_SPI:Net_276\) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \LCD_SPI:BSPIM:mosi_from_dp\
+        );
+        Output = \LCD_SPI:BSPIM:mosi_from_dp_reg\ (fanout=1)
+
+    MacroCell: Name=\LCD_SPI:BSPIM:ld_ident\, Mode=(T-Register)
+        Total # of inputs        : 9
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (\LCD_SPI:Net_276\) => Global
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              !\LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * 
+              !\LCD_SPI:BSPIM:state_0\ * !\LCD_SPI:BSPIM:count_4\ * 
+              !\LCD_SPI:BSPIM:count_3\ * !\LCD_SPI:BSPIM:count_2\ * 
+              !\LCD_SPI:BSPIM:count_1\ * \LCD_SPI:BSPIM:count_0\ * 
+              \LCD_SPI:BSPIM:ld_ident\
+            + \LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_1\ * 
+              !\LCD_SPI:BSPIM:state_0\ * !\LCD_SPI:BSPIM:ld_ident\
+        );
+        Output = \LCD_SPI:BSPIM:ld_ident\ (fanout=6)
+
+    MacroCell: Name=\LCD_SPI:BSPIM:cnt_enable\, Mode=(T-Register)
+        Total # of inputs        : 4
+        Total # of product terms : 3
+        List of special equations: 
+            Clock  = (\LCD_SPI:Net_276\) => Global
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        (
+              !\LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_1\ * 
+              !\LCD_SPI:BSPIM:state_0\ * \LCD_SPI:BSPIM:cnt_enable\
+            + \LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_1\ * 
+              \LCD_SPI:BSPIM:state_0\ * \LCD_SPI:BSPIM:cnt_enable\
+            + \LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * 
+              !\LCD_SPI:BSPIM:state_0\ * !\LCD_SPI:BSPIM:cnt_enable\
+        );
+        Output = \LCD_SPI:BSPIM:cnt_enable\ (fanout=2)
+
+    MacroCell: Name=Net_315, Mode=(D-Register)
+        Total # of inputs        : 4
+        Total # of product terms : 3
+        List of special equations: 
+            Clock  = (\LCD_SPI:Net_276\) => Global
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        (
+              \LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * Net_315
+            + \LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_0\
+            + \LCD_SPI:BSPIM:state_1\ * !\LCD_SPI:BSPIM:state_0\
+        );
+        Output = Net_315 (fanout=2)
+
+    MacroCell: Name=\Systick_Counter:CounterUDB:overflow_reg_i\, Mode=(D-Register)
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \Systick_Counter:CounterUDB:per_equal\
+        );
+        Output = \Systick_Counter:CounterUDB:overflow_reg_i\ (fanout=1)
+
+    MacroCell: Name=\Systick_Counter:CounterUDB:prevCompare\, Mode=(D-Register)
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \Systick_Counter:CounterUDB:cmp_out_i\
+        );
+        Output = \Systick_Counter:CounterUDB:prevCompare\ (fanout=1)
+
+    MacroCell: Name=\Systick_Counter:CounterUDB:count_stored_i\, Mode=(D-Register)
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_482
+        );
+        Output = \Systick_Counter:CounterUDB:count_stored_i\ (fanout=1)
+    </CYPRESSTAG>
+    <CYPRESSTAG name="Datapath listing">
+
+    ------------------------------------------------------------
+    Datapath listing
+    ------------------------------------------------------------
+
+    datapathcell: Name =\LCD_SPI:BSPIM:sR8:Dp:u0\
+        PORT MAP (
+            clock => \LCD_SPI:Net_276\ ,
+            cs_addr_2 => \LCD_SPI:BSPIM:state_2\ ,
+            cs_addr_1 => \LCD_SPI:BSPIM:state_1\ ,
+            cs_addr_0 => \LCD_SPI:BSPIM:state_0\ ,
+            route_si => Net_295 ,
+            f1_load => \LCD_SPI:BSPIM:load_rx_data\ ,
+            so_comb => \LCD_SPI:BSPIM:mosi_from_dp\ ,
+            f0_bus_stat_comb => \LCD_SPI:BSPIM:tx_status_2\ ,
+            f0_blk_stat_comb => \LCD_SPI:BSPIM:tx_status_1\ ,
+            f1_bus_stat_comb => \LCD_SPI:BSPIM:rx_status_5\ ,
+            f1_blk_stat_comb => \LCD_SPI:BSPIM:rx_status_4\ );
+        Properties:
+        {
+            a0_init = "00000000"
+            a1_init = "00000000"
+            ce0_sync = 1
+            ce1_sync = 1
+            cl0_sync = 1
+            cl1_sync = 1
+            cmsb_sync = 1
+            co_msb_sync = 1
+            cy_dpconfig = "0000000000000000000000001100000000000001010000000001000100010000000000011100000000010001000000000000000101000000000000010100000011111111000000001111111111111111000000000010001000001000111100000000000000000100"
+            d0_init = "00000000"
+            d1_init = "00000000"
+            f0_blk_sync = 1
+            f0_bus_sync = 1
+            f1_blk_sync = 1
+            f1_bus_sync = 1
+            ff0_sync = 1
+            ff1_sync = 1
+            ov_msb_sync = 1
+            so_sync = 1
+            z0_sync = 1
+            z1_sync = 1
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+
+    datapathcell: Name =\Systick_Counter:CounterUDB:sC32:counterdp:u0\
+        PORT MAP (
+            clock => ClockBlock_BUS_CLK ,
+            cs_addr_2 => __ONE__ ,
+            cs_addr_1 => \Systick_Counter:CounterUDB:count_enable\ ,
+            chain_out => \Systick_Counter:CounterUDB:sC32:counterdp:carry0\ );
+        Properties:
+        {
+            a0_init = "00000000"
+            a1_init = "00000000"
+            ce0_sync = 1
+            ce1_sync = 1
+            cl0_sync = 1
+            cl1_sync = 1
+            cmsb_sync = 1
+            co_msb_sync = 1
+            cy_dpconfig = "0000000001000000000000001000000001000000010000000000000010000000000000000100000010101000010100000010000001000000101010000101000011111111000000001111111111111111101000000000000000000001000000000000000000011000"
+            d0_init = "00000000"
+            d1_init = "00000000"
+            f0_blk_sync = 1
+            f0_bus_sync = 1
+            f1_blk_sync = 1
+            f1_bus_sync = 1
+            ff0_sync = 1
+            ff1_sync = 1
+            ov_msb_sync = 1
+            so_sync = 1
+            z0_sync = 1
+            z1_sync = 1
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+        Next in chain : \Systick_Counter:CounterUDB:sC32:counterdp:u1\
+
+    datapathcell: Name =\Systick_Counter:CounterUDB:sC32:counterdp:u1\
+        PORT MAP (
+            clock => ClockBlock_BUS_CLK ,
+            cs_addr_2 => __ONE__ ,
+            cs_addr_1 => \Systick_Counter:CounterUDB:count_enable\ ,
+            chain_in => \Systick_Counter:CounterUDB:sC32:counterdp:carry0\ ,
+            chain_out => \Systick_Counter:CounterUDB:sC32:counterdp:carry1\ );
+        Properties:
+        {
+            a0_init = "00000000"
+            a1_init = "00000000"
+            ce0_sync = 1
+            ce1_sync = 1
+            cl0_sync = 1
+            cl1_sync = 1
+            cmsb_sync = 1
+            co_msb_sync = 1
+            cy_dpconfig = "0000000001000000000000001000000001000000010000000000000010000000000000000100000010101000010100000010000001000000101010000101000011111111000000001111111111111111101011110000000000000001000001110000000000011000"
+            d0_init = "00000000"
+            d1_init = "00000000"
+            f0_blk_sync = 1
+            f0_bus_sync = 1
+            f1_blk_sync = 1
+            f1_bus_sync = 1
+            ff0_sync = 1
+            ff1_sync = 1
+            ov_msb_sync = 1
+            so_sync = 1
+            z0_sync = 1
+            z1_sync = 1
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+        Previous in chain : \Systick_Counter:CounterUDB:sC32:counterdp:u0\
+        Next in chain : \Systick_Counter:CounterUDB:sC32:counterdp:u2\
+
+    datapathcell: Name =\Systick_Counter:CounterUDB:sC32:counterdp:u2\
+        PORT MAP (
+            clock => ClockBlock_BUS_CLK ,
+            cs_addr_2 => __ONE__ ,
+            cs_addr_1 => \Systick_Counter:CounterUDB:count_enable\ ,
+            chain_in => \Systick_Counter:CounterUDB:sC32:counterdp:carry1\ ,
+            chain_out => \Systick_Counter:CounterUDB:sC32:counterdp:carry2\ );
+        Properties:
+        {
+            a0_init = "00000000"
+            a1_init = "00000000"
+            ce0_sync = 1
+            ce1_sync = 1
+            cl0_sync = 1
+            cl1_sync = 1
+            cmsb_sync = 1
+            co_msb_sync = 1
+            cy_dpconfig = "0000000001000000000000001000000001000000010000000000000010000000000000000100000010101000010100000010000001000000101010000101000011111111000000001111111111111111101011110000000000000001000001110000000000011000"
+            d0_init = "00000000"
+            d1_init = "00000000"
+            f0_blk_sync = 1
+            f0_bus_sync = 1
+            f1_blk_sync = 1
+            f1_bus_sync = 1
+            ff0_sync = 1
+            ff1_sync = 1
+            ov_msb_sync = 1
+            so_sync = 1
+            z0_sync = 1
+            z1_sync = 1
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+        Previous in chain : \Systick_Counter:CounterUDB:sC32:counterdp:u1\
+        Next in chain : \Systick_Counter:CounterUDB:sC32:counterdp:u3\
+
+    datapathcell: Name =\Systick_Counter:CounterUDB:sC32:counterdp:u3\
+        PORT MAP (
+            clock => ClockBlock_BUS_CLK ,
+            cs_addr_2 => __ONE__ ,
+            cs_addr_1 => \Systick_Counter:CounterUDB:count_enable\ ,
+            ce0_comb => \Systick_Counter:CounterUDB:per_equal\ ,
+            z0_comb => \Systick_Counter:CounterUDB:status_1\ ,
+            cl1_comb => \Systick_Counter:CounterUDB:cmp_out_i\ ,
+            f0_bus_stat_comb => \Systick_Counter:CounterUDB:status_6\ ,
+            f0_blk_stat_comb => \Systick_Counter:CounterUDB:status_5\ ,
+            chain_in => \Systick_Counter:CounterUDB:sC32:counterdp:carry2\ );
+        Properties:
+        {
+            a0_init = "00000000"
+            a1_init = "00000000"
+            ce0_sync = 1
+            ce1_sync = 1
+            cl0_sync = 1
+            cl1_sync = 1
+            cmsb_sync = 1
+            co_msb_sync = 1
+            cy_dpconfig = "0000000001000000000000001000000001000000010000000000000010000000000000000100000010101000010100000010000001000000101010000101000011111111000000001111111111111111101011110000000000000001000001110000000000011000"
+            d0_init = "00000000"
+            d1_init = "00000000"
+            f0_blk_sync = 1
+            f0_bus_sync = 1
+            f1_blk_sync = 1
+            f1_bus_sync = 1
+            ff0_sync = 1
+            ff1_sync = 1
+            ov_msb_sync = 1
+            so_sync = 1
+            z0_sync = 1
+            z1_sync = 1
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+        Previous in chain : \Systick_Counter:CounterUDB:sC32:counterdp:u2\
+    </CYPRESSTAG>
+    <CYPRESSTAG name="Status register listing">
+    </CYPRESSTAG>
+    <CYPRESSTAG name="StatusI register listing">
+
+    ------------------------------------------------------------
+    StatusI register listing
+    ------------------------------------------------------------
+
+    statusicell: Name =\LCD_SPI:BSPIM:TxStsReg\
+        PORT MAP (
+            clock => \LCD_SPI:Net_276\ ,
+            status_4 => \LCD_SPI:BSPIM:tx_status_4\ ,
+            status_3 => \LCD_SPI:BSPIM:load_rx_data\ ,
+            status_2 => \LCD_SPI:BSPIM:tx_status_2\ ,
+            status_1 => \LCD_SPI:BSPIM:tx_status_1\ ,
+            status_0 => \LCD_SPI:BSPIM:tx_status_0\ ,
+            interrupt => Net_300 );
+        Properties:
+        {
+            cy_force_order = 1
+            cy_int_mask = "0000000"
+            cy_md_select = "0001001"
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+
+    statusicell: Name =\LCD_SPI:BSPIM:RxStsReg\
+        PORT MAP (
+            clock => \LCD_SPI:Net_276\ ,
+            status_6 => \LCD_SPI:BSPIM:rx_status_6\ ,
+            status_5 => \LCD_SPI:BSPIM:rx_status_5\ ,
+            status_4 => \LCD_SPI:BSPIM:rx_status_4\ ,
+            interrupt => Net_298 );
+        Properties:
+        {
+            cy_force_order = 1
+            cy_int_mask = "0000000"
+            cy_md_select = "1000000"
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+
+    statusicell: Name =\Systick_Counter:CounterUDB:sSTSReg:stsreg\
+        PORT MAP (
+            clock => ClockBlock_BUS_CLK ,
+            status_6 => \Systick_Counter:CounterUDB:status_6\ ,
+            status_5 => \Systick_Counter:CounterUDB:status_5\ ,
+            status_2 => \Systick_Counter:CounterUDB:status_2\ ,
+            status_1 => \Systick_Counter:CounterUDB:status_1\ ,
+            status_0 => \Systick_Counter:CounterUDB:status_0\ );
+        Properties:
+        {
+            cy_force_order = 1
+            cy_int_mask = "1111111"
+            cy_md_select = "0011111"
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+    </CYPRESSTAG>
+    <CYPRESSTAG name="Sync listing">
+    </CYPRESSTAG>
+    <CYPRESSTAG name="Control register listing">
+
+    ------------------------------------------------------------
+    Control register listing
+    ------------------------------------------------------------
+
+    controlcell: Name =\Systick_Counter:CounterUDB:sCTRLReg:ctrlreg\
+        PORT MAP (
+            clock => ClockBlock_BUS_CLK ,
+            control_7 => \Systick_Counter:CounterUDB:control_7\ ,
+            control_6 => \Systick_Counter:CounterUDB:control_6\ ,
+            control_5 => \Systick_Counter:CounterUDB:control_5\ ,
+            control_4 => \Systick_Counter:CounterUDB:control_4\ ,
+            control_3 => \Systick_Counter:CounterUDB:control_3\ ,
+            control_2 => \Systick_Counter:CounterUDB:control_2\ ,
+            control_1 => \Systick_Counter:CounterUDB:control_1\ ,
+            control_0 => \Systick_Counter:CounterUDB:control_0\ );
+        Properties:
+        {
+            cy_ctrl_mode_0 = "11111111"
+            cy_ctrl_mode_1 = "00000000"
+            cy_ext_reset = 0
+            cy_force_order = 1
+            cy_init_value = "00000000"
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+    </CYPRESSTAG>
+    <CYPRESSTAG name="Count7 listing">
+
+    ------------------------------------------------------------
+    Count7 listing
+    ------------------------------------------------------------
+
+    count7cell: Name =\LCD_SPI:BSPIM:BitCounter\
+        PORT MAP (
+            clock => \LCD_SPI:Net_276\ ,
+            enable => \LCD_SPI:BSPIM:cnt_enable\ ,
+            count_6 => \LCD_SPI:BSPIM:count_6\ ,
+            count_5 => \LCD_SPI:BSPIM:count_5\ ,
+            count_4 => \LCD_SPI:BSPIM:count_4\ ,
+            count_3 => \LCD_SPI:BSPIM:count_3\ ,
+            count_2 => \LCD_SPI:BSPIM:count_2\ ,
+            count_1 => \LCD_SPI:BSPIM:count_1\ ,
+            count_0 => \LCD_SPI:BSPIM:count_0\ ,
+            tc => \LCD_SPI:BSPIM:cnt_tc\ );
+        Properties:
+        {
+            cy_alt_mode = 0
+            cy_init_value = "0000000"
+            cy_period = "0001111"
+            cy_route_en = 1
+            cy_route_ld = 0
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+    </CYPRESSTAG>
+    <CYPRESSTAG name="DRQ listing">
+    </CYPRESSTAG>
+    <CYPRESSTAG name="Interrupt listing">
+
+    ------------------------------------------------------------
+    Interrupt listing
+    ------------------------------------------------------------
+
+    interrupt: Name =\LCD_SPI:RxInternalInterrupt\
+        PORT MAP (
+            interrupt => Net_298 );
+        Properties:
+        {
+            int_type = "10"
+        }
+
+    interrupt: Name =\LCD_SPI:TxInternalInterrupt\
+        PORT MAP (
+            interrupt => Net_300 );
+        Properties:
+        {
+            int_type = "10"
+        }
+    </CYPRESSTAG>
+</CYPRESSTAG>
+<CYPRESSTAG name="Technology mapping summary" expanded>
+
+------------------------------------------------------------
+Technology mapping summary
+------------------------------------------------------------
+
+Resource Type                 : Used : Free :  Max :  % Used
+============================================================
+Digital Clocks                :    1 :    7 :    8 : 12.50 %
+Analog Clocks                 :    0 :    4 :    4 :  0.00 %
+CapSense Buffers              :    0 :    2 :    2 :  0.00 %
+Digital Filter Block          :    0 :    1 :    1 :  0.00 %
+Interrupts                    :    2 :   30 :   32 :  6.25 %
+IO                            :    9 :   39 :   48 : 18.75 %
+Segment LCD                   :    0 :    1 :    1 :  0.00 %
+CAN 2.0b                      :    0 :    1 :    1 :  0.00 %
+I2C                           :    0 :    1 :    1 :  0.00 %
+USB                           :    0 :    1 :    1 :  0.00 %
+DMA Channels                  :    0 :   24 :   24 :  0.00 %
+Timer                         :    1 :    3 :    4 : 25.00 %
+UDB                           :      :      :      :        
+  Macrocells                  :   25 :  167 :  192 : 13.02 %
+  Unique P-terms              :   53 :  331 :  384 : 13.80 %
+  Total P-terms               :   59 :      :      :        
+  Datapath Cells              :    5 :   19 :   24 : 20.83 %
+  Status Cells                :    4 :   20 :   24 : 16.67 %
+    StatusI Registers         :    3 :      :      :        
+    Routed Count7 Load/Enable :    1 :      :      :        
+  Control Cells               :    2 :   22 :   24 :  8.33 %
+    Control Registers         :    1 :      :      :        
+    Count7 Cells              :    1 :      :      :        
+Opamp                         :    0 :    4 :    4 :  0.00 %
+Comparator                    :    0 :    4 :    4 :  0.00 %
+Delta-Sigma ADC               :    0 :    1 :    1 :  0.00 %
+LPF                           :    0 :    2 :    2 :  0.00 %
+SAR ADC                       :    0 :    2 :    2 :  0.00 %
+Analog (SC/CT) Blocks         :    0 :    4 :    4 :  0.00 %
+DAC                           :      :      :      :        
+  VIDAC                       :    0 :    4 :    4 :  0.00 %
+</CYPRESSTAG>
+Technology Mapping: Elapsed time ==> 0s.037ms
+Tech mapping phase: Elapsed time ==> 0s.099ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Analog Placement">
+Initial Analog Placement Results:
+IO_7@[IOP=(2)][IoId=(7)] : LCD_CS(0) (fixed)
+IO_3@[IOP=(2)][IoId=(3)] : LCD_DC(0) (fixed)
+IO_4@[IOP=(2)][IoId=(4)] : LCD_MISO(0) (fixed)
+IO_5@[IOP=(2)][IoId=(5)] : LCD_MOSI(0) (fixed)
+IO_0@[IOP=(2)][IoId=(0)] : LCD_RST(0) (fixed)
+IO_6@[IOP=(2)][IoId=(6)] : LCD_SCK(0) (fixed)
+Analog Placement phase: Elapsed time ==> 0s.015ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Analog Routing">
+Analog Routing phase: Elapsed time ==> 0s.000ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Analog Code Generation">
+============ Analog Final Answer Routes ============
+Dump of CyAnalogRoutingResultsDB
+Map of net to items {
+}
+Map of item to net {
+}
+Mux Info {
+}
+Dump of CyP35AnalogRoutingResultsDB
+IsVddaHalfUsedForComp = False
+IsVddaHalfUsedForSar0 = False
+IsVddaHalfUsedForSar1 = False
+Analog Code Generation phase: Elapsed time ==> 0s.284ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Digital Placement">
+<CYPRESSTAG name="Detailed placement messages">
+I2076: Total run-time: 0.7 sec.
+
+</CYPRESSTAG>
+<CYPRESSTAG name="PLD Packing">
+<CYPRESSTAG name="PLD Packing Summary" expanded>
+
+------------------------------------------------------------
+PLD Packing Summary
+------------------------------------------------------------
+            Resource Type : Used : Free :  Max :  % Used
+    ====================================================
+                     PLDs :   10 :   38 :   48 :  20.83%
+
+<CYPRESSTAG name="PLD Statistics">
+
+        PLD Resource Type :     Average/LAB
+    =======================================
+                   Inputs :            7.30
+                   Pterms :            5.60
+               Macrocells :            2.50
+</CYPRESSTAG>
+<CYPRESSTAG name="Packed PLD Contents">
+Packed PLD Contents not displayed at this verbose level.</CYPRESSTAG>
+</CYPRESSTAG>
+PLD Packing: Elapsed time ==> 0s.000ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Partitioning">
+<CYPRESSTAG name="Initial Partitioning Summary">
+Initial Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
+<CYPRESSTAG name="Final Partitioning Summary">
+Final Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
+Partitioning: Elapsed time ==> 0s.016ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Simulated Annealing">
+Annealing: Elapsed time ==> 0s.000ms
+<CYPRESSTAG name="Simulated Annealing Results">
+The seed used for moves was 114161200.
+Inital cost was 195, final cost is 195 (0.00% improvement).</CYPRESSTAG>
+</CYPRESSTAG>
+<CYPRESSTAG name="Final Placement Summary">
+
+------------------------------------------------------------
+Final Placement Summary
+------------------------------------------------------------
+
+       Resource Type :      Count : Avg Inputs : Avg Outputs
+    ========================================================
+                 UDB :          9 :       6.44 :       2.78
+<CYPRESSTAG name="Final Placement Details">
+<CYPRESSTAG name="Component Details">
+
+------------------------------------------------------------
+Component Placement Details
+------------------------------------------------------------
+UDB [UDB=(0,0)] is empty.
+UDB [UDB=(0,1)] is empty.
+UDB [UDB=(0,2)] is empty.
+UDB [UDB=(0,3)] contents:
+LAB@[UDB=(0,3)][LB=0] #macrocells=3, #inputs=6, #pterms=5
+{
+    [McSlotId=0]:     MacroCell: Name=\LCD_SPI:BSPIM:mosi_pre_reg\, Mode=(D-Register) @ [UDB=(0,3)][LB=0][MC=0]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (\LCD_SPI:Net_276\) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        !(
+              !\LCD_SPI:BSPIM:mosi_pre_reg_split\ * 
+              !\LCD_SPI:BSPIM:mosi_pre_reg_split_1\
+        );
+        Output = \LCD_SPI:BSPIM:mosi_pre_reg\ (fanout=2)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=\LCD_SPI:BSPIM:tx_status_4\, Mode=(Combinatorial) @ [UDB=(0,3)][LB=0][MC=1]
+        Total # of inputs        : 3
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_1\ * 
+              !\LCD_SPI:BSPIM:state_0\
+        );
+        Output = \LCD_SPI:BSPIM:tx_status_4\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=Net_313, Mode=(D-Register) @ [UDB=(0,3)][LB=0][MC=2]
+        Total # of inputs        : 4
+        Total # of product terms : 3
+        List of special equations: 
+            Clock  = (\LCD_SPI:Net_276\) => Global
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        !(
+              !\LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_1\ * 
+              \LCD_SPI:BSPIM:state_0\
+            + \LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_0\ * !Net_313
+            + \LCD_SPI:BSPIM:state_1\ * !Net_313
+        );
+        Output = Net_313 (fanout=3)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]: (empty)
+}
+
+LAB@[UDB=(0,3)][LB=1] #macrocells=1, #inputs=11, #pterms=8
+{
+    [McSlotId=0]:     MacroCell: Name=\LCD_SPI:BSPIM:mosi_pre_reg_split\, Mode=(Combinatorial) @ [UDB=(0,3)][LB=1][MC=0]
+        Total # of inputs        : 11
+        Total # of product terms : 8
+            Clock Enable: True
+        Main Equation            : 8 pterms
+        (
+              !\LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * 
+              !\LCD_SPI:BSPIM:state_0\ * \LCD_SPI:BSPIM:mosi_from_dp\ * 
+              \LCD_SPI:BSPIM:count_4\
+            + !\LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * 
+              !\LCD_SPI:BSPIM:state_0\ * \LCD_SPI:BSPIM:mosi_from_dp\ * 
+              \LCD_SPI:BSPIM:count_3\
+            + !\LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * 
+              !\LCD_SPI:BSPIM:state_0\ * \LCD_SPI:BSPIM:mosi_from_dp\ * 
+              \LCD_SPI:BSPIM:count_2\
+            + !\LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * 
+              !\LCD_SPI:BSPIM:state_0\ * \LCD_SPI:BSPIM:mosi_from_dp\ * 
+              \LCD_SPI:BSPIM:count_1\
+            + !\LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * 
+              !\LCD_SPI:BSPIM:state_0\ * \LCD_SPI:BSPIM:mosi_from_dp\ * 
+              !\LCD_SPI:BSPIM:count_0\
+            + \LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * 
+              !\LCD_SPI:BSPIM:state_0\ * \LCD_SPI:BSPIM:mosi_pre_reg\
+            + \LCD_SPI:BSPIM:state_1\ * !\LCD_SPI:BSPIM:state_0\ * 
+              !\LCD_SPI:BSPIM:count_4\ * !\LCD_SPI:BSPIM:count_3\ * 
+              !\LCD_SPI:BSPIM:count_2\ * !\LCD_SPI:BSPIM:count_1\ * 
+              \LCD_SPI:BSPIM:count_0\ * \LCD_SPI:BSPIM:mosi_pre_reg\
+            + \LCD_SPI:BSPIM:state_1\ * \LCD_SPI:BSPIM:state_0\ * 
+              \LCD_SPI:BSPIM:mosi_from_dp\ * !\LCD_SPI:BSPIM:count_4\ * 
+              !\LCD_SPI:BSPIM:count_3\ * !\LCD_SPI:BSPIM:count_2\ * 
+              !\LCD_SPI:BSPIM:count_1\ * !\LCD_SPI:BSPIM:count_0\ * 
+              !\LCD_SPI:BSPIM:ld_ident\
+        );
+        Output = \LCD_SPI:BSPIM:mosi_pre_reg_split\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]: (empty)
+    [McSlotId=2]: (empty)
+    [McSlotId=3]: (empty)
+}
+
+datapathcell: Name =\LCD_SPI:BSPIM:sR8:Dp:u0\
+    PORT MAP (
+        clock => \LCD_SPI:Net_276\ ,
+        cs_addr_2 => \LCD_SPI:BSPIM:state_2\ ,
+        cs_addr_1 => \LCD_SPI:BSPIM:state_1\ ,
+        cs_addr_0 => \LCD_SPI:BSPIM:state_0\ ,
+        route_si => Net_295 ,
+        f1_load => \LCD_SPI:BSPIM:load_rx_data\ ,
+        so_comb => \LCD_SPI:BSPIM:mosi_from_dp\ ,
+        f0_bus_stat_comb => \LCD_SPI:BSPIM:tx_status_2\ ,
+        f0_blk_stat_comb => \LCD_SPI:BSPIM:tx_status_1\ ,
+        f1_bus_stat_comb => \LCD_SPI:BSPIM:rx_status_5\ ,
+        f1_blk_stat_comb => \LCD_SPI:BSPIM:rx_status_4\ );
+    Properties:
+    {
+        a0_init = "00000000"
+        a1_init = "00000000"
+        ce0_sync = 1
+        ce1_sync = 1
+        cl0_sync = 1
+        cl1_sync = 1
+        cmsb_sync = 1
+        co_msb_sync = 1
+        cy_dpconfig = "0000000000000000000000001100000000000001010000000001000100010000000000011100000000010001000000000000000101000000000000010100000011111111000000001111111111111111000000000010001000001000111100000000000000000100"
+        d0_init = "00000000"
+        d1_init = "00000000"
+        f0_blk_sync = 1
+        f0_bus_sync = 1
+        f1_blk_sync = 1
+        f1_bus_sync = 1
+        ff0_sync = 1
+        ff1_sync = 1
+        ov_msb_sync = 1
+        so_sync = 1
+        z0_sync = 1
+        z1_sync = 1
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+statusicell: Name =\LCD_SPI:BSPIM:TxStsReg\
+    PORT MAP (
+        clock => \LCD_SPI:Net_276\ ,
+        status_4 => \LCD_SPI:BSPIM:tx_status_4\ ,
+        status_3 => \LCD_SPI:BSPIM:load_rx_data\ ,
+        status_2 => \LCD_SPI:BSPIM:tx_status_2\ ,
+        status_1 => \LCD_SPI:BSPIM:tx_status_1\ ,
+        status_0 => \LCD_SPI:BSPIM:tx_status_0\ ,
+        interrupt => Net_300 );
+    Properties:
+    {
+        cy_force_order = 1
+        cy_int_mask = "0000000"
+        cy_md_select = "0001001"
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+UDB [UDB=(0,4)] contents:
+LAB@[UDB=(0,4)][LB=0] #macrocells=3, #inputs=11, #pterms=8
+{
+    [McSlotId=0]:     MacroCell: Name=\LCD_SPI:BSPIM:mosi_pre_reg_split_1\, Mode=(Combinatorial) @ [UDB=(0,4)][LB=0][MC=0]
+        Total # of inputs        : 10
+        Total # of product terms : 6
+            Clock Enable: True
+        Main Equation            : 6 pterms
+        !(
+              !\LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * 
+              !\LCD_SPI:BSPIM:count_4\ * !\LCD_SPI:BSPIM:count_3\ * 
+              !\LCD_SPI:BSPIM:count_2\ * !\LCD_SPI:BSPIM:count_0\ * 
+              !\LCD_SPI:BSPIM:ld_ident\
+            + !\LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_0\
+            + !\LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:mosi_pre_reg\
+            + \LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_1\ * 
+              \LCD_SPI:BSPIM:state_0\
+            + \LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:mosi_from_dp\
+            + \LCD_SPI:BSPIM:state_1\ * !\LCD_SPI:BSPIM:state_0\
+        );
+        Output = \LCD_SPI:BSPIM:mosi_pre_reg_split_1\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=Net_315, Mode=(D-Register) @ [UDB=(0,4)][LB=0][MC=1]
+        Total # of inputs        : 4
+        Total # of product terms : 3
+        List of special equations: 
+            Clock  = (\LCD_SPI:Net_276\) => Global
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        (
+              \LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * Net_315
+            + \LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_0\
+            + \LCD_SPI:BSPIM:state_1\ * !\LCD_SPI:BSPIM:state_0\
+        );
+        Output = Net_315 (fanout=2)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=\LCD_SPI:BSPIM:tx_status_0\, Mode=(Combinatorial) @ [UDB=(0,4)][LB=0][MC=2]
+        Total # of inputs        : 3
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_1\ * 
+              \LCD_SPI:BSPIM:state_0\
+        );
+        Output = \LCD_SPI:BSPIM:tx_status_0\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]: (empty)
+}
+
+LAB@[UDB=(0,4)][LB=1] #macrocells=3, #inputs=7, #pterms=8
+{
+    [McSlotId=0]:     MacroCell: Name=\LCD_SPI:BSPIM:mosi_hs_reg\, Mode=(D-Register) @ [UDB=(0,4)][LB=1][MC=0]
+        Total # of inputs        : 6
+        Total # of product terms : 4
+        List of special equations: 
+            Clock  = (\LCD_SPI:Net_276\) => Global
+            Clock Enable: True
+        Main Equation            : 4 pterms
+        (
+              !\LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * 
+              \LCD_SPI:BSPIM:state_0\ * \LCD_SPI:BSPIM:mosi_from_dp_reg\
+            + \LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * 
+              \LCD_SPI:BSPIM:state_0\ * \LCD_SPI:BSPIM:mosi_from_dp\
+            + !\LCD_SPI:BSPIM:state_1\ * \LCD_SPI:BSPIM:mosi_hs_reg\
+            + !\LCD_SPI:BSPIM:state_0\ * \LCD_SPI:BSPIM:mosi_hs_reg\
+        );
+        Output = \LCD_SPI:BSPIM:mosi_hs_reg\ (fanout=2)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=\LCD_SPI:BSPIM:mosi_from_dp_reg\, Mode=(D-Register) @ [UDB=(0,4)][LB=1][MC=1]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (\LCD_SPI:Net_276\) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \LCD_SPI:BSPIM:mosi_from_dp\
+        );
+        Output = \LCD_SPI:BSPIM:mosi_from_dp_reg\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=Net_310, Mode=(Combinatorial) @ [UDB=(0,4)][LB=1][MC=2]
+        Total # of inputs        : 5
+        Total # of product terms : 3
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        (
+              !\LCD_SPI:BSPIM:state_2\ * !Net_313 * 
+              \LCD_SPI:BSPIM:mosi_hs_reg\
+            + \LCD_SPI:BSPIM:state_1\ * !Net_313 * 
+              \LCD_SPI:BSPIM:mosi_hs_reg\
+            + !\LCD_SPI:BSPIM:state_0\ * !Net_313 * 
+              \LCD_SPI:BSPIM:mosi_hs_reg\
+        );
+        Output = Net_310 (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]: (empty)
+}
+
+UDB [UDB=(0,5)] is empty.
+UDB [UDB=(1,0)] is empty.
+UDB [UDB=(1,1)] is empty.
+UDB [UDB=(1,2)] is empty.
+UDB [UDB=(1,3)] contents:
+LAB@[UDB=(1,3)][LB=0] #macrocells=2, #inputs=11, #pterms=5
+{
+    [McSlotId=0]: (empty)
+    [McSlotId=1]:     MacroCell: Name=\LCD_SPI:BSPIM:rx_status_6\, Mode=(Combinatorial) @ [UDB=(1,3)][LB=0][MC=1]
+        Total # of inputs        : 6
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\LCD_SPI:BSPIM:count_4\ * !\LCD_SPI:BSPIM:count_3\ * 
+              !\LCD_SPI:BSPIM:count_2\ * !\LCD_SPI:BSPIM:count_1\ * 
+              \LCD_SPI:BSPIM:count_0\ * \LCD_SPI:BSPIM:rx_status_4\
+        );
+        Output = \LCD_SPI:BSPIM:rx_status_6\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=\LCD_SPI:BSPIM:state_1\, Mode=(D-Register) @ [UDB=(1,3)][LB=0][MC=2]
+        Total # of inputs        : 10
+        Total # of product terms : 4
+        List of special equations: 
+            Clock  = (\LCD_SPI:Net_276\) => Global
+            Clock Enable: True
+        Main Equation            : 4 pterms
+        !(
+              !\LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_1\ * 
+              !\LCD_SPI:BSPIM:state_0\
+            + !\LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * 
+              \LCD_SPI:BSPIM:state_0\ * !\LCD_SPI:BSPIM:count_4\ * 
+              !\LCD_SPI:BSPIM:count_3\ * !\LCD_SPI:BSPIM:count_2\ * 
+              \LCD_SPI:BSPIM:count_1\ * !\LCD_SPI:BSPIM:count_0\ * 
+              !\LCD_SPI:BSPIM:ld_ident\
+            + !\LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * 
+              \LCD_SPI:BSPIM:state_0\ * !\LCD_SPI:BSPIM:count_4\ * 
+              !\LCD_SPI:BSPIM:count_3\ * \LCD_SPI:BSPIM:count_2\ * 
+              \LCD_SPI:BSPIM:count_1\ * !\LCD_SPI:BSPIM:count_0\ * 
+              !\LCD_SPI:BSPIM:tx_status_1\
+            + \LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_1\ * 
+              \LCD_SPI:BSPIM:state_0\
+        );
+        Output = \LCD_SPI:BSPIM:state_1\ (fanout=15)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]: (empty)
+}
+
+statusicell: Name =\LCD_SPI:BSPIM:RxStsReg\
+    PORT MAP (
+        clock => \LCD_SPI:Net_276\ ,
+        status_6 => \LCD_SPI:BSPIM:rx_status_6\ ,
+        status_5 => \LCD_SPI:BSPIM:rx_status_5\ ,
+        status_4 => \LCD_SPI:BSPIM:rx_status_4\ ,
+        interrupt => Net_298 );
+    Properties:
+    {
+        cy_force_order = 1
+        cy_int_mask = "0000000"
+        cy_md_select = "1000000"
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+UDB [UDB=(1,4)] contents:
+LAB@[UDB=(1,4)][LB=0] #macrocells=3, #inputs=10, #pterms=8
+{
+    [McSlotId=0]:     MacroCell: Name=\LCD_SPI:BSPIM:load_cond\, Mode=(T-Register) @ [UDB=(1,4)][LB=0][MC=0]
+        Total # of inputs        : 9
+        Total # of product terms : 4
+        List of special equations: 
+            Clock  = (\LCD_SPI:Net_276\) => Global
+            Clock Enable: True
+        Main Equation            : 4 pterms
+        (
+              !\LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:count_4\ * 
+              !\LCD_SPI:BSPIM:count_3\ * !\LCD_SPI:BSPIM:count_2\ * 
+              !\LCD_SPI:BSPIM:count_1\ * !\LCD_SPI:BSPIM:count_0\ * 
+              \LCD_SPI:BSPIM:load_cond\
+            + \LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_1\ * 
+              !\LCD_SPI:BSPIM:state_0\ * !\LCD_SPI:BSPIM:load_cond\
+            + \LCD_SPI:BSPIM:state_1\ * !\LCD_SPI:BSPIM:count_4\ * 
+              !\LCD_SPI:BSPIM:count_3\ * !\LCD_SPI:BSPIM:count_2\ * 
+              !\LCD_SPI:BSPIM:count_1\ * !\LCD_SPI:BSPIM:count_0\ * 
+              \LCD_SPI:BSPIM:load_cond\
+            + \LCD_SPI:BSPIM:state_0\ * !\LCD_SPI:BSPIM:count_4\ * 
+              !\LCD_SPI:BSPIM:count_3\ * !\LCD_SPI:BSPIM:count_2\ * 
+              !\LCD_SPI:BSPIM:count_1\ * !\LCD_SPI:BSPIM:count_0\ * 
+              \LCD_SPI:BSPIM:load_cond\
+        );
+        Output = \LCD_SPI:BSPIM:load_cond\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=\LCD_SPI:BSPIM:cnt_enable\, Mode=(T-Register) @ [UDB=(1,4)][LB=0][MC=1]
+        Total # of inputs        : 4
+        Total # of product terms : 3
+        List of special equations: 
+            Clock  = (\LCD_SPI:Net_276\) => Global
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        (
+              !\LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_1\ * 
+              !\LCD_SPI:BSPIM:state_0\ * \LCD_SPI:BSPIM:cnt_enable\
+            + \LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_1\ * 
+              \LCD_SPI:BSPIM:state_0\ * \LCD_SPI:BSPIM:cnt_enable\
+            + \LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * 
+              !\LCD_SPI:BSPIM:state_0\ * !\LCD_SPI:BSPIM:cnt_enable\
+        );
+        Output = \LCD_SPI:BSPIM:cnt_enable\ (fanout=3)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=\LCD_SPI:BSPIM:load_rx_data\, Mode=(Combinatorial) @ [UDB=(1,4)][LB=0][MC=2]
+        Total # of inputs        : 5
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\LCD_SPI:BSPIM:count_4\ * !\LCD_SPI:BSPIM:count_3\ * 
+              !\LCD_SPI:BSPIM:count_2\ * !\LCD_SPI:BSPIM:count_1\ * 
+              \LCD_SPI:BSPIM:count_0\
+        );
+        Output = \LCD_SPI:BSPIM:load_rx_data\ (fanout=2)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]: (empty)
+}
+
+LAB@[UDB=(1,4)][LB=1] #macrocells=3, #inputs=10, #pterms=8
+{
+    [McSlotId=0]:     MacroCell: Name=\LCD_SPI:BSPIM:state_2\, Mode=(D-Register) @ [UDB=(1,4)][LB=1][MC=0]
+        Total # of inputs        : 10
+        Total # of product terms : 4
+        List of special equations: 
+            Clock  = (\LCD_SPI:Net_276\) => Global
+            Clock Enable: True
+        Main Equation            : 4 pterms
+        (
+              !\LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_1\ * 
+              \LCD_SPI:BSPIM:state_0\
+            + \LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * 
+              \LCD_SPI:BSPIM:state_0\
+            + \LCD_SPI:BSPIM:state_1\ * \LCD_SPI:BSPIM:state_0\ * 
+              !\LCD_SPI:BSPIM:count_4\ * !\LCD_SPI:BSPIM:count_3\ * 
+              !\LCD_SPI:BSPIM:count_2\ * \LCD_SPI:BSPIM:count_1\ * 
+              !\LCD_SPI:BSPIM:count_0\ * !\LCD_SPI:BSPIM:ld_ident\
+            + \LCD_SPI:BSPIM:state_1\ * \LCD_SPI:BSPIM:state_0\ * 
+              !\LCD_SPI:BSPIM:count_4\ * !\LCD_SPI:BSPIM:count_3\ * 
+              \LCD_SPI:BSPIM:count_2\ * \LCD_SPI:BSPIM:count_1\ * 
+              !\LCD_SPI:BSPIM:count_0\ * !\LCD_SPI:BSPIM:tx_status_1\
+        );
+        Output = \LCD_SPI:BSPIM:state_2\ (fanout=15)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=\LCD_SPI:BSPIM:ld_ident\, Mode=(T-Register) @ [UDB=(1,4)][LB=1][MC=1]
+        Total # of inputs        : 9
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (\LCD_SPI:Net_276\) => Global
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              !\LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_1\ * 
+              !\LCD_SPI:BSPIM:state_0\ * !\LCD_SPI:BSPIM:count_4\ * 
+              !\LCD_SPI:BSPIM:count_3\ * !\LCD_SPI:BSPIM:count_2\ * 
+              !\LCD_SPI:BSPIM:count_1\ * \LCD_SPI:BSPIM:count_0\ * 
+              \LCD_SPI:BSPIM:ld_ident\
+            + \LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_1\ * 
+              !\LCD_SPI:BSPIM:state_0\ * !\LCD_SPI:BSPIM:ld_ident\
+        );
+        Output = \LCD_SPI:BSPIM:ld_ident\ (fanout=6)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]: (empty)
+    [McSlotId=3]:     MacroCell: Name=\LCD_SPI:BSPIM:state_0\, Mode=(T-Register) @ [UDB=(1,4)][LB=1][MC=3]
+        Total # of inputs        : 10
+        Total # of product terms : 3
+        List of special equations: 
+            Clock  = (\LCD_SPI:Net_276\) => Global
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        !(
+              !\LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_1\ * 
+              \LCD_SPI:BSPIM:state_0\
+            + !\LCD_SPI:BSPIM:state_2\ * !\LCD_SPI:BSPIM:state_1\ * 
+              \LCD_SPI:BSPIM:tx_status_1\
+            + !\LCD_SPI:BSPIM:state_2\ * \LCD_SPI:BSPIM:state_0\ * 
+              !\LCD_SPI:BSPIM:count_4\ * !\LCD_SPI:BSPIM:count_3\ * 
+              !\LCD_SPI:BSPIM:count_2\ * \LCD_SPI:BSPIM:count_1\ * 
+              !\LCD_SPI:BSPIM:count_0\ * !\LCD_SPI:BSPIM:ld_ident\
+        );
+        Output = \LCD_SPI:BSPIM:state_0\ (fanout=15)
+        Properties               : 
+        {
+        }
+}
+
+count7cell: Name =\LCD_SPI:BSPIM:BitCounter\
+    PORT MAP (
+        clock => \LCD_SPI:Net_276\ ,
+        enable => \LCD_SPI:BSPIM:cnt_enable\ ,
+        count_6 => \LCD_SPI:BSPIM:count_6\ ,
+        count_5 => \LCD_SPI:BSPIM:count_5\ ,
+        count_4 => \LCD_SPI:BSPIM:count_4\ ,
+        count_3 => \LCD_SPI:BSPIM:count_3\ ,
+        count_2 => \LCD_SPI:BSPIM:count_2\ ,
+        count_1 => \LCD_SPI:BSPIM:count_1\ ,
+        count_0 => \LCD_SPI:BSPIM:count_0\ ,
+        tc => \LCD_SPI:BSPIM:cnt_tc\ );
+    Properties:
+    {
+        cy_alt_mode = 0
+        cy_init_value = "0000000"
+        cy_period = "0001111"
+        cy_route_en = 1
+        cy_route_ld = 0
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+UDB [UDB=(1,5)] is empty.
+UDB [UDB=(2,0)] contents:
+datapathcell: Name =\Systick_Counter:CounterUDB:sC32:counterdp:u0\
+    PORT MAP (
+        clock => ClockBlock_BUS_CLK ,
+        cs_addr_2 => __ONE__ ,
+        cs_addr_1 => \Systick_Counter:CounterUDB:count_enable\ ,
+        chain_out => \Systick_Counter:CounterUDB:sC32:counterdp:carry0\ );
+    Properties:
+    {
+        a0_init = "00000000"
+        a1_init = "00000000"
+        ce0_sync = 1
+        ce1_sync = 1
+        cl0_sync = 1
+        cl1_sync = 1
+        cmsb_sync = 1
+        co_msb_sync = 1
+        cy_dpconfig = "0000000001000000000000001000000001000000010000000000000010000000000000000100000010101000010100000010000001000000101010000101000011111111000000001111111111111111101000000000000000000001000000000000000000011000"
+        d0_init = "00000000"
+        d1_init = "00000000"
+        f0_blk_sync = 1
+        f0_bus_sync = 1
+        f1_blk_sync = 1
+        f1_bus_sync = 1
+        ff0_sync = 1
+        ff1_sync = 1
+        ov_msb_sync = 1
+        so_sync = 1
+        z0_sync = 1
+        z1_sync = 1
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+    Next in chain : \Systick_Counter:CounterUDB:sC32:counterdp:u1\
+
+UDB [UDB=(2,1)] contents:
+LAB@[UDB=(2,1)][LB=0] #macrocells=4, #inputs=4, #pterms=4
+{
+    [McSlotId=0]:     MacroCell: Name=\Systick_Counter:CounterUDB:status_0\, Mode=(Combinatorial) @ [UDB=(2,1)][LB=0][MC=0]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \Systick_Counter:CounterUDB:cmp_out_i\ * 
+              !\Systick_Counter:CounterUDB:prevCompare\
+        );
+        Output = \Systick_Counter:CounterUDB:status_0\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=\Systick_Counter:CounterUDB:status_2\, Mode=(Combinatorial) @ [UDB=(2,1)][LB=0][MC=1]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \Systick_Counter:CounterUDB:per_equal\ * 
+              !\Systick_Counter:CounterUDB:overflow_reg_i\
+        );
+        Output = \Systick_Counter:CounterUDB:status_2\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=\Systick_Counter:CounterUDB:prevCompare\, Mode=(D-Register) @ [UDB=(2,1)][LB=0][MC=2]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \Systick_Counter:CounterUDB:cmp_out_i\
+        );
+        Output = \Systick_Counter:CounterUDB:prevCompare\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]:     MacroCell: Name=\Systick_Counter:CounterUDB:overflow_reg_i\, Mode=(D-Register) @ [UDB=(2,1)][LB=0][MC=3]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \Systick_Counter:CounterUDB:per_equal\
+        );
+        Output = \Systick_Counter:CounterUDB:overflow_reg_i\ (fanout=1)
+        Properties               : 
+        {
+        }
+}
+
+datapathcell: Name =\Systick_Counter:CounterUDB:sC32:counterdp:u3\
+    PORT MAP (
+        clock => ClockBlock_BUS_CLK ,
+        cs_addr_2 => __ONE__ ,
+        cs_addr_1 => \Systick_Counter:CounterUDB:count_enable\ ,
+        ce0_comb => \Systick_Counter:CounterUDB:per_equal\ ,
+        z0_comb => \Systick_Counter:CounterUDB:status_1\ ,
+        cl1_comb => \Systick_Counter:CounterUDB:cmp_out_i\ ,
+        f0_bus_stat_comb => \Systick_Counter:CounterUDB:status_6\ ,
+        f0_blk_stat_comb => \Systick_Counter:CounterUDB:status_5\ ,
+        chain_in => \Systick_Counter:CounterUDB:sC32:counterdp:carry2\ );
+    Properties:
+    {
+        a0_init = "00000000"
+        a1_init = "00000000"
+        ce0_sync = 1
+        ce1_sync = 1
+        cl0_sync = 1
+        cl1_sync = 1
+        cmsb_sync = 1
+        co_msb_sync = 1
+        cy_dpconfig = "0000000001000000000000001000000001000000010000000000000010000000000000000100000010101000010100000010000001000000101010000101000011111111000000001111111111111111101011110000000000000001000001110000000000011000"
+        d0_init = "00000000"
+        d1_init = "00000000"
+        f0_blk_sync = 1
+        f0_bus_sync = 1
+        f1_blk_sync = 1
+        f1_bus_sync = 1
+        ff0_sync = 1
+        ff1_sync = 1
+        ov_msb_sync = 1
+        so_sync = 1
+        z0_sync = 1
+        z1_sync = 1
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+    Previous in chain : \Systick_Counter:CounterUDB:sC32:counterdp:u2\
+
+statusicell: Name =\Systick_Counter:CounterUDB:sSTSReg:stsreg\
+    PORT MAP (
+        clock => ClockBlock_BUS_CLK ,
+        status_6 => \Systick_Counter:CounterUDB:status_6\ ,
+        status_5 => \Systick_Counter:CounterUDB:status_5\ ,
+        status_2 => \Systick_Counter:CounterUDB:status_2\ ,
+        status_1 => \Systick_Counter:CounterUDB:status_1\ ,
+        status_0 => \Systick_Counter:CounterUDB:status_0\ );
+    Properties:
+    {
+        cy_force_order = 1
+        cy_int_mask = "1111111"
+        cy_md_select = "0011111"
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+UDB [UDB=(2,2)] is empty.
+UDB [UDB=(2,3)] is empty.
+UDB [UDB=(2,4)] is empty.
+UDB [UDB=(2,5)] is empty.
+UDB [UDB=(3,0)] contents:
+LAB@[UDB=(3,0)][LB=0] #macrocells=2, #inputs=3, #pterms=2
+{
+    [McSlotId=0]:     MacroCell: Name=\Systick_Counter:CounterUDB:count_enable\, Mode=(Combinatorial) @ [UDB=(3,0)][LB=0][MC=0]
+        Total # of inputs        : 3
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \Systick_Counter:CounterUDB:control_7\ * 
+              !\Systick_Counter:CounterUDB:count_stored_i\ * Net_482
+        );
+        Output = \Systick_Counter:CounterUDB:count_enable\ (fanout=4)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=\Systick_Counter:CounterUDB:count_stored_i\, Mode=(D-Register) @ [UDB=(3,0)][LB=0][MC=1]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_BUS_CLK) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_482
+        );
+        Output = \Systick_Counter:CounterUDB:count_stored_i\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]: (empty)
+    [McSlotId=3]: (empty)
+}
+
+datapathcell: Name =\Systick_Counter:CounterUDB:sC32:counterdp:u1\
+    PORT MAP (
+        clock => ClockBlock_BUS_CLK ,
+        cs_addr_2 => __ONE__ ,
+        cs_addr_1 => \Systick_Counter:CounterUDB:count_enable\ ,
+        chain_in => \Systick_Counter:CounterUDB:sC32:counterdp:carry0\ ,
+        chain_out => \Systick_Counter:CounterUDB:sC32:counterdp:carry1\ );
+    Properties:
+    {
+        a0_init = "00000000"
+        a1_init = "00000000"
+        ce0_sync = 1
+        ce1_sync = 1
+        cl0_sync = 1
+        cl1_sync = 1
+        cmsb_sync = 1
+        co_msb_sync = 1
+        cy_dpconfig = "0000000001000000000000001000000001000000010000000000000010000000000000000100000010101000010100000010000001000000101010000101000011111111000000001111111111111111101011110000000000000001000001110000000000011000"
+        d0_init = "00000000"
+        d1_init = "00000000"
+        f0_blk_sync = 1
+        f0_bus_sync = 1
+        f1_blk_sync = 1
+        f1_bus_sync = 1
+        ff0_sync = 1
+        ff1_sync = 1
+        ov_msb_sync = 1
+        so_sync = 1
+        z0_sync = 1
+        z1_sync = 1
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+    Previous in chain : \Systick_Counter:CounterUDB:sC32:counterdp:u0\
+    Next in chain : \Systick_Counter:CounterUDB:sC32:counterdp:u2\
+
+controlcell: Name =\Systick_Counter:CounterUDB:sCTRLReg:ctrlreg\
+    PORT MAP (
+        clock => ClockBlock_BUS_CLK ,
+        control_7 => \Systick_Counter:CounterUDB:control_7\ ,
+        control_6 => \Systick_Counter:CounterUDB:control_6\ ,
+        control_5 => \Systick_Counter:CounterUDB:control_5\ ,
+        control_4 => \Systick_Counter:CounterUDB:control_4\ ,
+        control_3 => \Systick_Counter:CounterUDB:control_3\ ,
+        control_2 => \Systick_Counter:CounterUDB:control_2\ ,
+        control_1 => \Systick_Counter:CounterUDB:control_1\ ,
+        control_0 => \Systick_Counter:CounterUDB:control_0\ );
+    Properties:
+    {
+        cy_ctrl_mode_0 = "11111111"
+        cy_ctrl_mode_1 = "00000000"
+        cy_ext_reset = 0
+        cy_force_order = 1
+        cy_init_value = "00000000"
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+UDB [UDB=(3,1)] contents:
+datapathcell: Name =\Systick_Counter:CounterUDB:sC32:counterdp:u2\
+    PORT MAP (
+        clock => ClockBlock_BUS_CLK ,
+        cs_addr_2 => __ONE__ ,
+        cs_addr_1 => \Systick_Counter:CounterUDB:count_enable\ ,
+        chain_in => \Systick_Counter:CounterUDB:sC32:counterdp:carry1\ ,
+        chain_out => \Systick_Counter:CounterUDB:sC32:counterdp:carry2\ );
+    Properties:
+    {
+        a0_init = "00000000"
+        a1_init = "00000000"
+        ce0_sync = 1
+        ce1_sync = 1
+        cl0_sync = 1
+        cl1_sync = 1
+        cmsb_sync = 1
+        co_msb_sync = 1
+        cy_dpconfig = "0000000001000000000000001000000001000000010000000000000010000000000000000100000010101000010100000010000001000000101010000101000011111111000000001111111111111111101011110000000000000001000001110000000000011000"
+        d0_init = "00000000"
+        d1_init = "00000000"
+        f0_blk_sync = 1
+        f0_bus_sync = 1
+        f1_blk_sync = 1
+        f1_bus_sync = 1
+        ff0_sync = 1
+        ff1_sync = 1
+        ov_msb_sync = 1
+        so_sync = 1
+        z0_sync = 1
+        z1_sync = 1
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+    Previous in chain : \Systick_Counter:CounterUDB:sC32:counterdp:u1\
+    Next in chain : \Systick_Counter:CounterUDB:sC32:counterdp:u3\
+
+UDB [UDB=(3,2)] is empty.
+UDB [UDB=(3,3)] is empty.
+UDB [UDB=(3,4)] contents:
+LAB@[UDB=(3,4)][LB=1] #macrocells=1, #inputs=0, #pterms=0
+{
+    [McSlotId=0]: (empty)
+    [McSlotId=1]: (empty)
+    [McSlotId=2]:     MacroCell: Name=__ONE__, Mode=(Combinatorial) @ [UDB=(3,4)][LB=1][MC=2]
+        Total # of inputs        : 0
+        Total # of product terms : 0
+            Clock Enable: True
+        Main Equation            : 0 pterms
+        !(
+            0
+        );
+        Output = __ONE__ (fanout=5)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]: (empty)
+}
+
+UDB [UDB=(3,5)] is empty.
+Intr container @ [IntrContainer=(0)]: 
+  Intr@ [IntrContainer=(0)][IntrId=(0)] 
+    interrupt: Name =\LCD_SPI:RxInternalInterrupt\
+        PORT MAP (
+            interrupt => Net_298 );
+        Properties:
+        {
+            int_type = "10"
+        }
+  Intr@ [IntrContainer=(0)][IntrId=(1)] 
+    interrupt: Name =\LCD_SPI:TxInternalInterrupt\
+        PORT MAP (
+            interrupt => Net_300 );
+        Properties:
+        {
+            int_type = "10"
+        }
+Drq container @ [DrqContainer=(0)]: empty
+Port 0 is empty
+Port 1 is empty
+Port 2 contains the following IO cells:
+[IoId=0]: 
+Pin : Name = LCD_RST(0)
+    Attributes:
+        In Group/Port: True
+        In Sync Option: AUTO
+        Out Sync Option: NOSYNC
+        Interrupt generated: False
+        Interrupt mode: NONE
+        Drive mode: CMOS_OUT
+        VTrip: EITHER
+        Slew: FAST
+        Input Sync needed: False
+        Output Sync needed: False
+        SC shield enabled: False
+        POR State: ANY
+        LCD Mode: COMMON
+        Register Mode: RegComb
+        CaSense Mode: NEITHER
+        Treat as pin: True
+        Is OE Registered: False
+        Uses Analog: False
+        Can contain Digital: True
+        Is SIO: False
+        SIO Output Buf: NONREGULATED
+        SIO Input Buf: SINGLE_ENDED
+        SIO HiFreq: LOW
+        SIO Hyst: DISABLED
+        SIO Vtrip: MULTIPLIER_0_5
+        SIO Multiplier Index: 0
+        SIO RefSel: VCC_IO
+        Required Capabilitites: DIGITAL
+        Initial Value: 0
+        IO Voltage: 0
+    PORT MAP (
+        pa_out => LCD_RST(0)__PA ,
+        pad => LCD_RST(0)_PAD );
+    Properties:
+    {
+    }
+
+[IoId=3]: 
+Pin : Name = LCD_DC(0)
+    Attributes:
+        In Group/Port: True
+        In Sync Option: AUTO
+        Out Sync Option: NOSYNC
+        Interrupt generated: False
+        Interrupt mode: NONE
+        Drive mode: CMOS_OUT
+        VTrip: EITHER
+        Slew: FAST
+        Input Sync needed: False
+        Output Sync needed: False
+        SC shield enabled: False
+        POR State: ANY
+        LCD Mode: COMMON
+        Register Mode: RegComb
+        CaSense Mode: NEITHER
+        Treat as pin: True
+        Is OE Registered: False
+        Uses Analog: False
+        Can contain Digital: True
+        Is SIO: False
+        SIO Output Buf: NONREGULATED
+        SIO Input Buf: SINGLE_ENDED
+        SIO HiFreq: LOW
+        SIO Hyst: DISABLED
+        SIO Vtrip: MULTIPLIER_0_5
+        SIO Multiplier Index: 0
+        SIO RefSel: VCC_IO
+        Required Capabilitites: DIGITAL
+        Initial Value: 0
+        IO Voltage: 0
+    PORT MAP (
+        pa_out => LCD_DC(0)__PA ,
+        pad => LCD_DC(0)_PAD );
+    Properties:
+    {
+    }
+
+[IoId=4]: 
+Pin : Name = LCD_MISO(0)
+    Attributes:
+        In Group/Port: True
+        In Sync Option: NOSYNC
+        Out Sync Option: AUTO
+        Interrupt generated: False
+        Interrupt mode: NONE
+        Drive mode: CMOS_OUT
+        VTrip: CMOS
+        Slew: FAST
+        Input Sync needed: False
+        Output Sync needed: False
+        SC shield enabled: False
+        POR State: ANY
+        LCD Mode: COMMON
+        Register Mode: RegComb
+        CaSense Mode: NEITHER
+        Treat as pin: True
+        Is OE Registered: False
+        Uses Analog: False
+        Can contain Digital: True
+        Is SIO: False
+        SIO Output Buf: NONREGULATED
+        SIO Input Buf: SINGLE_ENDED
+        SIO HiFreq: LOW
+        SIO Hyst: DISABLED
+        SIO Vtrip: MULTIPLIER_0_5
+        SIO Multiplier Index: 0
+        SIO RefSel: VCC_IO
+        Required Capabilitites: DIGITAL, ROUTABLE
+        Initial Value: 0
+        IO Voltage: 0
+    PORT MAP (
+        pa_out => LCD_MISO(0)__PA ,
+        fb => Net_295 ,
+        pad => LCD_MISO(0)_PAD );
+    Properties:
+    {
+    }
+
+[IoId=5]: 
+Pin : Name = LCD_MOSI(0)
+    Attributes:
+        In Group/Port: True
+        In Sync Option: AUTO
+        Out Sync Option: NOSYNC
+        Interrupt generated: False
+        Interrupt mode: NONE
+        Drive mode: CMOS_OUT
+        VTrip: EITHER
+        Slew: FAST
+        Input Sync needed: False
+        Output Sync needed: False
+        SC shield enabled: False
+        POR State: ANY
+        LCD Mode: COMMON
+        Register Mode: RegComb
+        CaSense Mode: NEITHER
+        Treat as pin: True
+        Is OE Registered: False
+        Uses Analog: False
+        Can contain Digital: True
+        Is SIO: False
+        SIO Output Buf: NONREGULATED
+        SIO Input Buf: SINGLE_ENDED
+        SIO HiFreq: LOW
+        SIO Hyst: DISABLED
+        SIO Vtrip: MULTIPLIER_0_5
+        SIO Multiplier Index: 0
+        SIO RefSel: VCC_IO
+        Required Capabilitites: DIGITAL, ROUTABLE
+        Initial Value: 0
+        IO Voltage: 0
+    PORT MAP (
+        pa_out => LCD_MOSI(0)__PA ,
+        input => Net_310 ,
+        pad => LCD_MOSI(0)_PAD );
+    Properties:
+    {
+    }
+
+[IoId=6]: 
+Pin : Name = LCD_SCK(0)
+    Attributes:
+        In Group/Port: True
+        In Sync Option: AUTO
+        Out Sync Option: NOSYNC
+        Interrupt generated: False
+        Interrupt mode: NONE
+        Drive mode: CMOS_OUT
+        VTrip: EITHER
+        Slew: FAST
+        Input Sync needed: False
+        Output Sync needed: False
+        SC shield enabled: False
+        POR State: ANY
+        LCD Mode: COMMON
+        Register Mode: RegComb
+        CaSense Mode: NEITHER
+        Treat as pin: True
+        Is OE Registered: False
+        Uses Analog: False
+        Can contain Digital: True
+        Is SIO: False
+        SIO Output Buf: NONREGULATED
+        SIO Input Buf: SINGLE_ENDED
+        SIO HiFreq: LOW
+        SIO Hyst: DISABLED
+        SIO Vtrip: MULTIPLIER_0_5
+        SIO Multiplier Index: 0
+        SIO RefSel: VCC_IO
+        Required Capabilitites: DIGITAL, ROUTABLE
+        Initial Value: 0
+        IO Voltage: 0
+    PORT MAP (
+        pa_out => LCD_SCK(0)__PA ,
+        input => Net_315 ,
+        pad => LCD_SCK(0)_PAD );
+    Properties:
+    {
+    }
+
+[IoId=7]: 
+Pin : Name = LCD_CS(0)
+    Attributes:
+        In Group/Port: True
+        In Sync Option: AUTO
+        Out Sync Option: NOSYNC
+        Interrupt generated: False
+        Interrupt mode: NONE
+        Drive mode: CMOS_OUT
+        VTrip: EITHER
+        Slew: FAST
+        Input Sync needed: False
+        Output Sync needed: False
+        SC shield enabled: False
+        POR State: ANY
+        LCD Mode: COMMON
+        Register Mode: RegComb
+        CaSense Mode: NEITHER
+        Treat as pin: True
+        Is OE Registered: False
+        Uses Analog: False
+        Can contain Digital: True
+        Is SIO: False
+        SIO Output Buf: NONREGULATED
+        SIO Input Buf: SINGLE_ENDED
+        SIO HiFreq: LOW
+        SIO Hyst: DISABLED
+        SIO Vtrip: MULTIPLIER_0_5
+        SIO Multiplier Index: 0
+        SIO RefSel: VCC_IO
+        Required Capabilitites: DIGITAL, ROUTABLE
+        Initial Value: 0
+        IO Voltage: 0
+    PORT MAP (
+        pa_out => LCD_CS(0)__PA ,
+        input => Net_313 ,
+        pad => LCD_CS(0)_PAD );
+    Properties:
+    {
+    }
+
+Port 3 is empty
+Port 12 is empty
+Port 15 is empty
+CAN 2.0b group 0: empty
+Cache group 0: empty
+CapSense group 0: empty
+Clock group 0: 
+    Clock Block @ F(Clock,0): 
+    clockblockcell: Name =ClockBlock
+        PORT MAP (
+            imo => ClockBlock_IMO ,
+            pllout => ClockBlock_PLL_OUT ,
+            ilo => ClockBlock_ILO ,
+            clk_100k => ClockBlock_100k ,
+            clk_1k => ClockBlock_1k ,
+            clk_32k => ClockBlock_32k ,
+            xtal => ClockBlock_XTAL ,
+            clk_32k_xtal => ClockBlock_XTAL_32KHZ ,
+            clk_sync => ClockBlock_MASTER_CLK ,
+            clk_bus_glb => ClockBlock_BUS_CLK ,
+            clk_bus => ClockBlock_BUS_CLK_local ,
+            dclk_glb_0 => \LCD_SPI:Net_276\ ,
+            dclk_0 => \LCD_SPI:Net_276_local\ );
+        Properties:
+        {
+        }
+Comparator group 0: empty
+Digital Filter Block group 0: empty
+Delta-Sigma ADC group 0: empty
+Decimator group 0: empty
+EMIF group 0: empty
+I2C group 0: empty
+Segment LCD group 0: empty
+LVD group 0: empty
+PM group 0: empty
+Analog (SC/CT) Blocks group 0: empty
+SPC group 0: empty
+Timer group 0: 
+    Timer Block @ F(Timer,0): 
+    timercell: Name =\Systick_Timer:TimerHW\
+        PORT MAP (
+            clock => ClockBlock_BUS_CLK ,
+            enable => __ONE__ ,
+            tc => Net_482 ,
+            cmp => \Systick_Timer:Net_261\ ,
+            irq => \Systick_Timer:Net_57\ );
+        Properties:
+        {
+            cy_registers = ""
+        }
+USB group 0: empty
+VIDAC group 0: empty
+Opamp group 0: empty
+CapSense Buffers group 0: empty
+Vref group 0: empty
+LPF group 0: empty
+SAR ADC group 0: empty
+</CYPRESSTAG>
+<CYPRESSTAG name="Port Configuration Details">
+
+------------------------------------------------------------
+Port Configuration report
+------------------------------------------------------------
+     |     |       | Interrupt |                  |             | 
+Port | Pin | Fixed |      Type |       Drive Mode |        Name | Connections
+-----+-----+-------+-----------+------------------+-------------+------------
+   2 |   0 |     * |      NONE |         CMOS_OUT |  LCD_RST(0) | 
+     |   3 |     * |      NONE |         CMOS_OUT |   LCD_DC(0) | 
+     |   4 |     * |      NONE |         CMOS_OUT | LCD_MISO(0) | FB(Net_295)
+     |   5 |     * |      NONE |         CMOS_OUT | LCD_MOSI(0) | In(Net_310)
+     |   6 |     * |      NONE |         CMOS_OUT |  LCD_SCK(0) | In(Net_315)
+     |   7 |     * |      NONE |         CMOS_OUT |   LCD_CS(0) | In(Net_313)
+-----------------------------------------------------------------------------
+</CYPRESSTAG>
+</CYPRESSTAG>
+</CYPRESSTAG>
+Digital component placer commit/Report: Elapsed time ==> 0s.000ms
+Digital Placement phase: Elapsed time ==> 0s.902ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Digital Routing">
+Routing successful.
+Digital Routing phase: Elapsed time ==> 1s.165ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Bitstream and API generation">
+Bitstream and API generation phase: Elapsed time ==> 0s.153ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Bitstream verification">
+Bitstream verification phase: Elapsed time ==> 0s.015ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Static timing analysis">
+Warning: sta.M0021: CE95352 Blinking LED_timing.html: Warning-1350: Asynchronous path(s) exist from "CyBUS_CLK(fixed-function)" to "CyBUS_CLK". See the timing report for details. (File=C:\Users\joel\Desktop\psoc\helloworld\CE95352 Blinking LED\CE95352 Blinking LED.cydsn\CE95352 Blinking LED_timing.html)
+Timing report is in CE95352 Blinking LED_timing.html.
+Static timing analysis phase: Elapsed time ==> 0s.270ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Data reporting">
+Data reporting phase: Elapsed time ==> 0s.000ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Database update...">
+Design database save phase: Elapsed time ==> 0s.131ms
+</CYPRESSTAG>
+cydsfit: Elapsed time ==> 3s.070ms
+</CYPRESSTAG>
+Fitter phase: Elapsed time ==> 3s.093ms
+API generation phase: Elapsed time ==> 0s.669ms
+Dependency generation phase: Elapsed time ==> 0s.015ms
+Cleanup phase: Elapsed time ==> 0s.000ms

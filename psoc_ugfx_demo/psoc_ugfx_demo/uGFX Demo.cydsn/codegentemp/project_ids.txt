@@ -1,0 +1,6 @@
+C:\Users\joel\Desktop\psoc\psoc_ugfx_demo\uGFX Demo.cydsn\uGFX Demo.cyprj|4193cb78-d0ae-46dc-9ecc-12684bc2e666
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|6f583769-7975-4060-ba1d-41d4d47d89bd
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|ac56c998-6ad6-492c-801d-841d7e5fc8b4
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|7a710864-21f8-4bd5-8d01-82c2c24b72e7
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|407f2cf2-7480-42c6-b86d-6b6bb6db2f15
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|a6a62206-0b4e-472b-997c-a715e3da9216

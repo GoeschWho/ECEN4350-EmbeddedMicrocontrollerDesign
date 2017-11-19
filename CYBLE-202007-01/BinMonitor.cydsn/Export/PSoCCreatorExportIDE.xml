@@ -6,7 +6,7 @@
     <Toolchain Name="ARM GCC Generic" Selected="True">
       <Tool Name="prebuild" Command="" Options="" />
       <Tool Name="assembler" Command="arm-none-eabi-as.exe" Options="-mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -alh=${OutputDir}/${CompileFile}.lst -g -W" />
-      <Tool Name="compiler" Command="arm-none-eabi-gcc.exe" Options="-mcpu=cortex-m0 -mthumb -I..\..\ugfx_2.7\ugfx_2.7 -I. -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
+      <Tool Name="compiler" Command="arm-none-eabi-gcc.exe" Options="-mcpu=cortex-m0 -mthumb -I. -I..\..\ugfx_2.7\ugfx_2.7 -I..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875 -I..\..\ugfx_2.7\ugfx_2.7\demos\applications\notepad -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0" />
       <Tool Name="linker" Command="arm-none-eabi-gcc.exe" Options="-mcpu=cortex-m0 -mthumb -L Generated_Source\PSoC4 -Wl,-Map,${OutputDir}/${ProjectShortName}.map -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -O0 -ffat-lto-objects" />
       <Tool Name="postbuild" Command="" Options="" />
     </Toolchain>
@@ -38,8 +38,10 @@
         <Files Root="C:\Users\megan\Google Drive\College\S10 - Fall 2017\ECEN 4350 - Embedded uC Design\Github\ECEN4350-EmbeddedMicrocontrollerDesign\CYBLE-202007-01\BinMonitor.cydsn">
           <File BuildType="BUILD" Toolchain="">main.c</File>
           <File BuildType="BUILD" Toolchain="">..\..\ugfx_2.7\ugfx_2.7\src\gfx_mk.c</File>
+          <File BuildType="BUILD" Toolchain="">..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875\gdisp_lld_RA8875.c</File>
           <File BuildType="BUILD" Toolchain="">cyapicallbacks.h</File>
           <File BuildType="BUILD" Toolchain="">..\..\ugfx_2.7\ugfx_2.7\gfxconf.h</File>
+          <File BuildType="BUILD" Toolchain="">..\..\ugfx_2.7\ugfx_2.7\drivers\gdisp\RA8875\board_RA8875.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\megan\Google Drive\College\S10 - Fall 2017\ECEN 4350 - Embedded uC Design\Github\ECEN4350-EmbeddedMicrocontrollerDesign\CYBLE-202007-01\BinMonitor.cydsn\Generated_Source\PSoC4">

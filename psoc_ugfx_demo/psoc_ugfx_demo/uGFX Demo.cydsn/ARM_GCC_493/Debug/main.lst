@@ -1,0 +1,1155 @@
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccj9bunu.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"main.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.rodata
+  19              		.align	2
+  20              	.LC0:
+  21 0000 44656A61 		.ascii	"DejaVuSans16_aa\000"
+  21      56755361 
+  21      6E733136 
+  21      5F616100 
+  22              		.align	2
+  23              	.LC1:
+  24 0010 44656A61 		.ascii	"DejaVuSans32_aa\000"
+  24      56755361 
+  24      6E733332 
+  24      5F616100 
+  25              		.align	2
+  26              	.LC2:
+  27 0020 75676678 		.ascii	"ugfx_150x50_white.bmp\000"
+  27      5F313530 
+  27      7835305F 
+  27      77686974 
+  27      652E626D 
+  28 0036 0000     		.align	2
+  29              	.LC3:
+  30 0038 726200   		.ascii	"rb\000"
+  31 003b 00       		.align	2
+  32              	.LC4:
+  33 003c 48656C6C 		.ascii	"Hello PSoC 5 LP!\000"
+  33      6F205053 
+  33      6F432035 
+  33      204C5021 
+  33      00
+  34 004d 000000   		.align	2
+  35              	.LC5:
+  36 0050 4B65726E 		.ascii	"Kerning: AVAVIPWA\000"
+  36      696E673A 
+  36      20415641 
+  36      56495057 
+  36      4100
+  37 0062 0000     		.section	.text.main,"ax",%progbits
+  38              		.align	2
+  39              		.global	main
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccj9bunu.s 			page 2
+
+
+  40              		.thumb
+  41              		.thumb_func
+  42              		.type	main, %function
+  43              	main:
+  44              	.LFB63:
+  45              		.file 1 ".\\main.c"
+   1:.\main.c      **** #include <device.h>
+   2:.\main.c      **** #include "gfx.h"
+   3:.\main.c      **** 
+   4:.\main.c      **** int main()
+   5:.\main.c      **** {
+  46              		.loc 1 5 0
+  47              		.cfi_startproc
+  48              		@ args = 0, pretend = 0, frame = 40
+  49              		@ frame_needed = 1, uses_anonymous_args = 0
+  50 0000 90B5     		push	{r4, r7, lr}
+  51              		.cfi_def_cfa_offset 12
+  52              		.cfi_offset 4, -12
+  53              		.cfi_offset 7, -8
+  54              		.cfi_offset 14, -4
+  55 0002 91B0     		sub	sp, sp, #68
+  56              		.cfi_def_cfa_offset 80
+  57 0004 06AF     		add	r7, sp, #24
+  58              		.cfi_def_cfa 7, 56
+   6:.\main.c      ****     font_t font1, font2;
+   7:.\main.c      ****     coord_t swidth, sheight;
+   8:.\main.c      ****     gdispImage image;
+   9:.\main.c      **** 
+  10:.\main.c      ****     // Initialize the uGFX library
+  11:.\main.c      ****     gfxInit();
+  59              		.loc 1 11 0
+  60 0006 FFF7FEFF 		bl	gfxInit
+  12:.\main.c      ****     
+  13:.\main.c      ****     // Change the display orientation
+  14:.\main.c      ****     gdispSetOrientation(GDISP_ROTATE_LANDSCAPE);
+  61              		.loc 1 14 0
+  62 000a 484B     		ldr	r3, .L3
+  63 000c 1B68     		ldr	r3, [r3]
+  64 000e 1846     		mov	r0, r3
+  65 0010 0121     		movs	r1, #1
+  66 0012 40F2E932 		movw	r2, #1001
+  67 0016 FFF7FEFF 		bl	gdispGControl
+  15:.\main.c      ****     
+  16:.\main.c      ****     // Some misc stuff
+  17:.\main.c      ****     swidth = gdispGetWidth();
+  68              		.loc 1 17 0
+  69 001a 444B     		ldr	r3, .L3
+  70 001c 1B68     		ldr	r3, [r3]
+  71 001e 1846     		mov	r0, r3
+  72 0020 FFF7FEFF 		bl	gdispGGetWidth
+  73 0024 0346     		mov	r3, r0
+  74 0026 FB84     		strh	r3, [r7, #38]	@ movhi
+  18:.\main.c      ****     sheight = gdispGetHeight();
+  75              		.loc 1 18 0
+  76 0028 404B     		ldr	r3, .L3
+  77 002a 1B68     		ldr	r3, [r3]
+  78 002c 1846     		mov	r0, r3
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccj9bunu.s 			page 3
+
+
+  79 002e FFF7FEFF 		bl	gdispGGetHeight
+  80 0032 0346     		mov	r3, r0
+  81 0034 BB84     		strh	r3, [r7, #36]	@ movhi
+  19:.\main.c      **** 
+  20:.\main.c      ****     // Prepare the resources
+  21:.\main.c      ****     font1 = gdispOpenFont("DejaVuSans16_aa");
+  82              		.loc 1 21 0
+  83 0036 3E48     		ldr	r0, .L3+4
+  84 0038 FFF7FEFF 		bl	gdispOpenFont
+  85 003c 3862     		str	r0, [r7, #32]
+  22:.\main.c      ****     font2 = gdispOpenFont("DejaVuSans32_aa");
+  86              		.loc 1 22 0
+  87 003e 3D48     		ldr	r0, .L3+8
+  88 0040 FFF7FEFF 		bl	gdispOpenFont
+  89 0044 F861     		str	r0, [r7, #28]
+  23:.\main.c      ****     gdispImageOpenFile(&image, "ugfx_150x50_white.bmp");
+  90              		.loc 1 23 0
+  91 0046 3C48     		ldr	r0, .L3+12
+  92 0048 3C49     		ldr	r1, .L3+16
+  93 004a FFF7FEFF 		bl	gfileOpen
+  94 004e 0246     		mov	r2, r0
+  95 0050 3B1D     		adds	r3, r7, #4
+  96 0052 1846     		mov	r0, r3
+  97 0054 1146     		mov	r1, r2
+  98 0056 FFF7FEFF 		bl	gdispImageOpenGFile
+  24:.\main.c      ****     
+  25:.\main.c      ****     // Write some text
+  26:.\main.c      ****     gdispFillStringBox(5, 5, swidth, 50, "Hello PSoC 5 LP!", font1, Black, White, justifyLeft);
+  99              		.loc 1 26 0
+ 100 005a 344B     		ldr	r3, .L3
+ 101 005c 1A68     		ldr	r2, [r3]
+ 102 005e B7F92640 		ldrsh	r4, [r7, #38]
+ 103 0062 3223     		movs	r3, #50
+ 104 0064 0093     		str	r3, [sp]
+ 105 0066 364B     		ldr	r3, .L3+20
+ 106 0068 0193     		str	r3, [sp, #4]
+ 107 006a 3B6A     		ldr	r3, [r7, #32]
+ 108 006c 0293     		str	r3, [sp, #8]
+ 109 006e 0023     		movs	r3, #0
+ 110 0070 0393     		str	r3, [sp, #12]
+ 111 0072 4FF6FF73 		movw	r3, #65535
+ 112 0076 0493     		str	r3, [sp, #16]
+ 113 0078 0023     		movs	r3, #0
+ 114 007a 0593     		str	r3, [sp, #20]
+ 115 007c 1046     		mov	r0, r2
+ 116 007e 0521     		movs	r1, #5
+ 117 0080 0522     		movs	r2, #5
+ 118 0082 2346     		mov	r3, r4
+ 119 0084 FFF7FEFF 		bl	gdispGFillStringBox
+  27:.\main.c      ****     gdispFillStringBox(5, 55, swidth, 50, "Kerning: AVAVIPWA", font2, Black, White, justifyLeft);
+ 120              		.loc 1 27 0
+ 121 0088 284B     		ldr	r3, .L3
+ 122 008a 1A68     		ldr	r2, [r3]
+ 123 008c B7F92640 		ldrsh	r4, [r7, #38]
+ 124 0090 3223     		movs	r3, #50
+ 125 0092 0093     		str	r3, [sp]
+ 126 0094 2B4B     		ldr	r3, .L3+24
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccj9bunu.s 			page 4
+
+
+ 127 0096 0193     		str	r3, [sp, #4]
+ 128 0098 FB69     		ldr	r3, [r7, #28]
+ 129 009a 0293     		str	r3, [sp, #8]
+ 130 009c 0023     		movs	r3, #0
+ 131 009e 0393     		str	r3, [sp, #12]
+ 132 00a0 4FF6FF73 		movw	r3, #65535
+ 133 00a4 0493     		str	r3, [sp, #16]
+ 134 00a6 0023     		movs	r3, #0
+ 135 00a8 0593     		str	r3, [sp, #20]
+ 136 00aa 1046     		mov	r0, r2
+ 137 00ac 0521     		movs	r1, #5
+ 138 00ae 3722     		movs	r2, #55
+ 139 00b0 2346     		mov	r3, r4
+ 140 00b2 FFF7FEFF 		bl	gdispGFillStringBox
+  28:.\main.c      ****     
+  29:.\main.c      ****     // Draw some image
+  30:.\main.c      ****     gdispImageDraw(&image, 5, 180, 150, 50, 0, 0);
+ 141              		.loc 1 30 0
+ 142 00b6 1D4B     		ldr	r3, .L3
+ 143 00b8 1968     		ldr	r1, [r3]
+ 144 00ba 3A1D     		adds	r2, r7, #4
+ 145 00bc 9623     		movs	r3, #150
+ 146 00be 0093     		str	r3, [sp]
+ 147 00c0 3223     		movs	r3, #50
+ 148 00c2 0193     		str	r3, [sp, #4]
+ 149 00c4 0023     		movs	r3, #0
+ 150 00c6 0293     		str	r3, [sp, #8]
+ 151 00c8 0023     		movs	r3, #0
+ 152 00ca 0393     		str	r3, [sp, #12]
+ 153 00cc 0846     		mov	r0, r1
+ 154 00ce 1146     		mov	r1, r2
+ 155 00d0 0522     		movs	r2, #5
+ 156 00d2 B423     		movs	r3, #180
+ 157 00d4 FFF7FEFF 		bl	gdispGImageDraw
+  31:.\main.c      ****     
+  32:.\main.c      ****     // Draw some random shapes
+  33:.\main.c      ****     gdispFillArea(180, 120, 40, 30, Red);
+ 158              		.loc 1 33 0
+ 159 00d8 144B     		ldr	r3, .L3
+ 160 00da 1A68     		ldr	r2, [r3]
+ 161 00dc 1E23     		movs	r3, #30
+ 162 00de 0093     		str	r3, [sp]
+ 163 00e0 4FF47843 		mov	r3, #63488
+ 164 00e4 0193     		str	r3, [sp, #4]
+ 165 00e6 1046     		mov	r0, r2
+ 166 00e8 B421     		movs	r1, #180
+ 167 00ea 7822     		movs	r2, #120
+ 168 00ec 2823     		movs	r3, #40
+ 169 00ee FFF7FEFF 		bl	gdispGFillArea
+  34:.\main.c      ****     gdispFillArea(210, 160, 90, 50, Lime);
+ 170              		.loc 1 34 0
+ 171 00f2 0E4B     		ldr	r3, .L3
+ 172 00f4 1A68     		ldr	r2, [r3]
+ 173 00f6 3223     		movs	r3, #50
+ 174 00f8 0093     		str	r3, [sp]
+ 175 00fa 4FF4FC63 		mov	r3, #2016
+ 176 00fe 0193     		str	r3, [sp, #4]
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccj9bunu.s 			page 5
+
+
+ 177 0100 1046     		mov	r0, r2
+ 178 0102 D221     		movs	r1, #210
+ 179 0104 A022     		movs	r2, #160
+ 180 0106 5A23     		movs	r3, #90
+ 181 0108 FFF7FEFF 		bl	gdispGFillArea
+  35:.\main.c      ****     gdispDrawCircle(225, 155, 25, Green);
+ 182              		.loc 1 35 0
+ 183 010c 074B     		ldr	r3, .L3
+ 184 010e 1A68     		ldr	r2, [r3]
+ 185 0110 4FF48063 		mov	r3, #1024
+ 186 0114 0093     		str	r3, [sp]
+ 187 0116 1046     		mov	r0, r2
+ 188 0118 E121     		movs	r1, #225
+ 189 011a 9B22     		movs	r2, #155
+ 190 011c 1923     		movs	r3, #25
+ 191 011e FFF7FEFF 		bl	gdispGDrawCircle
+ 192              	.L2:
+  36:.\main.c      ****     
+  37:.\main.c      ****     // Get bored
+  38:.\main.c      ****     while (1) {
+  39:.\main.c      ****         gfxSleepMilliseconds(100);
+ 193              		.loc 1 39 0 discriminator 1
+ 194 0122 6420     		movs	r0, #100
+ 195 0124 FFF7FEFF 		bl	gfxSleepMilliseconds
+  40:.\main.c      ****     }
+ 196              		.loc 1 40 0 discriminator 1
+ 197 0128 FBE7     		b	.L2
+ 198              	.L4:
+ 199 012a 00BF     		.align	2
+ 200              	.L3:
+ 201 012c 00000000 		.word	GDISP
+ 202 0130 00000000 		.word	.LC0
+ 203 0134 10000000 		.word	.LC1
+ 204 0138 20000000 		.word	.LC2
+ 205 013c 38000000 		.word	.LC3
+ 206 0140 3C000000 		.word	.LC4
+ 207 0144 50000000 		.word	.LC5
+ 208              		.cfi_endproc
+ 209              	.LFE63:
+ 210              		.size	main, .-main
+ 211              		.text
+ 212              	.Letext0:
+ 213              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 214              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 215              		.file 4 "..\\ugfx_2.6/src/gfile/gfile.h"
+ 216              		.file 5 "..\\ugfx_2.6/src/gdisp/gdisp.h"
+ 217              		.file 6 "..\\ugfx_2.6/src/gdisp/gdisp_colors.h"
+ 218              		.file 7 "..\\ugfx_2.6/src/gdisp/gdisp_image.h"
+ 219              		.file 8 "Generated_Source\\PSoC5/core_cm3.h"
+ 220              		.section	.debug_info,"",%progbits
+ 221              	.Ldebug_info0:
+ 222 0000 67020000 		.4byte	0x267
+ 223 0004 0400     		.2byte	0x4
+ 224 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 225 000a 04       		.byte	0x4
+ 226 000b 01       		.uleb128 0x1
+ 227 000c 4A000000 		.4byte	.LASF49
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccj9bunu.s 			page 6
+
+
+ 228 0010 01       		.byte	0x1
+ 229 0011 FC000000 		.4byte	.LASF50
+ 230 0015 0B010000 		.4byte	.LASF51
+ 231 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 232 001d 00000000 		.4byte	0
+ 233 0021 00000000 		.4byte	.Ldebug_line0
+ 234 0025 02       		.uleb128 0x2
+ 235 0026 01       		.byte	0x1
+ 236 0027 06       		.byte	0x6
+ 237 0028 AD020000 		.4byte	.LASF0
+ 238 002c 02       		.uleb128 0x2
+ 239 002d 01       		.byte	0x1
+ 240 002e 08       		.byte	0x8
+ 241 002f 5C010000 		.4byte	.LASF1
+ 242 0033 02       		.uleb128 0x2
+ 243 0034 02       		.byte	0x2
+ 244 0035 05       		.byte	0x5
+ 245 0036 68020000 		.4byte	.LASF2
+ 246 003a 02       		.uleb128 0x2
+ 247 003b 02       		.byte	0x2
+ 248 003c 07       		.byte	0x7
+ 249 003d B9020000 		.4byte	.LASF3
+ 250 0041 03       		.uleb128 0x3
+ 251 0042 40000000 		.4byte	.LASF9
+ 252 0046 02       		.byte	0x2
+ 253 0047 3F       		.byte	0x3f
+ 254 0048 4C000000 		.4byte	0x4c
+ 255 004c 02       		.uleb128 0x2
+ 256 004d 04       		.byte	0x4
+ 257 004e 05       		.byte	0x5
+ 258 004f 72020000 		.4byte	.LASF4
+ 259 0053 02       		.uleb128 0x2
+ 260 0054 04       		.byte	0x4
+ 261 0055 07       		.byte	0x7
+ 262 0056 7D010000 		.4byte	.LASF5
+ 263 005a 02       		.uleb128 0x2
+ 264 005b 08       		.byte	0x8
+ 265 005c 05       		.byte	0x5
+ 266 005d 41020000 		.4byte	.LASF6
+ 267 0061 02       		.uleb128 0x2
+ 268 0062 08       		.byte	0x8
+ 269 0063 07       		.byte	0x7
+ 270 0064 0A020000 		.4byte	.LASF7
+ 271 0068 04       		.uleb128 0x4
+ 272 0069 04       		.byte	0x4
+ 273 006a 05       		.byte	0x5
+ 274 006b 696E7400 		.ascii	"int\000"
+ 275 006f 02       		.uleb128 0x2
+ 276 0070 04       		.byte	0x4
+ 277 0071 07       		.byte	0x7
+ 278 0072 F7010000 		.4byte	.LASF8
+ 279 0076 03       		.uleb128 0x3
+ 280 0077 30020000 		.4byte	.LASF10
+ 281 007b 03       		.byte	0x3
+ 282 007c 2C       		.byte	0x2c
+ 283 007d 41000000 		.4byte	0x41
+ 284 0081 02       		.uleb128 0x2
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccj9bunu.s 			page 7
+
+
+ 285 0082 04       		.byte	0x4
+ 286 0083 04       		.byte	0x4
+ 287 0084 05010000 		.4byte	.LASF11
+ 288 0088 02       		.uleb128 0x2
+ 289 0089 08       		.byte	0x8
+ 290 008a 04       		.byte	0x4
+ 291 008b B8010000 		.4byte	.LASF12
+ 292 008f 02       		.uleb128 0x2
+ 293 0090 01       		.byte	0x1
+ 294 0091 08       		.byte	0x8
+ 295 0092 4F020000 		.4byte	.LASF13
+ 296 0096 02       		.uleb128 0x2
+ 297 0097 04       		.byte	0x4
+ 298 0098 07       		.byte	0x7
+ 299 0099 38020000 		.4byte	.LASF14
+ 300 009d 05       		.uleb128 0x5
+ 301 009e 04       		.byte	0x4
+ 302 009f 03       		.uleb128 0x3
+ 303 00a0 00000000 		.4byte	.LASF15
+ 304 00a4 04       		.byte	0x4
+ 305 00a5 22       		.byte	0x22
+ 306 00a6 AA000000 		.4byte	0xaa
+ 307 00aa 06       		.uleb128 0x6
+ 308 00ab 00000000 		.4byte	.LASF15
+ 309 00af 03       		.uleb128 0x3
+ 310 00b0 EE020000 		.4byte	.LASF16
+ 311 00b4 05       		.byte	0x5
+ 312 00b5 27       		.byte	0x27
+ 313 00b6 33000000 		.4byte	0x33
+ 314 00ba 07       		.uleb128 0x7
+ 315 00bb E7010000 		.4byte	.LASF22
+ 316 00bf 01       		.byte	0x1
+ 317 00c0 05       		.byte	0x5
+ 318 00c1 3C       		.byte	0x3c
+ 319 00c2 D9000000 		.4byte	0xd9
+ 320 00c6 08       		.uleb128 0x8
+ 321 00c7 A1020000 		.4byte	.LASF17
+ 322 00cb 00       		.sleb128 0
+ 323 00cc 08       		.uleb128 0x8
+ 324 00cd A2010000 		.4byte	.LASF18
+ 325 00d1 01       		.sleb128 1
+ 326 00d2 08       		.uleb128 0x8
+ 327 00d3 D8000000 		.4byte	.LASF19
+ 328 00d7 02       		.sleb128 2
+ 329 00d8 00       		.byte	0
+ 330 00d9 03       		.uleb128 0x3
+ 331 00da E7020000 		.4byte	.LASF20
+ 332 00de 05       		.byte	0x5
+ 333 00df 54       		.byte	0x54
+ 334 00e0 E4000000 		.4byte	0xe4
+ 335 00e4 09       		.uleb128 0x9
+ 336 00e5 04       		.byte	0x4
+ 337 00e6 EA000000 		.4byte	0xea
+ 338 00ea 0A       		.uleb128 0xa
+ 339 00eb EF000000 		.4byte	0xef
+ 340 00ef 06       		.uleb128 0x6
+ 341 00f0 DD020000 		.4byte	.LASF21
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccj9bunu.s 			page 8
+
+
+ 342 00f4 07       		.uleb128 0x7
+ 343 00f5 45010000 		.4byte	.LASF23
+ 344 00f9 02       		.byte	0x2
+ 345 00fa 05       		.byte	0x5
+ 346 00fb 5C       		.byte	0x5c
+ 347 00fc 2A010000 		.4byte	0x12a
+ 348 0100 08       		.uleb128 0x8
+ 349 0101 CB010000 		.4byte	.LASF24
+ 350 0105 00       		.sleb128 0
+ 351 0106 08       		.uleb128 0x8
+ 352 0107 06000000 		.4byte	.LASF25
+ 353 010b DA00     		.sleb128 90
+ 354 010d 08       		.uleb128 0x8
+ 355 010e CC020000 		.4byte	.LASF26
+ 356 0112 B401     		.sleb128 180
+ 357 0114 08       		.uleb128 0x8
+ 358 0115 16000000 		.4byte	.LASF27
+ 359 0119 8E02     		.sleb128 270
+ 360 011b 08       		.uleb128 0x8
+ 361 011c 8B020000 		.4byte	.LASF28
+ 362 0120 E807     		.sleb128 1000
+ 363 0122 08       		.uleb128 0x8
+ 364 0123 E5000000 		.4byte	.LASF29
+ 365 0127 E907     		.sleb128 1001
+ 366 0129 00       		.byte	0
+ 367 012a 03       		.uleb128 0x3
+ 368 012b 5F020000 		.4byte	.LASF30
+ 369 012f 05       		.byte	0x5
+ 370 0130 73       		.byte	0x73
+ 371 0131 35010000 		.4byte	0x135
+ 372 0135 06       		.uleb128 0x6
+ 373 0136 5F020000 		.4byte	.LASF30
+ 374 013a 0B       		.uleb128 0xb
+ 375 013b B0010000 		.4byte	.LASF31
+ 376 013f 06       		.byte	0x6
+ 377 0140 9001     		.2byte	0x190
+ 378 0142 3A000000 		.4byte	0x3a
+ 379 0146 03       		.uleb128 0x3
+ 380 0147 21020000 		.4byte	.LASF32
+ 381 014b 07       		.byte	0x7
+ 382 014c 1A       		.byte	0x1a
+ 383 014d 3A000000 		.4byte	0x3a
+ 384 0151 03       		.uleb128 0x3
+ 385 0152 7B020000 		.4byte	.LASF33
+ 386 0156 07       		.byte	0x7
+ 387 0157 32       		.byte	0x32
+ 388 0158 3A000000 		.4byte	0x3a
+ 389 015c 0C       		.uleb128 0xc
+ 390 015d 51010000 		.4byte	.LASF41
+ 391 0161 18       		.byte	0x18
+ 392 0162 07       		.byte	0x7
+ 393 0163 3A       		.byte	0x3a
+ 394 0164 C7010000 		.4byte	0x1c7
+ 395 0168 0D       		.uleb128 0xd
+ 396 0169 5A020000 		.4byte	.LASF34
+ 397 016d 07       		.byte	0x7
+ 398 016e 3B       		.byte	0x3b
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccj9bunu.s 			page 9
+
+
+ 399 016f 46010000 		.4byte	0x146
+ 400 0173 00       		.byte	0
+ 401 0174 0D       		.uleb128 0xd
+ 402 0175 04020000 		.4byte	.LASF35
+ 403 0179 07       		.byte	0x7
+ 404 017a 3C       		.byte	0x3c
+ 405 017b 51010000 		.4byte	0x151
+ 406 017f 02       		.byte	0x2
+ 407 0180 0D       		.uleb128 0xd
+ 408 0181 27000000 		.4byte	.LASF36
+ 409 0185 07       		.byte	0x7
+ 410 0186 3D       		.byte	0x3d
+ 411 0187 3A010000 		.4byte	0x13a
+ 412 018b 04       		.byte	0x4
+ 413 018c 0D       		.uleb128 0xd
+ 414 018d 54020000 		.4byte	.LASF37
+ 415 0191 07       		.byte	0x7
+ 416 0192 3E       		.byte	0x3e
+ 417 0193 AF000000 		.4byte	0xaf
+ 418 0197 06       		.byte	0x6
+ 419 0198 0D       		.uleb128 0xd
+ 420 0199 95010000 		.4byte	.LASF38
+ 421 019d 07       		.byte	0x7
+ 422 019e 3E       		.byte	0x3e
+ 423 019f AF000000 		.4byte	0xaf
+ 424 01a3 08       		.byte	0x8
+ 425 01a4 0E       		.uleb128 0xe
+ 426 01a5 6600     		.ascii	"f\000"
+ 427 01a7 07       		.byte	0x7
+ 428 01a8 3F       		.byte	0x3f
+ 429 01a9 C7010000 		.4byte	0x1c7
+ 430 01ad 0C       		.byte	0xc
+ 431 01ae 0E       		.uleb128 0xe
+ 432 01af 666E7300 		.ascii	"fns\000"
+ 433 01b3 07       		.byte	0x7
+ 434 01b4 44       		.byte	0x44
+ 435 01b5 D2010000 		.4byte	0x1d2
+ 436 01b9 10       		.byte	0x10
+ 437 01ba 0D       		.uleb128 0xd
+ 438 01bb 3B000000 		.4byte	.LASF39
+ 439 01bf 07       		.byte	0x7
+ 440 01c0 45       		.byte	0x45
+ 441 01c1 9D000000 		.4byte	0x9d
+ 442 01c5 14       		.byte	0x14
+ 443 01c6 00       		.byte	0
+ 444 01c7 09       		.uleb128 0x9
+ 445 01c8 04       		.byte	0x4
+ 446 01c9 9F000000 		.4byte	0x9f
+ 447 01cd 06       		.uleb128 0x6
+ 448 01ce 6A010000 		.4byte	.LASF40
+ 449 01d2 09       		.uleb128 0x9
+ 450 01d3 04       		.byte	0x4
+ 451 01d4 D8010000 		.4byte	0x1d8
+ 452 01d8 0A       		.uleb128 0xa
+ 453 01d9 CD010000 		.4byte	0x1cd
+ 454 01dd 03       		.uleb128 0x3
+ 455 01de 51010000 		.4byte	.LASF41
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccj9bunu.s 			page 10
+
+
+ 456 01e2 07       		.byte	0x7
+ 457 01e3 46       		.byte	0x46
+ 458 01e4 5C010000 		.4byte	0x15c
+ 459 01e8 0F       		.uleb128 0xf
+ 460 01e9 C6010000 		.4byte	.LASF52
+ 461 01ed 01       		.byte	0x1
+ 462 01ee 04       		.byte	0x4
+ 463 01ef 68000000 		.4byte	0x68
+ 464 01f3 00000000 		.4byte	.LFB63
+ 465 01f7 48010000 		.4byte	.LFE63-.LFB63
+ 466 01fb 01       		.uleb128 0x1
+ 467 01fc 9C       		.byte	0x9c
+ 468 01fd 48020000 		.4byte	0x248
+ 469 0201 10       		.uleb128 0x10
+ 470 0202 2F000000 		.4byte	.LASF42
+ 471 0206 01       		.byte	0x1
+ 472 0207 06       		.byte	0x6
+ 473 0208 D9000000 		.4byte	0xd9
+ 474 020c 02       		.uleb128 0x2
+ 475 020d 91       		.byte	0x91
+ 476 020e 68       		.sleb128 -24
+ 477 020f 10       		.uleb128 0x10
+ 478 0210 35000000 		.4byte	.LASF43
+ 479 0214 01       		.byte	0x1
+ 480 0215 06       		.byte	0x6
+ 481 0216 D9000000 		.4byte	0xd9
+ 482 021a 02       		.uleb128 0x2
+ 483 021b 91       		.byte	0x91
+ 484 021c 64       		.sleb128 -28
+ 485 021d 10       		.uleb128 0x10
+ 486 021e BF010000 		.4byte	.LASF44
+ 487 0222 01       		.byte	0x1
+ 488 0223 07       		.byte	0x7
+ 489 0224 AF000000 		.4byte	0xaf
+ 490 0228 02       		.uleb128 0x2
+ 491 0229 91       		.byte	0x91
+ 492 022a 6E       		.sleb128 -18
+ 493 022b 10       		.uleb128 0x10
+ 494 022c EF010000 		.4byte	.LASF45
+ 495 0230 01       		.byte	0x1
+ 496 0231 07       		.byte	0x7
+ 497 0232 AF000000 		.4byte	0xaf
+ 498 0236 02       		.uleb128 0x2
+ 499 0237 91       		.byte	0x91
+ 500 0238 6C       		.sleb128 -20
+ 501 0239 10       		.uleb128 0x10
+ 502 023a 9C010000 		.4byte	.LASF46
+ 503 023e 01       		.byte	0x1
+ 504 023f 08       		.byte	0x8
+ 505 0240 DD010000 		.4byte	0x1dd
+ 506 0244 02       		.uleb128 0x2
+ 507 0245 91       		.byte	0x91
+ 508 0246 4C       		.sleb128 -52
+ 509 0247 00       		.byte	0
+ 510 0248 11       		.uleb128 0x11
+ 511 0249 DA010000 		.4byte	.LASF47
+ 512 024d 08       		.byte	0x8
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccj9bunu.s 			page 11
+
+
+ 513 024e 9606     		.2byte	0x696
+ 514 0250 54020000 		.4byte	0x254
+ 515 0254 12       		.uleb128 0x12
+ 516 0255 76000000 		.4byte	0x76
+ 517 0259 13       		.uleb128 0x13
+ 518 025a 8F010000 		.4byte	.LASF48
+ 519 025e 05       		.byte	0x5
+ 520 025f 7A       		.byte	0x7a
+ 521 0260 64020000 		.4byte	0x264
+ 522 0264 09       		.uleb128 0x9
+ 523 0265 04       		.byte	0x4
+ 524 0266 2A010000 		.4byte	0x12a
+ 525 026a 00       		.byte	0
+ 526              		.section	.debug_abbrev,"",%progbits
+ 527              	.Ldebug_abbrev0:
+ 528 0000 01       		.uleb128 0x1
+ 529 0001 11       		.uleb128 0x11
+ 530 0002 01       		.byte	0x1
+ 531 0003 25       		.uleb128 0x25
+ 532 0004 0E       		.uleb128 0xe
+ 533 0005 13       		.uleb128 0x13
+ 534 0006 0B       		.uleb128 0xb
+ 535 0007 03       		.uleb128 0x3
+ 536 0008 0E       		.uleb128 0xe
+ 537 0009 1B       		.uleb128 0x1b
+ 538 000a 0E       		.uleb128 0xe
+ 539 000b 55       		.uleb128 0x55
+ 540 000c 17       		.uleb128 0x17
+ 541 000d 11       		.uleb128 0x11
+ 542 000e 01       		.uleb128 0x1
+ 543 000f 10       		.uleb128 0x10
+ 544 0010 17       		.uleb128 0x17
+ 545 0011 00       		.byte	0
+ 546 0012 00       		.byte	0
+ 547 0013 02       		.uleb128 0x2
+ 548 0014 24       		.uleb128 0x24
+ 549 0015 00       		.byte	0
+ 550 0016 0B       		.uleb128 0xb
+ 551 0017 0B       		.uleb128 0xb
+ 552 0018 3E       		.uleb128 0x3e
+ 553 0019 0B       		.uleb128 0xb
+ 554 001a 03       		.uleb128 0x3
+ 555 001b 0E       		.uleb128 0xe
+ 556 001c 00       		.byte	0
+ 557 001d 00       		.byte	0
+ 558 001e 03       		.uleb128 0x3
+ 559 001f 16       		.uleb128 0x16
+ 560 0020 00       		.byte	0
+ 561 0021 03       		.uleb128 0x3
+ 562 0022 0E       		.uleb128 0xe
+ 563 0023 3A       		.uleb128 0x3a
+ 564 0024 0B       		.uleb128 0xb
+ 565 0025 3B       		.uleb128 0x3b
+ 566 0026 0B       		.uleb128 0xb
+ 567 0027 49       		.uleb128 0x49
+ 568 0028 13       		.uleb128 0x13
+ 569 0029 00       		.byte	0
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccj9bunu.s 			page 12
+
+
+ 570 002a 00       		.byte	0
+ 571 002b 04       		.uleb128 0x4
+ 572 002c 24       		.uleb128 0x24
+ 573 002d 00       		.byte	0
+ 574 002e 0B       		.uleb128 0xb
+ 575 002f 0B       		.uleb128 0xb
+ 576 0030 3E       		.uleb128 0x3e
+ 577 0031 0B       		.uleb128 0xb
+ 578 0032 03       		.uleb128 0x3
+ 579 0033 08       		.uleb128 0x8
+ 580 0034 00       		.byte	0
+ 581 0035 00       		.byte	0
+ 582 0036 05       		.uleb128 0x5
+ 583 0037 0F       		.uleb128 0xf
+ 584 0038 00       		.byte	0
+ 585 0039 0B       		.uleb128 0xb
+ 586 003a 0B       		.uleb128 0xb
+ 587 003b 00       		.byte	0
+ 588 003c 00       		.byte	0
+ 589 003d 06       		.uleb128 0x6
+ 590 003e 13       		.uleb128 0x13
+ 591 003f 00       		.byte	0
+ 592 0040 03       		.uleb128 0x3
+ 593 0041 0E       		.uleb128 0xe
+ 594 0042 3C       		.uleb128 0x3c
+ 595 0043 19       		.uleb128 0x19
+ 596 0044 00       		.byte	0
+ 597 0045 00       		.byte	0
+ 598 0046 07       		.uleb128 0x7
+ 599 0047 04       		.uleb128 0x4
+ 600 0048 01       		.byte	0x1
+ 601 0049 03       		.uleb128 0x3
+ 602 004a 0E       		.uleb128 0xe
+ 603 004b 0B       		.uleb128 0xb
+ 604 004c 0B       		.uleb128 0xb
+ 605 004d 3A       		.uleb128 0x3a
+ 606 004e 0B       		.uleb128 0xb
+ 607 004f 3B       		.uleb128 0x3b
+ 608 0050 0B       		.uleb128 0xb
+ 609 0051 01       		.uleb128 0x1
+ 610 0052 13       		.uleb128 0x13
+ 611 0053 00       		.byte	0
+ 612 0054 00       		.byte	0
+ 613 0055 08       		.uleb128 0x8
+ 614 0056 28       		.uleb128 0x28
+ 615 0057 00       		.byte	0
+ 616 0058 03       		.uleb128 0x3
+ 617 0059 0E       		.uleb128 0xe
+ 618 005a 1C       		.uleb128 0x1c
+ 619 005b 0D       		.uleb128 0xd
+ 620 005c 00       		.byte	0
+ 621 005d 00       		.byte	0
+ 622 005e 09       		.uleb128 0x9
+ 623 005f 0F       		.uleb128 0xf
+ 624 0060 00       		.byte	0
+ 625 0061 0B       		.uleb128 0xb
+ 626 0062 0B       		.uleb128 0xb
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccj9bunu.s 			page 13
+
+
+ 627 0063 49       		.uleb128 0x49
+ 628 0064 13       		.uleb128 0x13
+ 629 0065 00       		.byte	0
+ 630 0066 00       		.byte	0
+ 631 0067 0A       		.uleb128 0xa
+ 632 0068 26       		.uleb128 0x26
+ 633 0069 00       		.byte	0
+ 634 006a 49       		.uleb128 0x49
+ 635 006b 13       		.uleb128 0x13
+ 636 006c 00       		.byte	0
+ 637 006d 00       		.byte	0
+ 638 006e 0B       		.uleb128 0xb
+ 639 006f 16       		.uleb128 0x16
+ 640 0070 00       		.byte	0
+ 641 0071 03       		.uleb128 0x3
+ 642 0072 0E       		.uleb128 0xe
+ 643 0073 3A       		.uleb128 0x3a
+ 644 0074 0B       		.uleb128 0xb
+ 645 0075 3B       		.uleb128 0x3b
+ 646 0076 05       		.uleb128 0x5
+ 647 0077 49       		.uleb128 0x49
+ 648 0078 13       		.uleb128 0x13
+ 649 0079 00       		.byte	0
+ 650 007a 00       		.byte	0
+ 651 007b 0C       		.uleb128 0xc
+ 652 007c 13       		.uleb128 0x13
+ 653 007d 01       		.byte	0x1
+ 654 007e 03       		.uleb128 0x3
+ 655 007f 0E       		.uleb128 0xe
+ 656 0080 0B       		.uleb128 0xb
+ 657 0081 0B       		.uleb128 0xb
+ 658 0082 3A       		.uleb128 0x3a
+ 659 0083 0B       		.uleb128 0xb
+ 660 0084 3B       		.uleb128 0x3b
+ 661 0085 0B       		.uleb128 0xb
+ 662 0086 01       		.uleb128 0x1
+ 663 0087 13       		.uleb128 0x13
+ 664 0088 00       		.byte	0
+ 665 0089 00       		.byte	0
+ 666 008a 0D       		.uleb128 0xd
+ 667 008b 0D       		.uleb128 0xd
+ 668 008c 00       		.byte	0
+ 669 008d 03       		.uleb128 0x3
+ 670 008e 0E       		.uleb128 0xe
+ 671 008f 3A       		.uleb128 0x3a
+ 672 0090 0B       		.uleb128 0xb
+ 673 0091 3B       		.uleb128 0x3b
+ 674 0092 0B       		.uleb128 0xb
+ 675 0093 49       		.uleb128 0x49
+ 676 0094 13       		.uleb128 0x13
+ 677 0095 38       		.uleb128 0x38
+ 678 0096 0B       		.uleb128 0xb
+ 679 0097 00       		.byte	0
+ 680 0098 00       		.byte	0
+ 681 0099 0E       		.uleb128 0xe
+ 682 009a 0D       		.uleb128 0xd
+ 683 009b 00       		.byte	0
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccj9bunu.s 			page 14
+
+
+ 684 009c 03       		.uleb128 0x3
+ 685 009d 08       		.uleb128 0x8
+ 686 009e 3A       		.uleb128 0x3a
+ 687 009f 0B       		.uleb128 0xb
+ 688 00a0 3B       		.uleb128 0x3b
+ 689 00a1 0B       		.uleb128 0xb
+ 690 00a2 49       		.uleb128 0x49
+ 691 00a3 13       		.uleb128 0x13
+ 692 00a4 38       		.uleb128 0x38
+ 693 00a5 0B       		.uleb128 0xb
+ 694 00a6 00       		.byte	0
+ 695 00a7 00       		.byte	0
+ 696 00a8 0F       		.uleb128 0xf
+ 697 00a9 2E       		.uleb128 0x2e
+ 698 00aa 01       		.byte	0x1
+ 699 00ab 3F       		.uleb128 0x3f
+ 700 00ac 19       		.uleb128 0x19
+ 701 00ad 03       		.uleb128 0x3
+ 702 00ae 0E       		.uleb128 0xe
+ 703 00af 3A       		.uleb128 0x3a
+ 704 00b0 0B       		.uleb128 0xb
+ 705 00b1 3B       		.uleb128 0x3b
+ 706 00b2 0B       		.uleb128 0xb
+ 707 00b3 49       		.uleb128 0x49
+ 708 00b4 13       		.uleb128 0x13
+ 709 00b5 11       		.uleb128 0x11
+ 710 00b6 01       		.uleb128 0x1
+ 711 00b7 12       		.uleb128 0x12
+ 712 00b8 06       		.uleb128 0x6
+ 713 00b9 40       		.uleb128 0x40
+ 714 00ba 18       		.uleb128 0x18
+ 715 00bb 9642     		.uleb128 0x2116
+ 716 00bd 19       		.uleb128 0x19
+ 717 00be 01       		.uleb128 0x1
+ 718 00bf 13       		.uleb128 0x13
+ 719 00c0 00       		.byte	0
+ 720 00c1 00       		.byte	0
+ 721 00c2 10       		.uleb128 0x10
+ 722 00c3 34       		.uleb128 0x34
+ 723 00c4 00       		.byte	0
+ 724 00c5 03       		.uleb128 0x3
+ 725 00c6 0E       		.uleb128 0xe
+ 726 00c7 3A       		.uleb128 0x3a
+ 727 00c8 0B       		.uleb128 0xb
+ 728 00c9 3B       		.uleb128 0x3b
+ 729 00ca 0B       		.uleb128 0xb
+ 730 00cb 49       		.uleb128 0x49
+ 731 00cc 13       		.uleb128 0x13
+ 732 00cd 02       		.uleb128 0x2
+ 733 00ce 18       		.uleb128 0x18
+ 734 00cf 00       		.byte	0
+ 735 00d0 00       		.byte	0
+ 736 00d1 11       		.uleb128 0x11
+ 737 00d2 34       		.uleb128 0x34
+ 738 00d3 00       		.byte	0
+ 739 00d4 03       		.uleb128 0x3
+ 740 00d5 0E       		.uleb128 0xe
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccj9bunu.s 			page 15
+
+
+ 741 00d6 3A       		.uleb128 0x3a
+ 742 00d7 0B       		.uleb128 0xb
+ 743 00d8 3B       		.uleb128 0x3b
+ 744 00d9 05       		.uleb128 0x5
+ 745 00da 49       		.uleb128 0x49
+ 746 00db 13       		.uleb128 0x13
+ 747 00dc 3F       		.uleb128 0x3f
+ 748 00dd 19       		.uleb128 0x19
+ 749 00de 3C       		.uleb128 0x3c
+ 750 00df 19       		.uleb128 0x19
+ 751 00e0 00       		.byte	0
+ 752 00e1 00       		.byte	0
+ 753 00e2 12       		.uleb128 0x12
+ 754 00e3 35       		.uleb128 0x35
+ 755 00e4 00       		.byte	0
+ 756 00e5 49       		.uleb128 0x49
+ 757 00e6 13       		.uleb128 0x13
+ 758 00e7 00       		.byte	0
+ 759 00e8 00       		.byte	0
+ 760 00e9 13       		.uleb128 0x13
+ 761 00ea 34       		.uleb128 0x34
+ 762 00eb 00       		.byte	0
+ 763 00ec 03       		.uleb128 0x3
+ 764 00ed 0E       		.uleb128 0xe
+ 765 00ee 3A       		.uleb128 0x3a
+ 766 00ef 0B       		.uleb128 0xb
+ 767 00f0 3B       		.uleb128 0x3b
+ 768 00f1 0B       		.uleb128 0xb
+ 769 00f2 49       		.uleb128 0x49
+ 770 00f3 13       		.uleb128 0x13
+ 771 00f4 3F       		.uleb128 0x3f
+ 772 00f5 19       		.uleb128 0x19
+ 773 00f6 3C       		.uleb128 0x3c
+ 774 00f7 19       		.uleb128 0x19
+ 775 00f8 00       		.byte	0
+ 776 00f9 00       		.byte	0
+ 777 00fa 00       		.byte	0
+ 778              		.section	.debug_aranges,"",%progbits
+ 779 0000 1C000000 		.4byte	0x1c
+ 780 0004 0200     		.2byte	0x2
+ 781 0006 00000000 		.4byte	.Ldebug_info0
+ 782 000a 04       		.byte	0x4
+ 783 000b 00       		.byte	0
+ 784 000c 0000     		.2byte	0
+ 785 000e 0000     		.2byte	0
+ 786 0010 00000000 		.4byte	.LFB63
+ 787 0014 48010000 		.4byte	.LFE63-.LFB63
+ 788 0018 00000000 		.4byte	0
+ 789 001c 00000000 		.4byte	0
+ 790              		.section	.debug_ranges,"",%progbits
+ 791              	.Ldebug_ranges0:
+ 792 0000 00000000 		.4byte	.LFB63
+ 793 0004 48010000 		.4byte	.LFE63
+ 794 0008 00000000 		.4byte	0
+ 795 000c 00000000 		.4byte	0
+ 796              		.section	.debug_line,"",%progbits
+ 797              	.Ldebug_line0:
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccj9bunu.s 			page 16
+
+
+ 798 0000 CE010000 		.section	.debug_str,"MS",%progbits,1
+ 798      0200A101 
+ 798      00000201 
+ 798      FB0E0D00 
+ 798      01010101 
+ 799              	.LASF15:
+ 800 0000 4746494C 		.ascii	"GFILE\000"
+ 800      4500
+ 801              	.LASF25:
+ 802 0006 47444953 		.ascii	"GDISP_ROTATE_90\000"
+ 802      505F524F 
+ 802      54415445 
+ 802      5F393000 
+ 803              	.LASF27:
+ 804 0016 47444953 		.ascii	"GDISP_ROTATE_270\000"
+ 804      505F524F 
+ 804      54415445 
+ 804      5F323730 
+ 804      00
+ 805              	.LASF36:
+ 806 0027 6267636F 		.ascii	"bgcolor\000"
+ 806      6C6F7200 
+ 807              	.LASF42:
+ 808 002f 666F6E74 		.ascii	"font1\000"
+ 808      3100
+ 809              	.LASF43:
+ 810 0035 666F6E74 		.ascii	"font2\000"
+ 810      3200
+ 811              	.LASF39:
+ 812 003b 70726976 		.ascii	"priv\000"
+ 812      00
+ 813              	.LASF9:
+ 814 0040 5F5F696E 		.ascii	"__int32_t\000"
+ 814      7433325F 
+ 814      7400
+ 815              	.LASF49:
+ 816 004a 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 816      4320342E 
+ 816      392E3320 
+ 816      32303135 
+ 816      30333033 
+ 817 007d 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 817      20726576 
+ 817      6973696F 
+ 817      6E203232 
+ 817      31323230 
+ 818 00b0 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 818      66756E63 
+ 818      74696F6E 
+ 818      2D736563 
+ 818      74696F6E 
+ 819              	.LASF19:
+ 820 00d8 6A757374 		.ascii	"justifyRight\000"
+ 820      69667952 
+ 820      69676874 
+ 820      00
+ 821              	.LASF29:
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccj9bunu.s 			page 17
+
+
+ 822 00e5 47444953 		.ascii	"GDISP_ROTATE_LANDSCAPE\000"
+ 822      505F524F 
+ 822      54415445 
+ 822      5F4C414E 
+ 822      44534341 
+ 823              	.LASF50:
+ 824 00fc 2E5C6D61 		.ascii	".\\main.c\000"
+ 824      696E2E63 
+ 824      00
+ 825              	.LASF11:
+ 826 0105 666C6F61 		.ascii	"float\000"
+ 826      7400
+ 827              	.LASF51:
+ 828 010b 433A5C55 		.ascii	"C:\\Users\\joel\\Desktop\\psoc\\psoc_ugfx_demo\\uGF"
+ 828      73657273 
+ 828      5C6A6F65 
+ 828      6C5C4465 
+ 828      736B746F 
+ 829 0138 58204465 		.ascii	"X Demo.cydsn\000"
+ 829      6D6F2E63 
+ 829      7964736E 
+ 829      00
+ 830              	.LASF23:
+ 831 0145 6F726965 		.ascii	"orientation\000"
+ 831      6E746174 
+ 831      696F6E00 
+ 832              	.LASF41:
+ 833 0151 67646973 		.ascii	"gdispImage\000"
+ 833      70496D61 
+ 833      676500
+ 834              	.LASF1:
+ 835 015c 756E7369 		.ascii	"unsigned char\000"
+ 835      676E6564 
+ 835      20636861 
+ 835      7200
+ 836              	.LASF40:
+ 837 016a 67646973 		.ascii	"gdispImageHandlers\000"
+ 837      70496D61 
+ 837      67654861 
+ 837      6E646C65 
+ 837      727300
+ 838              	.LASF5:
+ 839 017d 6C6F6E67 		.ascii	"long unsigned int\000"
+ 839      20756E73 
+ 839      69676E65 
+ 839      6420696E 
+ 839      7400
+ 840              	.LASF48:
+ 841 018f 47444953 		.ascii	"GDISP\000"
+ 841      5000
+ 842              	.LASF38:
+ 843 0195 68656967 		.ascii	"height\000"
+ 843      687400
+ 844              	.LASF46:
+ 845 019c 696D6167 		.ascii	"image\000"
+ 845      6500
+ 846              	.LASF18:
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccj9bunu.s 			page 18
+
+
+ 847 01a2 6A757374 		.ascii	"justifyCenter\000"
+ 847      69667943 
+ 847      656E7465 
+ 847      7200
+ 848              	.LASF31:
+ 849 01b0 636F6C6F 		.ascii	"color_t\000"
+ 849      725F7400 
+ 850              	.LASF12:
+ 851 01b8 646F7562 		.ascii	"double\000"
+ 851      6C6500
+ 852              	.LASF44:
+ 853 01bf 73776964 		.ascii	"swidth\000"
+ 853      746800
+ 854              	.LASF52:
+ 855 01c6 6D61696E 		.ascii	"main\000"
+ 855      00
+ 856              	.LASF24:
+ 857 01cb 47444953 		.ascii	"GDISP_ROTATE_0\000"
+ 857      505F524F 
+ 857      54415445 
+ 857      5F3000
+ 858              	.LASF47:
+ 859 01da 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 859      52784275 
+ 859      66666572 
+ 859      00
+ 860              	.LASF22:
+ 861 01e7 6A757374 		.ascii	"justify\000"
+ 861      69667900 
+ 862              	.LASF45:
+ 863 01ef 73686569 		.ascii	"sheight\000"
+ 863      67687400 
+ 864              	.LASF8:
+ 865 01f7 756E7369 		.ascii	"unsigned int\000"
+ 865      676E6564 
+ 865      20696E74 
+ 865      00
+ 866              	.LASF35:
+ 867 0204 666C6167 		.ascii	"flags\000"
+ 867      7300
+ 868              	.LASF7:
+ 869 020a 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 869      206C6F6E 
+ 869      6720756E 
+ 869      7369676E 
+ 869      65642069 
+ 870              	.LASF32:
+ 871 0221 67646973 		.ascii	"gdispImageType\000"
+ 871      70496D61 
+ 871      67655479 
+ 871      706500
+ 872              	.LASF10:
+ 873 0230 696E7433 		.ascii	"int32_t\000"
+ 873      325F7400 
+ 874              	.LASF14:
+ 875 0238 73697A65 		.ascii	"sizetype\000"
+ 875      74797065 
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccj9bunu.s 			page 19
+
+
+ 875      00
+ 876              	.LASF6:
+ 877 0241 6C6F6E67 		.ascii	"long long int\000"
+ 877      206C6F6E 
+ 877      6720696E 
+ 877      7400
+ 878              	.LASF13:
+ 879 024f 63686172 		.ascii	"char\000"
+ 879      00
+ 880              	.LASF37:
+ 881 0254 77696474 		.ascii	"width\000"
+ 881      6800
+ 882              	.LASF34:
+ 883 025a 74797065 		.ascii	"type\000"
+ 883      00
+ 884              	.LASF30:
+ 885 025f 47446973 		.ascii	"GDisplay\000"
+ 885      706C6179 
+ 885      00
+ 886              	.LASF2:
+ 887 0268 73686F72 		.ascii	"short int\000"
+ 887      7420696E 
+ 887      7400
+ 888              	.LASF4:
+ 889 0272 6C6F6E67 		.ascii	"long int\000"
+ 889      20696E74 
+ 889      00
+ 890              	.LASF33:
+ 891 027b 67646973 		.ascii	"gdispImageFlags\000"
+ 891      70496D61 
+ 891      6765466C 
+ 891      61677300 
+ 892              	.LASF28:
+ 893 028b 47444953 		.ascii	"GDISP_ROTATE_PORTRAIT\000"
+ 893      505F524F 
+ 893      54415445 
+ 893      5F504F52 
+ 893      54524149 
+ 894              	.LASF17:
+ 895 02a1 6A757374 		.ascii	"justifyLeft\000"
+ 895      6966794C 
+ 895      65667400 
+ 896              	.LASF0:
+ 897 02ad 7369676E 		.ascii	"signed char\000"
+ 897      65642063 
+ 897      68617200 
+ 898              	.LASF3:
+ 899 02b9 73686F72 		.ascii	"short unsigned int\000"
+ 899      7420756E 
+ 899      7369676E 
+ 899      65642069 
+ 899      6E7400
+ 900              	.LASF26:
+ 901 02cc 47444953 		.ascii	"GDISP_ROTATE_180\000"
+ 901      505F524F 
+ 901      54415445 
+ 901      5F313830 
+ARM GAS  C:\Users\joel\AppData\Local\Temp\ccj9bunu.s 			page 20
+
+
+ 901      00
+ 902              	.LASF21:
+ 903 02dd 6D665F66 		.ascii	"mf_font_s\000"
+ 903      6F6E745F 
+ 903      7300
+ 904              	.LASF20:
+ 905 02e7 666F6E74 		.ascii	"font_t\000"
+ 905      5F7400
+ 906              	.LASF16:
+ 907 02ee 636F6F72 		.ascii	"coord_t\000"
+ 907      645F7400 
+ 908              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
