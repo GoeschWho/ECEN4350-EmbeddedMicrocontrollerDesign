@@ -19,7 +19,7 @@ void StackEventHandler( uint32 eventCode, void *eventParam );
 
 int main()
 {
-     //CyGlobalIntEnable;   /* Enable global interrupts */
+     CyGlobalIntEnable;   /* Enable global interrupts */
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
         
     rst0_m_Write(1u);
@@ -27,12 +27,10 @@ int main()
     begin(RA8875_800x480);
     displayOn(true);
     GPIOX(true);      // Enable TFT - display enable tied to GPIOX
-    CyDelay(50);
     
     PWM1config(true, RA8875_PWM_CLK_DIV1024); // PWM output for backlight  
     PWM1out(255);
     
-    CyDelay(50);
     fillScreen(RA8875_WHITE);    
     
     for (uint8_t i=255; i!=0; i-=5 ) 

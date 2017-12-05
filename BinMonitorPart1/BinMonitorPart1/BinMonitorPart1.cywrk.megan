@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="BinMonitorPart1\BinMonitorPart1\TopDesign">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
 <v>BinMonitorPart1</v>
 <v>BinMonitorPart1\BinMonitorPart1</v>
@@ -165,54 +165,6 @@
 <VisibleNodeIds>
 <v>BinMonitorPart1</v>
 <v>BinMonitorPart1\BinMonitorPart1</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_In.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_In_PM.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_1.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_1_bas.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_1_bless_isr.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_1_dis.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_1_eventHandler.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_1_gatt.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_1_HAL_INT.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_1_HAL_PVT.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_1_hids.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_1_scps.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\CyDMA.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\isr_1.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\LCDSPI.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\LCDSPI_BOOT.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\LCDSPI_miso_m.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\LCDSPI_miso_m_PM.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\LCDSPI_mosi_m.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\LCDSPI_mosi_m_PM.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\LCDSPI_PM.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\LCDSPI_SCBCLK.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\LCDSPI_sclk_m.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\LCDSPI_sclk_m_PM.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\LCDSPI_SPI.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\LCDSPI_SPI_BOOT.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\LCDSPI_SPI_UART.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\LCDSPI_ss0_m.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\LCDSPI_ss0_m_PM.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\LED_1.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\LED_1_PM.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\LED_2.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\LED_2_PM.lst</v>
-<v>BinMonitorPart1\BinMonitorPart1\CortexM0\ARM_GCC_541\Debug\Listing Files\main.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -291,14 +243,10 @@
 <OpenDocs>
 <name v=".\BinMonitorPart1.cydsn\RA8875.c" />
 <name v=".\BinMonitorPart1.cydsn\main.c" />
-<name v=".\BinMonitorPart1.cydsn\BinMonitorPart1.cydwr" />
-<name v=".\BinMonitorPart1.cydsn\TopDesign\TopDesign.cysch" />
-<name v=".\BinMonitorPart1.cydsn\Generated_Source\PSoC4\LCDSPI.c" />
-<name v=".\BinMonitorPart1.cydsn\Generated_Source\PSoC4\LCDSPI_PINS.h" />
-<name v=".\BinMonitorPart1.cydsn\Generated_Source\PSoC4\LCDSPI_ss0_m.c" />
 <name v=".\BinMonitorPart1.cydsn\Generated_Source\PSoC4\LCDSPI_SPI_UART.c" />
+<name v=".\BinMonitorPart1.cydsn\Generated_Source\PSoC4\cytypes.h" />
+<name v=".\BinMonitorPart1.cydsn\TopDesign\TopDesign.cysch" />
 <name v=".\BinMonitorPart1.cydsn\RA8875.h" />
-<name v=".\BinMonitorPart1.cydsn\Generated_Source\PSoC4\TCPWM_5.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -306,7 +254,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1602, 602" SelectedTabbedMdiWindow="9f22e491-7b89-4172-b639-ba31d67d98a2"><DocumentWindow Key="C:\Users\megan\Google Drive\College\S10 - Fall 2017\ECEN 4350 - Embedded uC Design\Github\ECEN4350-EmbeddedMicrocontrollerDesign\BinMonitorPart1\BinMonitorPart1\BinMonitorPart1.cydsn\RA8875.c" Guid="9f22e491-7b89-4172-b639-ba31d67d98a2" /><DocumentWindow Key="C:\Users\megan\Google Drive\College\S10 - Fall 2017\ECEN 4350 - Embedded uC Design\Github\ECEN4350-EmbeddedMicrocontrollerDesign\BinMonitorPart1\BinMonitorPart1\BinMonitorPart1.cydsn\main.c" Guid="45b90673-a4ef-4e3f-9824-fb18bcdcf47f" /><DocumentWindow Key="C:\Users\megan\Google Drive\College\S10 - Fall 2017\ECEN 4350 - Embedded uC Design\Github\ECEN4350-EmbeddedMicrocontrollerDesign\BinMonitorPart1\BinMonitorPart1\BinMonitorPart1.cydsn\BinMonitorPart1.cydwr" Guid="9a8dda8f-cbd0-4c2f-8c7f-c2fa395e1010" /><DocumentWindow Key="C:\Users\megan\Google Drive\College\S10 - Fall 2017\ECEN 4350 - Embedded uC Design\Github\ECEN4350-EmbeddedMicrocontrollerDesign\BinMonitorPart1\BinMonitorPart1\BinMonitorPart1.cydsn\TopDesign\TopDesign.cysch" Guid="07267707-9e6f-4879-9ba2-35c8517f9407" /><DocumentWindow Key="C:\Users\megan\Google Drive\College\S10 - Fall 2017\ECEN 4350 - Embedded uC Design\Github\ECEN4350-EmbeddedMicrocontrollerDesign\BinMonitorPart1\BinMonitorPart1\BinMonitorPart1.cydsn\Generated_Source\PSoC4\LCDSPI.c" Guid="c7f51c6a-2fc1-41b6-8afd-89b1475e5547" /><DocumentWindow Key="C:\Users\megan\Google Drive\College\S10 - Fall 2017\ECEN 4350 - Embedded uC Design\Github\ECEN4350-EmbeddedMicrocontrollerDesign\BinMonitorPart1\BinMonitorPart1\BinMonitorPart1.cydsn\Generated_Source\PSoC4\LCDSPI_PINS.h" Guid="8852e51c-df44-4652-b1f7-7a22458b7f6c" /><DocumentWindow Key="C:\Users\megan\Google Drive\College\S10 - Fall 2017\ECEN 4350 - Embedded uC Design\Github\ECEN4350-EmbeddedMicrocontrollerDesign\BinMonitorPart1\BinMonitorPart1\BinMonitorPart1.cydsn\Generated_Source\PSoC4\LCDSPI_ss0_m.c" Guid="4274870d-1af5-453b-b708-aed2c2a13177" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="7426ed57-6c80-436e-ac6f-d2ceb0a319c3" /><DocumentWindow Key="C:\Users\megan\Google Drive\College\S10 - Fall 2017\ECEN 4350 - Embedded uC Design\Github\ECEN4350-EmbeddedMicrocontrollerDesign\BinMonitorPart1\BinMonitorPart1\BinMonitorPart1.cydsn\Generated_Source\PSoC4\LCDSPI_SPI_UART.c" Guid="aab5b332-f96a-49a6-8154-24c52744848a" /><DocumentWindow Key="C:\Users\megan\Google Drive\College\S10 - Fall 2017\ECEN 4350 - Embedded uC Design\Github\ECEN4350-EmbeddedMicrocontrollerDesign\BinMonitorPart1\BinMonitorPart1\BinMonitorPart1.cydsn\RA8875.h" Guid="06308eb9-afa3-4fd5-a0bf-aa3d206d2536" /><DocumentWindow Key="C:\Users\megan\Google Drive\College\S10 - Fall 2017\ECEN 4350 - Embedded uC Design\Github\ECEN4350-EmbeddedMicrocontrollerDesign\BinMonitorPart1\BinMonitorPart1\BinMonitorPart1.cydsn\Generated_Source\PSoC4\TCPWM_5.c" Guid="36bc719e-1021-4642-9af3-ac553562f956" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1606, 606" SelectedTabbedMdiWindow="9f22e491-7b89-4172-b639-ba31d67d98a2"><DocumentWindow Key="C:\Users\megan\Google Drive\College\S10 - Fall 2017\ECEN 4350 - Embedded uC Design\Github\ECEN4350-EmbeddedMicrocontrollerDesign\BinMonitorPart1\BinMonitorPart1\BinMonitorPart1.cydsn\RA8875.c" Guid="9f22e491-7b89-4172-b639-ba31d67d98a2" /><DocumentWindow Key="C:\Users\megan\Google Drive\College\S10 - Fall 2017\ECEN 4350 - Embedded uC Design\Github\ECEN4350-EmbeddedMicrocontrollerDesign\BinMonitorPart1\BinMonitorPart1\BinMonitorPart1.cydsn\main.c" Guid="45b90673-a4ef-4e3f-9824-fb18bcdcf47f" /><DocumentWindow Key="C:\Users\megan\Google Drive\College\S10 - Fall 2017\ECEN 4350 - Embedded uC Design\Github\ECEN4350-EmbeddedMicrocontrollerDesign\BinMonitorPart1\BinMonitorPart1\BinMonitorPart1.cydsn\Generated_Source\PSoC4\LCDSPI_SPI_UART.c" Guid="573fd225-9c32-4f23-a528-7b4054e64340" /><DocumentWindow Key="C:\Users\megan\Google Drive\College\S10 - Fall 2017\ECEN 4350 - Embedded uC Design\Github\ECEN4350-EmbeddedMicrocontrollerDesign\BinMonitorPart1\BinMonitorPart1\BinMonitorPart1.cydsn\Generated_Source\PSoC4\cytypes.h" Guid="052c8581-7849-447c-a968-a1df53822070" /><DocumentWindow Key="C:\Users\megan\Google Drive\College\S10 - Fall 2017\ECEN 4350 - Embedded uC Design\Github\ECEN4350-EmbeddedMicrocontrollerDesign\BinMonitorPart1\BinMonitorPart1\BinMonitorPart1.cydsn\TopDesign\TopDesign.cysch" Guid="2c92f92e-1fe2-4901-86d0-5c6a387bbda4" /><DocumentWindow Key="C:\Users\megan\Google Drive\College\S10 - Fall 2017\ECEN 4350 - Embedded uC Design\Github\ECEN4350-EmbeddedMicrocontrollerDesign\BinMonitorPart1\BinMonitorPart1\BinMonitorPart1.cydsn\RA8875.h" Guid="c24bd58f-044b-47b6-89af-c09f0b349fa8" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

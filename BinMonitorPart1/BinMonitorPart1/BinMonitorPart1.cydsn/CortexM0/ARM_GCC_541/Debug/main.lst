@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 1
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 1
   34              		.loc 1 21 0
   35              		.cfi_startproc
   36              		@ args = 0, pretend = 0, frame = 8
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 2
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 2
 
 
   37              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -70,2055 +70,2038 @@ ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 1
   43              		.cfi_def_cfa_offset 32
   44 0004 04AF     		add	r7, sp, #16
   45              		.cfi_def_cfa 7, 16
-  22:main.c        ****      //CyGlobalIntEnable;   /* Enable global interrupts */
+  22:main.c        ****      CyGlobalIntEnable;   /* Enable global interrupts */
+  46              		.loc 1 22 0
+  47              		.syntax divided
+  48              	@ 22 "main.c" 1
+  49 0006 62B6     		CPSIE   i
+  50              	@ 0 "" 2
   23:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
   24:main.c        ****         
   25:main.c        ****     rst0_m_Write(1u);
-  46              		.loc 1 25 0
-  47 0006 0120     		movs	r0, #1
-  48 0008 FFF7FEFF 		bl	rst0_m_Write
+  51              		.loc 1 25 0
+  52              		.thumb
+  53              		.syntax unified
+  54 0008 0120     		movs	r0, #1
+  55 000a FFF7FEFF 		bl	rst0_m_Write
   26:main.c        ****     
   27:main.c        ****     begin(RA8875_800x480);
-  49              		.loc 1 27 0
-  50 000c 0120     		movs	r0, #1
-  51 000e FFF7FEFF 		bl	begin
-  28:main.c        **** //    LED_1_Write(0u);
-  29:main.c        **** //    CyDelay(1000);
+  56              		.loc 1 27 0
+  57 000e 0120     		movs	r0, #1
+  58 0010 FFF7FEFF 		bl	begin
+  28:main.c        ****     displayOn(true);
+  59              		.loc 1 28 0
+  60 0014 0120     		movs	r0, #1
+  61 0016 FFF7FEFF 		bl	displayOn
+  29:main.c        ****     GPIOX(true);      // Enable TFT - display enable tied to GPIOX
+  62              		.loc 1 29 0
+  63 001a 0120     		movs	r0, #1
+  64 001c FFF7FEFF 		bl	GPIOX
   30:main.c        ****     
-  31:main.c        ****     displayOn(true);
-  52              		.loc 1 31 0
-  53 0012 0120     		movs	r0, #1
-  54 0014 FFF7FEFF 		bl	displayOn
-  32:main.c        **** //    CyDelay(50);
-  33:main.c        **** //    LED_1_Write(1u);
-  34:main.c        **** //    CyDelay(1000);
+  31:main.c        ****     PWM1config(true, RA8875_PWM_CLK_DIV1024); // PWM output for backlight  
+  65              		.loc 1 31 0
+  66 0020 0A21     		movs	r1, #10
+  67 0022 0120     		movs	r0, #1
+  68 0024 FFF7FEFF 		bl	PWM1config
+  32:main.c        ****     PWM1out(255);
+  69              		.loc 1 32 0
+  70 0028 FF20     		movs	r0, #255
+  71 002a FFF7FEFF 		bl	PWM1out
+  33:main.c        ****     
+  34:main.c        ****     fillScreen(RA8875_WHITE);    
+  72              		.loc 1 34 0
+  73 002e 764B     		ldr	r3, .L7
+  74 0030 1800     		movs	r0, r3
+  75 0032 FFF7FEFF 		bl	fillScreen
+  76              	.LBB2:
   35:main.c        ****     
-  36:main.c        ****     GPIOX(true);      // Enable TFT - display enable tied to GPIOX
-  55              		.loc 1 36 0
-  56 0018 0120     		movs	r0, #1
-  57 001a FFF7FEFF 		bl	GPIOX
-  37:main.c        **** //    LED_1_Write(0u);
-  38:main.c        ****     CyDelay(50);
-  58              		.loc 1 38 0
-  59 001e 3220     		movs	r0, #50
-  60 0020 FFF7FEFF 		bl	CyDelay
-  39:main.c        ****     
-  40:main.c        ****     PWM1config(true, RA8875_PWM_CLK_DIV1024); // PWM output for backlight
-  61              		.loc 1 40 0
-  62 0024 0A21     		movs	r1, #10
-  63 0026 0120     		movs	r0, #1
-  64 0028 FFF7FEFF 		bl	PWM1config
-  41:main.c        **** ////    LED_1_Write(1u);
-  42:main.c        ****     CyDelay(1000);
-  65              		.loc 1 42 0
-  66 002c FA23     		movs	r3, #250
-  67 002e 9B00     		lsls	r3, r3, #2
-  68 0030 1800     		movs	r0, r3
-  69 0032 FFF7FEFF 		bl	CyDelay
-  43:main.c        **** //      
-  44:main.c        ****        PWM1out(255);
-  70              		.loc 1 44 0
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 3
+  36:main.c        ****     for (uint8_t i=255; i!=0; i-=5 ) 
+  77              		.loc 1 36 0
+  78 0036 FB1D     		adds	r3, r7, #7
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 3
 
 
-  71 0036 FF20     		movs	r0, #255
-  72 0038 FFF7FEFF 		bl	PWM1out
-  45:main.c        ****     
-  46:main.c        ****     CyDelay(50);
-  73              		.loc 1 46 0
-  74 003c 3220     		movs	r0, #50
-  75 003e FFF7FEFF 		bl	CyDelay
-  47:main.c        ****     fillScreen(RA8875_WHITE);    
-  76              		.loc 1 47 0
-  77 0042 764B     		ldr	r3, .L7
-  78 0044 1800     		movs	r0, r3
-  79 0046 FFF7FEFF 		bl	fillScreen
-  80              	.LBB2:
-  48:main.c        ****     
-  49:main.c        ****     for (uint8_t i=255; i!=0; i-=5 ) 
-  81              		.loc 1 49 0
-  82 004a FB1D     		adds	r3, r7, #7
-  83 004c FF22     		movs	r2, #255
-  84 004e 1A70     		strb	r2, [r3]
-  85 0050 0CE0     		b	.L2
-  86              	.L3:
-  50:main.c        ****   {
-  51:main.c        ****     PWM1out(i); 
-  87              		.loc 1 51 0 discriminator 3
-  88 0052 FB1D     		adds	r3, r7, #7
-  89 0054 1B78     		ldrb	r3, [r3]
-  90 0056 1800     		movs	r0, r3
-  91 0058 FFF7FEFF 		bl	PWM1out
-  52:main.c        ****     CyDelay(10);
-  92              		.loc 1 52 0 discriminator 3
-  93 005c 0A20     		movs	r0, #10
-  94 005e FFF7FEFF 		bl	CyDelay
-  49:main.c        ****   {
-  95              		.loc 1 49 0 discriminator 3
-  96 0062 FB1D     		adds	r3, r7, #7
-  97 0064 FA1D     		adds	r2, r7, #7
-  98 0066 1278     		ldrb	r2, [r2]
-  99 0068 053A     		subs	r2, r2, #5
- 100 006a 1A70     		strb	r2, [r3]
- 101              	.L2:
-  49:main.c        ****   {
- 102              		.loc 1 49 0 is_stmt 0 discriminator 1
- 103 006c FB1D     		adds	r3, r7, #7
- 104 006e 1B78     		ldrb	r3, [r3]
- 105 0070 002B     		cmp	r3, #0
- 106 0072 EED1     		bne	.L3
- 107              	.LBE2:
- 108              	.LBB3:
-  53:main.c        ****   }  
-  54:main.c        ****   for (uint8_t i=0; i!=255; i+=5 ) 
- 109              		.loc 1 54 0 is_stmt 1
- 110 0074 BB1D     		adds	r3, r7, #6
- 111 0076 0022     		movs	r2, #0
- 112 0078 1A70     		strb	r2, [r3]
- 113 007a 0CE0     		b	.L4
- 114              	.L5:
-  55:main.c        ****   {
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 4
+  79 0038 FF22     		movs	r2, #255
+  80 003a 1A70     		strb	r2, [r3]
+  81 003c 0CE0     		b	.L2
+  82              	.L3:
+  37:main.c        ****   {
+  38:main.c        ****     PWM1out(i); 
+  83              		.loc 1 38 0 discriminator 3
+  84 003e FB1D     		adds	r3, r7, #7
+  85 0040 1B78     		ldrb	r3, [r3]
+  86 0042 1800     		movs	r0, r3
+  87 0044 FFF7FEFF 		bl	PWM1out
+  39:main.c        ****     CyDelay(10);
+  88              		.loc 1 39 0 discriminator 3
+  89 0048 0A20     		movs	r0, #10
+  90 004a FFF7FEFF 		bl	CyDelay
+  36:main.c        ****   {
+  91              		.loc 1 36 0 discriminator 3
+  92 004e FB1D     		adds	r3, r7, #7
+  93 0050 FA1D     		adds	r2, r7, #7
+  94 0052 1278     		ldrb	r2, [r2]
+  95 0054 053A     		subs	r2, r2, #5
+  96 0056 1A70     		strb	r2, [r3]
+  97              	.L2:
+  36:main.c        ****   {
+  98              		.loc 1 36 0 is_stmt 0 discriminator 1
+  99 0058 FB1D     		adds	r3, r7, #7
+ 100 005a 1B78     		ldrb	r3, [r3]
+ 101 005c 002B     		cmp	r3, #0
+ 102 005e EED1     		bne	.L3
+ 103              	.LBE2:
+ 104              	.LBB3:
+  40:main.c        ****   }  
+  41:main.c        ****   for (uint8_t i=0; i!=255; i+=5 ) 
+ 105              		.loc 1 41 0 is_stmt 1
+ 106 0060 BB1D     		adds	r3, r7, #6
+ 107 0062 0022     		movs	r2, #0
+ 108 0064 1A70     		strb	r2, [r3]
+ 109 0066 0CE0     		b	.L4
+ 110              	.L5:
+  42:main.c        ****   {
+  43:main.c        ****     PWM1out(i); 
+ 111              		.loc 1 43 0 discriminator 3
+ 112 0068 BB1D     		adds	r3, r7, #6
+ 113 006a 1B78     		ldrb	r3, [r3]
+ 114 006c 1800     		movs	r0, r3
+ 115 006e FFF7FEFF 		bl	PWM1out
+  44:main.c        ****     CyDelay(10);
+ 116              		.loc 1 44 0 discriminator 3
+ 117 0072 0A20     		movs	r0, #10
+ 118 0074 FFF7FEFF 		bl	CyDelay
+  41:main.c        ****   {
+ 119              		.loc 1 41 0 discriminator 3
+ 120 0078 BB1D     		adds	r3, r7, #6
+ 121 007a BA1D     		adds	r2, r7, #6
+ 122 007c 1278     		ldrb	r2, [r2]
+ 123 007e 0532     		adds	r2, r2, #5
+ 124 0080 1A70     		strb	r2, [r3]
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 4
 
 
-  56:main.c        ****     PWM1out(i); 
- 115              		.loc 1 56 0 discriminator 3
- 116 007c BB1D     		adds	r3, r7, #6
- 117 007e 1B78     		ldrb	r3, [r3]
- 118 0080 1800     		movs	r0, r3
- 119 0082 FFF7FEFF 		bl	PWM1out
-  57:main.c        ****     CyDelay(10);
- 120              		.loc 1 57 0 discriminator 3
- 121 0086 0A20     		movs	r0, #10
- 122 0088 FFF7FEFF 		bl	CyDelay
-  54:main.c        ****   {
- 123              		.loc 1 54 0 discriminator 3
- 124 008c BB1D     		adds	r3, r7, #6
- 125 008e BA1D     		adds	r2, r7, #6
- 126 0090 1278     		ldrb	r2, [r2]
- 127 0092 0532     		adds	r2, r2, #5
- 128 0094 1A70     		strb	r2, [r3]
- 129              	.L4:
-  54:main.c        ****   {
- 130              		.loc 1 54 0 is_stmt 0 discriminator 1
- 131 0096 BB1D     		adds	r3, r7, #6
- 132 0098 1B78     		ldrb	r3, [r3]
- 133 009a FF2B     		cmp	r3, #255
- 134 009c EED1     		bne	.L5
- 135              	.LBE3:
-  58:main.c        ****   }
-  59:main.c        ****   PWM1out(255); 
- 136              		.loc 1 59 0 is_stmt 1
- 137 009e FF20     		movs	r0, #255
- 138 00a0 FFF7FEFF 		bl	PWM1out
-  60:main.c        ****   
-  61:main.c        ****   fillScreen(RA8875_RED);
- 139              		.loc 1 61 0
- 140 00a4 F823     		movs	r3, #248
- 141 00a6 1B02     		lsls	r3, r3, #8
- 142 00a8 1800     		movs	r0, r3
- 143 00aa FFF7FEFF 		bl	fillScreen
-  62:main.c        ****   CyDelay(500);
- 144              		.loc 1 62 0
- 145 00ae FA23     		movs	r3, #250
- 146 00b0 5B00     		lsls	r3, r3, #1
- 147 00b2 1800     		movs	r0, r3
- 148 00b4 FFF7FEFF 		bl	CyDelay
-  63:main.c        ****   fillScreen(RA8875_YELLOW);
- 149              		.loc 1 63 0
- 150 00b8 594B     		ldr	r3, .L7+4
- 151 00ba 1800     		movs	r0, r3
- 152 00bc FFF7FEFF 		bl	fillScreen
-  64:main.c        ****   CyDelay(500);
- 153              		.loc 1 64 0
- 154 00c0 FA23     		movs	r3, #250
- 155 00c2 5B00     		lsls	r3, r3, #1
- 156 00c4 1800     		movs	r0, r3
- 157 00c6 FFF7FEFF 		bl	CyDelay
-  65:main.c        ****   fillScreen(RA8875_GREEN);
- 158              		.loc 1 65 0
- 159 00ca FC23     		movs	r3, #252
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 5
+ 125              	.L4:
+  41:main.c        ****   {
+ 126              		.loc 1 41 0 is_stmt 0 discriminator 1
+ 127 0082 BB1D     		adds	r3, r7, #6
+ 128 0084 1B78     		ldrb	r3, [r3]
+ 129 0086 FF2B     		cmp	r3, #255
+ 130 0088 EED1     		bne	.L5
+ 131              	.LBE3:
+  45:main.c        ****   }
+  46:main.c        ****   PWM1out(255); 
+ 132              		.loc 1 46 0 is_stmt 1
+ 133 008a FF20     		movs	r0, #255
+ 134 008c FFF7FEFF 		bl	PWM1out
+  47:main.c        ****   
+  48:main.c        ****   fillScreen(RA8875_RED);
+ 135              		.loc 1 48 0
+ 136 0090 F823     		movs	r3, #248
+ 137 0092 1B02     		lsls	r3, r3, #8
+ 138 0094 1800     		movs	r0, r3
+ 139 0096 FFF7FEFF 		bl	fillScreen
+  49:main.c        ****   CyDelay(500);
+ 140              		.loc 1 49 0
+ 141 009a FA23     		movs	r3, #250
+ 142 009c 5B00     		lsls	r3, r3, #1
+ 143 009e 1800     		movs	r0, r3
+ 144 00a0 FFF7FEFF 		bl	CyDelay
+  50:main.c        ****   fillScreen(RA8875_YELLOW);
+ 145              		.loc 1 50 0
+ 146 00a4 594B     		ldr	r3, .L7+4
+ 147 00a6 1800     		movs	r0, r3
+ 148 00a8 FFF7FEFF 		bl	fillScreen
+  51:main.c        ****   CyDelay(500);
+ 149              		.loc 1 51 0
+ 150 00ac FA23     		movs	r3, #250
+ 151 00ae 5B00     		lsls	r3, r3, #1
+ 152 00b0 1800     		movs	r0, r3
+ 153 00b2 FFF7FEFF 		bl	CyDelay
+  52:main.c        ****   fillScreen(RA8875_GREEN);
+ 154              		.loc 1 52 0
+ 155 00b6 FC23     		movs	r3, #252
+ 156 00b8 DB00     		lsls	r3, r3, #3
+ 157 00ba 1800     		movs	r0, r3
+ 158 00bc FFF7FEFF 		bl	fillScreen
+  53:main.c        ****   CyDelay(500);
+ 159              		.loc 1 53 0
+ 160 00c0 FA23     		movs	r3, #250
+ 161 00c2 5B00     		lsls	r3, r3, #1
+ 162 00c4 1800     		movs	r0, r3
+ 163 00c6 FFF7FEFF 		bl	CyDelay
+  54:main.c        ****   fillScreen(RA8875_CYAN);
+ 164              		.loc 1 54 0
+ 165 00ca 514B     		ldr	r3, .L7+8
+ 166 00cc 1800     		movs	r0, r3
+ 167 00ce FFF7FEFF 		bl	fillScreen
+  55:main.c        ****   CyDelay(500);
+ 168              		.loc 1 55 0
+ 169 00d2 FA23     		movs	r3, #250
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 5
 
 
- 160 00cc DB00     		lsls	r3, r3, #3
- 161 00ce 1800     		movs	r0, r3
- 162 00d0 FFF7FEFF 		bl	fillScreen
-  66:main.c        ****   CyDelay(500);
- 163              		.loc 1 66 0
- 164 00d4 FA23     		movs	r3, #250
- 165 00d6 5B00     		lsls	r3, r3, #1
- 166 00d8 1800     		movs	r0, r3
- 167 00da FFF7FEFF 		bl	CyDelay
-  67:main.c        ****   fillScreen(RA8875_CYAN);
- 168              		.loc 1 67 0
- 169 00de 514B     		ldr	r3, .L7+8
- 170 00e0 1800     		movs	r0, r3
- 171 00e2 FFF7FEFF 		bl	fillScreen
-  68:main.c        ****   CyDelay(500);
- 172              		.loc 1 68 0
- 173 00e6 FA23     		movs	r3, #250
- 174 00e8 5B00     		lsls	r3, r3, #1
- 175 00ea 1800     		movs	r0, r3
- 176 00ec FFF7FEFF 		bl	CyDelay
-  69:main.c        ****   fillScreen(RA8875_MAGENTA);
- 177              		.loc 1 69 0
- 178 00f0 4D4B     		ldr	r3, .L7+12
- 179 00f2 1800     		movs	r0, r3
- 180 00f4 FFF7FEFF 		bl	fillScreen
-  70:main.c        ****   CyDelay(500);
- 181              		.loc 1 70 0
- 182 00f8 FA23     		movs	r3, #250
- 183 00fa 5B00     		lsls	r3, r3, #1
- 184 00fc 1800     		movs	r0, r3
- 185 00fe FFF7FEFF 		bl	CyDelay
-  71:main.c        ****   fillScreen(RA8875_BLACK);
- 186              		.loc 1 71 0
- 187 0102 0020     		movs	r0, #0
- 188 0104 FFF7FEFF 		bl	fillScreen
-  72:main.c        ****   
-  73:main.c        ****   // Try some GFX acceleration!
-  74:main.c        ****   drawCircle(100, 100, 50, RA8875_BLACK);
- 189              		.loc 1 74 0
- 190 0108 0023     		movs	r3, #0
- 191 010a 3222     		movs	r2, #50
- 192 010c 6421     		movs	r1, #100
- 193 010e 6420     		movs	r0, #100
- 194 0110 FFF7FEFF 		bl	drawCircle
-  75:main.c        ****   fillCircle(100, 100, 49, RA8875_GREEN);
- 195              		.loc 1 75 0
- 196 0114 FC23     		movs	r3, #252
- 197 0116 DB00     		lsls	r3, r3, #3
- 198 0118 3122     		movs	r2, #49
- 199 011a 6421     		movs	r1, #100
- 200 011c 6420     		movs	r0, #100
- 201 011e FFF7FEFF 		bl	fillCircle
-  76:main.c        ****   
-  77:main.c        ****   fillRect(11, 11, 398, 198, RA8875_BLUE);
- 202              		.loc 1 77 0
- 203 0122 C723     		movs	r3, #199
- 204 0124 5A00     		lsls	r2, r3, #1
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 6
+ 170 00d4 5B00     		lsls	r3, r3, #1
+ 171 00d6 1800     		movs	r0, r3
+ 172 00d8 FFF7FEFF 		bl	CyDelay
+  56:main.c        ****   fillScreen(RA8875_MAGENTA);
+ 173              		.loc 1 56 0
+ 174 00dc 4D4B     		ldr	r3, .L7+12
+ 175 00de 1800     		movs	r0, r3
+ 176 00e0 FFF7FEFF 		bl	fillScreen
+  57:main.c        ****   CyDelay(500);
+ 177              		.loc 1 57 0
+ 178 00e4 FA23     		movs	r3, #250
+ 179 00e6 5B00     		lsls	r3, r3, #1
+ 180 00e8 1800     		movs	r0, r3
+ 181 00ea FFF7FEFF 		bl	CyDelay
+  58:main.c        ****   fillScreen(RA8875_BLACK);
+ 182              		.loc 1 58 0
+ 183 00ee 0020     		movs	r0, #0
+ 184 00f0 FFF7FEFF 		bl	fillScreen
+  59:main.c        ****   
+  60:main.c        ****   // Try some GFX acceleration!
+  61:main.c        ****   drawCircle(100, 100, 50, RA8875_BLACK);
+ 185              		.loc 1 61 0
+ 186 00f4 0023     		movs	r3, #0
+ 187 00f6 3222     		movs	r2, #50
+ 188 00f8 6421     		movs	r1, #100
+ 189 00fa 6420     		movs	r0, #100
+ 190 00fc FFF7FEFF 		bl	drawCircle
+  62:main.c        ****   fillCircle(100, 100, 49, RA8875_GREEN);
+ 191              		.loc 1 62 0
+ 192 0100 FC23     		movs	r3, #252
+ 193 0102 DB00     		lsls	r3, r3, #3
+ 194 0104 3122     		movs	r2, #49
+ 195 0106 6421     		movs	r1, #100
+ 196 0108 6420     		movs	r0, #100
+ 197 010a FFF7FEFF 		bl	fillCircle
+  63:main.c        ****   
+  64:main.c        ****   fillRect(11, 11, 398, 198, RA8875_BLUE);
+ 198              		.loc 1 64 0
+ 199 010e C723     		movs	r3, #199
+ 200 0110 5A00     		lsls	r2, r3, #1
+ 201 0112 1F23     		movs	r3, #31
+ 202 0114 0093     		str	r3, [sp]
+ 203 0116 C623     		movs	r3, #198
+ 204 0118 0B21     		movs	r1, #11
+ 205 011a 0B20     		movs	r0, #11
+ 206 011c FFF7FEFF 		bl	fillRect
+  65:main.c        ****   drawRect(10, 10, 400, 200, RA8875_GREEN);
+ 207              		.loc 1 65 0
+ 208 0120 C823     		movs	r3, #200
+ 209 0122 5A00     		lsls	r2, r3, #1
+ 210 0124 FC23     		movs	r3, #252
+ 211 0126 DB00     		lsls	r3, r3, #3
+ 212 0128 0093     		str	r3, [sp]
+ 213 012a C823     		movs	r3, #200
+ 214 012c 0A21     		movs	r1, #10
+ 215 012e 0A20     		movs	r0, #10
+ 216 0130 FFF7FEFF 		bl	drawRect
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 6
 
 
- 205 0126 1F23     		movs	r3, #31
- 206 0128 0093     		str	r3, [sp]
- 207 012a C623     		movs	r3, #198
- 208 012c 0B21     		movs	r1, #11
- 209 012e 0B20     		movs	r0, #11
- 210 0130 FFF7FEFF 		bl	fillRect
-  78:main.c        ****   drawRect(10, 10, 400, 200, RA8875_GREEN);
- 211              		.loc 1 78 0
- 212 0134 C823     		movs	r3, #200
- 213 0136 5A00     		lsls	r2, r3, #1
- 214 0138 FC23     		movs	r3, #252
- 215 013a DB00     		lsls	r3, r3, #3
- 216 013c 0093     		str	r3, [sp]
- 217 013e C823     		movs	r3, #200
- 218 0140 0A21     		movs	r1, #10
- 219 0142 0A20     		movs	r0, #10
- 220 0144 FFF7FEFF 		bl	drawRect
-  79:main.c        ****   drawPixel(10,10,RA8875_BLACK);
- 221              		.loc 1 79 0
- 222 0148 0022     		movs	r2, #0
- 223 014a 0A21     		movs	r1, #10
- 224 014c 0A20     		movs	r0, #10
- 225 014e FFF7FEFF 		bl	drawPixel
-  80:main.c        ****   drawPixel(11,11,RA8875_BLACK);
- 226              		.loc 1 80 0
- 227 0152 0022     		movs	r2, #0
- 228 0154 0B21     		movs	r1, #11
- 229 0156 0B20     		movs	r0, #11
- 230 0158 FFF7FEFF 		bl	drawPixel
-  81:main.c        ****   drawLine(10, 10, 200, 100, RA8875_RED);
- 231              		.loc 1 81 0
- 232 015c F823     		movs	r3, #248
- 233 015e 1B02     		lsls	r3, r3, #8
- 234 0160 0093     		str	r3, [sp]
- 235 0162 6423     		movs	r3, #100
- 236 0164 C822     		movs	r2, #200
- 237 0166 0A21     		movs	r1, #10
- 238 0168 0A20     		movs	r0, #10
- 239 016a FFF7FEFF 		bl	drawLine
-  82:main.c        ****   drawTriangle(200, 15, 250, 100, 150, 125, RA8875_BLACK);
- 240              		.loc 1 82 0
- 241 016e 0023     		movs	r3, #0
- 242 0170 0293     		str	r3, [sp, #8]
- 243 0172 7D23     		movs	r3, #125
- 244 0174 0193     		str	r3, [sp, #4]
- 245 0176 9623     		movs	r3, #150
- 246 0178 0093     		str	r3, [sp]
- 247 017a 6423     		movs	r3, #100
- 248 017c FA22     		movs	r2, #250
- 249 017e 0F21     		movs	r1, #15
- 250 0180 C820     		movs	r0, #200
- 251 0182 FFF7FEFF 		bl	drawTriangle
-  83:main.c        ****   fillTriangle(200, 16, 249, 99, 151, 124, RA8875_YELLOW);
- 252              		.loc 1 83 0
- 253 0186 264B     		ldr	r3, .L7+4
- 254 0188 0293     		str	r3, [sp, #8]
- 255 018a 7C23     		movs	r3, #124
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 7
+  66:main.c        ****   drawPixel(10,10,RA8875_BLACK);
+ 217              		.loc 1 66 0
+ 218 0134 0022     		movs	r2, #0
+ 219 0136 0A21     		movs	r1, #10
+ 220 0138 0A20     		movs	r0, #10
+ 221 013a FFF7FEFF 		bl	drawPixel
+  67:main.c        ****   drawPixel(11,11,RA8875_BLACK);
+ 222              		.loc 1 67 0
+ 223 013e 0022     		movs	r2, #0
+ 224 0140 0B21     		movs	r1, #11
+ 225 0142 0B20     		movs	r0, #11
+ 226 0144 FFF7FEFF 		bl	drawPixel
+  68:main.c        ****   drawLine(10, 10, 200, 100, RA8875_RED);
+ 227              		.loc 1 68 0
+ 228 0148 F823     		movs	r3, #248
+ 229 014a 1B02     		lsls	r3, r3, #8
+ 230 014c 0093     		str	r3, [sp]
+ 231 014e 6423     		movs	r3, #100
+ 232 0150 C822     		movs	r2, #200
+ 233 0152 0A21     		movs	r1, #10
+ 234 0154 0A20     		movs	r0, #10
+ 235 0156 FFF7FEFF 		bl	drawLine
+  69:main.c        ****   drawTriangle(200, 15, 250, 100, 150, 125, RA8875_BLACK);
+ 236              		.loc 1 69 0
+ 237 015a 0023     		movs	r3, #0
+ 238 015c 0293     		str	r3, [sp, #8]
+ 239 015e 7D23     		movs	r3, #125
+ 240 0160 0193     		str	r3, [sp, #4]
+ 241 0162 9623     		movs	r3, #150
+ 242 0164 0093     		str	r3, [sp]
+ 243 0166 6423     		movs	r3, #100
+ 244 0168 FA22     		movs	r2, #250
+ 245 016a 0F21     		movs	r1, #15
+ 246 016c C820     		movs	r0, #200
+ 247 016e FFF7FEFF 		bl	drawTriangle
+  70:main.c        ****   fillTriangle(200, 16, 249, 99, 151, 124, RA8875_YELLOW);
+ 248              		.loc 1 70 0
+ 249 0172 264B     		ldr	r3, .L7+4
+ 250 0174 0293     		str	r3, [sp, #8]
+ 251 0176 7C23     		movs	r3, #124
+ 252 0178 0193     		str	r3, [sp, #4]
+ 253 017a 9723     		movs	r3, #151
+ 254 017c 0093     		str	r3, [sp]
+ 255 017e 6323     		movs	r3, #99
+ 256 0180 F922     		movs	r2, #249
+ 257 0182 1021     		movs	r1, #16
+ 258 0184 C820     		movs	r0, #200
+ 259 0186 FFF7FEFF 		bl	fillTriangle
+  71:main.c        ****   drawEllipse(300, 100, 100, 40, RA8875_BLACK);
+ 260              		.loc 1 71 0
+ 261 018a 9623     		movs	r3, #150
+ 262 018c 5800     		lsls	r0, r3, #1
+ 263 018e 0023     		movs	r3, #0
+ 264 0190 0093     		str	r3, [sp]
+ 265 0192 2823     		movs	r3, #40
+ 266 0194 6422     		movs	r2, #100
+ 267 0196 6421     		movs	r1, #100
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 7
 
 
- 256 018c 0193     		str	r3, [sp, #4]
- 257 018e 9723     		movs	r3, #151
- 258 0190 0093     		str	r3, [sp]
- 259 0192 6323     		movs	r3, #99
- 260 0194 F922     		movs	r2, #249
- 261 0196 1021     		movs	r1, #16
- 262 0198 C820     		movs	r0, #200
- 263 019a FFF7FEFF 		bl	fillTriangle
-  84:main.c        ****   drawEllipse(300, 100, 100, 40, RA8875_BLACK);
- 264              		.loc 1 84 0
- 265 019e 9623     		movs	r3, #150
- 266 01a0 5800     		lsls	r0, r3, #1
- 267 01a2 0023     		movs	r3, #0
- 268 01a4 0093     		str	r3, [sp]
- 269 01a6 2823     		movs	r3, #40
- 270 01a8 6422     		movs	r2, #100
- 271 01aa 6421     		movs	r1, #100
- 272 01ac FFF7FEFF 		bl	drawEllipse
-  85:main.c        ****   fillEllipse(300, 100, 98, 38, RA8875_GREEN);
- 273              		.loc 1 85 0
- 274 01b0 9623     		movs	r3, #150
- 275 01b2 5800     		lsls	r0, r3, #1
- 276 01b4 FC23     		movs	r3, #252
- 277 01b6 DB00     		lsls	r3, r3, #3
- 278 01b8 0093     		str	r3, [sp]
- 279 01ba 2623     		movs	r3, #38
- 280 01bc 6222     		movs	r2, #98
- 281 01be 6421     		movs	r1, #100
- 282 01c0 FFF7FEFF 		bl	fillEllipse
-  86:main.c        ****   // Argument 5 (curvePart) is a 2-bit value to control each corner (select 0, 1, 2, or 3)
-  87:main.c        ****   drawCurve(50, 100, 80, 40, 2, RA8875_BLACK);  
- 283              		.loc 1 87 0
- 284 01c4 0023     		movs	r3, #0
- 285 01c6 0193     		str	r3, [sp, #4]
- 286 01c8 0223     		movs	r3, #2
- 287 01ca 0093     		str	r3, [sp]
- 288 01cc 2823     		movs	r3, #40
- 289 01ce 5022     		movs	r2, #80
- 290 01d0 6421     		movs	r1, #100
- 291 01d2 3220     		movs	r0, #50
- 292 01d4 FFF7FEFF 		bl	drawCurve
-  88:main.c        ****   fillCurve(50, 100, 78, 38, 2, RA8875_WHITE);
- 293              		.loc 1 88 0
- 294 01d8 104B     		ldr	r3, .L7
- 295 01da 0193     		str	r3, [sp, #4]
- 296 01dc 0223     		movs	r3, #2
- 297 01de 0093     		str	r3, [sp]
- 298 01e0 2623     		movs	r3, #38
- 299 01e2 4E22     		movs	r2, #78
- 300 01e4 6421     		movs	r1, #100
- 301 01e6 3220     		movs	r0, #50
- 302 01e8 FFF7FEFF 		bl	fillCurve
-  89:main.c        ****     
-  90:main.c        **** 
-  91:main.c        ****     CyBle_Start( StackEventHandler );
- 303              		.loc 1 91 0
- 304 01ec 0F4B     		ldr	r3, .L7+16
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 8
+ 268 0198 FFF7FEFF 		bl	drawEllipse
+  72:main.c        ****   fillEllipse(300, 100, 98, 38, RA8875_GREEN);
+ 269              		.loc 1 72 0
+ 270 019c 9623     		movs	r3, #150
+ 271 019e 5800     		lsls	r0, r3, #1
+ 272 01a0 FC23     		movs	r3, #252
+ 273 01a2 DB00     		lsls	r3, r3, #3
+ 274 01a4 0093     		str	r3, [sp]
+ 275 01a6 2623     		movs	r3, #38
+ 276 01a8 6222     		movs	r2, #98
+ 277 01aa 6421     		movs	r1, #100
+ 278 01ac FFF7FEFF 		bl	fillEllipse
+  73:main.c        ****   // Argument 5 (curvePart) is a 2-bit value to control each corner (select 0, 1, 2, or 3)
+  74:main.c        ****   drawCurve(50, 100, 80, 40, 2, RA8875_BLACK);  
+ 279              		.loc 1 74 0
+ 280 01b0 0023     		movs	r3, #0
+ 281 01b2 0193     		str	r3, [sp, #4]
+ 282 01b4 0223     		movs	r3, #2
+ 283 01b6 0093     		str	r3, [sp]
+ 284 01b8 2823     		movs	r3, #40
+ 285 01ba 5022     		movs	r2, #80
+ 286 01bc 6421     		movs	r1, #100
+ 287 01be 3220     		movs	r0, #50
+ 288 01c0 FFF7FEFF 		bl	drawCurve
+  75:main.c        ****   fillCurve(50, 100, 78, 38, 2, RA8875_WHITE);
+ 289              		.loc 1 75 0
+ 290 01c4 104B     		ldr	r3, .L7
+ 291 01c6 0193     		str	r3, [sp, #4]
+ 292 01c8 0223     		movs	r3, #2
+ 293 01ca 0093     		str	r3, [sp]
+ 294 01cc 2623     		movs	r3, #38
+ 295 01ce 4E22     		movs	r2, #78
+ 296 01d0 6421     		movs	r1, #100
+ 297 01d2 3220     		movs	r0, #50
+ 298 01d4 FFF7FEFF 		bl	fillCurve
+  76:main.c        ****     
+  77:main.c        **** 
+  78:main.c        ****     CyBle_Start( StackEventHandler );
+ 299              		.loc 1 78 0
+ 300 01d8 0F4B     		ldr	r3, .L7+16
+ 301 01da 1800     		movs	r0, r3
+ 302 01dc FFF7FEFF 		bl	CyBle_Start
+ 303              	.L6:
+  79:main.c        ****     for(;;)
+  80:main.c        ****     {
+  81:main.c        ****         /* Place your application code here */
+  82:main.c        ****         LED_1_Write(0u);  
+ 304              		.loc 1 82 0 discriminator 1
+ 305 01e0 0020     		movs	r0, #0
+ 306 01e2 FFF7FEFF 		bl	LED_1_Write
+  83:main.c        ****         CyDelay(1000);
+ 307              		.loc 1 83 0 discriminator 1
+ 308 01e6 FA23     		movs	r3, #250
+ 309 01e8 9B00     		lsls	r3, r3, #2
+ 310 01ea 1800     		movs	r0, r3
+ 311 01ec FFF7FEFF 		bl	CyDelay
+  84:main.c        ****         //for(int i=0;i<1000;i++);
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 8
 
 
- 305 01ee 1800     		movs	r0, r3
- 306 01f0 FFF7FEFF 		bl	CyBle_Start
- 307              	.L6:
-  92:main.c        ****     for(;;)
-  93:main.c        ****     {
-  94:main.c        ****         /* Place your application code here */
-  95:main.c        ****         LED_1_Write(0u);  
- 308              		.loc 1 95 0 discriminator 1
- 309 01f4 0020     		movs	r0, #0
- 310 01f6 FFF7FEFF 		bl	LED_1_Write
-  96:main.c        ****         CyDelay(1000);
- 311              		.loc 1 96 0 discriminator 1
- 312 01fa FA23     		movs	r3, #250
- 313 01fc 9B00     		lsls	r3, r3, #2
- 314 01fe 1800     		movs	r0, r3
- 315 0200 FFF7FEFF 		bl	CyDelay
-  97:main.c        ****         //for(int i=0;i<1000;i++);
-  98:main.c        ****         LED_1_Write(1u);
- 316              		.loc 1 98 0 discriminator 1
- 317 0204 0120     		movs	r0, #1
- 318 0206 FFF7FEFF 		bl	LED_1_Write
-  99:main.c        ****         //for(int i=0;i<1000;i++);
- 100:main.c        ****         CyDelay(1000);
- 319              		.loc 1 100 0 discriminator 1
- 320 020a FA23     		movs	r3, #250
- 321 020c 9B00     		lsls	r3, r3, #2
- 322 020e 1800     		movs	r0, r3
- 323 0210 FFF7FEFF 		bl	CyDelay
- 101:main.c        ****         
- 102:main.c        ****         
- 103:main.c        ****         CyBle_ProcessEvents();
- 324              		.loc 1 103 0 discriminator 1
- 325 0214 FFF7FEFF 		bl	CyBle_ProcessEvents
- 104:main.c        ****     }
- 326              		.loc 1 104 0 discriminator 1
- 327 0218 ECE7     		b	.L6
- 328              	.L8:
- 329 021a C046     		.align	2
- 330              	.L7:
- 331 021c FFFF0000 		.word	65535
- 332 0220 E0FF0000 		.word	65504
- 333 0224 FF070000 		.word	2047
- 334 0228 1FF80000 		.word	63519
- 335 022c 00000000 		.word	StackEventHandler
- 336              		.cfi_endproc
- 337              	.LFE35:
- 338              		.size	main, .-main
- 339              		.section	.text.StackEventHandler,"ax",%progbits
- 340              		.align	2
- 341              		.global	StackEventHandler
- 342              		.code	16
- 343              		.thumb_func
- 344              		.type	StackEventHandler, %function
- 345              	StackEventHandler:
- 346              	.LFB36:
- 105:main.c        **** }
- 106:main.c        **** 
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 9
+  85:main.c        ****         LED_1_Write(1u);
+ 312              		.loc 1 85 0 discriminator 1
+ 313 01f0 0120     		movs	r0, #1
+ 314 01f2 FFF7FEFF 		bl	LED_1_Write
+  86:main.c        ****         //for(int i=0;i<1000;i++);
+  87:main.c        ****         CyDelay(1000);
+ 315              		.loc 1 87 0 discriminator 1
+ 316 01f6 FA23     		movs	r3, #250
+ 317 01f8 9B00     		lsls	r3, r3, #2
+ 318 01fa 1800     		movs	r0, r3
+ 319 01fc FFF7FEFF 		bl	CyDelay
+  88:main.c        ****         
+  89:main.c        ****         
+  90:main.c        ****         CyBle_ProcessEvents();
+ 320              		.loc 1 90 0 discriminator 1
+ 321 0200 FFF7FEFF 		bl	CyBle_ProcessEvents
+  91:main.c        ****     }
+ 322              		.loc 1 91 0 discriminator 1
+ 323 0204 ECE7     		b	.L6
+ 324              	.L8:
+ 325 0206 C046     		.align	2
+ 326              	.L7:
+ 327 0208 FFFF0000 		.word	65535
+ 328 020c E0FF0000 		.word	65504
+ 329 0210 FF070000 		.word	2047
+ 330 0214 1FF80000 		.word	63519
+ 331 0218 00000000 		.word	StackEventHandler
+ 332              		.cfi_endproc
+ 333              	.LFE35:
+ 334              		.size	main, .-main
+ 335              		.section	.text.StackEventHandler,"ax",%progbits
+ 336              		.align	2
+ 337              		.global	StackEventHandler
+ 338              		.code	16
+ 339              		.thumb_func
+ 340              		.type	StackEventHandler, %function
+ 341              	StackEventHandler:
+ 342              	.LFB36:
+  92:main.c        **** }
+  93:main.c        **** 
+  94:main.c        **** 
+  95:main.c        **** void StackEventHandler( uint32 eventCode, void *eventParam )
+  96:main.c        **** {
+ 343              		.loc 1 96 0
+ 344              		.cfi_startproc
+ 345              		@ args = 0, pretend = 0, frame = 8
+ 346              		@ frame_needed = 1, uses_anonymous_args = 0
+ 347 0000 80B5     		push	{r7, lr}
+ 348              		.cfi_def_cfa_offset 8
+ 349              		.cfi_offset 7, -8
+ 350              		.cfi_offset 14, -4
+ 351 0002 82B0     		sub	sp, sp, #8
+ 352              		.cfi_def_cfa_offset 16
+ 353 0004 00AF     		add	r7, sp, #0
+ 354              		.cfi_def_cfa_register 7
+ 355 0006 7860     		str	r0, [r7, #4]
+ 356 0008 3960     		str	r1, [r7]
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 9
 
 
- 107:main.c        **** 
- 108:main.c        **** void StackEventHandler( uint32 eventCode, void *eventParam )
- 109:main.c        **** {
- 347              		.loc 1 109 0
- 348              		.cfi_startproc
- 349              		@ args = 0, pretend = 0, frame = 8
- 350              		@ frame_needed = 1, uses_anonymous_args = 0
- 351 0000 80B5     		push	{r7, lr}
- 352              		.cfi_def_cfa_offset 8
- 353              		.cfi_offset 7, -8
- 354              		.cfi_offset 14, -4
- 355 0002 82B0     		sub	sp, sp, #8
- 356              		.cfi_def_cfa_offset 16
- 357 0004 00AF     		add	r7, sp, #0
- 358              		.cfi_def_cfa_register 7
- 359 0006 7860     		str	r0, [r7, #4]
- 360 0008 3960     		str	r1, [r7]
- 110:main.c        ****     switch( eventCode )
- 361              		.loc 1 110 0
- 362 000a 7B68     		ldr	r3, [r7, #4]
- 363 000c 012B     		cmp	r3, #1
- 364 000e 00D0     		beq	.L11
- 111:main.c        ****     {
- 112:main.c        ****         /* Generic events */
- 113:main.c        **** 
- 114:main.c        ****         case CYBLE_EVT_STACK_ON:
- 115:main.c        ****             /* Configure the Link Layer to automatically switch PA
- 116:main.c        ****              * control pin P3[2] and LNA control pin P3[3] */
- 117:main.c        ****             CY_SET_XTND_REG32((void CYFAR *)(CYREG_BLE_BLESS_RF_CONFIG), 0x0331);
- 118:main.c        ****             CY_SET_XTND_REG32((void CYFAR *)(CYREG_SRSS_TST_DDFT_CTRL), 0x80000302);
- 119:main.c        ****             /* CyBle_GappStartAdvertisement( CYBLE_ADVERTISING_FAST ); */
- 120:main.c        ****         break;
- 121:main.c        ****             
- 122:main.c        ****         /* Add additional events as required */    
- 123:main.c        ****             
- 124:main.c        ****         /* default catch-all case */
- 125:main.c        **** 
- 126:main.c        ****         default:
- 127:main.c        ****         break;    
- 365              		.loc 1 127 0
- 366 0010 06E0     		b	.L12
- 367              	.L11:
- 117:main.c        ****             CY_SET_XTND_REG32((void CYFAR *)(CYREG_SRSS_TST_DDFT_CTRL), 0x80000302);
- 368              		.loc 1 117 0
- 369 0012 054B     		ldr	r3, .L13
- 370 0014 054A     		ldr	r2, .L13+4
- 371 0016 1A60     		str	r2, [r3]
- 118:main.c        ****             /* CyBle_GappStartAdvertisement( CYBLE_ADVERTISING_FAST ); */
- 372              		.loc 1 118 0
- 373 0018 054B     		ldr	r3, .L13+8
- 374 001a 064A     		ldr	r2, .L13+12
- 375 001c 1A60     		str	r2, [r3]
- 120:main.c        ****             
- 376              		.loc 1 120 0
- 377 001e C046     		nop
- 378              	.L12:
- 128:main.c        ****     }
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 10
+  97:main.c        ****     switch( eventCode )
+ 357              		.loc 1 97 0
+ 358 000a 7B68     		ldr	r3, [r7, #4]
+ 359 000c 012B     		cmp	r3, #1
+ 360 000e 00D0     		beq	.L11
+  98:main.c        ****     {
+  99:main.c        ****         /* Generic events */
+ 100:main.c        **** 
+ 101:main.c        ****         case CYBLE_EVT_STACK_ON:
+ 102:main.c        ****             /* Configure the Link Layer to automatically switch PA
+ 103:main.c        ****              * control pin P3[2] and LNA control pin P3[3] */
+ 104:main.c        ****             CY_SET_XTND_REG32((void CYFAR *)(CYREG_BLE_BLESS_RF_CONFIG), 0x0331);
+ 105:main.c        ****             CY_SET_XTND_REG32((void CYFAR *)(CYREG_SRSS_TST_DDFT_CTRL), 0x80000302);
+ 106:main.c        ****             /* CyBle_GappStartAdvertisement( CYBLE_ADVERTISING_FAST ); */
+ 107:main.c        ****         break;
+ 108:main.c        ****             
+ 109:main.c        ****         /* Add additional events as required */    
+ 110:main.c        ****             
+ 111:main.c        ****         /* default catch-all case */
+ 112:main.c        **** 
+ 113:main.c        ****         default:
+ 114:main.c        ****         break;    
+ 361              		.loc 1 114 0
+ 362 0010 06E0     		b	.L12
+ 363              	.L11:
+ 104:main.c        ****             CY_SET_XTND_REG32((void CYFAR *)(CYREG_SRSS_TST_DDFT_CTRL), 0x80000302);
+ 364              		.loc 1 104 0
+ 365 0012 054B     		ldr	r3, .L13
+ 366 0014 054A     		ldr	r2, .L13+4
+ 367 0016 1A60     		str	r2, [r3]
+ 105:main.c        ****             /* CyBle_GappStartAdvertisement( CYBLE_ADVERTISING_FAST ); */
+ 368              		.loc 1 105 0
+ 369 0018 054B     		ldr	r3, .L13+8
+ 370 001a 064A     		ldr	r2, .L13+12
+ 371 001c 1A60     		str	r2, [r3]
+ 107:main.c        ****             
+ 372              		.loc 1 107 0
+ 373 001e C046     		nop
+ 374              	.L12:
+ 115:main.c        ****     }
+ 116:main.c        **** }    
+ 375              		.loc 1 116 0
+ 376 0020 C046     		nop
+ 377 0022 BD46     		mov	sp, r7
+ 378 0024 02B0     		add	sp, sp, #8
+ 379              		@ sp needed
+ 380 0026 80BD     		pop	{r7, pc}
+ 381              	.L14:
+ 382              		.align	2
+ 383              	.L13:
+ 384 0028 60F02E40 		.word	1076818016
+ 385 002c 31030000 		.word	817
+ 386 0030 08000340 		.word	1073938440
+ 387 0034 02030080 		.word	-2147482878
+ 388              		.cfi_endproc
+ 389              	.LFE36:
+ 390              		.size	StackEventHandler, .-StackEventHandler
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 10
 
 
- 129:main.c        **** }    
- 379              		.loc 1 129 0
- 380 0020 C046     		nop
- 381 0022 BD46     		mov	sp, r7
- 382 0024 02B0     		add	sp, sp, #8
- 383              		@ sp needed
- 384 0026 80BD     		pop	{r7, pc}
- 385              	.L14:
- 386              		.align	2
- 387              	.L13:
- 388 0028 60F02E40 		.word	1076818016
- 389 002c 31030000 		.word	817
- 390 0030 08000340 		.word	1073938440
- 391 0034 02030080 		.word	-2147482878
- 392              		.cfi_endproc
- 393              	.LFE36:
- 394              		.size	StackEventHandler, .-StackEventHandler
- 395              		.text
- 396              	.Letext0:
- 397              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
- 398              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
- 399              		.file 4 "Generated_Source\\PSoC4/cytypes.h"
- 400              		.file 5 "Generated_Source\\PSoC4/BLE_1_Stack.h"
- 401              		.file 6 "Generated_Source\\PSoC4/BLE_1_dis.h"
- 402              		.file 7 "./RA8875.h"
- 403              		.section	.debug_info,"",%progbits
- 404              	.Ldebug_info0:
- 405 0000 F5030000 		.4byte	0x3f5
- 406 0004 0400     		.2byte	0x4
- 407 0006 00000000 		.4byte	.Ldebug_abbrev0
- 408 000a 04       		.byte	0x4
- 409 000b 01       		.uleb128 0x1
- 410 000c 3D050000 		.4byte	.LASF115
- 411 0010 0C       		.byte	0xc
- 412 0011 13090000 		.4byte	.LASF116
- 413 0015 37010000 		.4byte	.LASF117
- 414 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 415 001d 00000000 		.4byte	0
- 416 0021 00000000 		.4byte	.Ldebug_line0
- 417 0025 02       		.uleb128 0x2
- 418 0026 01       		.byte	0x1
- 419 0027 06       		.byte	0x6
- 420 0028 B0060000 		.4byte	.LASF0
- 421 002c 03       		.uleb128 0x3
- 422 002d B9040000 		.4byte	.LASF3
- 423 0031 02       		.byte	0x2
- 424 0032 1D       		.byte	0x1d
- 425 0033 37000000 		.4byte	0x37
- 426 0037 02       		.uleb128 0x2
- 427 0038 01       		.byte	0x1
- 428 0039 08       		.byte	0x8
- 429 003a 46060000 		.4byte	.LASF1
- 430 003e 02       		.uleb128 0x2
- 431 003f 02       		.byte	0x2
- 432 0040 05       		.byte	0x5
- 433 0041 B6000000 		.4byte	.LASF2
- 434 0045 03       		.uleb128 0x3
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 11
+ 391              		.text
+ 392              	.Letext0:
+ 393              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
+ 394              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
+ 395              		.file 4 "Generated_Source\\PSoC4/cytypes.h"
+ 396              		.file 5 "Generated_Source\\PSoC4/BLE_1_Stack.h"
+ 397              		.file 6 "Generated_Source\\PSoC4/BLE_1_dis.h"
+ 398              		.file 7 "./RA8875.h"
+ 399              		.section	.debug_info,"",%progbits
+ 400              	.Ldebug_info0:
+ 401 0000 F5030000 		.4byte	0x3f5
+ 402 0004 0400     		.2byte	0x4
+ 403 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 404 000a 04       		.byte	0x4
+ 405 000b 01       		.uleb128 0x1
+ 406 000c 3D050000 		.4byte	.LASF115
+ 407 0010 0C       		.byte	0xc
+ 408 0011 13090000 		.4byte	.LASF116
+ 409 0015 37010000 		.4byte	.LASF117
+ 410 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 411 001d 00000000 		.4byte	0
+ 412 0021 00000000 		.4byte	.Ldebug_line0
+ 413 0025 02       		.uleb128 0x2
+ 414 0026 01       		.byte	0x1
+ 415 0027 06       		.byte	0x6
+ 416 0028 B0060000 		.4byte	.LASF0
+ 417 002c 03       		.uleb128 0x3
+ 418 002d B9040000 		.4byte	.LASF3
+ 419 0031 02       		.byte	0x2
+ 420 0032 1D       		.byte	0x1d
+ 421 0033 37000000 		.4byte	0x37
+ 422 0037 02       		.uleb128 0x2
+ 423 0038 01       		.byte	0x1
+ 424 0039 08       		.byte	0x8
+ 425 003a 46060000 		.4byte	.LASF1
+ 426 003e 02       		.uleb128 0x2
+ 427 003f 02       		.byte	0x2
+ 428 0040 05       		.byte	0x5
+ 429 0041 B6000000 		.4byte	.LASF2
+ 430 0045 03       		.uleb128 0x3
+ 431 0046 40020000 		.4byte	.LASF4
+ 432 004a 02       		.byte	0x2
+ 433 004b 2B       		.byte	0x2b
+ 434 004c 50000000 		.4byte	0x50
+ 435 0050 02       		.uleb128 0x2
+ 436 0051 02       		.byte	0x2
+ 437 0052 07       		.byte	0x7
+ 438 0053 F2070000 		.4byte	.LASF5
+ 439 0057 02       		.uleb128 0x2
+ 440 0058 04       		.byte	0x4
+ 441 0059 05       		.byte	0x5
+ 442 005a 70040000 		.4byte	.LASF6
+ 443 005e 02       		.uleb128 0x2
+ 444 005f 04       		.byte	0x4
+ 445 0060 07       		.byte	0x7
+ 446 0061 50070000 		.4byte	.LASF7
+ 447 0065 02       		.uleb128 0x2
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 11
 
 
- 435 0046 40020000 		.4byte	.LASF4
- 436 004a 02       		.byte	0x2
- 437 004b 2B       		.byte	0x2b
- 438 004c 50000000 		.4byte	0x50
- 439 0050 02       		.uleb128 0x2
- 440 0051 02       		.byte	0x2
- 441 0052 07       		.byte	0x7
- 442 0053 F2070000 		.4byte	.LASF5
- 443 0057 02       		.uleb128 0x2
- 444 0058 04       		.byte	0x4
- 445 0059 05       		.byte	0x5
- 446 005a 70040000 		.4byte	.LASF6
- 447 005e 02       		.uleb128 0x2
- 448 005f 04       		.byte	0x4
- 449 0060 07       		.byte	0x7
- 450 0061 50070000 		.4byte	.LASF7
- 451 0065 02       		.uleb128 0x2
- 452 0066 08       		.byte	0x8
- 453 0067 05       		.byte	0x5
- 454 0068 A8090000 		.4byte	.LASF8
- 455 006c 02       		.uleb128 0x2
- 456 006d 08       		.byte	0x8
- 457 006e 07       		.byte	0x7
- 458 006f 32040000 		.4byte	.LASF9
- 459 0073 04       		.uleb128 0x4
- 460 0074 04       		.byte	0x4
- 461 0075 05       		.byte	0x5
- 462 0076 696E7400 		.ascii	"int\000"
- 463 007a 02       		.uleb128 0x2
- 464 007b 04       		.byte	0x4
- 465 007c 07       		.byte	0x7
- 466 007d 19070000 		.4byte	.LASF10
- 467 0081 03       		.uleb128 0x3
- 468 0082 F0020000 		.4byte	.LASF11
- 469 0086 03       		.byte	0x3
- 470 0087 18       		.byte	0x18
- 471 0088 2C000000 		.4byte	0x2c
- 472 008c 03       		.uleb128 0x3
- 473 008d 2C070000 		.4byte	.LASF12
- 474 0091 03       		.byte	0x3
- 475 0092 24       		.byte	0x24
- 476 0093 45000000 		.4byte	0x45
- 477 0097 05       		.uleb128 0x5
- 478 0098 0C090000 		.4byte	.LASF13
- 479 009c 04       		.byte	0x4
- 480 009d D401     		.2byte	0x1d4
- 481 009f 5E000000 		.4byte	0x5e
- 482 00a3 02       		.uleb128 0x2
- 483 00a4 04       		.byte	0x4
- 484 00a5 04       		.byte	0x4
- 485 00a6 C9030000 		.4byte	.LASF14
- 486 00aa 02       		.uleb128 0x2
- 487 00ab 08       		.byte	0x8
- 488 00ac 04       		.byte	0x4
- 489 00ad 3D090000 		.4byte	.LASF15
- 490 00b1 02       		.uleb128 0x2
- 491 00b2 01       		.byte	0x1
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 12
+ 448 0066 08       		.byte	0x8
+ 449 0067 05       		.byte	0x5
+ 450 0068 A8090000 		.4byte	.LASF8
+ 451 006c 02       		.uleb128 0x2
+ 452 006d 08       		.byte	0x8
+ 453 006e 07       		.byte	0x7
+ 454 006f 32040000 		.4byte	.LASF9
+ 455 0073 04       		.uleb128 0x4
+ 456 0074 04       		.byte	0x4
+ 457 0075 05       		.byte	0x5
+ 458 0076 696E7400 		.ascii	"int\000"
+ 459 007a 02       		.uleb128 0x2
+ 460 007b 04       		.byte	0x4
+ 461 007c 07       		.byte	0x7
+ 462 007d 19070000 		.4byte	.LASF10
+ 463 0081 03       		.uleb128 0x3
+ 464 0082 F0020000 		.4byte	.LASF11
+ 465 0086 03       		.byte	0x3
+ 466 0087 18       		.byte	0x18
+ 467 0088 2C000000 		.4byte	0x2c
+ 468 008c 03       		.uleb128 0x3
+ 469 008d 2C070000 		.4byte	.LASF12
+ 470 0091 03       		.byte	0x3
+ 471 0092 24       		.byte	0x24
+ 472 0093 45000000 		.4byte	0x45
+ 473 0097 05       		.uleb128 0x5
+ 474 0098 0C090000 		.4byte	.LASF13
+ 475 009c 04       		.byte	0x4
+ 476 009d D401     		.2byte	0x1d4
+ 477 009f 5E000000 		.4byte	0x5e
+ 478 00a3 02       		.uleb128 0x2
+ 479 00a4 04       		.byte	0x4
+ 480 00a5 04       		.byte	0x4
+ 481 00a6 C9030000 		.4byte	.LASF14
+ 482 00aa 02       		.uleb128 0x2
+ 483 00ab 08       		.byte	0x8
+ 484 00ac 04       		.byte	0x4
+ 485 00ad 3D090000 		.4byte	.LASF15
+ 486 00b1 02       		.uleb128 0x2
+ 487 00b2 01       		.byte	0x1
+ 488 00b3 08       		.byte	0x8
+ 489 00b4 6D080000 		.4byte	.LASF16
+ 490 00b8 05       		.uleb128 0x5
+ 491 00b9 6A040000 		.4byte	.LASF17
+ 492 00bd 04       		.byte	0x4
+ 493 00be 7E02     		.2byte	0x27e
+ 494 00c0 C4000000 		.4byte	0xc4
+ 495 00c4 06       		.uleb128 0x6
+ 496 00c5 97000000 		.4byte	0x97
+ 497 00c9 02       		.uleb128 0x2
+ 498 00ca 08       		.byte	0x8
+ 499 00cb 04       		.byte	0x4
+ 500 00cc 0D060000 		.4byte	.LASF18
+ 501 00d0 02       		.uleb128 0x2
+ 502 00d1 04       		.byte	0x4
+ 503 00d2 07       		.byte	0x7
+ 504 00d3 F8000000 		.4byte	.LASF19
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 12
 
 
- 492 00b3 08       		.byte	0x8
- 493 00b4 6D080000 		.4byte	.LASF16
- 494 00b8 05       		.uleb128 0x5
- 495 00b9 6A040000 		.4byte	.LASF17
- 496 00bd 04       		.byte	0x4
- 497 00be 7E02     		.2byte	0x27e
- 498 00c0 C4000000 		.4byte	0xc4
- 499 00c4 06       		.uleb128 0x6
- 500 00c5 97000000 		.4byte	0x97
- 501 00c9 02       		.uleb128 0x2
- 502 00ca 08       		.byte	0x8
- 503 00cb 04       		.byte	0x4
- 504 00cc 0D060000 		.4byte	.LASF18
- 505 00d0 02       		.uleb128 0x2
- 506 00d1 04       		.byte	0x4
- 507 00d2 07       		.byte	0x7
- 508 00d3 F8000000 		.4byte	.LASF19
- 509 00d7 07       		.uleb128 0x7
- 510 00d8 04       		.byte	0x4
- 511 00d9 08       		.uleb128 0x8
- 512 00da 01       		.byte	0x1
- 513 00db 37000000 		.4byte	0x37
- 514 00df 05       		.byte	0x5
- 515 00e0 4D01     		.2byte	0x14d
- 516 00e2 97020000 		.4byte	0x297
- 517 00e6 09       		.uleb128 0x9
- 518 00e7 61030000 		.4byte	.LASF20
- 519 00eb 00       		.byte	0
- 520 00ec 09       		.uleb128 0x9
- 521 00ed 8A020000 		.4byte	.LASF21
- 522 00f1 01       		.byte	0x1
- 523 00f2 09       		.uleb128 0x9
- 524 00f3 D60A0000 		.4byte	.LASF22
- 525 00f7 02       		.byte	0x2
- 526 00f8 09       		.uleb128 0x9
- 527 00f9 DE090000 		.4byte	.LASF23
- 528 00fd 03       		.byte	0x3
- 529 00fe 09       		.uleb128 0x9
- 530 00ff 22010000 		.4byte	.LASF24
- 531 0103 04       		.byte	0x4
- 532 0104 09       		.uleb128 0x9
- 533 0105 E4040000 		.4byte	.LASF25
- 534 0109 05       		.byte	0x5
- 535 010a 09       		.uleb128 0x9
- 536 010b 4D000000 		.4byte	.LASF26
- 537 010f 06       		.byte	0x6
- 538 0110 09       		.uleb128 0x9
- 539 0111 93080000 		.4byte	.LASF27
- 540 0115 20       		.byte	0x20
- 541 0116 09       		.uleb128 0x9
- 542 0117 62070000 		.4byte	.LASF28
- 543 011b 21       		.byte	0x21
- 544 011c 09       		.uleb128 0x9
- 545 011d 00000000 		.4byte	.LASF29
- 546 0121 22       		.byte	0x22
- 547 0122 09       		.uleb128 0x9
- 548 0123 17050000 		.4byte	.LASF30
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 13
+ 505 00d7 07       		.uleb128 0x7
+ 506 00d8 04       		.byte	0x4
+ 507 00d9 08       		.uleb128 0x8
+ 508 00da 01       		.byte	0x1
+ 509 00db 37000000 		.4byte	0x37
+ 510 00df 05       		.byte	0x5
+ 511 00e0 4D01     		.2byte	0x14d
+ 512 00e2 97020000 		.4byte	0x297
+ 513 00e6 09       		.uleb128 0x9
+ 514 00e7 61030000 		.4byte	.LASF20
+ 515 00eb 00       		.byte	0
+ 516 00ec 09       		.uleb128 0x9
+ 517 00ed 8A020000 		.4byte	.LASF21
+ 518 00f1 01       		.byte	0x1
+ 519 00f2 09       		.uleb128 0x9
+ 520 00f3 D60A0000 		.4byte	.LASF22
+ 521 00f7 02       		.byte	0x2
+ 522 00f8 09       		.uleb128 0x9
+ 523 00f9 DE090000 		.4byte	.LASF23
+ 524 00fd 03       		.byte	0x3
+ 525 00fe 09       		.uleb128 0x9
+ 526 00ff 22010000 		.4byte	.LASF24
+ 527 0103 04       		.byte	0x4
+ 528 0104 09       		.uleb128 0x9
+ 529 0105 E4040000 		.4byte	.LASF25
+ 530 0109 05       		.byte	0x5
+ 531 010a 09       		.uleb128 0x9
+ 532 010b 4D000000 		.4byte	.LASF26
+ 533 010f 06       		.byte	0x6
+ 534 0110 09       		.uleb128 0x9
+ 535 0111 93080000 		.4byte	.LASF27
+ 536 0115 20       		.byte	0x20
+ 537 0116 09       		.uleb128 0x9
+ 538 0117 62070000 		.4byte	.LASF28
+ 539 011b 21       		.byte	0x21
+ 540 011c 09       		.uleb128 0x9
+ 541 011d 00000000 		.4byte	.LASF29
+ 542 0121 22       		.byte	0x22
+ 543 0122 09       		.uleb128 0x9
+ 544 0123 17050000 		.4byte	.LASF30
+ 545 0127 23       		.byte	0x23
+ 546 0128 09       		.uleb128 0x9
+ 547 0129 FD060000 		.4byte	.LASF31
+ 548 012d 24       		.byte	0x24
+ 549 012e 09       		.uleb128 0x9
+ 550 012f C0000000 		.4byte	.LASF32
+ 551 0133 25       		.byte	0x25
+ 552 0134 09       		.uleb128 0x9
+ 553 0135 B6090000 		.4byte	.LASF33
+ 554 0139 26       		.byte	0x26
+ 555 013a 09       		.uleb128 0x9
+ 556 013b 9A040000 		.4byte	.LASF34
+ 557 013f 27       		.byte	0x27
+ 558 0140 09       		.uleb128 0x9
+ 559 0141 AF0B0000 		.4byte	.LASF35
+ 560 0145 28       		.byte	0x28
+ 561 0146 09       		.uleb128 0x9
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 13
 
 
- 549 0127 23       		.byte	0x23
- 550 0128 09       		.uleb128 0x9
- 551 0129 FD060000 		.4byte	.LASF31
- 552 012d 24       		.byte	0x24
- 553 012e 09       		.uleb128 0x9
- 554 012f C0000000 		.4byte	.LASF32
- 555 0133 25       		.byte	0x25
- 556 0134 09       		.uleb128 0x9
- 557 0135 B6090000 		.4byte	.LASF33
- 558 0139 26       		.byte	0x26
- 559 013a 09       		.uleb128 0x9
- 560 013b 9A040000 		.4byte	.LASF34
- 561 013f 27       		.byte	0x27
- 562 0140 09       		.uleb128 0x9
- 563 0141 AF0B0000 		.4byte	.LASF35
- 564 0145 28       		.byte	0x28
- 565 0146 09       		.uleb128 0x9
- 566 0147 9A070000 		.4byte	.LASF36
- 567 014b 29       		.byte	0x29
- 568 014c 09       		.uleb128 0x9
- 569 014d 1D080000 		.4byte	.LASF37
- 570 0151 2A       		.byte	0x2a
- 571 0152 09       		.uleb128 0x9
- 572 0153 0C0B0000 		.4byte	.LASF38
- 573 0157 2B       		.byte	0x2b
- 574 0158 09       		.uleb128 0x9
- 575 0159 F8020000 		.4byte	.LASF39
- 576 015d 2C       		.byte	0x2c
- 577 015e 09       		.uleb128 0x9
- 578 015f E8030000 		.4byte	.LASF40
- 579 0163 2D       		.byte	0x2d
- 580 0164 09       		.uleb128 0x9
- 581 0165 92000000 		.4byte	.LASF41
- 582 0169 2E       		.byte	0x2e
- 583 016a 09       		.uleb128 0x9
- 584 016b 2C0C0000 		.4byte	.LASF42
- 585 016f 2F       		.byte	0x2f
- 586 0170 09       		.uleb128 0x9
- 587 0171 01010000 		.4byte	.LASF43
- 588 0175 30       		.byte	0x30
- 589 0176 09       		.uleb128 0x9
- 590 0177 E9050000 		.4byte	.LASF44
- 591 017b 31       		.byte	0x31
- 592 017c 09       		.uleb128 0x9
- 593 017d 11040000 		.4byte	.LASF45
- 594 0181 32       		.byte	0x32
- 595 0182 09       		.uleb128 0x9
- 596 0183 46080000 		.4byte	.LASF46
- 597 0187 33       		.byte	0x33
- 598 0188 09       		.uleb128 0x9
- 599 0189 B7070000 		.4byte	.LASF47
- 600 018d 34       		.byte	0x34
- 601 018e 09       		.uleb128 0x9
- 602 018f 8B090000 		.4byte	.LASF48
- 603 0193 35       		.byte	0x35
- 604 0194 09       		.uleb128 0x9
- 605 0195 49040000 		.4byte	.LASF49
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 14
+ 562 0147 9A070000 		.4byte	.LASF36
+ 563 014b 29       		.byte	0x29
+ 564 014c 09       		.uleb128 0x9
+ 565 014d 1D080000 		.4byte	.LASF37
+ 566 0151 2A       		.byte	0x2a
+ 567 0152 09       		.uleb128 0x9
+ 568 0153 0C0B0000 		.4byte	.LASF38
+ 569 0157 2B       		.byte	0x2b
+ 570 0158 09       		.uleb128 0x9
+ 571 0159 F8020000 		.4byte	.LASF39
+ 572 015d 2C       		.byte	0x2c
+ 573 015e 09       		.uleb128 0x9
+ 574 015f E8030000 		.4byte	.LASF40
+ 575 0163 2D       		.byte	0x2d
+ 576 0164 09       		.uleb128 0x9
+ 577 0165 92000000 		.4byte	.LASF41
+ 578 0169 2E       		.byte	0x2e
+ 579 016a 09       		.uleb128 0x9
+ 580 016b 2C0C0000 		.4byte	.LASF42
+ 581 016f 2F       		.byte	0x2f
+ 582 0170 09       		.uleb128 0x9
+ 583 0171 01010000 		.4byte	.LASF43
+ 584 0175 30       		.byte	0x30
+ 585 0176 09       		.uleb128 0x9
+ 586 0177 E9050000 		.4byte	.LASF44
+ 587 017b 31       		.byte	0x31
+ 588 017c 09       		.uleb128 0x9
+ 589 017d 11040000 		.4byte	.LASF45
+ 590 0181 32       		.byte	0x32
+ 591 0182 09       		.uleb128 0x9
+ 592 0183 46080000 		.4byte	.LASF46
+ 593 0187 33       		.byte	0x33
+ 594 0188 09       		.uleb128 0x9
+ 595 0189 B7070000 		.4byte	.LASF47
+ 596 018d 34       		.byte	0x34
+ 597 018e 09       		.uleb128 0x9
+ 598 018f 8B090000 		.4byte	.LASF48
+ 599 0193 35       		.byte	0x35
+ 600 0194 09       		.uleb128 0x9
+ 601 0195 49040000 		.4byte	.LASF49
+ 602 0199 36       		.byte	0x36
+ 603 019a 09       		.uleb128 0x9
+ 604 019b 9D020000 		.4byte	.LASF50
+ 605 019f 37       		.byte	0x37
+ 606 01a0 09       		.uleb128 0x9
+ 607 01a1 66000000 		.4byte	.LASF51
+ 608 01a5 40       		.byte	0x40
+ 609 01a6 09       		.uleb128 0x9
+ 610 01a7 35070000 		.4byte	.LASF52
+ 611 01ab 41       		.byte	0x41
+ 612 01ac 09       		.uleb128 0x9
+ 613 01ad DA000000 		.4byte	.LASF53
+ 614 01b1 42       		.byte	0x42
+ 615 01b2 09       		.uleb128 0x9
+ 616 01b3 D2020000 		.4byte	.LASF54
+ 617 01b7 43       		.byte	0x43
+ 618 01b8 09       		.uleb128 0x9
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 14
 
 
- 606 0199 36       		.byte	0x36
- 607 019a 09       		.uleb128 0x9
- 608 019b 9D020000 		.4byte	.LASF50
- 609 019f 37       		.byte	0x37
- 610 01a0 09       		.uleb128 0x9
- 611 01a1 66000000 		.4byte	.LASF51
- 612 01a5 40       		.byte	0x40
- 613 01a6 09       		.uleb128 0x9
- 614 01a7 35070000 		.4byte	.LASF52
- 615 01ab 41       		.byte	0x41
- 616 01ac 09       		.uleb128 0x9
- 617 01ad DA000000 		.4byte	.LASF53
- 618 01b1 42       		.byte	0x42
- 619 01b2 09       		.uleb128 0x9
- 620 01b3 D2020000 		.4byte	.LASF54
- 621 01b7 43       		.byte	0x43
- 622 01b8 09       		.uleb128 0x9
- 623 01b9 A10A0000 		.4byte	.LASF55
- 624 01bd 44       		.byte	0x44
- 625 01be 09       		.uleb128 0x9
- 626 01bf 630A0000 		.4byte	.LASF56
- 627 01c3 45       		.byte	0x45
- 628 01c4 09       		.uleb128 0x9
- 629 01c5 4B020000 		.4byte	.LASF57
- 630 01c9 46       		.byte	0x46
- 631 01ca 09       		.uleb128 0x9
- 632 01cb 92060000 		.4byte	.LASF58
- 633 01cf 47       		.byte	0x47
- 634 01d0 09       		.uleb128 0x9
- 635 01d1 D6060000 		.4byte	.LASF59
- 636 01d5 48       		.byte	0x48
- 637 01d6 09       		.uleb128 0x9
- 638 01d7 CF030000 		.4byte	.LASF60
- 639 01db 49       		.byte	0x49
- 640 01dc 09       		.uleb128 0x9
- 641 01dd CF080000 		.4byte	.LASF61
- 642 01e1 4A       		.byte	0x4a
- 643 01e2 09       		.uleb128 0x9
- 644 01e3 1C030000 		.4byte	.LASF62
- 645 01e7 4B       		.byte	0x4b
- 646 01e8 09       		.uleb128 0x9
- 647 01e9 BC060000 		.4byte	.LASF63
- 648 01ed 4C       		.byte	0x4c
- 649 01ee 09       		.uleb128 0x9
- 650 01ef 33000000 		.4byte	.LASF64
- 651 01f3 4D       		.byte	0x4d
- 652 01f4 09       		.uleb128 0x9
- 653 01f5 22020000 		.4byte	.LASF65
- 654 01f9 4E       		.byte	0x4e
- 655 01fa 09       		.uleb128 0x9
- 656 01fb 54060000 		.4byte	.LASF66
- 657 01ff 4F       		.byte	0x4f
- 658 0200 09       		.uleb128 0x9
- 659 0201 900B0000 		.4byte	.LASF67
- 660 0205 50       		.byte	0x50
- 661 0206 09       		.uleb128 0x9
- 662 0207 ED080000 		.4byte	.LASF68
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 15
+ 619 01b9 A10A0000 		.4byte	.LASF55
+ 620 01bd 44       		.byte	0x44
+ 621 01be 09       		.uleb128 0x9
+ 622 01bf 630A0000 		.4byte	.LASF56
+ 623 01c3 45       		.byte	0x45
+ 624 01c4 09       		.uleb128 0x9
+ 625 01c5 4B020000 		.4byte	.LASF57
+ 626 01c9 46       		.byte	0x46
+ 627 01ca 09       		.uleb128 0x9
+ 628 01cb 92060000 		.4byte	.LASF58
+ 629 01cf 47       		.byte	0x47
+ 630 01d0 09       		.uleb128 0x9
+ 631 01d1 D6060000 		.4byte	.LASF59
+ 632 01d5 48       		.byte	0x48
+ 633 01d6 09       		.uleb128 0x9
+ 634 01d7 CF030000 		.4byte	.LASF60
+ 635 01db 49       		.byte	0x49
+ 636 01dc 09       		.uleb128 0x9
+ 637 01dd CF080000 		.4byte	.LASF61
+ 638 01e1 4A       		.byte	0x4a
+ 639 01e2 09       		.uleb128 0x9
+ 640 01e3 1C030000 		.4byte	.LASF62
+ 641 01e7 4B       		.byte	0x4b
+ 642 01e8 09       		.uleb128 0x9
+ 643 01e9 BC060000 		.4byte	.LASF63
+ 644 01ed 4C       		.byte	0x4c
+ 645 01ee 09       		.uleb128 0x9
+ 646 01ef 33000000 		.4byte	.LASF64
+ 647 01f3 4D       		.byte	0x4d
+ 648 01f4 09       		.uleb128 0x9
+ 649 01f5 22020000 		.4byte	.LASF65
+ 650 01f9 4E       		.byte	0x4e
+ 651 01fa 09       		.uleb128 0x9
+ 652 01fb 54060000 		.4byte	.LASF66
+ 653 01ff 4F       		.byte	0x4f
+ 654 0200 09       		.uleb128 0x9
+ 655 0201 900B0000 		.4byte	.LASF67
+ 656 0205 50       		.byte	0x50
+ 657 0206 09       		.uleb128 0x9
+ 658 0207 ED080000 		.4byte	.LASF68
+ 659 020b 51       		.byte	0x51
+ 660 020c 09       		.uleb128 0x9
+ 661 020d C3040000 		.4byte	.LASF69
+ 662 0211 52       		.byte	0x52
+ 663 0212 09       		.uleb128 0x9
+ 664 0213 79040000 		.4byte	.LASF70
+ 665 0217 53       		.byte	0x53
+ 666 0218 09       		.uleb128 0x9
+ 667 0219 40030000 		.4byte	.LASF71
+ 668 021d 54       		.byte	0x54
+ 669 021e 09       		.uleb128 0x9
+ 670 021f E20B0000 		.4byte	.LASF72
+ 671 0223 55       		.byte	0x55
+ 672 0224 09       		.uleb128 0x9
+ 673 0225 6E0B0000 		.4byte	.LASF73
+ 674 0229 56       		.byte	0x56
+ 675 022a 09       		.uleb128 0x9
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 15
 
 
- 663 020b 51       		.byte	0x51
- 664 020c 09       		.uleb128 0x9
- 665 020d C3040000 		.4byte	.LASF69
- 666 0211 52       		.byte	0x52
- 667 0212 09       		.uleb128 0x9
- 668 0213 79040000 		.4byte	.LASF70
- 669 0217 53       		.byte	0x53
- 670 0218 09       		.uleb128 0x9
- 671 0219 40030000 		.4byte	.LASF71
- 672 021d 54       		.byte	0x54
- 673 021e 09       		.uleb128 0x9
- 674 021f E20B0000 		.4byte	.LASF72
- 675 0223 55       		.byte	0x55
- 676 0224 09       		.uleb128 0x9
- 677 0225 6E0B0000 		.4byte	.LASF73
- 678 0229 56       		.byte	0x56
- 679 022a 09       		.uleb128 0x9
- 680 022b 450B0000 		.4byte	.LASF74
- 681 022f 57       		.byte	0x57
- 682 0230 09       		.uleb128 0x9
- 683 0231 CF070000 		.4byte	.LASF75
- 684 0235 58       		.byte	0x58
- 685 0236 09       		.uleb128 0x9
- 686 0237 20060000 		.4byte	.LASF76
- 687 023b 70       		.byte	0x70
- 688 023c 09       		.uleb128 0x9
- 689 023d 160A0000 		.4byte	.LASF77
- 690 0241 71       		.byte	0x71
- 691 0242 09       		.uleb128 0x9
- 692 0243 72080000 		.4byte	.LASF78
- 693 0247 72       		.byte	0x72
- 694 0248 09       		.uleb128 0x9
- 695 0249 78030000 		.4byte	.LASF79
- 696 024d 73       		.byte	0x73
- 697 024e 09       		.uleb128 0x9
- 698 024f CB050000 		.4byte	.LASF80
- 699 0253 74       		.byte	0x74
- 700 0254 09       		.uleb128 0x9
- 701 0255 79070000 		.4byte	.LASF81
- 702 0259 75       		.byte	0x75
- 703 025a 09       		.uleb128 0x9
- 704 025b 9E030000 		.4byte	.LASF82
- 705 025f 76       		.byte	0x76
- 706 0260 09       		.uleb128 0x9
- 707 0261 F7090000 		.4byte	.LASF83
- 708 0265 77       		.byte	0x77
- 709 0266 09       		.uleb128 0x9
- 710 0267 1A090000 		.4byte	.LASF84
- 711 026b 78       		.byte	0x78
- 712 026c 09       		.uleb128 0x9
- 713 026d 53090000 		.4byte	.LASF85
- 714 0271 79       		.byte	0x79
- 715 0272 09       		.uleb128 0x9
- 716 0273 E80A0000 		.4byte	.LASF86
- 717 0277 7A       		.byte	0x7a
- 718 0278 09       		.uleb128 0x9
- 719 0279 6C020000 		.4byte	.LASF87
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 16
+ 676 022b 450B0000 		.4byte	.LASF74
+ 677 022f 57       		.byte	0x57
+ 678 0230 09       		.uleb128 0x9
+ 679 0231 CF070000 		.4byte	.LASF75
+ 680 0235 58       		.byte	0x58
+ 681 0236 09       		.uleb128 0x9
+ 682 0237 20060000 		.4byte	.LASF76
+ 683 023b 70       		.byte	0x70
+ 684 023c 09       		.uleb128 0x9
+ 685 023d 160A0000 		.4byte	.LASF77
+ 686 0241 71       		.byte	0x71
+ 687 0242 09       		.uleb128 0x9
+ 688 0243 72080000 		.4byte	.LASF78
+ 689 0247 72       		.byte	0x72
+ 690 0248 09       		.uleb128 0x9
+ 691 0249 78030000 		.4byte	.LASF79
+ 692 024d 73       		.byte	0x73
+ 693 024e 09       		.uleb128 0x9
+ 694 024f CB050000 		.4byte	.LASF80
+ 695 0253 74       		.byte	0x74
+ 696 0254 09       		.uleb128 0x9
+ 697 0255 79070000 		.4byte	.LASF81
+ 698 0259 75       		.byte	0x75
+ 699 025a 09       		.uleb128 0x9
+ 700 025b 9E030000 		.4byte	.LASF82
+ 701 025f 76       		.byte	0x76
+ 702 0260 09       		.uleb128 0x9
+ 703 0261 F7090000 		.4byte	.LASF83
+ 704 0265 77       		.byte	0x77
+ 705 0266 09       		.uleb128 0x9
+ 706 0267 1A090000 		.4byte	.LASF84
+ 707 026b 78       		.byte	0x78
+ 708 026c 09       		.uleb128 0x9
+ 709 026d 53090000 		.4byte	.LASF85
+ 710 0271 79       		.byte	0x79
+ 711 0272 09       		.uleb128 0x9
+ 712 0273 E80A0000 		.4byte	.LASF86
+ 713 0277 7A       		.byte	0x7a
+ 714 0278 09       		.uleb128 0x9
+ 715 0279 6C020000 		.4byte	.LASF87
+ 716 027d FA       		.byte	0xfa
+ 717 027e 09       		.uleb128 0x9
+ 718 027f 73060000 		.4byte	.LASF88
+ 719 0283 FB       		.byte	0xfb
+ 720 0284 09       		.uleb128 0x9
+ 721 0285 060C0000 		.4byte	.LASF89
+ 722 0289 FC       		.byte	0xfc
+ 723 028a 09       		.uleb128 0x9
+ 724 028b 05080000 		.4byte	.LASF90
+ 725 028f FD       		.byte	0xfd
+ 726 0290 09       		.uleb128 0x9
+ 727 0291 2B0B0000 		.4byte	.LASF91
+ 728 0295 FF       		.byte	0xff
+ 729 0296 00       		.byte	0
+ 730 0297 0A       		.uleb128 0xa
+ 731 0298 01       		.byte	0x1
+ 732 0299 37000000 		.4byte	0x37
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 16
 
 
- 720 027d FA       		.byte	0xfa
- 721 027e 09       		.uleb128 0x9
- 722 027f 73060000 		.4byte	.LASF88
- 723 0283 FB       		.byte	0xfb
- 724 0284 09       		.uleb128 0x9
- 725 0285 060C0000 		.4byte	.LASF89
- 726 0289 FC       		.byte	0xfc
- 727 028a 09       		.uleb128 0x9
- 728 028b 05080000 		.4byte	.LASF90
- 729 028f FD       		.byte	0xfd
- 730 0290 09       		.uleb128 0x9
- 731 0291 2B0B0000 		.4byte	.LASF91
- 732 0295 FF       		.byte	0xff
- 733 0296 00       		.byte	0
- 734 0297 0A       		.uleb128 0xa
- 735 0298 01       		.byte	0x1
- 736 0299 37000000 		.4byte	0x37
- 737 029d 06       		.byte	0x6
- 738 029e 22       		.byte	0x22
- 739 029f E0020000 		.4byte	0x2e0
- 740 02a3 09       		.uleb128 0x9
- 741 02a4 3C0A0000 		.4byte	.LASF92
- 742 02a8 00       		.byte	0
- 743 02a9 09       		.uleb128 0x9
- 744 02aa 00050000 		.4byte	.LASF93
- 745 02ae 01       		.byte	0x1
- 746 02af 09       		.uleb128 0x9
- 747 02b0 EE010000 		.4byte	.LASF94
- 748 02b4 02       		.byte	0x2
- 749 02b5 09       		.uleb128 0x9
- 750 02b6 BF0A0000 		.4byte	.LASF95
- 751 02ba 03       		.byte	0x3
- 752 02bb 09       		.uleb128 0x9
- 753 02bc 8A0A0000 		.4byte	.LASF96
- 754 02c0 04       		.byte	0x4
- 755 02c1 09       		.uleb128 0x9
- 756 02c2 0B020000 		.4byte	.LASF97
- 757 02c6 05       		.byte	0x5
- 758 02c7 09       		.uleb128 0x9
- 759 02c8 180C0000 		.4byte	.LASF98
- 760 02cc 06       		.byte	0x6
- 761 02cd 09       		.uleb128 0x9
- 762 02ce B7080000 		.4byte	.LASF99
- 763 02d2 07       		.byte	0x7
- 764 02d3 09       		.uleb128 0x9
- 765 02d4 550C0000 		.4byte	.LASF100
- 766 02d8 08       		.byte	0x8
- 767 02d9 09       		.uleb128 0x9
- 768 02da 76090000 		.4byte	.LASF101
- 769 02de 09       		.byte	0x9
- 770 02df 00       		.byte	0
- 771 02e0 0B       		.uleb128 0xb
- 772 02e1 390B0000 		.4byte	.LASF118
- 773 02e5 01       		.byte	0x1
- 774 02e6 37000000 		.4byte	0x37
- 775 02ea 07       		.byte	0x7
- 776 02eb 30       		.byte	0x30
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 17
+ 733 029d 06       		.byte	0x6
+ 734 029e 22       		.byte	0x22
+ 735 029f E0020000 		.4byte	0x2e0
+ 736 02a3 09       		.uleb128 0x9
+ 737 02a4 3C0A0000 		.4byte	.LASF92
+ 738 02a8 00       		.byte	0
+ 739 02a9 09       		.uleb128 0x9
+ 740 02aa 00050000 		.4byte	.LASF93
+ 741 02ae 01       		.byte	0x1
+ 742 02af 09       		.uleb128 0x9
+ 743 02b0 EE010000 		.4byte	.LASF94
+ 744 02b4 02       		.byte	0x2
+ 745 02b5 09       		.uleb128 0x9
+ 746 02b6 BF0A0000 		.4byte	.LASF95
+ 747 02ba 03       		.byte	0x3
+ 748 02bb 09       		.uleb128 0x9
+ 749 02bc 8A0A0000 		.4byte	.LASF96
+ 750 02c0 04       		.byte	0x4
+ 751 02c1 09       		.uleb128 0x9
+ 752 02c2 0B020000 		.4byte	.LASF97
+ 753 02c6 05       		.byte	0x5
+ 754 02c7 09       		.uleb128 0x9
+ 755 02c8 180C0000 		.4byte	.LASF98
+ 756 02cc 06       		.byte	0x6
+ 757 02cd 09       		.uleb128 0x9
+ 758 02ce B7080000 		.4byte	.LASF99
+ 759 02d2 07       		.byte	0x7
+ 760 02d3 09       		.uleb128 0x9
+ 761 02d4 550C0000 		.4byte	.LASF100
+ 762 02d8 08       		.byte	0x8
+ 763 02d9 09       		.uleb128 0x9
+ 764 02da 76090000 		.4byte	.LASF101
+ 765 02de 09       		.byte	0x9
+ 766 02df 00       		.byte	0
+ 767 02e0 0B       		.uleb128 0xb
+ 768 02e1 390B0000 		.4byte	.LASF118
+ 769 02e5 01       		.byte	0x1
+ 770 02e6 37000000 		.4byte	0x37
+ 771 02ea 07       		.byte	0x7
+ 772 02eb 30       		.byte	0x30
+ 773 02ec FD020000 		.4byte	0x2fd
+ 774 02f0 09       		.uleb128 0x9
+ 775 02f1 24000000 		.4byte	.LASF102
+ 776 02f5 00       		.byte	0
+ 777 02f6 09       		.uleb128 0x9
+ 778 02f7 44090000 		.4byte	.LASF103
+ 779 02fb 01       		.byte	0x1
+ 780 02fc 00       		.byte	0
+ 781 02fd 0A       		.uleb128 0xa
+ 782 02fe 01       		.byte	0x1
+ 783 02ff 37000000 		.4byte	0x37
+ 784 0303 07       		.byte	0x7
+ 785 0304 44       		.byte	0x44
+ 786 0305 16030000 		.4byte	0x316
+ 787 0309 09       		.uleb128 0x9
+ 788 030a 26070000 		.4byte	.LASF104
+ 789 030e 00       		.byte	0
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 17
 
 
- 777 02ec FD020000 		.4byte	0x2fd
- 778 02f0 09       		.uleb128 0x9
- 779 02f1 24000000 		.4byte	.LASF102
- 780 02f5 00       		.byte	0
- 781 02f6 09       		.uleb128 0x9
- 782 02f7 44090000 		.4byte	.LASF103
- 783 02fb 01       		.byte	0x1
- 784 02fc 00       		.byte	0
- 785 02fd 0A       		.uleb128 0xa
- 786 02fe 01       		.byte	0x1
- 787 02ff 37000000 		.4byte	0x37
- 788 0303 07       		.byte	0x7
- 789 0304 44       		.byte	0x44
- 790 0305 16030000 		.4byte	0x316
- 791 0309 09       		.uleb128 0x9
- 792 030a 26070000 		.4byte	.LASF104
- 793 030e 00       		.byte	0
- 794 030f 09       		.uleb128 0x9
- 795 0310 8E080000 		.4byte	.LASF105
- 796 0314 01       		.byte	0x1
- 797 0315 00       		.byte	0
- 798 0316 0C       		.uleb128 0xc
- 799 0317 06020000 		.4byte	.LASF106
- 800 031b 01       		.byte	0x1
- 801 031c 14       		.byte	0x14
- 802 031d 73000000 		.4byte	0x73
- 803 0321 00000000 		.4byte	.LFB35
- 804 0325 30020000 		.4byte	.LFE35-.LFB35
- 805 0329 01       		.uleb128 0x1
- 806 032a 9C       		.byte	0x9c
- 807 032b 60030000 		.4byte	0x360
- 808 032f 0D       		.uleb128 0xd
- 809 0330 4A000000 		.4byte	.LBB2
- 810 0334 2A000000 		.4byte	.LBE2-.LBB2
- 811 0338 49030000 		.4byte	0x349
- 812 033c 0E       		.uleb128 0xe
- 813 033d 6900     		.ascii	"i\000"
- 814 033f 01       		.byte	0x1
- 815 0340 31       		.byte	0x31
- 816 0341 81000000 		.4byte	0x81
- 817 0345 02       		.uleb128 0x2
- 818 0346 91       		.byte	0x91
- 819 0347 77       		.sleb128 -9
- 820 0348 00       		.byte	0
- 821 0349 0F       		.uleb128 0xf
- 822 034a 74000000 		.4byte	.LBB3
- 823 034e 2A000000 		.4byte	.LBE3-.LBB3
- 824 0352 0E       		.uleb128 0xe
- 825 0353 6900     		.ascii	"i\000"
- 826 0355 01       		.byte	0x1
- 827 0356 36       		.byte	0x36
- 828 0357 81000000 		.4byte	0x81
- 829 035b 02       		.uleb128 0x2
- 830 035c 91       		.byte	0x91
- 831 035d 76       		.sleb128 -10
- 832 035e 00       		.byte	0
- 833 035f 00       		.byte	0
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 18
+ 790 030f 09       		.uleb128 0x9
+ 791 0310 8E080000 		.4byte	.LASF105
+ 792 0314 01       		.byte	0x1
+ 793 0315 00       		.byte	0
+ 794 0316 0C       		.uleb128 0xc
+ 795 0317 06020000 		.4byte	.LASF106
+ 796 031b 01       		.byte	0x1
+ 797 031c 14       		.byte	0x14
+ 798 031d 73000000 		.4byte	0x73
+ 799 0321 00000000 		.4byte	.LFB35
+ 800 0325 1C020000 		.4byte	.LFE35-.LFB35
+ 801 0329 01       		.uleb128 0x1
+ 802 032a 9C       		.byte	0x9c
+ 803 032b 60030000 		.4byte	0x360
+ 804 032f 0D       		.uleb128 0xd
+ 805 0330 36000000 		.4byte	.LBB2
+ 806 0334 2A000000 		.4byte	.LBE2-.LBB2
+ 807 0338 49030000 		.4byte	0x349
+ 808 033c 0E       		.uleb128 0xe
+ 809 033d 6900     		.ascii	"i\000"
+ 810 033f 01       		.byte	0x1
+ 811 0340 24       		.byte	0x24
+ 812 0341 81000000 		.4byte	0x81
+ 813 0345 02       		.uleb128 0x2
+ 814 0346 91       		.byte	0x91
+ 815 0347 77       		.sleb128 -9
+ 816 0348 00       		.byte	0
+ 817 0349 0F       		.uleb128 0xf
+ 818 034a 60000000 		.4byte	.LBB3
+ 819 034e 2A000000 		.4byte	.LBE3-.LBB3
+ 820 0352 0E       		.uleb128 0xe
+ 821 0353 6900     		.ascii	"i\000"
+ 822 0355 01       		.byte	0x1
+ 823 0356 29       		.byte	0x29
+ 824 0357 81000000 		.4byte	0x81
+ 825 035b 02       		.uleb128 0x2
+ 826 035c 91       		.byte	0x91
+ 827 035d 76       		.sleb128 -10
+ 828 035e 00       		.byte	0
+ 829 035f 00       		.byte	0
+ 830 0360 10       		.uleb128 0x10
+ 831 0361 80000000 		.4byte	.LASF107
+ 832 0365 01       		.byte	0x1
+ 833 0366 5F       		.byte	0x5f
+ 834 0367 00000000 		.4byte	.LFB36
+ 835 036b 38000000 		.4byte	.LFE36-.LFB36
+ 836 036f 01       		.uleb128 0x1
+ 837 0370 9C       		.byte	0x9c
+ 838 0371 92030000 		.4byte	0x392
+ 839 0375 11       		.uleb128 0x11
+ 840 0376 BF030000 		.4byte	.LASF108
+ 841 037a 01       		.byte	0x1
+ 842 037b 5F       		.byte	0x5f
+ 843 037c 97000000 		.4byte	0x97
+ 844 0380 02       		.uleb128 0x2
+ 845 0381 91       		.byte	0x91
+ 846 0382 74       		.sleb128 -12
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 18
 
 
- 834 0360 10       		.uleb128 0x10
- 835 0361 80000000 		.4byte	.LASF107
- 836 0365 01       		.byte	0x1
- 837 0366 6C       		.byte	0x6c
- 838 0367 00000000 		.4byte	.LFB36
- 839 036b 38000000 		.4byte	.LFE36-.LFB36
- 840 036f 01       		.uleb128 0x1
- 841 0370 9C       		.byte	0x9c
- 842 0371 92030000 		.4byte	0x392
- 843 0375 11       		.uleb128 0x11
- 844 0376 BF030000 		.4byte	.LASF108
- 845 037a 01       		.byte	0x1
- 846 037b 6C       		.byte	0x6c
- 847 037c 97000000 		.4byte	0x97
- 848 0380 02       		.uleb128 0x2
- 849 0381 91       		.byte	0x91
- 850 0382 74       		.sleb128 -12
- 851 0383 11       		.uleb128 0x11
- 852 0384 D10B0000 		.4byte	.LASF109
- 853 0388 01       		.byte	0x1
- 854 0389 6C       		.byte	0x6c
- 855 038a D7000000 		.4byte	0xd7
- 856 038e 02       		.uleb128 0x2
- 857 038f 91       		.byte	0x91
- 858 0390 70       		.sleb128 -16
- 859 0391 00       		.byte	0
- 860 0392 12       		.uleb128 0x12
- 861 0393 5F637300 		.ascii	"_cs\000"
- 862 0397 07       		.byte	0x7
- 863 0398 9F       		.byte	0x9f
- 864 0399 81000000 		.4byte	0x81
- 865 039d 05       		.uleb128 0x5
- 866 039e 03       		.byte	0x3
- 867 039f 00000000 		.4byte	_cs
- 868 03a3 13       		.uleb128 0x13
- 869 03a4 3B030000 		.4byte	.LASF110
- 870 03a8 07       		.byte	0x7
- 871 03a9 9F       		.byte	0x9f
- 872 03aa 81000000 		.4byte	0x81
- 873 03ae 05       		.uleb128 0x5
- 874 03af 03       		.byte	0x3
- 875 03b0 00000000 		.4byte	_rst
- 876 03b4 13       		.uleb128 0x13
- 877 03b5 19060000 		.4byte	.LASF111
- 878 03b9 07       		.byte	0x7
- 879 03ba A0       		.byte	0xa0
- 880 03bb 8C000000 		.4byte	0x8c
- 881 03bf 05       		.uleb128 0x5
- 882 03c0 03       		.byte	0x3
- 883 03c1 00000000 		.4byte	_width
- 884 03c5 13       		.uleb128 0x13
- 885 03c6 96030000 		.4byte	.LASF112
- 886 03ca 07       		.byte	0x7
- 887 03cb A0       		.byte	0xa0
- 888 03cc 8C000000 		.4byte	0x8c
- 889 03d0 05       		.uleb128 0x5
- 890 03d1 03       		.byte	0x3
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 19
+ 847 0383 11       		.uleb128 0x11
+ 848 0384 D10B0000 		.4byte	.LASF109
+ 849 0388 01       		.byte	0x1
+ 850 0389 5F       		.byte	0x5f
+ 851 038a D7000000 		.4byte	0xd7
+ 852 038e 02       		.uleb128 0x2
+ 853 038f 91       		.byte	0x91
+ 854 0390 70       		.sleb128 -16
+ 855 0391 00       		.byte	0
+ 856 0392 12       		.uleb128 0x12
+ 857 0393 5F637300 		.ascii	"_cs\000"
+ 858 0397 07       		.byte	0x7
+ 859 0398 9F       		.byte	0x9f
+ 860 0399 81000000 		.4byte	0x81
+ 861 039d 05       		.uleb128 0x5
+ 862 039e 03       		.byte	0x3
+ 863 039f 00000000 		.4byte	_cs
+ 864 03a3 13       		.uleb128 0x13
+ 865 03a4 3B030000 		.4byte	.LASF110
+ 866 03a8 07       		.byte	0x7
+ 867 03a9 9F       		.byte	0x9f
+ 868 03aa 81000000 		.4byte	0x81
+ 869 03ae 05       		.uleb128 0x5
+ 870 03af 03       		.byte	0x3
+ 871 03b0 00000000 		.4byte	_rst
+ 872 03b4 13       		.uleb128 0x13
+ 873 03b5 19060000 		.4byte	.LASF111
+ 874 03b9 07       		.byte	0x7
+ 875 03ba A0       		.byte	0xa0
+ 876 03bb 8C000000 		.4byte	0x8c
+ 877 03bf 05       		.uleb128 0x5
+ 878 03c0 03       		.byte	0x3
+ 879 03c1 00000000 		.4byte	_width
+ 880 03c5 13       		.uleb128 0x13
+ 881 03c6 96030000 		.4byte	.LASF112
+ 882 03ca 07       		.byte	0x7
+ 883 03cb A0       		.byte	0xa0
+ 884 03cc 8C000000 		.4byte	0x8c
+ 885 03d0 05       		.uleb128 0x5
+ 886 03d1 03       		.byte	0x3
+ 887 03d2 00000000 		.4byte	_height
+ 888 03d6 13       		.uleb128 0x13
+ 889 03d7 580A0000 		.4byte	.LASF113
+ 890 03db 07       		.byte	0x7
+ 891 03dc A1       		.byte	0xa1
+ 892 03dd 81000000 		.4byte	0x81
+ 893 03e1 05       		.uleb128 0x5
+ 894 03e2 03       		.byte	0x3
+ 895 03e3 00000000 		.4byte	_textScale
+ 896 03e7 13       		.uleb128 0x13
+ 897 03e8 DC0B0000 		.4byte	.LASF114
+ 898 03ec 07       		.byte	0x7
+ 899 03ed A2       		.byte	0xa2
+ 900 03ee E0020000 		.4byte	0x2e0
+ 901 03f2 05       		.uleb128 0x5
+ 902 03f3 03       		.byte	0x3
+ 903 03f4 00000000 		.4byte	_size
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 19
 
 
- 891 03d2 00000000 		.4byte	_height
- 892 03d6 13       		.uleb128 0x13
- 893 03d7 580A0000 		.4byte	.LASF113
- 894 03db 07       		.byte	0x7
- 895 03dc A1       		.byte	0xa1
- 896 03dd 81000000 		.4byte	0x81
- 897 03e1 05       		.uleb128 0x5
- 898 03e2 03       		.byte	0x3
- 899 03e3 00000000 		.4byte	_textScale
- 900 03e7 13       		.uleb128 0x13
- 901 03e8 DC0B0000 		.4byte	.LASF114
- 902 03ec 07       		.byte	0x7
- 903 03ed A2       		.byte	0xa2
- 904 03ee E0020000 		.4byte	0x2e0
- 905 03f2 05       		.uleb128 0x5
- 906 03f3 03       		.byte	0x3
- 907 03f4 00000000 		.4byte	_size
- 908 03f8 00       		.byte	0
- 909              		.section	.debug_abbrev,"",%progbits
- 910              	.Ldebug_abbrev0:
- 911 0000 01       		.uleb128 0x1
- 912 0001 11       		.uleb128 0x11
- 913 0002 01       		.byte	0x1
- 914 0003 25       		.uleb128 0x25
- 915 0004 0E       		.uleb128 0xe
- 916 0005 13       		.uleb128 0x13
- 917 0006 0B       		.uleb128 0xb
- 918 0007 03       		.uleb128 0x3
- 919 0008 0E       		.uleb128 0xe
- 920 0009 1B       		.uleb128 0x1b
- 921 000a 0E       		.uleb128 0xe
- 922 000b 55       		.uleb128 0x55
- 923 000c 17       		.uleb128 0x17
- 924 000d 11       		.uleb128 0x11
- 925 000e 01       		.uleb128 0x1
- 926 000f 10       		.uleb128 0x10
- 927 0010 17       		.uleb128 0x17
- 928 0011 00       		.byte	0
- 929 0012 00       		.byte	0
- 930 0013 02       		.uleb128 0x2
- 931 0014 24       		.uleb128 0x24
- 932 0015 00       		.byte	0
- 933 0016 0B       		.uleb128 0xb
- 934 0017 0B       		.uleb128 0xb
- 935 0018 3E       		.uleb128 0x3e
- 936 0019 0B       		.uleb128 0xb
- 937 001a 03       		.uleb128 0x3
- 938 001b 0E       		.uleb128 0xe
- 939 001c 00       		.byte	0
- 940 001d 00       		.byte	0
- 941 001e 03       		.uleb128 0x3
- 942 001f 16       		.uleb128 0x16
- 943 0020 00       		.byte	0
- 944 0021 03       		.uleb128 0x3
- 945 0022 0E       		.uleb128 0xe
- 946 0023 3A       		.uleb128 0x3a
- 947 0024 0B       		.uleb128 0xb
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 20
+ 904 03f8 00       		.byte	0
+ 905              		.section	.debug_abbrev,"",%progbits
+ 906              	.Ldebug_abbrev0:
+ 907 0000 01       		.uleb128 0x1
+ 908 0001 11       		.uleb128 0x11
+ 909 0002 01       		.byte	0x1
+ 910 0003 25       		.uleb128 0x25
+ 911 0004 0E       		.uleb128 0xe
+ 912 0005 13       		.uleb128 0x13
+ 913 0006 0B       		.uleb128 0xb
+ 914 0007 03       		.uleb128 0x3
+ 915 0008 0E       		.uleb128 0xe
+ 916 0009 1B       		.uleb128 0x1b
+ 917 000a 0E       		.uleb128 0xe
+ 918 000b 55       		.uleb128 0x55
+ 919 000c 17       		.uleb128 0x17
+ 920 000d 11       		.uleb128 0x11
+ 921 000e 01       		.uleb128 0x1
+ 922 000f 10       		.uleb128 0x10
+ 923 0010 17       		.uleb128 0x17
+ 924 0011 00       		.byte	0
+ 925 0012 00       		.byte	0
+ 926 0013 02       		.uleb128 0x2
+ 927 0014 24       		.uleb128 0x24
+ 928 0015 00       		.byte	0
+ 929 0016 0B       		.uleb128 0xb
+ 930 0017 0B       		.uleb128 0xb
+ 931 0018 3E       		.uleb128 0x3e
+ 932 0019 0B       		.uleb128 0xb
+ 933 001a 03       		.uleb128 0x3
+ 934 001b 0E       		.uleb128 0xe
+ 935 001c 00       		.byte	0
+ 936 001d 00       		.byte	0
+ 937 001e 03       		.uleb128 0x3
+ 938 001f 16       		.uleb128 0x16
+ 939 0020 00       		.byte	0
+ 940 0021 03       		.uleb128 0x3
+ 941 0022 0E       		.uleb128 0xe
+ 942 0023 3A       		.uleb128 0x3a
+ 943 0024 0B       		.uleb128 0xb
+ 944 0025 3B       		.uleb128 0x3b
+ 945 0026 0B       		.uleb128 0xb
+ 946 0027 49       		.uleb128 0x49
+ 947 0028 13       		.uleb128 0x13
+ 948 0029 00       		.byte	0
+ 949 002a 00       		.byte	0
+ 950 002b 04       		.uleb128 0x4
+ 951 002c 24       		.uleb128 0x24
+ 952 002d 00       		.byte	0
+ 953 002e 0B       		.uleb128 0xb
+ 954 002f 0B       		.uleb128 0xb
+ 955 0030 3E       		.uleb128 0x3e
+ 956 0031 0B       		.uleb128 0xb
+ 957 0032 03       		.uleb128 0x3
+ 958 0033 08       		.uleb128 0x8
+ 959 0034 00       		.byte	0
+ 960 0035 00       		.byte	0
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 20
 
 
- 948 0025 3B       		.uleb128 0x3b
- 949 0026 0B       		.uleb128 0xb
- 950 0027 49       		.uleb128 0x49
- 951 0028 13       		.uleb128 0x13
- 952 0029 00       		.byte	0
- 953 002a 00       		.byte	0
- 954 002b 04       		.uleb128 0x4
- 955 002c 24       		.uleb128 0x24
- 956 002d 00       		.byte	0
- 957 002e 0B       		.uleb128 0xb
- 958 002f 0B       		.uleb128 0xb
- 959 0030 3E       		.uleb128 0x3e
- 960 0031 0B       		.uleb128 0xb
- 961 0032 03       		.uleb128 0x3
- 962 0033 08       		.uleb128 0x8
- 963 0034 00       		.byte	0
- 964 0035 00       		.byte	0
- 965 0036 05       		.uleb128 0x5
- 966 0037 16       		.uleb128 0x16
- 967 0038 00       		.byte	0
- 968 0039 03       		.uleb128 0x3
- 969 003a 0E       		.uleb128 0xe
- 970 003b 3A       		.uleb128 0x3a
- 971 003c 0B       		.uleb128 0xb
- 972 003d 3B       		.uleb128 0x3b
- 973 003e 05       		.uleb128 0x5
- 974 003f 49       		.uleb128 0x49
- 975 0040 13       		.uleb128 0x13
- 976 0041 00       		.byte	0
- 977 0042 00       		.byte	0
- 978 0043 06       		.uleb128 0x6
- 979 0044 35       		.uleb128 0x35
- 980 0045 00       		.byte	0
- 981 0046 49       		.uleb128 0x49
- 982 0047 13       		.uleb128 0x13
- 983 0048 00       		.byte	0
- 984 0049 00       		.byte	0
- 985 004a 07       		.uleb128 0x7
- 986 004b 0F       		.uleb128 0xf
- 987 004c 00       		.byte	0
- 988 004d 0B       		.uleb128 0xb
- 989 004e 0B       		.uleb128 0xb
- 990 004f 00       		.byte	0
- 991 0050 00       		.byte	0
- 992 0051 08       		.uleb128 0x8
- 993 0052 04       		.uleb128 0x4
- 994 0053 01       		.byte	0x1
- 995 0054 0B       		.uleb128 0xb
- 996 0055 0B       		.uleb128 0xb
- 997 0056 49       		.uleb128 0x49
- 998 0057 13       		.uleb128 0x13
- 999 0058 3A       		.uleb128 0x3a
- 1000 0059 0B       		.uleb128 0xb
- 1001 005a 3B       		.uleb128 0x3b
- 1002 005b 05       		.uleb128 0x5
- 1003 005c 01       		.uleb128 0x1
- 1004 005d 13       		.uleb128 0x13
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 21
+ 961 0036 05       		.uleb128 0x5
+ 962 0037 16       		.uleb128 0x16
+ 963 0038 00       		.byte	0
+ 964 0039 03       		.uleb128 0x3
+ 965 003a 0E       		.uleb128 0xe
+ 966 003b 3A       		.uleb128 0x3a
+ 967 003c 0B       		.uleb128 0xb
+ 968 003d 3B       		.uleb128 0x3b
+ 969 003e 05       		.uleb128 0x5
+ 970 003f 49       		.uleb128 0x49
+ 971 0040 13       		.uleb128 0x13
+ 972 0041 00       		.byte	0
+ 973 0042 00       		.byte	0
+ 974 0043 06       		.uleb128 0x6
+ 975 0044 35       		.uleb128 0x35
+ 976 0045 00       		.byte	0
+ 977 0046 49       		.uleb128 0x49
+ 978 0047 13       		.uleb128 0x13
+ 979 0048 00       		.byte	0
+ 980 0049 00       		.byte	0
+ 981 004a 07       		.uleb128 0x7
+ 982 004b 0F       		.uleb128 0xf
+ 983 004c 00       		.byte	0
+ 984 004d 0B       		.uleb128 0xb
+ 985 004e 0B       		.uleb128 0xb
+ 986 004f 00       		.byte	0
+ 987 0050 00       		.byte	0
+ 988 0051 08       		.uleb128 0x8
+ 989 0052 04       		.uleb128 0x4
+ 990 0053 01       		.byte	0x1
+ 991 0054 0B       		.uleb128 0xb
+ 992 0055 0B       		.uleb128 0xb
+ 993 0056 49       		.uleb128 0x49
+ 994 0057 13       		.uleb128 0x13
+ 995 0058 3A       		.uleb128 0x3a
+ 996 0059 0B       		.uleb128 0xb
+ 997 005a 3B       		.uleb128 0x3b
+ 998 005b 05       		.uleb128 0x5
+ 999 005c 01       		.uleb128 0x1
+ 1000 005d 13       		.uleb128 0x13
+ 1001 005e 00       		.byte	0
+ 1002 005f 00       		.byte	0
+ 1003 0060 09       		.uleb128 0x9
+ 1004 0061 28       		.uleb128 0x28
+ 1005 0062 00       		.byte	0
+ 1006 0063 03       		.uleb128 0x3
+ 1007 0064 0E       		.uleb128 0xe
+ 1008 0065 1C       		.uleb128 0x1c
+ 1009 0066 0B       		.uleb128 0xb
+ 1010 0067 00       		.byte	0
+ 1011 0068 00       		.byte	0
+ 1012 0069 0A       		.uleb128 0xa
+ 1013 006a 04       		.uleb128 0x4
+ 1014 006b 01       		.byte	0x1
+ 1015 006c 0B       		.uleb128 0xb
+ 1016 006d 0B       		.uleb128 0xb
+ 1017 006e 49       		.uleb128 0x49
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 21
 
 
- 1005 005e 00       		.byte	0
- 1006 005f 00       		.byte	0
- 1007 0060 09       		.uleb128 0x9
- 1008 0061 28       		.uleb128 0x28
- 1009 0062 00       		.byte	0
- 1010 0063 03       		.uleb128 0x3
- 1011 0064 0E       		.uleb128 0xe
- 1012 0065 1C       		.uleb128 0x1c
- 1013 0066 0B       		.uleb128 0xb
- 1014 0067 00       		.byte	0
- 1015 0068 00       		.byte	0
- 1016 0069 0A       		.uleb128 0xa
- 1017 006a 04       		.uleb128 0x4
- 1018 006b 01       		.byte	0x1
- 1019 006c 0B       		.uleb128 0xb
- 1020 006d 0B       		.uleb128 0xb
- 1021 006e 49       		.uleb128 0x49
- 1022 006f 13       		.uleb128 0x13
- 1023 0070 3A       		.uleb128 0x3a
- 1024 0071 0B       		.uleb128 0xb
- 1025 0072 3B       		.uleb128 0x3b
- 1026 0073 0B       		.uleb128 0xb
- 1027 0074 01       		.uleb128 0x1
- 1028 0075 13       		.uleb128 0x13
- 1029 0076 00       		.byte	0
- 1030 0077 00       		.byte	0
- 1031 0078 0B       		.uleb128 0xb
- 1032 0079 04       		.uleb128 0x4
- 1033 007a 01       		.byte	0x1
- 1034 007b 03       		.uleb128 0x3
- 1035 007c 0E       		.uleb128 0xe
- 1036 007d 0B       		.uleb128 0xb
- 1037 007e 0B       		.uleb128 0xb
- 1038 007f 49       		.uleb128 0x49
- 1039 0080 13       		.uleb128 0x13
- 1040 0081 3A       		.uleb128 0x3a
- 1041 0082 0B       		.uleb128 0xb
- 1042 0083 3B       		.uleb128 0x3b
- 1043 0084 0B       		.uleb128 0xb
- 1044 0085 01       		.uleb128 0x1
- 1045 0086 13       		.uleb128 0x13
- 1046 0087 00       		.byte	0
- 1047 0088 00       		.byte	0
- 1048 0089 0C       		.uleb128 0xc
- 1049 008a 2E       		.uleb128 0x2e
- 1050 008b 01       		.byte	0x1
- 1051 008c 3F       		.uleb128 0x3f
- 1052 008d 19       		.uleb128 0x19
- 1053 008e 03       		.uleb128 0x3
- 1054 008f 0E       		.uleb128 0xe
- 1055 0090 3A       		.uleb128 0x3a
- 1056 0091 0B       		.uleb128 0xb
- 1057 0092 3B       		.uleb128 0x3b
- 1058 0093 0B       		.uleb128 0xb
- 1059 0094 49       		.uleb128 0x49
- 1060 0095 13       		.uleb128 0x13
- 1061 0096 11       		.uleb128 0x11
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 22
+ 1018 006f 13       		.uleb128 0x13
+ 1019 0070 3A       		.uleb128 0x3a
+ 1020 0071 0B       		.uleb128 0xb
+ 1021 0072 3B       		.uleb128 0x3b
+ 1022 0073 0B       		.uleb128 0xb
+ 1023 0074 01       		.uleb128 0x1
+ 1024 0075 13       		.uleb128 0x13
+ 1025 0076 00       		.byte	0
+ 1026 0077 00       		.byte	0
+ 1027 0078 0B       		.uleb128 0xb
+ 1028 0079 04       		.uleb128 0x4
+ 1029 007a 01       		.byte	0x1
+ 1030 007b 03       		.uleb128 0x3
+ 1031 007c 0E       		.uleb128 0xe
+ 1032 007d 0B       		.uleb128 0xb
+ 1033 007e 0B       		.uleb128 0xb
+ 1034 007f 49       		.uleb128 0x49
+ 1035 0080 13       		.uleb128 0x13
+ 1036 0081 3A       		.uleb128 0x3a
+ 1037 0082 0B       		.uleb128 0xb
+ 1038 0083 3B       		.uleb128 0x3b
+ 1039 0084 0B       		.uleb128 0xb
+ 1040 0085 01       		.uleb128 0x1
+ 1041 0086 13       		.uleb128 0x13
+ 1042 0087 00       		.byte	0
+ 1043 0088 00       		.byte	0
+ 1044 0089 0C       		.uleb128 0xc
+ 1045 008a 2E       		.uleb128 0x2e
+ 1046 008b 01       		.byte	0x1
+ 1047 008c 3F       		.uleb128 0x3f
+ 1048 008d 19       		.uleb128 0x19
+ 1049 008e 03       		.uleb128 0x3
+ 1050 008f 0E       		.uleb128 0xe
+ 1051 0090 3A       		.uleb128 0x3a
+ 1052 0091 0B       		.uleb128 0xb
+ 1053 0092 3B       		.uleb128 0x3b
+ 1054 0093 0B       		.uleb128 0xb
+ 1055 0094 49       		.uleb128 0x49
+ 1056 0095 13       		.uleb128 0x13
+ 1057 0096 11       		.uleb128 0x11
+ 1058 0097 01       		.uleb128 0x1
+ 1059 0098 12       		.uleb128 0x12
+ 1060 0099 06       		.uleb128 0x6
+ 1061 009a 40       		.uleb128 0x40
+ 1062 009b 18       		.uleb128 0x18
+ 1063 009c 9642     		.uleb128 0x2116
+ 1064 009e 19       		.uleb128 0x19
+ 1065 009f 01       		.uleb128 0x1
+ 1066 00a0 13       		.uleb128 0x13
+ 1067 00a1 00       		.byte	0
+ 1068 00a2 00       		.byte	0
+ 1069 00a3 0D       		.uleb128 0xd
+ 1070 00a4 0B       		.uleb128 0xb
+ 1071 00a5 01       		.byte	0x1
+ 1072 00a6 11       		.uleb128 0x11
+ 1073 00a7 01       		.uleb128 0x1
+ 1074 00a8 12       		.uleb128 0x12
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 22
 
 
- 1062 0097 01       		.uleb128 0x1
- 1063 0098 12       		.uleb128 0x12
- 1064 0099 06       		.uleb128 0x6
- 1065 009a 40       		.uleb128 0x40
- 1066 009b 18       		.uleb128 0x18
- 1067 009c 9642     		.uleb128 0x2116
- 1068 009e 19       		.uleb128 0x19
- 1069 009f 01       		.uleb128 0x1
- 1070 00a0 13       		.uleb128 0x13
- 1071 00a1 00       		.byte	0
- 1072 00a2 00       		.byte	0
- 1073 00a3 0D       		.uleb128 0xd
- 1074 00a4 0B       		.uleb128 0xb
- 1075 00a5 01       		.byte	0x1
- 1076 00a6 11       		.uleb128 0x11
- 1077 00a7 01       		.uleb128 0x1
- 1078 00a8 12       		.uleb128 0x12
- 1079 00a9 06       		.uleb128 0x6
- 1080 00aa 01       		.uleb128 0x1
- 1081 00ab 13       		.uleb128 0x13
- 1082 00ac 00       		.byte	0
- 1083 00ad 00       		.byte	0
- 1084 00ae 0E       		.uleb128 0xe
- 1085 00af 34       		.uleb128 0x34
- 1086 00b0 00       		.byte	0
- 1087 00b1 03       		.uleb128 0x3
- 1088 00b2 08       		.uleb128 0x8
- 1089 00b3 3A       		.uleb128 0x3a
- 1090 00b4 0B       		.uleb128 0xb
- 1091 00b5 3B       		.uleb128 0x3b
- 1092 00b6 0B       		.uleb128 0xb
- 1093 00b7 49       		.uleb128 0x49
- 1094 00b8 13       		.uleb128 0x13
- 1095 00b9 02       		.uleb128 0x2
- 1096 00ba 18       		.uleb128 0x18
- 1097 00bb 00       		.byte	0
- 1098 00bc 00       		.byte	0
- 1099 00bd 0F       		.uleb128 0xf
- 1100 00be 0B       		.uleb128 0xb
- 1101 00bf 01       		.byte	0x1
- 1102 00c0 11       		.uleb128 0x11
- 1103 00c1 01       		.uleb128 0x1
- 1104 00c2 12       		.uleb128 0x12
- 1105 00c3 06       		.uleb128 0x6
- 1106 00c4 00       		.byte	0
- 1107 00c5 00       		.byte	0
- 1108 00c6 10       		.uleb128 0x10
- 1109 00c7 2E       		.uleb128 0x2e
- 1110 00c8 01       		.byte	0x1
- 1111 00c9 3F       		.uleb128 0x3f
- 1112 00ca 19       		.uleb128 0x19
- 1113 00cb 03       		.uleb128 0x3
- 1114 00cc 0E       		.uleb128 0xe
- 1115 00cd 3A       		.uleb128 0x3a
- 1116 00ce 0B       		.uleb128 0xb
- 1117 00cf 3B       		.uleb128 0x3b
- 1118 00d0 0B       		.uleb128 0xb
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 23
+ 1075 00a9 06       		.uleb128 0x6
+ 1076 00aa 01       		.uleb128 0x1
+ 1077 00ab 13       		.uleb128 0x13
+ 1078 00ac 00       		.byte	0
+ 1079 00ad 00       		.byte	0
+ 1080 00ae 0E       		.uleb128 0xe
+ 1081 00af 34       		.uleb128 0x34
+ 1082 00b0 00       		.byte	0
+ 1083 00b1 03       		.uleb128 0x3
+ 1084 00b2 08       		.uleb128 0x8
+ 1085 00b3 3A       		.uleb128 0x3a
+ 1086 00b4 0B       		.uleb128 0xb
+ 1087 00b5 3B       		.uleb128 0x3b
+ 1088 00b6 0B       		.uleb128 0xb
+ 1089 00b7 49       		.uleb128 0x49
+ 1090 00b8 13       		.uleb128 0x13
+ 1091 00b9 02       		.uleb128 0x2
+ 1092 00ba 18       		.uleb128 0x18
+ 1093 00bb 00       		.byte	0
+ 1094 00bc 00       		.byte	0
+ 1095 00bd 0F       		.uleb128 0xf
+ 1096 00be 0B       		.uleb128 0xb
+ 1097 00bf 01       		.byte	0x1
+ 1098 00c0 11       		.uleb128 0x11
+ 1099 00c1 01       		.uleb128 0x1
+ 1100 00c2 12       		.uleb128 0x12
+ 1101 00c3 06       		.uleb128 0x6
+ 1102 00c4 00       		.byte	0
+ 1103 00c5 00       		.byte	0
+ 1104 00c6 10       		.uleb128 0x10
+ 1105 00c7 2E       		.uleb128 0x2e
+ 1106 00c8 01       		.byte	0x1
+ 1107 00c9 3F       		.uleb128 0x3f
+ 1108 00ca 19       		.uleb128 0x19
+ 1109 00cb 03       		.uleb128 0x3
+ 1110 00cc 0E       		.uleb128 0xe
+ 1111 00cd 3A       		.uleb128 0x3a
+ 1112 00ce 0B       		.uleb128 0xb
+ 1113 00cf 3B       		.uleb128 0x3b
+ 1114 00d0 0B       		.uleb128 0xb
+ 1115 00d1 27       		.uleb128 0x27
+ 1116 00d2 19       		.uleb128 0x19
+ 1117 00d3 11       		.uleb128 0x11
+ 1118 00d4 01       		.uleb128 0x1
+ 1119 00d5 12       		.uleb128 0x12
+ 1120 00d6 06       		.uleb128 0x6
+ 1121 00d7 40       		.uleb128 0x40
+ 1122 00d8 18       		.uleb128 0x18
+ 1123 00d9 9742     		.uleb128 0x2117
+ 1124 00db 19       		.uleb128 0x19
+ 1125 00dc 01       		.uleb128 0x1
+ 1126 00dd 13       		.uleb128 0x13
+ 1127 00de 00       		.byte	0
+ 1128 00df 00       		.byte	0
+ 1129 00e0 11       		.uleb128 0x11
+ 1130 00e1 05       		.uleb128 0x5
+ 1131 00e2 00       		.byte	0
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 23
 
 
- 1119 00d1 27       		.uleb128 0x27
- 1120 00d2 19       		.uleb128 0x19
- 1121 00d3 11       		.uleb128 0x11
- 1122 00d4 01       		.uleb128 0x1
- 1123 00d5 12       		.uleb128 0x12
- 1124 00d6 06       		.uleb128 0x6
- 1125 00d7 40       		.uleb128 0x40
- 1126 00d8 18       		.uleb128 0x18
- 1127 00d9 9742     		.uleb128 0x2117
- 1128 00db 19       		.uleb128 0x19
- 1129 00dc 01       		.uleb128 0x1
- 1130 00dd 13       		.uleb128 0x13
- 1131 00de 00       		.byte	0
- 1132 00df 00       		.byte	0
- 1133 00e0 11       		.uleb128 0x11
- 1134 00e1 05       		.uleb128 0x5
- 1135 00e2 00       		.byte	0
- 1136 00e3 03       		.uleb128 0x3
- 1137 00e4 0E       		.uleb128 0xe
- 1138 00e5 3A       		.uleb128 0x3a
- 1139 00e6 0B       		.uleb128 0xb
- 1140 00e7 3B       		.uleb128 0x3b
- 1141 00e8 0B       		.uleb128 0xb
- 1142 00e9 49       		.uleb128 0x49
- 1143 00ea 13       		.uleb128 0x13
- 1144 00eb 02       		.uleb128 0x2
- 1145 00ec 18       		.uleb128 0x18
- 1146 00ed 00       		.byte	0
- 1147 00ee 00       		.byte	0
- 1148 00ef 12       		.uleb128 0x12
- 1149 00f0 34       		.uleb128 0x34
- 1150 00f1 00       		.byte	0
- 1151 00f2 03       		.uleb128 0x3
- 1152 00f3 08       		.uleb128 0x8
- 1153 00f4 3A       		.uleb128 0x3a
- 1154 00f5 0B       		.uleb128 0xb
- 1155 00f6 3B       		.uleb128 0x3b
- 1156 00f7 0B       		.uleb128 0xb
- 1157 00f8 49       		.uleb128 0x49
- 1158 00f9 13       		.uleb128 0x13
- 1159 00fa 3F       		.uleb128 0x3f
- 1160 00fb 19       		.uleb128 0x19
- 1161 00fc 02       		.uleb128 0x2
- 1162 00fd 18       		.uleb128 0x18
- 1163 00fe 00       		.byte	0
- 1164 00ff 00       		.byte	0
- 1165 0100 13       		.uleb128 0x13
- 1166 0101 34       		.uleb128 0x34
- 1167 0102 00       		.byte	0
- 1168 0103 03       		.uleb128 0x3
- 1169 0104 0E       		.uleb128 0xe
- 1170 0105 3A       		.uleb128 0x3a
- 1171 0106 0B       		.uleb128 0xb
- 1172 0107 3B       		.uleb128 0x3b
- 1173 0108 0B       		.uleb128 0xb
- 1174 0109 49       		.uleb128 0x49
- 1175 010a 13       		.uleb128 0x13
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 24
+ 1132 00e3 03       		.uleb128 0x3
+ 1133 00e4 0E       		.uleb128 0xe
+ 1134 00e5 3A       		.uleb128 0x3a
+ 1135 00e6 0B       		.uleb128 0xb
+ 1136 00e7 3B       		.uleb128 0x3b
+ 1137 00e8 0B       		.uleb128 0xb
+ 1138 00e9 49       		.uleb128 0x49
+ 1139 00ea 13       		.uleb128 0x13
+ 1140 00eb 02       		.uleb128 0x2
+ 1141 00ec 18       		.uleb128 0x18
+ 1142 00ed 00       		.byte	0
+ 1143 00ee 00       		.byte	0
+ 1144 00ef 12       		.uleb128 0x12
+ 1145 00f0 34       		.uleb128 0x34
+ 1146 00f1 00       		.byte	0
+ 1147 00f2 03       		.uleb128 0x3
+ 1148 00f3 08       		.uleb128 0x8
+ 1149 00f4 3A       		.uleb128 0x3a
+ 1150 00f5 0B       		.uleb128 0xb
+ 1151 00f6 3B       		.uleb128 0x3b
+ 1152 00f7 0B       		.uleb128 0xb
+ 1153 00f8 49       		.uleb128 0x49
+ 1154 00f9 13       		.uleb128 0x13
+ 1155 00fa 3F       		.uleb128 0x3f
+ 1156 00fb 19       		.uleb128 0x19
+ 1157 00fc 02       		.uleb128 0x2
+ 1158 00fd 18       		.uleb128 0x18
+ 1159 00fe 00       		.byte	0
+ 1160 00ff 00       		.byte	0
+ 1161 0100 13       		.uleb128 0x13
+ 1162 0101 34       		.uleb128 0x34
+ 1163 0102 00       		.byte	0
+ 1164 0103 03       		.uleb128 0x3
+ 1165 0104 0E       		.uleb128 0xe
+ 1166 0105 3A       		.uleb128 0x3a
+ 1167 0106 0B       		.uleb128 0xb
+ 1168 0107 3B       		.uleb128 0x3b
+ 1169 0108 0B       		.uleb128 0xb
+ 1170 0109 49       		.uleb128 0x49
+ 1171 010a 13       		.uleb128 0x13
+ 1172 010b 3F       		.uleb128 0x3f
+ 1173 010c 19       		.uleb128 0x19
+ 1174 010d 02       		.uleb128 0x2
+ 1175 010e 18       		.uleb128 0x18
+ 1176 010f 00       		.byte	0
+ 1177 0110 00       		.byte	0
+ 1178 0111 00       		.byte	0
+ 1179              		.section	.debug_aranges,"",%progbits
+ 1180 0000 24000000 		.4byte	0x24
+ 1181 0004 0200     		.2byte	0x2
+ 1182 0006 00000000 		.4byte	.Ldebug_info0
+ 1183 000a 04       		.byte	0x4
+ 1184 000b 00       		.byte	0
+ 1185 000c 0000     		.2byte	0
+ 1186 000e 0000     		.2byte	0
+ 1187 0010 00000000 		.4byte	.LFB35
+ 1188 0014 1C020000 		.4byte	.LFE35-.LFB35
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 24
 
 
- 1176 010b 3F       		.uleb128 0x3f
- 1177 010c 19       		.uleb128 0x19
- 1178 010d 02       		.uleb128 0x2
- 1179 010e 18       		.uleb128 0x18
- 1180 010f 00       		.byte	0
- 1181 0110 00       		.byte	0
- 1182 0111 00       		.byte	0
- 1183              		.section	.debug_aranges,"",%progbits
- 1184 0000 24000000 		.4byte	0x24
- 1185 0004 0200     		.2byte	0x2
- 1186 0006 00000000 		.4byte	.Ldebug_info0
- 1187 000a 04       		.byte	0x4
- 1188 000b 00       		.byte	0
- 1189 000c 0000     		.2byte	0
- 1190 000e 0000     		.2byte	0
- 1191 0010 00000000 		.4byte	.LFB35
- 1192 0014 30020000 		.4byte	.LFE35-.LFB35
- 1193 0018 00000000 		.4byte	.LFB36
- 1194 001c 38000000 		.4byte	.LFE36-.LFB36
- 1195 0020 00000000 		.4byte	0
- 1196 0024 00000000 		.4byte	0
- 1197              		.section	.debug_ranges,"",%progbits
- 1198              	.Ldebug_ranges0:
- 1199 0000 00000000 		.4byte	.LFB35
- 1200 0004 30020000 		.4byte	.LFE35
- 1201 0008 00000000 		.4byte	.LFB36
- 1202 000c 38000000 		.4byte	.LFE36
- 1203 0010 00000000 		.4byte	0
- 1204 0014 00000000 		.4byte	0
- 1205              		.section	.debug_line,"",%progbits
- 1206              	.Ldebug_line0:
- 1207 0000 0D020000 		.section	.debug_str,"MS",%progbits,1
- 1207      02006C01 
- 1207      00000201 
- 1207      FB0E0D00 
- 1207      01010101 
- 1208              	.LASF29:
- 1209 0000 4359424C 		.ascii	"CYBLE_EVT_GAP_PASSKEY_ENTRY_REQUEST\000"
+ 1189 0018 00000000 		.4byte	.LFB36
+ 1190 001c 38000000 		.4byte	.LFE36-.LFB36
+ 1191 0020 00000000 		.4byte	0
+ 1192 0024 00000000 		.4byte	0
+ 1193              		.section	.debug_ranges,"",%progbits
+ 1194              	.Ldebug_ranges0:
+ 1195 0000 00000000 		.4byte	.LFB35
+ 1196 0004 1C020000 		.4byte	.LFE35
+ 1197 0008 00000000 		.4byte	.LFB36
+ 1198 000c 38000000 		.4byte	.LFE36
+ 1199 0010 00000000 		.4byte	0
+ 1200 0014 00000000 		.4byte	0
+ 1201              		.section	.debug_line,"",%progbits
+ 1202              	.Ldebug_line0:
+ 1203 0000 0B020000 		.section	.debug_str,"MS",%progbits,1
+ 1203      02006C01 
+ 1203      00000201 
+ 1203      FB0E0D00 
+ 1203      01010101 
+ 1204              	.LASF29:
+ 1205 0000 4359424C 		.ascii	"CYBLE_EVT_GAP_PASSKEY_ENTRY_REQUEST\000"
+ 1205      455F4556 
+ 1205      545F4741 
+ 1205      505F5041 
+ 1205      53534B45 
+ 1206              	.LASF102:
+ 1207 0024 52413838 		.ascii	"RA8875_480x272\000"
+ 1207      37355F34 
+ 1207      38307832 
+ 1207      373200
+ 1208              	.LASF64:
+ 1209 0033 4359424C 		.ascii	"CYBLE_EVT_GATTC_WRITE_RSP\000"
  1209      455F4556 
  1209      545F4741 
- 1209      505F5041 
- 1209      53534B45 
- 1210              	.LASF102:
- 1211 0024 52413838 		.ascii	"RA8875_480x272\000"
- 1211      37355F34 
- 1211      38307832 
- 1211      373200
- 1212              	.LASF64:
- 1213 0033 4359424C 		.ascii	"CYBLE_EVT_GATTC_WRITE_RSP\000"
+ 1209      5454435F 
+ 1209      57524954 
+ 1210              	.LASF26:
+ 1211 004d 4359424C 		.ascii	"CYBLE_EVT_MEMORY_REQUEST\000"
+ 1211      455F4556 
+ 1211      545F4D45 
+ 1211      4D4F5259 
+ 1211      5F524551 
+ 1212              	.LASF51:
+ 1213 0066 4359424C 		.ascii	"CYBLE_EVT_GATTC_ERROR_RSP\000"
  1213      455F4556 
  1213      545F4741 
  1213      5454435F 
- 1213      57524954 
- 1214              	.LASF26:
- 1215 004d 4359424C 		.ascii	"CYBLE_EVT_MEMORY_REQUEST\000"
- 1215      455F4556 
- 1215      545F4D45 
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 25
-
-
- 1215      4D4F5259 
- 1215      5F524551 
- 1216              	.LASF51:
- 1217 0066 4359424C 		.ascii	"CYBLE_EVT_GATTC_ERROR_RSP\000"
+ 1213      4552524F 
+ 1214              	.LASF107:
+ 1215 0080 53746163 		.ascii	"StackEventHandler\000"
+ 1215      6B457665 
+ 1215      6E744861 
+ 1215      6E646C65 
+ 1215      7200
+ 1216              	.LASF41:
+ 1217 0092 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYPRESS_NOTIFICATION\000"
  1217      455F4556 
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 25
+
+
  1217      545F4741 
- 1217      5454435F 
- 1217      4552524F 
- 1218              	.LASF107:
- 1219 0080 53746163 		.ascii	"StackEventHandler\000"
- 1219      6B457665 
- 1219      6E744861 
- 1219      6E646C65 
- 1219      7200
- 1220              	.LASF41:
- 1221 0092 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYPRESS_NOTIFICATION\000"
+ 1217      505F4B45 
+ 1217      59505245 
+ 1218              	.LASF2:
+ 1219 00b6 73686F72 		.ascii	"short int\000"
+ 1219      7420696E 
+ 1219      7400
+ 1220              	.LASF32:
+ 1221 00c0 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_FAILED\000"
  1221      455F4556 
  1221      545F4741 
- 1221      505F4B45 
- 1221      59505245 
- 1222              	.LASF2:
- 1223 00b6 73686F72 		.ascii	"short int\000"
- 1223      7420696E 
- 1223      7400
- 1224              	.LASF32:
- 1225 00c0 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_FAILED\000"
- 1225      455F4556 
- 1225      545F4741 
- 1225      505F4155 
- 1225      54485F46 
- 1226              	.LASF53:
- 1227 00da 4359424C 		.ascii	"CYBLE_EVT_GATT_DISCONNECT_IND\000"
+ 1221      505F4155 
+ 1221      54485F46 
+ 1222              	.LASF53:
+ 1223 00da 4359424C 		.ascii	"CYBLE_EVT_GATT_DISCONNECT_IND\000"
+ 1223      455F4556 
+ 1223      545F4741 
+ 1223      54545F44 
+ 1223      4953434F 
+ 1224              	.LASF19:
+ 1225 00f8 73697A65 		.ascii	"sizetype\000"
+ 1225      74797065 
+ 1225      00
+ 1226              	.LASF43:
+ 1227 0101 4359424C 		.ascii	"CYBLE_EVT_GAP_DATA_LENGTH_CHANGE\000"
  1227      455F4556 
  1227      545F4741 
- 1227      54545F44 
- 1227      4953434F 
- 1228              	.LASF19:
- 1229 00f8 73697A65 		.ascii	"sizetype\000"
- 1229      74797065 
- 1229      00
- 1230              	.LASF43:
- 1231 0101 4359424C 		.ascii	"CYBLE_EVT_GAP_DATA_LENGTH_CHANGE\000"
- 1231      455F4556 
- 1231      545F4741 
- 1231      505F4441 
- 1231      54415F4C 
- 1232              	.LASF24:
- 1233 0122 4359424C 		.ascii	"CYBLE_EVT_HCI_STATUS\000"
- 1233      455F4556 
- 1233      545F4843 
- 1233      495F5354 
- 1233      41545553 
- 1234              	.LASF117:
- 1235 0137 433A5C55 		.ascii	"C:\\Users\\megan\\Google Drive\\College\\S10 - Fall"
- 1235      73657273 
- 1235      5C6D6567 
- 1235      616E5C47 
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 26
+ 1227      505F4441 
+ 1227      54415F4C 
+ 1228              	.LASF24:
+ 1229 0122 4359424C 		.ascii	"CYBLE_EVT_HCI_STATUS\000"
+ 1229      455F4556 
+ 1229      545F4843 
+ 1229      495F5354 
+ 1229      41545553 
+ 1230              	.LASF117:
+ 1231 0137 433A5C55 		.ascii	"C:\\Users\\megan\\Google Drive\\College\\S10 - Fall"
+ 1231      73657273 
+ 1231      5C6D6567 
+ 1231      616E5C47 
+ 1231      6F6F676C 
+ 1232 0165 20323031 		.ascii	" 2017\\ECEN 4350 - Embedded uC Design\\Github\\ECEN"
+ 1232      375C4543 
+ 1232      454E2034 
+ 1232      33353020 
+ 1232      2D20456D 
+ 1233 0195 34333530 		.ascii	"4350-EmbeddedMicrocontrollerDesign\\BinMonitorPart1"
+ 1233      2D456D62 
+ 1233      65646465 
+ 1233      644D6963 
+ 1233      726F636F 
+ 1234 01c7 5C42696E 		.ascii	"\\BinMonitorPart1\\BinMonitorPart1.cydsn\000"
+ 1234      4D6F6E69 
+ 1234      746F7250 
+ 1234      61727431 
+ 1234      5C42696E 
+ 1235              	.LASF94:
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 26
 
 
- 1235      6F6F676C 
- 1236 0165 20323031 		.ascii	" 2017\\ECEN 4350 - Embedded uC Design\\Github\\ECEN"
- 1236      375C4543 
- 1236      454E2034 
- 1236      33353020 
- 1236      2D20456D 
- 1237 0195 34333530 		.ascii	"4350-EmbeddedMicrocontrollerDesign\\BinMonitorPart1"
- 1237      2D456D62 
- 1237      65646465 
- 1237      644D6963 
- 1237      726F636F 
- 1238 01c7 5C42696E 		.ascii	"\\BinMonitorPart1\\BinMonitorPart1.cydsn\000"
- 1238      4D6F6E69 
- 1238      746F7250 
- 1238      61727431 
- 1238      5C42696E 
- 1239              	.LASF94:
- 1240 01ee 4359424C 		.ascii	"CYBLE_DIS_SERIAL_NUMBER\000"
+ 1236 01ee 4359424C 		.ascii	"CYBLE_DIS_SERIAL_NUMBER\000"
+ 1236      455F4449 
+ 1236      535F5345 
+ 1236      5249414C 
+ 1236      5F4E554D 
+ 1237              	.LASF106:
+ 1238 0206 6D61696E 		.ascii	"main\000"
+ 1238      00
+ 1239              	.LASF97:
+ 1240 020b 4359424C 		.ascii	"CYBLE_DIS_SOFTWARE_REV\000"
  1240      455F4449 
- 1240      535F5345 
- 1240      5249414C 
- 1240      5F4E554D 
- 1241              	.LASF106:
- 1242 0206 6D61696E 		.ascii	"main\000"
- 1242      00
- 1243              	.LASF97:
- 1244 020b 4359424C 		.ascii	"CYBLE_DIS_SOFTWARE_REV\000"
- 1244      455F4449 
- 1244      535F534F 
- 1244      46545741 
- 1244      52455F52 
- 1245              	.LASF65:
- 1246 0222 4359424C 		.ascii	"CYBLE_EVT_GATTS_WRITE_CMD_REQ\000"
+ 1240      535F534F 
+ 1240      46545741 
+ 1240      52455F52 
+ 1241              	.LASF65:
+ 1242 0222 4359424C 		.ascii	"CYBLE_EVT_GATTS_WRITE_CMD_REQ\000"
+ 1242      455F4556 
+ 1242      545F4741 
+ 1242      5454535F 
+ 1242      57524954 
+ 1243              	.LASF4:
+ 1244 0240 5F5F7569 		.ascii	"__uint16_t\000"
+ 1244      6E743136 
+ 1244      5F7400
+ 1245              	.LASF57:
+ 1246 024b 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_TYPE_RSP\000"
  1246      455F4556 
  1246      545F4741 
- 1246      5454535F 
- 1246      57524954 
- 1247              	.LASF4:
- 1248 0240 5F5F7569 		.ascii	"__uint16_t\000"
- 1248      6E743136 
- 1248      5F7400
- 1249              	.LASF57:
- 1250 024b 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_TYPE_RSP\000"
+ 1246      5454435F 
+ 1246      52454144 
+ 1247              	.LASF87:
+ 1248 026c 4359424C 		.ascii	"CYBLE_EVT_PENDING_FLASH_WRITE\000"
+ 1248      455F4556 
+ 1248      545F5045 
+ 1248      4E44494E 
+ 1248      475F464C 
+ 1249              	.LASF21:
+ 1250 028a 4359424C 		.ascii	"CYBLE_EVT_STACK_ON\000"
  1250      455F4556 
- 1250      545F4741 
- 1250      5454435F 
- 1250      52454144 
- 1251              	.LASF87:
- 1252 026c 4359424C 		.ascii	"CYBLE_EVT_PENDING_FLASH_WRITE\000"
+ 1250      545F5354 
+ 1250      41434B5F 
+ 1250      4F4E00
+ 1251              	.LASF50:
+ 1252 029d 4359424C 		.ascii	"CYBLE_EVT_GAP_SMP_LOC_P256_KEYS_GEN_AND_SET_COMPLET"
  1252      455F4556 
- 1252      545F5045 
- 1252      4E44494E 
- 1252      475F464C 
- 1253              	.LASF21:
- 1254 028a 4359424C 		.ascii	"CYBLE_EVT_STACK_ON\000"
- 1254      455F4556 
- 1254      545F5354 
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 27
+ 1252      545F4741 
+ 1252      505F534D 
+ 1252      505F4C4F 
+ 1253 02d0 4500     		.ascii	"E\000"
+ 1254              	.LASF54:
+ 1255 02d2 4359424C 		.ascii	"CYBLE_EVT_GATTS_XCNHG_MTU_REQ\000"
+ 1255      455F4556 
+ 1255      545F4741 
+ 1255      5454535F 
+ 1255      58434E48 
+ 1256              	.LASF11:
+ 1257 02f0 75696E74 		.ascii	"uint8_t\000"
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 27
 
 
- 1254      41434B5F 
- 1254      4F4E00
- 1255              	.LASF50:
- 1256 029d 4359424C 		.ascii	"CYBLE_EVT_GAP_SMP_LOC_P256_KEYS_GEN_AND_SET_COMPLET"
- 1256      455F4556 
- 1256      545F4741 
- 1256      505F534D 
- 1256      505F4C4F 
- 1257 02d0 4500     		.ascii	"E\000"
- 1258              	.LASF54:
- 1259 02d2 4359424C 		.ascii	"CYBLE_EVT_GATTS_XCNHG_MTU_REQ\000"
+ 1257      385F7400 
+ 1258              	.LASF39:
+ 1259 02f8 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYINFO_EXCHNGE_CMPLT\000"
  1259      455F4556 
  1259      545F4741 
- 1259      5454535F 
- 1259      58434E48 
- 1260              	.LASF11:
- 1261 02f0 75696E74 		.ascii	"uint8_t\000"
- 1261      385F7400 
- 1262              	.LASF39:
- 1263 02f8 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYINFO_EXCHNGE_CMPLT\000"
- 1263      455F4556 
- 1263      545F4741 
- 1263      505F4B45 
- 1263      59494E46 
- 1264              	.LASF62:
- 1265 031c 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_MULTI_RSP\000"
+ 1259      505F4B45 
+ 1259      59494E46 
+ 1260              	.LASF62:
+ 1261 031c 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_MULTI_RSP\000"
+ 1261      455F4556 
+ 1261      545F4741 
+ 1261      5454435F 
+ 1261      52454144 
+ 1262              	.LASF110:
+ 1263 033b 5F727374 		.ascii	"_rst\000"
+ 1263      00
+ 1264              	.LASF71:
+ 1265 0340 4359424C 		.ascii	"CYBLE_EVT_GATTS_HANDLE_VALUE_CNF\000"
  1265      455F4556 
  1265      545F4741 
- 1265      5454435F 
- 1265      52454144 
- 1266              	.LASF110:
- 1267 033b 5F727374 		.ascii	"_rst\000"
- 1267      00
- 1268              	.LASF71:
- 1269 0340 4359424C 		.ascii	"CYBLE_EVT_GATTS_HANDLE_VALUE_CNF\000"
+ 1265      5454535F 
+ 1265      48414E44 
+ 1266              	.LASF20:
+ 1267 0361 4359424C 		.ascii	"CYBLE_EVT_HOST_INVALID\000"
+ 1267      455F4556 
+ 1267      545F484F 
+ 1267      53545F49 
+ 1267      4E56414C 
+ 1268              	.LASF79:
+ 1269 0378 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_IND\000"
  1269      455F4556 
- 1269      545F4741 
- 1269      5454535F 
- 1269      48414E44 
- 1270              	.LASF20:
- 1271 0361 4359424C 		.ascii	"CYBLE_EVT_HOST_INVALID\000"
- 1271      455F4556 
- 1271      545F484F 
- 1271      53545F49 
- 1271      4E56414C 
- 1272              	.LASF79:
- 1273 0378 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_IND\000"
+ 1269      545F4C32 
+ 1269      4341505F 
+ 1269      43424643 
+ 1270              	.LASF112:
+ 1271 0396 5F686569 		.ascii	"_height\000"
+ 1271      67687400 
+ 1272              	.LASF82:
+ 1273 039e 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DISCONN_CNF\000"
  1273      455F4556 
  1273      545F4C32 
  1273      4341505F 
  1273      43424643 
- 1274              	.LASF112:
- 1275 0396 5F686569 		.ascii	"_height\000"
- 1275      67687400 
- 1276              	.LASF82:
- 1277 039e 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DISCONN_CNF\000"
- 1277      455F4556 
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 28
+ 1274              	.LASF108:
+ 1275 03bf 6576656E 		.ascii	"eventCode\000"
+ 1275      74436F64 
+ 1275      6500
+ 1276              	.LASF14:
+ 1277 03c9 666C6F61 		.ascii	"float\000"
+ 1277      7400
+ 1278              	.LASF60:
+ 1279 03cf 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_RSP\000"
+ 1279      455F4556 
+ 1279      545F4741 
+ 1279      5454435F 
+ 1279      52454144 
+ 1280              	.LASF40:
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 28
 
 
- 1277      545F4C32 
- 1277      4341505F 
- 1277      43424643 
- 1278              	.LASF108:
- 1279 03bf 6576656E 		.ascii	"eventCode\000"
- 1279      74436F64 
- 1279      6500
- 1280              	.LASF14:
- 1281 03c9 666C6F61 		.ascii	"float\000"
- 1281      7400
- 1282              	.LASF60:
- 1283 03cf 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_RSP\000"
+ 1281 03e8 4359424C 		.ascii	"CYBLE_EVT_GAP_NUMERIC_COMPARISON_REQUEST\000"
+ 1281      455F4556 
+ 1281      545F4741 
+ 1281      505F4E55 
+ 1281      4D455249 
+ 1282              	.LASF45:
+ 1283 0411 4359424C 		.ascii	"CYBLE_EVT_GAPC_DIRECT_ADV_REPORT\000"
  1283      455F4556 
  1283      545F4741 
- 1283      5454435F 
- 1283      52454144 
- 1284              	.LASF40:
- 1285 03e8 4359424C 		.ascii	"CYBLE_EVT_GAP_NUMERIC_COMPARISON_REQUEST\000"
- 1285      455F4556 
- 1285      545F4741 
- 1285      505F4E55 
- 1285      4D455249 
- 1286              	.LASF45:
- 1287 0411 4359424C 		.ascii	"CYBLE_EVT_GAPC_DIRECT_ADV_REPORT\000"
+ 1283      50435F44 
+ 1283      49524543 
+ 1284              	.LASF9:
+ 1285 0432 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1285      206C6F6E 
+ 1285      6720756E 
+ 1285      7369676E 
+ 1285      65642069 
+ 1286              	.LASF49:
+ 1287 0449 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_REQ_REPLY_ERR\000"
  1287      455F4556 
  1287      545F4741 
- 1287      50435F44 
- 1287      49524543 
- 1288              	.LASF9:
- 1289 0432 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1289      206C6F6E 
- 1289      6720756E 
- 1289      7369676E 
- 1289      65642069 
- 1290              	.LASF49:
- 1291 0449 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_REQ_REPLY_ERR\000"
- 1291      455F4556 
- 1291      545F4741 
- 1291      505F4155 
- 1291      54485F52 
- 1292              	.LASF17:
- 1293 046a 72656733 		.ascii	"reg32\000"
- 1293      3200
- 1294              	.LASF6:
- 1295 0470 6C6F6E67 		.ascii	"long int\000"
- 1295      20696E74 
- 1295      00
- 1296              	.LASF70:
- 1297 0479 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_IND\000"
- 1297      455F4556 
- 1297      545F4741 
- 1297      5454435F 
- 1297      48414E44 
- 1298              	.LASF34:
- 1299 049a 4359424C 		.ascii	"CYBLE_EVT_GAP_DEVICE_CONNECTED\000"
+ 1287      505F4155 
+ 1287      54485F52 
+ 1288              	.LASF17:
+ 1289 046a 72656733 		.ascii	"reg32\000"
+ 1289      3200
+ 1290              	.LASF6:
+ 1291 0470 6C6F6E67 		.ascii	"long int\000"
+ 1291      20696E74 
+ 1291      00
+ 1292              	.LASF70:
+ 1293 0479 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_IND\000"
+ 1293      455F4556 
+ 1293      545F4741 
+ 1293      5454435F 
+ 1293      48414E44 
+ 1294              	.LASF34:
+ 1295 049a 4359424C 		.ascii	"CYBLE_EVT_GAP_DEVICE_CONNECTED\000"
+ 1295      455F4556 
+ 1295      545F4741 
+ 1295      505F4445 
+ 1295      56494345 
+ 1296              	.LASF3:
+ 1297 04b9 5F5F7569 		.ascii	"__uint8_t\000"
+ 1297      6E74385F 
+ 1297      7400
+ 1298              	.LASF69:
+ 1299 04c3 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_NTF\000"
  1299      455F4556 
  1299      545F4741 
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 29
+ 1299      5454435F 
+ 1299      48414E44 
+ 1300              	.LASF25:
+ 1301 04e4 4359424C 		.ascii	"CYBLE_EVT_STACK_BUSY_STATUS\000"
+ 1301      455F4556 
+ 1301      545F5354 
+ 1301      41434B5F 
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 29
 
 
- 1299      505F4445 
- 1299      56494345 
- 1300              	.LASF3:
- 1301 04b9 5F5F7569 		.ascii	"__uint8_t\000"
- 1301      6E74385F 
- 1301      7400
- 1302              	.LASF69:
- 1303 04c3 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_NTF\000"
- 1303      455F4556 
- 1303      545F4741 
- 1303      5454435F 
- 1303      48414E44 
- 1304              	.LASF25:
- 1305 04e4 4359424C 		.ascii	"CYBLE_EVT_STACK_BUSY_STATUS\000"
+ 1301      42555359 
+ 1302              	.LASF93:
+ 1303 0500 4359424C 		.ascii	"CYBLE_DIS_MODEL_NUMBER\000"
+ 1303      455F4449 
+ 1303      535F4D4F 
+ 1303      44454C5F 
+ 1303      4E554D42 
+ 1304              	.LASF30:
+ 1305 0517 4359424C 		.ascii	"CYBLE_EVT_GAP_PASSKEY_DISPLAY_REQUEST\000"
  1305      455F4556 
- 1305      545F5354 
- 1305      41434B5F 
- 1305      42555359 
- 1306              	.LASF93:
- 1307 0500 4359424C 		.ascii	"CYBLE_DIS_MODEL_NUMBER\000"
- 1307      455F4449 
- 1307      535F4D4F 
- 1307      44454C5F 
- 1307      4E554D42 
- 1308              	.LASF30:
- 1309 0517 4359424C 		.ascii	"CYBLE_EVT_GAP_PASSKEY_DISPLAY_REQUEST\000"
- 1309      455F4556 
- 1309      545F4741 
- 1309      505F5041 
- 1309      53534B45 
- 1310              	.LASF115:
- 1311 053d 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 1311      43313120 
- 1311      352E342E 
- 1311      31203230 
- 1311      31363036 
- 1312 0570 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
- 1312      20726576 
- 1312      6973696F 
- 1312      6E203233 
- 1312      37373135 
- 1313 05a3 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
- 1313      66756E63 
- 1313      74696F6E 
- 1313      2D736563 
- 1313      74696F6E 
- 1314              	.LASF80:
- 1315 05cb 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_CNF\000"
- 1315      455F4556 
- 1315      545F4C32 
- 1315      4341505F 
- 1315      43424643 
- 1316              	.LASF44:
- 1317 05e9 4359424C 		.ascii	"CYBLE_EVT_GAP_ENHANCE_CONN_COMPLETE\000"
- 1317      455F4556 
- 1317      545F4741 
- 1317      505F454E 
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 30
+ 1305      545F4741 
+ 1305      505F5041 
+ 1305      53534B45 
+ 1306              	.LASF115:
+ 1307 053d 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1307      43313120 
+ 1307      352E342E 
+ 1307      31203230 
+ 1307      31363036 
+ 1308 0570 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 1308      20726576 
+ 1308      6973696F 
+ 1308      6E203233 
+ 1308      37373135 
+ 1309 05a3 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1309      66756E63 
+ 1309      74696F6E 
+ 1309      2D736563 
+ 1309      74696F6E 
+ 1310              	.LASF80:
+ 1311 05cb 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_CNF\000"
+ 1311      455F4556 
+ 1311      545F4C32 
+ 1311      4341505F 
+ 1311      43424643 
+ 1312              	.LASF44:
+ 1313 05e9 4359424C 		.ascii	"CYBLE_EVT_GAP_ENHANCE_CONN_COMPLETE\000"
+ 1313      455F4556 
+ 1313      545F4741 
+ 1313      505F454E 
+ 1313      48414E43 
+ 1314              	.LASF18:
+ 1315 060d 6C6F6E67 		.ascii	"long double\000"
+ 1315      20646F75 
+ 1315      626C6500 
+ 1316              	.LASF111:
+ 1317 0619 5F776964 		.ascii	"_width\000"
+ 1317      746800
+ 1318              	.LASF76:
+ 1319 0620 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CONN_PARAM_UPDATE_REQ\000"
+ 1319      455F4556 
+ 1319      545F4C32 
+ 1319      4341505F 
+ 1319      434F4E4E 
+ 1320              	.LASF1:
+ 1321 0646 756E7369 		.ascii	"unsigned char\000"
+ 1321      676E6564 
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 30
 
 
- 1317      48414E43 
- 1318              	.LASF18:
- 1319 060d 6C6F6E67 		.ascii	"long double\000"
- 1319      20646F75 
- 1319      626C6500 
- 1320              	.LASF111:
- 1321 0619 5F776964 		.ascii	"_width\000"
- 1321      746800
- 1322              	.LASF76:
- 1323 0620 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CONN_PARAM_UPDATE_REQ\000"
+ 1321      20636861 
+ 1321      7200
+ 1322              	.LASF66:
+ 1323 0654 4359424C 		.ascii	"CYBLE_EVT_GATTS_PREP_WRITE_REQ\000"
  1323      455F4556 
- 1323      545F4C32 
- 1323      4341505F 
- 1323      434F4E4E 
- 1324              	.LASF1:
- 1325 0646 756E7369 		.ascii	"unsigned char\000"
- 1325      676E6564 
- 1325      20636861 
- 1325      7200
- 1326              	.LASF66:
- 1327 0654 4359424C 		.ascii	"CYBLE_EVT_GATTS_PREP_WRITE_REQ\000"
+ 1323      545F4741 
+ 1323      5454535F 
+ 1323      50524550 
+ 1324              	.LASF88:
+ 1325 0673 4359424C 		.ascii	"CYBLE_EVT_LE_PING_AUTH_TIMEOUT\000"
+ 1325      455F4556 
+ 1325      545F4C45 
+ 1325      5F50494E 
+ 1325      475F4155 
+ 1326              	.LASF58:
+ 1327 0692 4359424C 		.ascii	"CYBLE_EVT_GATTC_FIND_INFO_RSP\000"
  1327      455F4556 
  1327      545F4741 
- 1327      5454535F 
- 1327      50524550 
- 1328              	.LASF88:
- 1329 0673 4359424C 		.ascii	"CYBLE_EVT_LE_PING_AUTH_TIMEOUT\000"
- 1329      455F4556 
- 1329      545F4C45 
- 1329      5F50494E 
- 1329      475F4155 
- 1330              	.LASF58:
- 1331 0692 4359424C 		.ascii	"CYBLE_EVT_GATTC_FIND_INFO_RSP\000"
+ 1327      5454435F 
+ 1327      46494E44 
+ 1328              	.LASF0:
+ 1329 06b0 7369676E 		.ascii	"signed char\000"
+ 1329      65642063 
+ 1329      68617200 
+ 1330              	.LASF63:
+ 1331 06bc 4359424C 		.ascii	"CYBLE_EVT_GATTS_WRITE_REQ\000"
  1331      455F4556 
  1331      545F4741 
- 1331      5454435F 
- 1331      46494E44 
- 1332              	.LASF0:
- 1333 06b0 7369676E 		.ascii	"signed char\000"
- 1333      65642063 
- 1333      68617200 
- 1334              	.LASF63:
- 1335 06bc 4359424C 		.ascii	"CYBLE_EVT_GATTS_WRITE_REQ\000"
+ 1331      5454535F 
+ 1331      57524954 
+ 1332              	.LASF59:
+ 1333 06d6 4359424C 		.ascii	"CYBLE_EVT_GATTC_FIND_BY_TYPE_VALUE_RSP\000"
+ 1333      455F4556 
+ 1333      545F4741 
+ 1333      5454435F 
+ 1333      46494E44 
+ 1334              	.LASF31:
+ 1335 06fd 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_COMPLETE\000"
  1335      455F4556 
  1335      545F4741 
- 1335      5454535F 
- 1335      57524954 
- 1336              	.LASF59:
- 1337 06d6 4359424C 		.ascii	"CYBLE_EVT_GATTC_FIND_BY_TYPE_VALUE_RSP\000"
- 1337      455F4556 
- 1337      545F4741 
- 1337      5454435F 
- 1337      46494E44 
- 1338              	.LASF31:
- 1339 06fd 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_COMPLETE\000"
- 1339      455F4556 
- 1339      545F4741 
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 31
-
-
- 1339      505F4155 
- 1339      54485F43 
- 1340              	.LASF10:
- 1341 0719 756E7369 		.ascii	"unsigned int\000"
- 1341      676E6564 
- 1341      20696E74 
+ 1335      505F4155 
+ 1335      54485F43 
+ 1336              	.LASF10:
+ 1337 0719 756E7369 		.ascii	"unsigned int\000"
+ 1337      676E6564 
+ 1337      20696E74 
+ 1337      00
+ 1338              	.LASF104:
+ 1339 0726 66616C73 		.ascii	"false\000"
+ 1339      6500
+ 1340              	.LASF12:
+ 1341 072c 75696E74 		.ascii	"uint16_t\000"
+ 1341      31365F74 
  1341      00
- 1342              	.LASF104:
- 1343 0726 66616C73 		.ascii	"false\000"
- 1343      6500
- 1344              	.LASF12:
- 1345 072c 75696E74 		.ascii	"uint16_t\000"
- 1345      31365F74 
- 1345      00
- 1346              	.LASF52:
- 1347 0735 4359424C 		.ascii	"CYBLE_EVT_GATT_CONNECT_IND\000"
+ 1342              	.LASF52:
+ 1343 0735 4359424C 		.ascii	"CYBLE_EVT_GATT_CONNECT_IND\000"
+ 1343      455F4556 
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 31
+
+
+ 1343      545F4741 
+ 1343      54545F43 
+ 1343      4F4E4E45 
+ 1344              	.LASF7:
+ 1345 0750 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1345      20756E73 
+ 1345      69676E65 
+ 1345      6420696E 
+ 1345      7400
+ 1346              	.LASF28:
+ 1347 0762 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_REQ\000"
  1347      455F4556 
  1347      545F4741 
- 1347      54545F43 
- 1347      4F4E4E45 
- 1348              	.LASF7:
- 1349 0750 6C6F6E67 		.ascii	"long unsigned int\000"
- 1349      20756E73 
- 1349      69676E65 
- 1349      6420696E 
- 1349      7400
- 1350              	.LASF28:
- 1351 0762 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_REQ\000"
+ 1347      505F4155 
+ 1347      54485F52 
+ 1348              	.LASF81:
+ 1349 0779 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DISCONN_IND\000"
+ 1349      455F4556 
+ 1349      545F4C32 
+ 1349      4341505F 
+ 1349      43424643 
+ 1350              	.LASF36:
+ 1351 079a 4359424C 		.ascii	"CYBLE_EVT_GAP_ENCRYPT_CHANGE\000"
  1351      455F4556 
  1351      545F4741 
- 1351      505F4155 
- 1351      54485F52 
- 1352              	.LASF81:
- 1353 0779 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DISCONN_IND\000"
+ 1351      505F454E 
+ 1351      43525950 
+ 1352              	.LASF47:
+ 1353 07b7 4359424C 		.ascii	"CYBLE_EVT_GAP_CONN_ESTB\000"
  1353      455F4556 
- 1353      545F4C32 
- 1353      4341505F 
- 1353      43424643 
- 1354              	.LASF36:
- 1355 079a 4359424C 		.ascii	"CYBLE_EVT_GAP_ENCRYPT_CHANGE\000"
+ 1353      545F4741 
+ 1353      505F434F 
+ 1353      4E4E5F45 
+ 1354              	.LASF75:
+ 1355 07cf 4359424C 		.ascii	"CYBLE_EVT_GATTC_LONG_PROCEDURE_END\000"
  1355      455F4556 
  1355      545F4741 
- 1355      505F454E 
- 1355      43525950 
- 1356              	.LASF47:
- 1357 07b7 4359424C 		.ascii	"CYBLE_EVT_GAP_CONN_ESTB\000"
- 1357      455F4556 
- 1357      545F4741 
- 1357      505F434F 
- 1357      4E4E5F45 
- 1358              	.LASF75:
- 1359 07cf 4359424C 		.ascii	"CYBLE_EVT_GATTC_LONG_PROCEDURE_END\000"
+ 1355      5454435F 
+ 1355      4C4F4E47 
+ 1356              	.LASF5:
+ 1357 07f2 73686F72 		.ascii	"short unsigned int\000"
+ 1357      7420756E 
+ 1357      7369676E 
+ 1357      65642069 
+ 1357      6E7400
+ 1358              	.LASF90:
+ 1359 0805 4359424C 		.ascii	"CYBLE_EVT_FLASH_CORRUPT\000"
  1359      455F4556 
- 1359      545F4741 
- 1359      5454435F 
- 1359      4C4F4E47 
- 1360              	.LASF5:
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 32
+ 1359      545F464C 
+ 1359      4153485F 
+ 1359      434F5252 
+ 1360              	.LASF37:
+ 1361 081d 4359424C 		.ascii	"CYBLE_EVT_GAP_CONNECTION_UPDATE_COMPLETE\000"
+ 1361      455F4556 
+ 1361      545F4741 
+ 1361      505F434F 
+ 1361      4E4E4543 
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 32
 
 
- 1361 07f2 73686F72 		.ascii	"short unsigned int\000"
- 1361      7420756E 
- 1361      7369676E 
- 1361      65642069 
- 1361      6E7400
- 1362              	.LASF90:
- 1363 0805 4359424C 		.ascii	"CYBLE_EVT_FLASH_CORRUPT\000"
+ 1362              	.LASF46:
+ 1363 0846 4359424C 		.ascii	"CYBLE_EVT_GAP_SMP_NEGOTIATED_AUTH_INFO\000"
  1363      455F4556 
- 1363      545F464C 
- 1363      4153485F 
- 1363      434F5252 
- 1364              	.LASF37:
- 1365 081d 4359424C 		.ascii	"CYBLE_EVT_GAP_CONNECTION_UPDATE_COMPLETE\000"
- 1365      455F4556 
- 1365      545F4741 
- 1365      505F434F 
- 1365      4E4E4543 
- 1366              	.LASF46:
- 1367 0846 4359424C 		.ascii	"CYBLE_EVT_GAP_SMP_NEGOTIATED_AUTH_INFO\000"
+ 1363      545F4741 
+ 1363      505F534D 
+ 1363      505F4E45 
+ 1364              	.LASF16:
+ 1365 086d 63686172 		.ascii	"char\000"
+ 1365      00
+ 1366              	.LASF78:
+ 1367 0872 4359424C 		.ascii	"CYBLE_EVT_L2CAP_COMMAND_REJ\000"
  1367      455F4556 
- 1367      545F4741 
- 1367      505F534D 
- 1367      505F4E45 
- 1368              	.LASF16:
- 1369 086d 63686172 		.ascii	"char\000"
+ 1367      545F4C32 
+ 1367      4341505F 
+ 1367      434F4D4D 
+ 1368              	.LASF105:
+ 1369 088e 74727565 		.ascii	"true\000"
  1369      00
- 1370              	.LASF78:
- 1371 0872 4359424C 		.ascii	"CYBLE_EVT_L2CAP_COMMAND_REJ\000"
+ 1370              	.LASF27:
+ 1371 0893 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_PROGRESS_RESULT\000"
  1371      455F4556 
- 1371      545F4C32 
- 1371      4341505F 
- 1371      434F4D4D 
- 1372              	.LASF105:
- 1373 088e 74727565 		.ascii	"true\000"
- 1373      00
- 1374              	.LASF27:
- 1375 0893 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_PROGRESS_RESULT\000"
+ 1371      545F4741 
+ 1371      50435F53 
+ 1371      43414E5F 
+ 1372              	.LASF99:
+ 1373 08b7 4359424C 		.ascii	"CYBLE_DIS_REG_CERT_DATA\000"
+ 1373      455F4449 
+ 1373      535F5245 
+ 1373      475F4345 
+ 1373      52545F44 
+ 1374              	.LASF61:
+ 1375 08cf 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BLOB_RSP\000"
  1375      455F4556 
  1375      545F4741 
- 1375      50435F53 
- 1375      43414E5F 
- 1376              	.LASF99:
- 1377 08b7 4359424C 		.ascii	"CYBLE_DIS_REG_CERT_DATA\000"
- 1377      455F4449 
- 1377      535F5245 
- 1377      475F4345 
- 1377      52545F44 
- 1378              	.LASF61:
- 1379 08cf 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BLOB_RSP\000"
- 1379      455F4556 
- 1379      545F4741 
- 1379      5454435F 
- 1379      52454144 
- 1380              	.LASF68:
- 1381 08ed 4359424C 		.ascii	"CYBLE_EVT_GATTC_EXEC_WRITE_RSP\000"
- 1381      455F4556 
- 1381      545F4741 
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 33
+ 1375      5454435F 
+ 1375      52454144 
+ 1376              	.LASF68:
+ 1377 08ed 4359424C 		.ascii	"CYBLE_EVT_GATTC_EXEC_WRITE_RSP\000"
+ 1377      455F4556 
+ 1377      545F4741 
+ 1377      5454435F 
+ 1377      45584543 
+ 1378              	.LASF13:
+ 1379 090c 75696E74 		.ascii	"uint32\000"
+ 1379      333200
+ 1380              	.LASF116:
+ 1381 0913 6D61696E 		.ascii	"main.c\000"
+ 1381      2E6300
+ 1382              	.LASF84:
+ 1383 091a 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_RX_CREDIT_IND\000"
+ 1383      455F4556 
+ 1383      545F4C32 
+ 1383      4341505F 
+ 1383      43424643 
+ 1384              	.LASF15:
+ 1385 093d 646F7562 		.ascii	"double\000"
+ 1385      6C6500
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 33
 
 
- 1381      5454435F 
- 1381      45584543 
- 1382              	.LASF13:
- 1383 090c 75696E74 		.ascii	"uint32\000"
- 1383      333200
- 1384              	.LASF116:
- 1385 0913 6D61696E 		.ascii	"main.c\000"
- 1385      2E6300
- 1386              	.LASF84:
- 1387 091a 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_RX_CREDIT_IND\000"
- 1387      455F4556 
- 1387      545F4C32 
- 1387      4341505F 
- 1387      43424643 
- 1388              	.LASF15:
- 1389 093d 646F7562 		.ascii	"double\000"
- 1389      6C6500
- 1390              	.LASF103:
- 1391 0944 52413838 		.ascii	"RA8875_800x480\000"
- 1391      37355F38 
- 1391      30307834 
- 1391      383000
- 1392              	.LASF85:
- 1393 0953 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_TX_CREDIT_IND\000"
+ 1386              	.LASF103:
+ 1387 0944 52413838 		.ascii	"RA8875_800x480\000"
+ 1387      37355F38 
+ 1387      30307834 
+ 1387      383000
+ 1388              	.LASF85:
+ 1389 0953 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_TX_CREDIT_IND\000"
+ 1389      455F4556 
+ 1389      545F4C32 
+ 1389      4341505F 
+ 1389      43424643 
+ 1390              	.LASF101:
+ 1391 0976 4359424C 		.ascii	"CYBLE_DIS_CHAR_COUNT\000"
+ 1391      455F4449 
+ 1391      535F4348 
+ 1391      41525F43 
+ 1391      4F554E54 
+ 1392              	.LASF48:
+ 1393 098b 4359424C 		.ascii	"CYBLE_EVT_GAP_SCAN_REQ_RECVD\000"
  1393      455F4556 
- 1393      545F4C32 
- 1393      4341505F 
- 1393      43424643 
- 1394              	.LASF101:
- 1395 0976 4359424C 		.ascii	"CYBLE_DIS_CHAR_COUNT\000"
- 1395      455F4449 
- 1395      535F4348 
- 1395      41525F43 
- 1395      4F554E54 
- 1396              	.LASF48:
- 1397 098b 4359424C 		.ascii	"CYBLE_EVT_GAP_SCAN_REQ_RECVD\000"
+ 1393      545F4741 
+ 1393      505F5343 
+ 1393      414E5F52 
+ 1394              	.LASF8:
+ 1395 09a8 6C6F6E67 		.ascii	"long long int\000"
+ 1395      206C6F6E 
+ 1395      6720696E 
+ 1395      7400
+ 1396              	.LASF33:
+ 1397 09b6 4359424C 		.ascii	"CYBLE_EVT_GAPP_ADVERTISEMENT_START_STOP\000"
  1397      455F4556 
  1397      545F4741 
- 1397      505F5343 
- 1397      414E5F52 
- 1398              	.LASF8:
- 1399 09a8 6C6F6E67 		.ascii	"long long int\000"
- 1399      206C6F6E 
- 1399      6720696E 
- 1399      7400
- 1400              	.LASF33:
- 1401 09b6 4359424C 		.ascii	"CYBLE_EVT_GAPP_ADVERTISEMENT_START_STOP\000"
+ 1397      50505F41 
+ 1397      44564552 
+ 1398              	.LASF23:
+ 1399 09de 4359424C 		.ascii	"CYBLE_EVT_HARDWARE_ERROR\000"
+ 1399      455F4556 
+ 1399      545F4841 
+ 1399      52445741 
+ 1399      52455F45 
+ 1400              	.LASF83:
+ 1401 09f7 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DATA_READ\000"
  1401      455F4556 
- 1401      545F4741 
- 1401      50505F41 
- 1401      44564552 
- 1402              	.LASF23:
- 1403 09de 4359424C 		.ascii	"CYBLE_EVT_HARDWARE_ERROR\000"
+ 1401      545F4C32 
+ 1401      4341505F 
+ 1401      43424643 
+ 1402              	.LASF77:
+ 1403 0a16 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CONN_PARAM_UPDATE_RSP\000"
  1403      455F4556 
- 1403      545F4841 
- 1403      52445741 
- 1403      52455F45 
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 34
+ 1403      545F4C32 
+ 1403      4341505F 
+ 1403      434F4E4E 
+ 1404              	.LASF92:
+ 1405 0a3c 4359424C 		.ascii	"CYBLE_DIS_MANUFACTURER_NAME\000"
+ 1405      455F4449 
+ 1405      535F4D41 
+ 1405      4E554641 
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 34
 
 
- 1404              	.LASF83:
- 1405 09f7 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DATA_READ\000"
- 1405      455F4556 
- 1405      545F4C32 
- 1405      4341505F 
- 1405      43424643 
- 1406              	.LASF77:
- 1407 0a16 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CONN_PARAM_UPDATE_RSP\000"
- 1407      455F4556 
- 1407      545F4C32 
- 1407      4341505F 
- 1407      434F4E4E 
- 1408              	.LASF92:
- 1409 0a3c 4359424C 		.ascii	"CYBLE_DIS_MANUFACTURER_NAME\000"
- 1409      455F4449 
- 1409      535F4D41 
- 1409      4E554641 
- 1409      43545552 
- 1410              	.LASF113:
- 1411 0a58 5F746578 		.ascii	"_textScale\000"
- 1411      74536361 
- 1411      6C6500
- 1412              	.LASF56:
- 1413 0a63 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_GROUP_TYPE_RSP\000"
+ 1405      43545552 
+ 1406              	.LASF113:
+ 1407 0a58 5F746578 		.ascii	"_textScale\000"
+ 1407      74536361 
+ 1407      6C6500
+ 1408              	.LASF56:
+ 1409 0a63 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_GROUP_TYPE_RSP\000"
+ 1409      455F4556 
+ 1409      545F4741 
+ 1409      5454435F 
+ 1409      52454144 
+ 1410              	.LASF96:
+ 1411 0a8a 4359424C 		.ascii	"CYBLE_DIS_FIRMWARE_REV\000"
+ 1411      455F4449 
+ 1411      535F4649 
+ 1411      524D5741 
+ 1411      52455F52 
+ 1412              	.LASF55:
+ 1413 0aa1 4359424C 		.ascii	"CYBLE_EVT_GATTC_XCHNG_MTU_RSP\000"
  1413      455F4556 
  1413      545F4741 
  1413      5454435F 
- 1413      52454144 
- 1414              	.LASF96:
- 1415 0a8a 4359424C 		.ascii	"CYBLE_DIS_FIRMWARE_REV\000"
+ 1413      5843484E 
+ 1414              	.LASF95:
+ 1415 0abf 4359424C 		.ascii	"CYBLE_DIS_HARDWARE_REV\000"
  1415      455F4449 
- 1415      535F4649 
- 1415      524D5741 
+ 1415      535F4841 
+ 1415      52445741 
  1415      52455F52 
- 1416              	.LASF55:
- 1417 0aa1 4359424C 		.ascii	"CYBLE_EVT_GATTC_XCHNG_MTU_RSP\000"
+ 1416              	.LASF22:
+ 1417 0ad6 4359424C 		.ascii	"CYBLE_EVT_TIMEOUT\000"
  1417      455F4556 
- 1417      545F4741 
- 1417      5454435F 
- 1417      5843484E 
- 1418              	.LASF95:
- 1419 0abf 4359424C 		.ascii	"CYBLE_DIS_HARDWARE_REV\000"
- 1419      455F4449 
- 1419      535F4841 
- 1419      52445741 
- 1419      52455F52 
- 1420              	.LASF22:
- 1421 0ad6 4359424C 		.ascii	"CYBLE_EVT_TIMEOUT\000"
+ 1417      545F5449 
+ 1417      4D454F55 
+ 1417      5400
+ 1418              	.LASF86:
+ 1419 0ae8 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DATA_WRITE_IND\000"
+ 1419      455F4556 
+ 1419      545F4C32 
+ 1419      4341505F 
+ 1419      43424643 
+ 1420              	.LASF38:
+ 1421 0b0c 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_START_STOP\000"
  1421      455F4556 
- 1421      545F5449 
- 1421      4D454F55 
- 1421      5400
- 1422              	.LASF86:
- 1423 0ae8 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DATA_WRITE_IND\000"
+ 1421      545F4741 
+ 1421      50435F53 
+ 1421      43414E5F 
+ 1422              	.LASF91:
+ 1423 0b2b 4359424C 		.ascii	"CYBLE_EVT_MAX\000"
  1423      455F4556 
- 1423      545F4C32 
- 1423      4341505F 
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 35
+ 1423      545F4D41 
+ 1423      5800
+ 1424              	.LASF118:
+ 1425 0b39 52413838 		.ascii	"RA8875sizes\000"
+ 1425      37357369 
+ 1425      7A657300 
+ 1426              	.LASF74:
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 35
 
 
- 1423      43424643 
- 1424              	.LASF38:
- 1425 0b0c 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_START_STOP\000"
- 1425      455F4556 
- 1425      545F4741 
- 1425      50435F53 
- 1425      43414E5F 
- 1426              	.LASF91:
- 1427 0b2b 4359424C 		.ascii	"CYBLE_EVT_MAX\000"
+ 1427 0b45 4359424C 		.ascii	"CYBLE_EVT_GATTS_READ_CHAR_VAL_ACCESS_REQ\000"
  1427      455F4556 
- 1427      545F4D41 
- 1427      5800
- 1428              	.LASF118:
- 1429 0b39 52413838 		.ascii	"RA8875sizes\000"
- 1429      37357369 
- 1429      7A657300 
- 1430              	.LASF74:
- 1431 0b45 4359424C 		.ascii	"CYBLE_EVT_GATTS_READ_CHAR_VAL_ACCESS_REQ\000"
+ 1427      545F4741 
+ 1427      5454535F 
+ 1427      52454144 
+ 1428              	.LASF73:
+ 1429 0b6e 4359424C 		.ascii	"CYBLE_EVT_GATTC_STOP_CMD_COMPLETE\000"
+ 1429      455F4556 
+ 1429      545F4741 
+ 1429      5454435F 
+ 1429      53544F50 
+ 1430              	.LASF67:
+ 1431 0b90 4359424C 		.ascii	"CYBLE_EVT_GATTS_EXEC_WRITE_REQ\000"
  1431      455F4556 
  1431      545F4741 
  1431      5454535F 
- 1431      52454144 
- 1432              	.LASF73:
- 1433 0b6e 4359424C 		.ascii	"CYBLE_EVT_GATTC_STOP_CMD_COMPLETE\000"
+ 1431      45584543 
+ 1432              	.LASF35:
+ 1433 0baf 4359424C 		.ascii	"CYBLE_EVT_GAP_DEVICE_DISCONNECTED\000"
  1433      455F4556 
  1433      545F4741 
- 1433      5454435F 
- 1433      53544F50 
- 1434              	.LASF67:
- 1435 0b90 4359424C 		.ascii	"CYBLE_EVT_GATTS_EXEC_WRITE_REQ\000"
- 1435      455F4556 
- 1435      545F4741 
- 1435      5454535F 
- 1435      45584543 
- 1436              	.LASF35:
- 1437 0baf 4359424C 		.ascii	"CYBLE_EVT_GAP_DEVICE_DISCONNECTED\000"
- 1437      455F4556 
- 1437      545F4741 
- 1437      505F4445 
- 1437      56494345 
- 1438              	.LASF109:
- 1439 0bd1 6576656E 		.ascii	"eventParam\000"
- 1439      74506172 
- 1439      616D00
- 1440              	.LASF114:
- 1441 0bdc 5F73697A 		.ascii	"_size\000"
- 1441      6500
- 1442              	.LASF72:
- 1443 0be2 4359424C 		.ascii	"CYBLE_EVT_GATTS_DATA_SIGNED_CMD_REQ\000"
- 1443      455F4556 
- 1443      545F4741 
- 1443      5454535F 
- 1443      44415441 
- 1444              	.LASF89:
- 1445 0c06 4359424C 		.ascii	"CYBLE_EVT_HCI_PKT\000"
+ 1433      505F4445 
+ 1433      56494345 
+ 1434              	.LASF109:
+ 1435 0bd1 6576656E 		.ascii	"eventParam\000"
+ 1435      74506172 
+ 1435      616D00
+ 1436              	.LASF114:
+ 1437 0bdc 5F73697A 		.ascii	"_size\000"
+ 1437      6500
+ 1438              	.LASF72:
+ 1439 0be2 4359424C 		.ascii	"CYBLE_EVT_GATTS_DATA_SIGNED_CMD_REQ\000"
+ 1439      455F4556 
+ 1439      545F4741 
+ 1439      5454535F 
+ 1439      44415441 
+ 1440              	.LASF89:
+ 1441 0c06 4359424C 		.ascii	"CYBLE_EVT_HCI_PKT\000"
+ 1441      455F4556 
+ 1441      545F4843 
+ 1441      495F504B 
+ 1441      5400
+ 1442              	.LASF98:
+ 1443 0c18 4359424C 		.ascii	"CYBLE_DIS_SYSTEM_ID\000"
+ 1443      455F4449 
+ 1443      535F5359 
+ 1443      5354454D 
+ 1443      5F494400 
+ 1444              	.LASF42:
+ 1445 0c2c 4359424C 		.ascii	"CYBLE_EVT_GAP_OOB_GENERATED_NOTIFICATION\000"
  1445      455F4556 
- 1445      545F4843 
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccbMV04N.s 			page 36
-
-
- 1445      495F504B 
- 1445      5400
- 1446              	.LASF98:
- 1447 0c18 4359424C 		.ascii	"CYBLE_DIS_SYSTEM_ID\000"
+ 1445      545F4741 
+ 1445      505F4F4F 
+ 1445      425F4745 
+ 1446              	.LASF100:
+ 1447 0c55 4359424C 		.ascii	"CYBLE_DIS_PNP_ID\000"
  1447      455F4449 
- 1447      535F5359 
- 1447      5354454D 
- 1447      5F494400 
- 1448              	.LASF42:
- 1449 0c2c 4359424C 		.ascii	"CYBLE_EVT_GAP_OOB_GENERATED_NOTIFICATION\000"
- 1449      455F4556 
- 1449      545F4741 
- 1449      505F4F4F 
- 1449      425F4745 
- 1450              	.LASF100:
- 1451 0c55 4359424C 		.ascii	"CYBLE_DIS_PNP_ID\000"
- 1451      455F4449 
- 1451      535F504E 
- 1451      505F4944 
- 1451      00
- 1452              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ARM GAS  C:\Users\megan\AppData\Local\Temp\ccqyL1YG.s 			page 36
+
+
+ 1447      535F504E 
+ 1447      505F4944 
+ 1447      00
+ 1448              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

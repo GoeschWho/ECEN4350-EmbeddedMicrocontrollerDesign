@@ -76,8 +76,8 @@
 */
 /**************************************************************************/
 boolean begin(enum RA8875sizes s) {
-  uint32_t x;
-  uint32_t compare;  
+  uint8_t x;
+//  uint32_t compare;  
     _size = s;
 
   if (_size == RA8875_480x272) {
@@ -128,14 +128,14 @@ boolean begin(enum RA8875sizes s) {
     x = readReg(0);
 //    compare = 0x75;
     writeReg(0,x);
-    CyDelay(100);
+//    CyDelay(100);
 //    writeReg(0,compare);
 //    CyDelay(100);
 //    Serial.print("x = 0x"); Serial.println(x,HEX);
-    //if (x != compare) {
-    //    return false;
-    //}
-    CyDelay(100);
+//    if (x != 0x75) {
+//        return false;
+//    }
+//    CyDelay(100);
   initialize();
 
 #ifdef SPI_HAS_TRANSACTION
@@ -1263,7 +1263,7 @@ void  writeReg(uint8_t reg, uint8_t val)
 
 */
 /**************************************************************************/
-uint32_t  readReg(uint8_t reg) 
+uint8_t  readReg(uint8_t reg) 
 {
   writeCommand(reg);
   return readData();
@@ -1289,22 +1289,37 @@ void  writeData(uint8_t d)
 
 */
 /**************************************************************************/
-uint32_t  readData(void) 
+uint8_t  readData(void) 
 {
-    uint32_t x = 0u;
+    uint8_t x = 0u;
+    uint8_t y = 0u;
+   
 //  digitalWrite(_cs, LOW);
 //    spi_begin();
     LCDSPI_Start();
     CyDelay(1);
+    
 //  SPI.transfer(RA8875_DATAREAD);
     LCDSPI_SpiUartWriteTxData(RA8875_DATAREAD);
+//    LCDSPI_SpiUartClearRxBuffer();  // testing
     LCDSPI_SpiUartWriteTxData(0);
 //  uint8_t x = SPI.transfer(0x0);
+    
+//    y = LCDSPI_SpiUartGetRxBufferSize();
     x = LCDSPI_SpiUartReadRxData() & 0x000F;
+    
 //    spi_end();
 //  digitalWrite(_cs, HIGH);
-    CyDelay(1); // testing
+    CyDelay(1);
     LCDSPI_Stop();
+    
+    // testing
+//    LCDSPI_Start();
+//    CyDelay(1);
+//    LCDSPI_SpiUartWriteTxData(x);
+//    LCDSPI_SpiUartWriteTxData(y);
+//    CyDelay(1);
+//    LCDSPI_Stop();   
     
     return x;
 }

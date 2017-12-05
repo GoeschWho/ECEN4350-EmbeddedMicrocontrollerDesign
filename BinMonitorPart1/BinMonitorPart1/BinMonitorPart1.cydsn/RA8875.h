@@ -126,9 +126,9 @@ typedef enum {
 
   /* Low level access */
   void    writeReg(uint8_t reg, uint8_t val);
-  uint32_t readReg(uint8_t reg);
+  uint8_t readReg(uint8_t reg);
   void    writeData(uint8_t d);
-  uint32_t readData(void);
+  uint8_t readData(void);
   void    writeCommand(uint8_t d);
   uint8_t readStatus(void);
   boolean waitPoll(uint8_t r, uint8_t f);
