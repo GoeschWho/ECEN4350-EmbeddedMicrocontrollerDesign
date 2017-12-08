@@ -3,11 +3,11 @@
 <!--This file is machine generated and read. It is not intended to be edited by hand.-->
 <!--Due to this, there is no schema for this file.-->
 <CyGuid_2867d519-54d2-4c01-9830-c51cb08bc3dd type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWorkspaceSerialize" version="5" xml_contents_version="3" name="BinMonitorPart1" persistent="BinMonitorPart1.cywrk" platform="NOT_USED">
-<current_project name=".\BinMonitorPart1.cydsn\BinMonitorPart1.cyprj" />
+<current_project name=".\BinMonitorSensorPart1.cydsn\BinMonitorSensorPart1.cyprj" />
 <wrkspc_folders />
 <files />
 <projects>
-<v>.\BinMonitorPart1.cydsn\BinMonitorPart1.cyprj</v>
+<v>.\BinMonitorSensorPart1.cydsn\BinMonitorSensorPart1.cyprj</v>
 </projects>
 <workspace_id v="efa1dd8e-fb46-4b8b-9df0-4aeab0e56ae3" />
 <WriteAppVersionLastSavedWith v="4.1.0.3210" />

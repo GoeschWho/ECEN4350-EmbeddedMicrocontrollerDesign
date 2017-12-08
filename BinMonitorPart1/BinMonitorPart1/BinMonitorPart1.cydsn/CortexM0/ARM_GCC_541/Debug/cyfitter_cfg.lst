@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 1
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 1
   29:Generated_Source\PSoC4/cyfitter_cfg.c **** #if defined(__GNUC__) || defined(__ARMCC_VERSION)
   30:Generated_Source\PSoC4/cyfitter_cfg.c ****     #define CYPACKED 
   31:Generated_Source\PSoC4/cyfitter_cfg.c ****     #define CYPACKED_ATTR __attribute__ ((packed))
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 2
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 2
 
 
   32:Generated_Source\PSoC4/cyfitter_cfg.c ****     #define CYALIGNED __attribute__ ((aligned))
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 1
   35 0002 82B0     		sub	sp, sp, #8
   36              		.cfi_def_cfa_offset 16
   37 0004 00AF     		add	r7, sp, #0
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 3
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 3
 
 
   38              		.cfi_def_cfa_register 7
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 1
   86:Generated_Source\PSoC4/cyfitter_cfg.c **** }
   84              		.loc 1 86 0
   85 0018 C046     		nop
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 4
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 4
 
 
   86 001a BD46     		mov	sp, r7
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 1
  133              		.thumb_func
  134              		.type	ClockSetup, %function
  135              	ClockSetup:
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 5
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 5
 
 
  136              	.LFB5:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 1
  147:Generated_Source\PSoC4/cyfitter_cfg.c **** 
  148:Generated_Source\PSoC4/cyfitter_cfg.c ****     while(1) {}
  149:Generated_Source\PSoC4/cyfitter_cfg.c **** #endif /* CY_CFG_CLOCK_STARTUP_ERROR_CALLBACK */
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 6
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 6
 
 
  150:Generated_Source\PSoC4/cyfitter_cfg.c **** }
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 1
  158 0016 0120     		movs	r0, #1
  159 0018 FFF7FEFF 		bl	CySysClkWcoSetPowerMode
  183:Generated_Source\PSoC4/cyfitter_cfg.c **** 
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 7
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 7
 
 
  184:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* Setup and trim IMO based on desired frequency. */
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 1
  196 0056 DB00     		lsls	r3, r3, #3
  197 0058 1800     		movs	r0, r3
  198 005a FFF7FEFF 		bl	CySysClkEcoStart
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 8
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 8
 
 
  202:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CyDelayUs(1500u); /* Wait to stabilize */
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 1
  234              		.loc 1 220 0
  235 0096 1D4B     		ldr	r3, .L5+80
  236 0098 4022     		movs	r2, #64
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 9
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 9
 
 
  237 009a 1A60     		str	r2, [r3]
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 1
  286              		.code	16
  287              		.thumb_func
  288              		.type	AnalogSetDefault, %function
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 10
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 10
 
 
  289              	AnalogSetDefault:
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 1
  316              		@ sp needed
  317 001a 80BD     		pop	{r7, pc}
  318              	.L9:
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 11
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 11
 
 
  319              		.align	2
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 1
  348              		.syntax divided
  349              	@ 277 "Generated_Source\PSoC4\cyfitter_cfg.c" 1
  350 011a 72B6     		CPSID   i
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 12
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 12
 
 
  351              	@ 0 "" 2
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 1
  382 0146 9978     		ldrb	r1, [r3, #2]
  383 0148 0904     		lsls	r1, r1, #16
  384 014a 0A43     		orrs	r2, r1
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 13
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 13
 
 
  385 014c DB78     		ldrb	r3, [r3, #3]
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 1
  426 0190 9922     		movs	r2, #153
  427 0192 1204     		lsls	r2, r2, #16
  428 0194 1A60     		str	r2, [r3]
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 14
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 14
 
 
  312:Generated_Source\PSoC4/cyfitter_cfg.c **** 
@@ -823,35 +823,35 @@ ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 1
  455 01be 1A60     		str	r2, [r3]
  325:Generated_Source\PSoC4/cyfitter_cfg.c **** 
  326:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* IOPINS0_1 Starting address: CYDEV_GPIO_PRT1_BASE */
- 327:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYDEV_GPIO_PRT1_BASE), 0x000000F1u);
+ 327:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYDEV_GPIO_PRT1_BASE), 0x000000D0u);
  456              		.loc 1 327 0
  457 01c0 184B     		ldr	r3, .L13+52
- 458 01c2 F122     		movs	r2, #241
+ 458 01c2 D022     		movs	r2, #208
  459 01c4 1A60     		str	r2, [r3]
- 328:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYREG_GPIO_PRT1_PC), 0x00DA2000u);
+ 328:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYREG_GPIO_PRT1_PC), 0x00D86000u);
  460              		.loc 1 328 0
  461 01c6 184B     		ldr	r3, .L13+56
  462 01c8 184A     		ldr	r2, .L13+60
  463 01ca 1A60     		str	r2, [r3]
- 329:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYREG_GPIO_PRT1_PC2), 0x000000C1u);
+ 329:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYREG_GPIO_PRT1_PC2), 0x000000C0u);
  464              		.loc 1 329 0
  465 01cc 184B     		ldr	r3, .L13+64
- 466 01ce C122     		movs	r2, #193
+ 466 01ce C022     		movs	r2, #192
  467 01d0 1A60     		str	r2, [r3]
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 15
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 15
 
 
  330:Generated_Source\PSoC4/cyfitter_cfg.c **** 
  331:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* IOPINS0_2 Starting address: CYDEV_GPIO_PRT2_BASE */
- 332:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYDEV_GPIO_PRT2_BASE), 0x00000001u);
+ 332:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYDEV_GPIO_PRT2_BASE), 0x0000000Cu);
  468              		.loc 1 332 0
  469 01d2 184B     		ldr	r3, .L13+68
- 470 01d4 0122     		movs	r2, #1
+ 470 01d4 0C22     		movs	r2, #12
  471 01d6 1A60     		str	r2, [r3]
- 333:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYREG_GPIO_PRT2_PC), 0x00000006u);
+ 333:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYREG_GPIO_PRT2_PC), 0x00000881u);
  472              		.loc 1 333 0
  473 01d8 174B     		ldr	r3, .L13+72
- 474 01da 0622     		movs	r2, #6
+ 474 01da 184A     		ldr	r2, .L13+76
  475 01dc 1A60     		str	r2, [r3]
  334:Generated_Source\PSoC4/cyfitter_cfg.c **** 
  335:Generated_Source\PSoC4/cyfitter_cfg.c **** 
@@ -890,895 +890,896 @@ ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 1
  501 0220 18000440 		.word	1074003992
  502 0224 00010440 		.word	1074004224
  503 0228 08010440 		.word	1074004232
- 504 022c 0020DA00 		.word	14295040
+ 504 022c 0060D800 		.word	14180352
  505 0230 18010440 		.word	1074004248
  506 0234 00020440 		.word	1074004480
  507 0238 08020440 		.word	1074004488
- 508              		.cfi_endproc
- 509              	.LFE7:
- 510              		.size	cyfitter_cfg, .-cyfitter_cfg
- 511              		.section	.rodata
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 16
+ 508 023c 81080000 		.word	2177
+ 509              		.cfi_endproc
+ 510              	.LFE7:
+ 511              		.size	cyfitter_cfg, .-cyfitter_cfg
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 16
 
 
- 512              		.align	2
- 513              		.type	cfg_memset_list.4893, %object
- 514              		.size	cfg_memset_list.4893, 12
- 515              	cfg_memset_list.4893:
- 516 0000 00300F40 		.word	1074737152
- 517 0004 0004     		.short	1024
- 518 0006 00400F40 		.4byte	1074741248
- 519 000a 0004     		.short	1024
- 520              		.text
- 521              	.Letext0:
- 522              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
- 523              		.file 3 "Generated_Source\\PSoC4\\cytypes.h"
- 524              		.section	.debug_info,"",%progbits
- 525              	.Ldebug_info0:
- 526 0000 55020000 		.4byte	0x255
- 527 0004 0400     		.2byte	0x4
- 528 0006 00000000 		.4byte	.Ldebug_abbrev0
- 529 000a 04       		.byte	0x4
- 530 000b 01       		.uleb128 0x1
- 531 000c 3A010000 		.4byte	.LASF30
- 532 0010 0C       		.byte	0xc
- 533 0011 78020000 		.4byte	.LASF31
- 534 0015 57000000 		.4byte	.LASF32
- 535 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 536 001d 00000000 		.4byte	0
- 537 0021 00000000 		.4byte	.Ldebug_line0
- 538 0025 02       		.uleb128 0x2
- 539 0026 04       		.byte	0x4
- 540 0027 05       		.byte	0x5
- 541 0028 696E7400 		.ascii	"int\000"
- 542 002c 03       		.uleb128 0x3
- 543 002d 06000000 		.4byte	.LASF12
- 544 0031 02       		.byte	0x2
- 545 0032 D8       		.byte	0xd8
- 546 0033 37000000 		.4byte	0x37
- 547 0037 04       		.uleb128 0x4
- 548 0038 04       		.byte	0x4
- 549 0039 07       		.byte	0x7
- 550 003a F8010000 		.4byte	.LASF0
- 551 003e 04       		.uleb128 0x4
- 552 003f 08       		.byte	0x8
- 553 0040 05       		.byte	0x5
- 554 0041 3A020000 		.4byte	.LASF1
- 555 0045 04       		.uleb128 0x4
- 556 0046 08       		.byte	0x8
- 557 0047 04       		.byte	0x4
- 558 0048 60020000 		.4byte	.LASF2
- 559 004c 04       		.uleb128 0x4
- 560 004d 01       		.byte	0x1
- 561 004e 06       		.byte	0x6
- 562 004f 6C020000 		.4byte	.LASF3
- 563 0053 04       		.uleb128 0x4
- 564 0054 01       		.byte	0x1
- 565 0055 08       		.byte	0x8
- 566 0056 C8010000 		.4byte	.LASF4
- 567 005a 04       		.uleb128 0x4
- 568 005b 02       		.byte	0x2
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 17
+ 512              		.section	.rodata
+ 513              		.align	2
+ 514              		.type	cfg_memset_list.4893, %object
+ 515              		.size	cfg_memset_list.4893, 12
+ 516              	cfg_memset_list.4893:
+ 517 0000 00300F40 		.word	1074737152
+ 518 0004 0004     		.short	1024
+ 519 0006 00400F40 		.4byte	1074741248
+ 520 000a 0004     		.short	1024
+ 521              		.text
+ 522              	.Letext0:
+ 523              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
+ 524              		.file 3 "Generated_Source\\PSoC4\\cytypes.h"
+ 525              		.section	.debug_info,"",%progbits
+ 526              	.Ldebug_info0:
+ 527 0000 55020000 		.4byte	0x255
+ 528 0004 0400     		.2byte	0x4
+ 529 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 530 000a 04       		.byte	0x4
+ 531 000b 01       		.uleb128 0x1
+ 532 000c 3A010000 		.4byte	.LASF30
+ 533 0010 0C       		.byte	0xc
+ 534 0011 78020000 		.4byte	.LASF31
+ 535 0015 57000000 		.4byte	.LASF32
+ 536 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 537 001d 00000000 		.4byte	0
+ 538 0021 00000000 		.4byte	.Ldebug_line0
+ 539 0025 02       		.uleb128 0x2
+ 540 0026 04       		.byte	0x4
+ 541 0027 05       		.byte	0x5
+ 542 0028 696E7400 		.ascii	"int\000"
+ 543 002c 03       		.uleb128 0x3
+ 544 002d 06000000 		.4byte	.LASF12
+ 545 0031 02       		.byte	0x2
+ 546 0032 D8       		.byte	0xd8
+ 547 0033 37000000 		.4byte	0x37
+ 548 0037 04       		.uleb128 0x4
+ 549 0038 04       		.byte	0x4
+ 550 0039 07       		.byte	0x7
+ 551 003a F8010000 		.4byte	.LASF0
+ 552 003e 04       		.uleb128 0x4
+ 553 003f 08       		.byte	0x8
+ 554 0040 05       		.byte	0x5
+ 555 0041 3A020000 		.4byte	.LASF1
+ 556 0045 04       		.uleb128 0x4
+ 557 0046 08       		.byte	0x8
+ 558 0047 04       		.byte	0x4
+ 559 0048 60020000 		.4byte	.LASF2
+ 560 004c 04       		.uleb128 0x4
+ 561 004d 01       		.byte	0x1
+ 562 004e 06       		.byte	0x6
+ 563 004f 6C020000 		.4byte	.LASF3
+ 564 0053 04       		.uleb128 0x4
+ 565 0054 01       		.byte	0x1
+ 566 0055 08       		.byte	0x8
+ 567 0056 C8010000 		.4byte	.LASF4
+ 568 005a 04       		.uleb128 0x4
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 17
 
 
- 569 005c 05       		.byte	0x5
- 570 005d 4D020000 		.4byte	.LASF5
- 571 0061 04       		.uleb128 0x4
- 572 0062 02       		.byte	0x2
- 573 0063 07       		.byte	0x7
- 574 0064 39000000 		.4byte	.LASF6
- 575 0068 04       		.uleb128 0x4
- 576 0069 04       		.byte	0x4
- 577 006a 05       		.byte	0x5
- 578 006b 57020000 		.4byte	.LASF7
- 579 006f 04       		.uleb128 0x4
- 580 0070 04       		.byte	0x4
- 581 0071 07       		.byte	0x7
- 582 0072 18010000 		.4byte	.LASF8
- 583 0076 04       		.uleb128 0x4
- 584 0077 08       		.byte	0x8
- 585 0078 07       		.byte	0x7
- 586 0079 0D020000 		.4byte	.LASF9
- 587 007d 04       		.uleb128 0x4
- 588 007e 04       		.byte	0x4
- 589 007f 07       		.byte	0x7
- 590 0080 31020000 		.4byte	.LASF10
- 591 0084 05       		.uleb128 0x5
- 592 0085 04       		.byte	0x4
- 593 0086 04       		.uleb128 0x4
- 594 0087 01       		.byte	0x1
- 595 0088 08       		.byte	0x8
- 596 0089 48020000 		.4byte	.LASF11
- 597 008d 06       		.uleb128 0x6
- 598 008e 2A010000 		.4byte	.LASF13
- 599 0092 03       		.byte	0x3
- 600 0093 D201     		.2byte	0x1d2
- 601 0095 53000000 		.4byte	0x53
- 602 0099 06       		.uleb128 0x6
- 603 009a EA010000 		.4byte	.LASF14
- 604 009e 03       		.byte	0x3
- 605 009f D301     		.2byte	0x1d3
- 606 00a1 61000000 		.4byte	0x61
- 607 00a5 06       		.uleb128 0x6
- 608 00a6 F1010000 		.4byte	.LASF15
- 609 00aa 03       		.byte	0x3
- 610 00ab D401     		.2byte	0x1d4
- 611 00ad 6F000000 		.4byte	0x6f
- 612 00b1 04       		.uleb128 0x4
- 613 00b2 04       		.byte	0x4
- 614 00b3 04       		.byte	0x4
- 615 00b4 4C000000 		.4byte	.LASF16
- 616 00b8 04       		.uleb128 0x4
- 617 00b9 08       		.byte	0x8
- 618 00ba 04       		.byte	0x4
- 619 00bb D6010000 		.4byte	.LASF17
- 620 00bf 06       		.uleb128 0x6
- 621 00c0 13010000 		.4byte	.LASF18
- 622 00c4 03       		.byte	0x3
- 623 00c5 7C02     		.2byte	0x27c
- 624 00c7 CB000000 		.4byte	0xcb
- 625 00cb 07       		.uleb128 0x7
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 18
+ 569 005b 02       		.byte	0x2
+ 570 005c 05       		.byte	0x5
+ 571 005d 4D020000 		.4byte	.LASF5
+ 572 0061 04       		.uleb128 0x4
+ 573 0062 02       		.byte	0x2
+ 574 0063 07       		.byte	0x7
+ 575 0064 39000000 		.4byte	.LASF6
+ 576 0068 04       		.uleb128 0x4
+ 577 0069 04       		.byte	0x4
+ 578 006a 05       		.byte	0x5
+ 579 006b 57020000 		.4byte	.LASF7
+ 580 006f 04       		.uleb128 0x4
+ 581 0070 04       		.byte	0x4
+ 582 0071 07       		.byte	0x7
+ 583 0072 18010000 		.4byte	.LASF8
+ 584 0076 04       		.uleb128 0x4
+ 585 0077 08       		.byte	0x8
+ 586 0078 07       		.byte	0x7
+ 587 0079 0D020000 		.4byte	.LASF9
+ 588 007d 04       		.uleb128 0x4
+ 589 007e 04       		.byte	0x4
+ 590 007f 07       		.byte	0x7
+ 591 0080 31020000 		.4byte	.LASF10
+ 592 0084 05       		.uleb128 0x5
+ 593 0085 04       		.byte	0x4
+ 594 0086 04       		.uleb128 0x4
+ 595 0087 01       		.byte	0x1
+ 596 0088 08       		.byte	0x8
+ 597 0089 48020000 		.4byte	.LASF11
+ 598 008d 06       		.uleb128 0x6
+ 599 008e 2A010000 		.4byte	.LASF13
+ 600 0092 03       		.byte	0x3
+ 601 0093 D201     		.2byte	0x1d2
+ 602 0095 53000000 		.4byte	0x53
+ 603 0099 06       		.uleb128 0x6
+ 604 009a EA010000 		.4byte	.LASF14
+ 605 009e 03       		.byte	0x3
+ 606 009f D301     		.2byte	0x1d3
+ 607 00a1 61000000 		.4byte	0x61
+ 608 00a5 06       		.uleb128 0x6
+ 609 00a6 F1010000 		.4byte	.LASF15
+ 610 00aa 03       		.byte	0x3
+ 611 00ab D401     		.2byte	0x1d4
+ 612 00ad 6F000000 		.4byte	0x6f
+ 613 00b1 04       		.uleb128 0x4
+ 614 00b2 04       		.byte	0x4
+ 615 00b3 04       		.byte	0x4
+ 616 00b4 4C000000 		.4byte	.LASF16
+ 617 00b8 04       		.uleb128 0x4
+ 618 00b9 08       		.byte	0x8
+ 619 00ba 04       		.byte	0x4
+ 620 00bb D6010000 		.4byte	.LASF17
+ 621 00bf 06       		.uleb128 0x6
+ 622 00c0 13010000 		.4byte	.LASF18
+ 623 00c4 03       		.byte	0x3
+ 624 00c5 7C02     		.2byte	0x27c
+ 625 00c7 CB000000 		.4byte	0xcb
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 18
 
 
- 626 00cc 8D000000 		.4byte	0x8d
- 627 00d0 06       		.uleb128 0x6
- 628 00d1 00000000 		.4byte	.LASF19
- 629 00d5 03       		.byte	0x3
- 630 00d6 7E02     		.2byte	0x27e
- 631 00d8 DC000000 		.4byte	0xdc
- 632 00dc 07       		.uleb128 0x7
- 633 00dd A5000000 		.4byte	0xa5
- 634 00e1 08       		.uleb128 0x8
- 635 00e2 30010000 		.4byte	.LASF20
- 636 00e6 01       		.byte	0x1
- 637 00e7 4C       		.byte	0x4c
- 638 00e8 00000000 		.4byte	.LFB2
- 639 00ec 1E000000 		.4byte	.LFE2-.LFB2
- 640 00f0 01       		.uleb128 0x1
- 641 00f1 9C       		.byte	0x9c
- 642 00f2 0F010000 		.4byte	0x10f
- 643 00f6 09       		.uleb128 0x9
- 644 00f7 7300     		.ascii	"s\000"
- 645 00f9 01       		.byte	0x1
- 646 00fa 4C       		.byte	0x4c
- 647 00fb 84000000 		.4byte	0x84
- 648 00ff 02       		.uleb128 0x2
- 649 0100 91       		.byte	0x91
- 650 0101 74       		.sleb128 -12
- 651 0102 09       		.uleb128 0x9
- 652 0103 6E00     		.ascii	"n\000"
- 653 0105 01       		.byte	0x1
- 654 0106 4C       		.byte	0x4c
- 655 0107 2C000000 		.4byte	0x2c
- 656 010b 02       		.uleb128 0x2
- 657 010c 91       		.byte	0x91
- 658 010d 70       		.sleb128 -16
- 659 010e 00       		.byte	0
- 660 010f 08       		.uleb128 0x8
- 661 0110 AE020000 		.4byte	.LASF21
- 662 0114 01       		.byte	0x1
- 663 0115 53       		.byte	0x53
- 664 0116 00000000 		.4byte	.LFB3
- 665 011a 20000000 		.4byte	.LFE3-.LFB3
- 666 011e 01       		.uleb128 0x1
- 667 011f 9C       		.byte	0x9c
- 668 0120 4D010000 		.4byte	0x14d
- 669 0124 0A       		.uleb128 0xa
- 670 0125 52000000 		.4byte	.LASF22
- 671 0129 01       		.byte	0x1
- 672 012a 53       		.byte	0x53
- 673 012b 84000000 		.4byte	0x84
- 674 012f 02       		.uleb128 0x2
- 675 0130 91       		.byte	0x91
- 676 0131 74       		.sleb128 -12
- 677 0132 09       		.uleb128 0x9
- 678 0133 73726300 		.ascii	"src\000"
- 679 0137 01       		.byte	0x1
- 680 0138 53       		.byte	0x53
- 681 0139 4D010000 		.4byte	0x14d
- 682 013d 02       		.uleb128 0x2
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 19
+ 626 00cb 07       		.uleb128 0x7
+ 627 00cc 8D000000 		.4byte	0x8d
+ 628 00d0 06       		.uleb128 0x6
+ 629 00d1 00000000 		.4byte	.LASF19
+ 630 00d5 03       		.byte	0x3
+ 631 00d6 7E02     		.2byte	0x27e
+ 632 00d8 DC000000 		.4byte	0xdc
+ 633 00dc 07       		.uleb128 0x7
+ 634 00dd A5000000 		.4byte	0xa5
+ 635 00e1 08       		.uleb128 0x8
+ 636 00e2 30010000 		.4byte	.LASF20
+ 637 00e6 01       		.byte	0x1
+ 638 00e7 4C       		.byte	0x4c
+ 639 00e8 00000000 		.4byte	.LFB2
+ 640 00ec 1E000000 		.4byte	.LFE2-.LFB2
+ 641 00f0 01       		.uleb128 0x1
+ 642 00f1 9C       		.byte	0x9c
+ 643 00f2 0F010000 		.4byte	0x10f
+ 644 00f6 09       		.uleb128 0x9
+ 645 00f7 7300     		.ascii	"s\000"
+ 646 00f9 01       		.byte	0x1
+ 647 00fa 4C       		.byte	0x4c
+ 648 00fb 84000000 		.4byte	0x84
+ 649 00ff 02       		.uleb128 0x2
+ 650 0100 91       		.byte	0x91
+ 651 0101 74       		.sleb128 -12
+ 652 0102 09       		.uleb128 0x9
+ 653 0103 6E00     		.ascii	"n\000"
+ 654 0105 01       		.byte	0x1
+ 655 0106 4C       		.byte	0x4c
+ 656 0107 2C000000 		.4byte	0x2c
+ 657 010b 02       		.uleb128 0x2
+ 658 010c 91       		.byte	0x91
+ 659 010d 70       		.sleb128 -16
+ 660 010e 00       		.byte	0
+ 661 010f 08       		.uleb128 0x8
+ 662 0110 AE020000 		.4byte	.LASF21
+ 663 0114 01       		.byte	0x1
+ 664 0115 53       		.byte	0x53
+ 665 0116 00000000 		.4byte	.LFB3
+ 666 011a 20000000 		.4byte	.LFE3-.LFB3
+ 667 011e 01       		.uleb128 0x1
+ 668 011f 9C       		.byte	0x9c
+ 669 0120 4D010000 		.4byte	0x14d
+ 670 0124 0A       		.uleb128 0xa
+ 671 0125 52000000 		.4byte	.LASF22
+ 672 0129 01       		.byte	0x1
+ 673 012a 53       		.byte	0x53
+ 674 012b 84000000 		.4byte	0x84
+ 675 012f 02       		.uleb128 0x2
+ 676 0130 91       		.byte	0x91
+ 677 0131 74       		.sleb128 -12
+ 678 0132 09       		.uleb128 0x9
+ 679 0133 73726300 		.ascii	"src\000"
+ 680 0137 01       		.byte	0x1
+ 681 0138 53       		.byte	0x53
+ 682 0139 4D010000 		.4byte	0x14d
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 19
 
 
- 683 013e 91       		.byte	0x91
- 684 013f 70       		.sleb128 -16
- 685 0140 09       		.uleb128 0x9
- 686 0141 6E00     		.ascii	"n\000"
- 687 0143 01       		.byte	0x1
- 688 0144 53       		.byte	0x53
- 689 0145 2C000000 		.4byte	0x2c
- 690 0149 02       		.uleb128 0x2
- 691 014a 91       		.byte	0x91
- 692 014b 6C       		.sleb128 -20
- 693 014c 00       		.byte	0
- 694 014d 0B       		.uleb128 0xb
- 695 014e 04       		.byte	0x4
- 696 014f 53010000 		.4byte	0x153
- 697 0153 0C       		.uleb128 0xc
- 698 0154 08       		.uleb128 0x8
- 699 0155 9E020000 		.4byte	.LASF23
- 700 0159 01       		.byte	0x1
- 701 015a 5A       		.byte	0x5a
- 702 015b 00000000 		.4byte	.LFB4
- 703 015f 20000000 		.4byte	.LFE4-.LFB4
- 704 0163 01       		.uleb128 0x1
- 705 0164 9C       		.byte	0x9c
- 706 0165 92010000 		.4byte	0x192
- 707 0169 0A       		.uleb128 0xa
- 708 016a 52000000 		.4byte	.LASF22
- 709 016e 01       		.byte	0x1
- 710 016f 5A       		.byte	0x5a
- 711 0170 84000000 		.4byte	0x84
- 712 0174 02       		.uleb128 0x2
- 713 0175 91       		.byte	0x91
- 714 0176 74       		.sleb128 -12
- 715 0177 09       		.uleb128 0x9
- 716 0178 73726300 		.ascii	"src\000"
- 717 017c 01       		.byte	0x1
- 718 017d 5A       		.byte	0x5a
- 719 017e 4D010000 		.4byte	0x14d
- 720 0182 02       		.uleb128 0x2
- 721 0183 91       		.byte	0x91
- 722 0184 70       		.sleb128 -16
- 723 0185 09       		.uleb128 0x9
- 724 0186 6E00     		.ascii	"n\000"
- 725 0188 01       		.byte	0x1
- 726 0189 5A       		.byte	0x5a
- 727 018a 2C000000 		.4byte	0x2c
- 728 018e 02       		.uleb128 0x2
- 729 018f 91       		.byte	0x91
- 730 0190 6C       		.sleb128 -20
- 731 0191 00       		.byte	0
- 732 0192 0D       		.uleb128 0xd
- 733 0193 2E000000 		.4byte	.LASF24
- 734 0197 01       		.byte	0x1
- 735 0198 AD       		.byte	0xad
- 736 0199 00000000 		.4byte	.LFB5
- 737 019d 14010000 		.4byte	.LFE5-.LFB5
- 738 01a1 01       		.uleb128 0x1
- 739 01a2 9C       		.byte	0x9c
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 20
+ 683 013d 02       		.uleb128 0x2
+ 684 013e 91       		.byte	0x91
+ 685 013f 70       		.sleb128 -16
+ 686 0140 09       		.uleb128 0x9
+ 687 0141 6E00     		.ascii	"n\000"
+ 688 0143 01       		.byte	0x1
+ 689 0144 53       		.byte	0x53
+ 690 0145 2C000000 		.4byte	0x2c
+ 691 0149 02       		.uleb128 0x2
+ 692 014a 91       		.byte	0x91
+ 693 014b 6C       		.sleb128 -20
+ 694 014c 00       		.byte	0
+ 695 014d 0B       		.uleb128 0xb
+ 696 014e 04       		.byte	0x4
+ 697 014f 53010000 		.4byte	0x153
+ 698 0153 0C       		.uleb128 0xc
+ 699 0154 08       		.uleb128 0x8
+ 700 0155 9E020000 		.4byte	.LASF23
+ 701 0159 01       		.byte	0x1
+ 702 015a 5A       		.byte	0x5a
+ 703 015b 00000000 		.4byte	.LFB4
+ 704 015f 20000000 		.4byte	.LFE4-.LFB4
+ 705 0163 01       		.uleb128 0x1
+ 706 0164 9C       		.byte	0x9c
+ 707 0165 92010000 		.4byte	0x192
+ 708 0169 0A       		.uleb128 0xa
+ 709 016a 52000000 		.4byte	.LASF22
+ 710 016e 01       		.byte	0x1
+ 711 016f 5A       		.byte	0x5a
+ 712 0170 84000000 		.4byte	0x84
+ 713 0174 02       		.uleb128 0x2
+ 714 0175 91       		.byte	0x91
+ 715 0176 74       		.sleb128 -12
+ 716 0177 09       		.uleb128 0x9
+ 717 0178 73726300 		.ascii	"src\000"
+ 718 017c 01       		.byte	0x1
+ 719 017d 5A       		.byte	0x5a
+ 720 017e 4D010000 		.4byte	0x14d
+ 721 0182 02       		.uleb128 0x2
+ 722 0183 91       		.byte	0x91
+ 723 0184 70       		.sleb128 -16
+ 724 0185 09       		.uleb128 0x9
+ 725 0186 6E00     		.ascii	"n\000"
+ 726 0188 01       		.byte	0x1
+ 727 0189 5A       		.byte	0x5a
+ 728 018a 2C000000 		.4byte	0x2c
+ 729 018e 02       		.uleb128 0x2
+ 730 018f 91       		.byte	0x91
+ 731 0190 6C       		.sleb128 -20
+ 732 0191 00       		.byte	0
+ 733 0192 0D       		.uleb128 0xd
+ 734 0193 2E000000 		.4byte	.LASF24
+ 735 0197 01       		.byte	0x1
+ 736 0198 AD       		.byte	0xad
+ 737 0199 00000000 		.4byte	.LFB5
+ 738 019d 14010000 		.4byte	.LFE5-.LFB5
+ 739 01a1 01       		.uleb128 0x1
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 20
 
 
- 740 01a3 0E       		.uleb128 0xe
- 741 01a4 0D000000 		.4byte	.LASF25
- 742 01a8 01       		.byte	0x1
- 743 01a9 F7       		.byte	0xf7
- 744 01aa 00000000 		.4byte	.LFB6
- 745 01ae 28000000 		.4byte	.LFE6-.LFB6
- 746 01b2 01       		.uleb128 0x1
- 747 01b3 9C       		.byte	0x9c
- 748 01b4 0F       		.uleb128 0xf
- 749 01b5 DD010000 		.4byte	.LASF33
- 750 01b9 01       		.byte	0x1
- 751 01ba 1201     		.2byte	0x112
- 752 01bc 14010000 		.4byte	.LFB7
- 753 01c0 28010000 		.4byte	.LFE7-.LFB7
- 754 01c4 01       		.uleb128 0x1
- 755 01c5 9C       		.byte	0x9c
- 756 01c6 10       		.uleb128 0x10
- 757 01c7 22010000 		.4byte	.LBB2
- 758 01cb 8C000000 		.4byte	.LBE2-.LBB2
- 759 01cf 11       		.uleb128 0x11
- 760 01d0 06       		.byte	0x6
- 761 01d1 01       		.byte	0x1
- 762 01d2 1B01     		.2byte	0x11b
- 763 01d4 F3010000 		.4byte	0x1f3
- 764 01d8 12       		.uleb128 0x12
- 765 01d9 05020000 		.4byte	.LASF26
- 766 01dd 01       		.byte	0x1
- 767 01de 1C01     		.2byte	0x11c
- 768 01e0 84000000 		.4byte	0x84
- 769 01e4 00       		.byte	0
- 770 01e5 12       		.uleb128 0x12
- 771 01e6 0E010000 		.4byte	.LASF27
- 772 01ea 01       		.byte	0x1
- 773 01eb 1D01     		.2byte	0x11d
- 774 01ed 99000000 		.4byte	0x99
- 775 01f1 04       		.byte	0x4
- 776 01f2 00       		.byte	0
- 777 01f3 06       		.uleb128 0x6
- 778 01f4 24020000 		.4byte	.LASF28
- 779 01f8 01       		.byte	0x1
- 780 01f9 1E01     		.2byte	0x11e
- 781 01fb CF010000 		.4byte	0x1cf
- 782 01ff 13       		.uleb128 0x13
- 783 0200 0F020000 		.4byte	0x20f
- 784 0204 0F020000 		.4byte	0x20f
- 785 0208 14       		.uleb128 0x14
- 786 0209 7D000000 		.4byte	0x7d
- 787 020d 01       		.byte	0x1
- 788 020e 00       		.byte	0
- 789 020f 15       		.uleb128 0x15
- 790 0210 F3010000 		.4byte	0x1f3
- 791 0214 16       		.uleb128 0x16
- 792 0215 1E000000 		.4byte	.LASF29
- 793 0219 01       		.byte	0x1
- 794 021a 2001     		.2byte	0x120
- 795 021c 26020000 		.4byte	0x226
- 796 0220 05       		.uleb128 0x5
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 21
+ 740 01a2 9C       		.byte	0x9c
+ 741 01a3 0E       		.uleb128 0xe
+ 742 01a4 0D000000 		.4byte	.LASF25
+ 743 01a8 01       		.byte	0x1
+ 744 01a9 F7       		.byte	0xf7
+ 745 01aa 00000000 		.4byte	.LFB6
+ 746 01ae 28000000 		.4byte	.LFE6-.LFB6
+ 747 01b2 01       		.uleb128 0x1
+ 748 01b3 9C       		.byte	0x9c
+ 749 01b4 0F       		.uleb128 0xf
+ 750 01b5 DD010000 		.4byte	.LASF33
+ 751 01b9 01       		.byte	0x1
+ 752 01ba 1201     		.2byte	0x112
+ 753 01bc 14010000 		.4byte	.LFB7
+ 754 01c0 2C010000 		.4byte	.LFE7-.LFB7
+ 755 01c4 01       		.uleb128 0x1
+ 756 01c5 9C       		.byte	0x9c
+ 757 01c6 10       		.uleb128 0x10
+ 758 01c7 22010000 		.4byte	.LBB2
+ 759 01cb 8C000000 		.4byte	.LBE2-.LBB2
+ 760 01cf 11       		.uleb128 0x11
+ 761 01d0 06       		.byte	0x6
+ 762 01d1 01       		.byte	0x1
+ 763 01d2 1B01     		.2byte	0x11b
+ 764 01d4 F3010000 		.4byte	0x1f3
+ 765 01d8 12       		.uleb128 0x12
+ 766 01d9 05020000 		.4byte	.LASF26
+ 767 01dd 01       		.byte	0x1
+ 768 01de 1C01     		.2byte	0x11c
+ 769 01e0 84000000 		.4byte	0x84
+ 770 01e4 00       		.byte	0
+ 771 01e5 12       		.uleb128 0x12
+ 772 01e6 0E010000 		.4byte	.LASF27
+ 773 01ea 01       		.byte	0x1
+ 774 01eb 1D01     		.2byte	0x11d
+ 775 01ed 99000000 		.4byte	0x99
+ 776 01f1 04       		.byte	0x4
+ 777 01f2 00       		.byte	0
+ 778 01f3 06       		.uleb128 0x6
+ 779 01f4 24020000 		.4byte	.LASF28
+ 780 01f8 01       		.byte	0x1
+ 781 01f9 1E01     		.2byte	0x11e
+ 782 01fb CF010000 		.4byte	0x1cf
+ 783 01ff 13       		.uleb128 0x13
+ 784 0200 0F020000 		.4byte	0x20f
+ 785 0204 0F020000 		.4byte	0x20f
+ 786 0208 14       		.uleb128 0x14
+ 787 0209 7D000000 		.4byte	0x7d
+ 788 020d 01       		.byte	0x1
+ 789 020e 00       		.byte	0
+ 790 020f 15       		.uleb128 0x15
+ 791 0210 F3010000 		.4byte	0x1f3
+ 792 0214 16       		.uleb128 0x16
+ 793 0215 1E000000 		.4byte	.LASF29
+ 794 0219 01       		.byte	0x1
+ 795 021a 2001     		.2byte	0x120
+ 796 021c 26020000 		.4byte	0x226
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 21
 
 
- 797 0221 03       		.byte	0x3
- 798 0222 00000000 		.4byte	cfg_memset_list.4893
- 799 0226 15       		.uleb128 0x15
- 800 0227 FF010000 		.4byte	0x1ff
- 801 022b 17       		.uleb128 0x17
- 802 022c 6900     		.ascii	"i\000"
- 803 022e 01       		.byte	0x1
- 804 022f 2601     		.2byte	0x126
- 805 0231 8D000000 		.4byte	0x8d
- 806 0235 02       		.uleb128 0x2
- 807 0236 91       		.byte	0x91
- 808 0237 77       		.sleb128 -9
- 809 0238 10       		.uleb128 0x10
- 810 0239 2A010000 		.4byte	.LBB3
- 811 023d 3C000000 		.4byte	.LBE3-.LBB3
- 812 0241 17       		.uleb128 0x17
- 813 0242 6D7300   		.ascii	"ms\000"
- 814 0245 01       		.byte	0x1
- 815 0246 2B01     		.2byte	0x12b
- 816 0248 4F020000 		.4byte	0x24f
- 817 024c 02       		.uleb128 0x2
- 818 024d 91       		.byte	0x91
- 819 024e 70       		.sleb128 -16
- 820 024f 0B       		.uleb128 0xb
- 821 0250 04       		.byte	0x4
- 822 0251 0F020000 		.4byte	0x20f
- 823 0255 00       		.byte	0
- 824 0256 00       		.byte	0
- 825 0257 00       		.byte	0
- 826 0258 00       		.byte	0
- 827              		.section	.debug_abbrev,"",%progbits
- 828              	.Ldebug_abbrev0:
- 829 0000 01       		.uleb128 0x1
- 830 0001 11       		.uleb128 0x11
- 831 0002 01       		.byte	0x1
- 832 0003 25       		.uleb128 0x25
- 833 0004 0E       		.uleb128 0xe
- 834 0005 13       		.uleb128 0x13
- 835 0006 0B       		.uleb128 0xb
- 836 0007 03       		.uleb128 0x3
- 837 0008 0E       		.uleb128 0xe
- 838 0009 1B       		.uleb128 0x1b
- 839 000a 0E       		.uleb128 0xe
- 840 000b 55       		.uleb128 0x55
- 841 000c 17       		.uleb128 0x17
- 842 000d 11       		.uleb128 0x11
- 843 000e 01       		.uleb128 0x1
- 844 000f 10       		.uleb128 0x10
- 845 0010 17       		.uleb128 0x17
- 846 0011 00       		.byte	0
- 847 0012 00       		.byte	0
- 848 0013 02       		.uleb128 0x2
- 849 0014 24       		.uleb128 0x24
- 850 0015 00       		.byte	0
- 851 0016 0B       		.uleb128 0xb
- 852 0017 0B       		.uleb128 0xb
- 853 0018 3E       		.uleb128 0x3e
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 22
+ 797 0220 05       		.uleb128 0x5
+ 798 0221 03       		.byte	0x3
+ 799 0222 00000000 		.4byte	cfg_memset_list.4893
+ 800 0226 15       		.uleb128 0x15
+ 801 0227 FF010000 		.4byte	0x1ff
+ 802 022b 17       		.uleb128 0x17
+ 803 022c 6900     		.ascii	"i\000"
+ 804 022e 01       		.byte	0x1
+ 805 022f 2601     		.2byte	0x126
+ 806 0231 8D000000 		.4byte	0x8d
+ 807 0235 02       		.uleb128 0x2
+ 808 0236 91       		.byte	0x91
+ 809 0237 77       		.sleb128 -9
+ 810 0238 10       		.uleb128 0x10
+ 811 0239 2A010000 		.4byte	.LBB3
+ 812 023d 3C000000 		.4byte	.LBE3-.LBB3
+ 813 0241 17       		.uleb128 0x17
+ 814 0242 6D7300   		.ascii	"ms\000"
+ 815 0245 01       		.byte	0x1
+ 816 0246 2B01     		.2byte	0x12b
+ 817 0248 4F020000 		.4byte	0x24f
+ 818 024c 02       		.uleb128 0x2
+ 819 024d 91       		.byte	0x91
+ 820 024e 70       		.sleb128 -16
+ 821 024f 0B       		.uleb128 0xb
+ 822 0250 04       		.byte	0x4
+ 823 0251 0F020000 		.4byte	0x20f
+ 824 0255 00       		.byte	0
+ 825 0256 00       		.byte	0
+ 826 0257 00       		.byte	0
+ 827 0258 00       		.byte	0
+ 828              		.section	.debug_abbrev,"",%progbits
+ 829              	.Ldebug_abbrev0:
+ 830 0000 01       		.uleb128 0x1
+ 831 0001 11       		.uleb128 0x11
+ 832 0002 01       		.byte	0x1
+ 833 0003 25       		.uleb128 0x25
+ 834 0004 0E       		.uleb128 0xe
+ 835 0005 13       		.uleb128 0x13
+ 836 0006 0B       		.uleb128 0xb
+ 837 0007 03       		.uleb128 0x3
+ 838 0008 0E       		.uleb128 0xe
+ 839 0009 1B       		.uleb128 0x1b
+ 840 000a 0E       		.uleb128 0xe
+ 841 000b 55       		.uleb128 0x55
+ 842 000c 17       		.uleb128 0x17
+ 843 000d 11       		.uleb128 0x11
+ 844 000e 01       		.uleb128 0x1
+ 845 000f 10       		.uleb128 0x10
+ 846 0010 17       		.uleb128 0x17
+ 847 0011 00       		.byte	0
+ 848 0012 00       		.byte	0
+ 849 0013 02       		.uleb128 0x2
+ 850 0014 24       		.uleb128 0x24
+ 851 0015 00       		.byte	0
+ 852 0016 0B       		.uleb128 0xb
+ 853 0017 0B       		.uleb128 0xb
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 22
 
 
- 854 0019 0B       		.uleb128 0xb
- 855 001a 03       		.uleb128 0x3
- 856 001b 08       		.uleb128 0x8
- 857 001c 00       		.byte	0
- 858 001d 00       		.byte	0
- 859 001e 03       		.uleb128 0x3
- 860 001f 16       		.uleb128 0x16
- 861 0020 00       		.byte	0
- 862 0021 03       		.uleb128 0x3
- 863 0022 0E       		.uleb128 0xe
- 864 0023 3A       		.uleb128 0x3a
- 865 0024 0B       		.uleb128 0xb
- 866 0025 3B       		.uleb128 0x3b
- 867 0026 0B       		.uleb128 0xb
- 868 0027 49       		.uleb128 0x49
- 869 0028 13       		.uleb128 0x13
- 870 0029 00       		.byte	0
- 871 002a 00       		.byte	0
- 872 002b 04       		.uleb128 0x4
- 873 002c 24       		.uleb128 0x24
- 874 002d 00       		.byte	0
- 875 002e 0B       		.uleb128 0xb
- 876 002f 0B       		.uleb128 0xb
- 877 0030 3E       		.uleb128 0x3e
- 878 0031 0B       		.uleb128 0xb
- 879 0032 03       		.uleb128 0x3
- 880 0033 0E       		.uleb128 0xe
- 881 0034 00       		.byte	0
- 882 0035 00       		.byte	0
- 883 0036 05       		.uleb128 0x5
- 884 0037 0F       		.uleb128 0xf
- 885 0038 00       		.byte	0
- 886 0039 0B       		.uleb128 0xb
- 887 003a 0B       		.uleb128 0xb
- 888 003b 00       		.byte	0
- 889 003c 00       		.byte	0
- 890 003d 06       		.uleb128 0x6
- 891 003e 16       		.uleb128 0x16
- 892 003f 00       		.byte	0
- 893 0040 03       		.uleb128 0x3
- 894 0041 0E       		.uleb128 0xe
- 895 0042 3A       		.uleb128 0x3a
- 896 0043 0B       		.uleb128 0xb
- 897 0044 3B       		.uleb128 0x3b
- 898 0045 05       		.uleb128 0x5
- 899 0046 49       		.uleb128 0x49
- 900 0047 13       		.uleb128 0x13
- 901 0048 00       		.byte	0
- 902 0049 00       		.byte	0
- 903 004a 07       		.uleb128 0x7
- 904 004b 35       		.uleb128 0x35
- 905 004c 00       		.byte	0
- 906 004d 49       		.uleb128 0x49
- 907 004e 13       		.uleb128 0x13
- 908 004f 00       		.byte	0
- 909 0050 00       		.byte	0
- 910 0051 08       		.uleb128 0x8
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 23
+ 854 0018 3E       		.uleb128 0x3e
+ 855 0019 0B       		.uleb128 0xb
+ 856 001a 03       		.uleb128 0x3
+ 857 001b 08       		.uleb128 0x8
+ 858 001c 00       		.byte	0
+ 859 001d 00       		.byte	0
+ 860 001e 03       		.uleb128 0x3
+ 861 001f 16       		.uleb128 0x16
+ 862 0020 00       		.byte	0
+ 863 0021 03       		.uleb128 0x3
+ 864 0022 0E       		.uleb128 0xe
+ 865 0023 3A       		.uleb128 0x3a
+ 866 0024 0B       		.uleb128 0xb
+ 867 0025 3B       		.uleb128 0x3b
+ 868 0026 0B       		.uleb128 0xb
+ 869 0027 49       		.uleb128 0x49
+ 870 0028 13       		.uleb128 0x13
+ 871 0029 00       		.byte	0
+ 872 002a 00       		.byte	0
+ 873 002b 04       		.uleb128 0x4
+ 874 002c 24       		.uleb128 0x24
+ 875 002d 00       		.byte	0
+ 876 002e 0B       		.uleb128 0xb
+ 877 002f 0B       		.uleb128 0xb
+ 878 0030 3E       		.uleb128 0x3e
+ 879 0031 0B       		.uleb128 0xb
+ 880 0032 03       		.uleb128 0x3
+ 881 0033 0E       		.uleb128 0xe
+ 882 0034 00       		.byte	0
+ 883 0035 00       		.byte	0
+ 884 0036 05       		.uleb128 0x5
+ 885 0037 0F       		.uleb128 0xf
+ 886 0038 00       		.byte	0
+ 887 0039 0B       		.uleb128 0xb
+ 888 003a 0B       		.uleb128 0xb
+ 889 003b 00       		.byte	0
+ 890 003c 00       		.byte	0
+ 891 003d 06       		.uleb128 0x6
+ 892 003e 16       		.uleb128 0x16
+ 893 003f 00       		.byte	0
+ 894 0040 03       		.uleb128 0x3
+ 895 0041 0E       		.uleb128 0xe
+ 896 0042 3A       		.uleb128 0x3a
+ 897 0043 0B       		.uleb128 0xb
+ 898 0044 3B       		.uleb128 0x3b
+ 899 0045 05       		.uleb128 0x5
+ 900 0046 49       		.uleb128 0x49
+ 901 0047 13       		.uleb128 0x13
+ 902 0048 00       		.byte	0
+ 903 0049 00       		.byte	0
+ 904 004a 07       		.uleb128 0x7
+ 905 004b 35       		.uleb128 0x35
+ 906 004c 00       		.byte	0
+ 907 004d 49       		.uleb128 0x49
+ 908 004e 13       		.uleb128 0x13
+ 909 004f 00       		.byte	0
+ 910 0050 00       		.byte	0
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 23
 
 
- 911 0052 2E       		.uleb128 0x2e
- 912 0053 01       		.byte	0x1
- 913 0054 03       		.uleb128 0x3
- 914 0055 0E       		.uleb128 0xe
- 915 0056 3A       		.uleb128 0x3a
- 916 0057 0B       		.uleb128 0xb
- 917 0058 3B       		.uleb128 0x3b
- 918 0059 0B       		.uleb128 0xb
- 919 005a 27       		.uleb128 0x27
- 920 005b 19       		.uleb128 0x19
- 921 005c 11       		.uleb128 0x11
- 922 005d 01       		.uleb128 0x1
- 923 005e 12       		.uleb128 0x12
- 924 005f 06       		.uleb128 0x6
- 925 0060 40       		.uleb128 0x40
- 926 0061 18       		.uleb128 0x18
- 927 0062 9642     		.uleb128 0x2116
- 928 0064 19       		.uleb128 0x19
- 929 0065 01       		.uleb128 0x1
- 930 0066 13       		.uleb128 0x13
- 931 0067 00       		.byte	0
- 932 0068 00       		.byte	0
- 933 0069 09       		.uleb128 0x9
- 934 006a 05       		.uleb128 0x5
- 935 006b 00       		.byte	0
- 936 006c 03       		.uleb128 0x3
- 937 006d 08       		.uleb128 0x8
- 938 006e 3A       		.uleb128 0x3a
- 939 006f 0B       		.uleb128 0xb
- 940 0070 3B       		.uleb128 0x3b
- 941 0071 0B       		.uleb128 0xb
- 942 0072 49       		.uleb128 0x49
- 943 0073 13       		.uleb128 0x13
- 944 0074 02       		.uleb128 0x2
- 945 0075 18       		.uleb128 0x18
- 946 0076 00       		.byte	0
- 947 0077 00       		.byte	0
- 948 0078 0A       		.uleb128 0xa
- 949 0079 05       		.uleb128 0x5
- 950 007a 00       		.byte	0
- 951 007b 03       		.uleb128 0x3
- 952 007c 0E       		.uleb128 0xe
- 953 007d 3A       		.uleb128 0x3a
- 954 007e 0B       		.uleb128 0xb
- 955 007f 3B       		.uleb128 0x3b
- 956 0080 0B       		.uleb128 0xb
- 957 0081 49       		.uleb128 0x49
- 958 0082 13       		.uleb128 0x13
- 959 0083 02       		.uleb128 0x2
- 960 0084 18       		.uleb128 0x18
- 961 0085 00       		.byte	0
- 962 0086 00       		.byte	0
- 963 0087 0B       		.uleb128 0xb
- 964 0088 0F       		.uleb128 0xf
- 965 0089 00       		.byte	0
- 966 008a 0B       		.uleb128 0xb
- 967 008b 0B       		.uleb128 0xb
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 24
+ 911 0051 08       		.uleb128 0x8
+ 912 0052 2E       		.uleb128 0x2e
+ 913 0053 01       		.byte	0x1
+ 914 0054 03       		.uleb128 0x3
+ 915 0055 0E       		.uleb128 0xe
+ 916 0056 3A       		.uleb128 0x3a
+ 917 0057 0B       		.uleb128 0xb
+ 918 0058 3B       		.uleb128 0x3b
+ 919 0059 0B       		.uleb128 0xb
+ 920 005a 27       		.uleb128 0x27
+ 921 005b 19       		.uleb128 0x19
+ 922 005c 11       		.uleb128 0x11
+ 923 005d 01       		.uleb128 0x1
+ 924 005e 12       		.uleb128 0x12
+ 925 005f 06       		.uleb128 0x6
+ 926 0060 40       		.uleb128 0x40
+ 927 0061 18       		.uleb128 0x18
+ 928 0062 9642     		.uleb128 0x2116
+ 929 0064 19       		.uleb128 0x19
+ 930 0065 01       		.uleb128 0x1
+ 931 0066 13       		.uleb128 0x13
+ 932 0067 00       		.byte	0
+ 933 0068 00       		.byte	0
+ 934 0069 09       		.uleb128 0x9
+ 935 006a 05       		.uleb128 0x5
+ 936 006b 00       		.byte	0
+ 937 006c 03       		.uleb128 0x3
+ 938 006d 08       		.uleb128 0x8
+ 939 006e 3A       		.uleb128 0x3a
+ 940 006f 0B       		.uleb128 0xb
+ 941 0070 3B       		.uleb128 0x3b
+ 942 0071 0B       		.uleb128 0xb
+ 943 0072 49       		.uleb128 0x49
+ 944 0073 13       		.uleb128 0x13
+ 945 0074 02       		.uleb128 0x2
+ 946 0075 18       		.uleb128 0x18
+ 947 0076 00       		.byte	0
+ 948 0077 00       		.byte	0
+ 949 0078 0A       		.uleb128 0xa
+ 950 0079 05       		.uleb128 0x5
+ 951 007a 00       		.byte	0
+ 952 007b 03       		.uleb128 0x3
+ 953 007c 0E       		.uleb128 0xe
+ 954 007d 3A       		.uleb128 0x3a
+ 955 007e 0B       		.uleb128 0xb
+ 956 007f 3B       		.uleb128 0x3b
+ 957 0080 0B       		.uleb128 0xb
+ 958 0081 49       		.uleb128 0x49
+ 959 0082 13       		.uleb128 0x13
+ 960 0083 02       		.uleb128 0x2
+ 961 0084 18       		.uleb128 0x18
+ 962 0085 00       		.byte	0
+ 963 0086 00       		.byte	0
+ 964 0087 0B       		.uleb128 0xb
+ 965 0088 0F       		.uleb128 0xf
+ 966 0089 00       		.byte	0
+ 967 008a 0B       		.uleb128 0xb
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 24
 
 
- 968 008c 49       		.uleb128 0x49
- 969 008d 13       		.uleb128 0x13
- 970 008e 00       		.byte	0
- 971 008f 00       		.byte	0
- 972 0090 0C       		.uleb128 0xc
- 973 0091 26       		.uleb128 0x26
- 974 0092 00       		.byte	0
- 975 0093 00       		.byte	0
- 976 0094 00       		.byte	0
- 977 0095 0D       		.uleb128 0xd
- 978 0096 2E       		.uleb128 0x2e
- 979 0097 00       		.byte	0
- 980 0098 03       		.uleb128 0x3
- 981 0099 0E       		.uleb128 0xe
- 982 009a 3A       		.uleb128 0x3a
- 983 009b 0B       		.uleb128 0xb
- 984 009c 3B       		.uleb128 0x3b
- 985 009d 0B       		.uleb128 0xb
- 986 009e 27       		.uleb128 0x27
- 987 009f 19       		.uleb128 0x19
- 988 00a0 11       		.uleb128 0x11
- 989 00a1 01       		.uleb128 0x1
- 990 00a2 12       		.uleb128 0x12
- 991 00a3 06       		.uleb128 0x6
- 992 00a4 40       		.uleb128 0x40
- 993 00a5 18       		.uleb128 0x18
- 994 00a6 9642     		.uleb128 0x2116
- 995 00a8 19       		.uleb128 0x19
- 996 00a9 00       		.byte	0
- 997 00aa 00       		.byte	0
- 998 00ab 0E       		.uleb128 0xe
- 999 00ac 2E       		.uleb128 0x2e
- 1000 00ad 00       		.byte	0
- 1001 00ae 03       		.uleb128 0x3
- 1002 00af 0E       		.uleb128 0xe
- 1003 00b0 3A       		.uleb128 0x3a
- 1004 00b1 0B       		.uleb128 0xb
- 1005 00b2 3B       		.uleb128 0x3b
- 1006 00b3 0B       		.uleb128 0xb
- 1007 00b4 27       		.uleb128 0x27
- 1008 00b5 19       		.uleb128 0x19
- 1009 00b6 11       		.uleb128 0x11
- 1010 00b7 01       		.uleb128 0x1
- 1011 00b8 12       		.uleb128 0x12
- 1012 00b9 06       		.uleb128 0x6
- 1013 00ba 40       		.uleb128 0x40
- 1014 00bb 18       		.uleb128 0x18
- 1015 00bc 9742     		.uleb128 0x2117
- 1016 00be 19       		.uleb128 0x19
- 1017 00bf 00       		.byte	0
- 1018 00c0 00       		.byte	0
- 1019 00c1 0F       		.uleb128 0xf
- 1020 00c2 2E       		.uleb128 0x2e
- 1021 00c3 01       		.byte	0x1
- 1022 00c4 3F       		.uleb128 0x3f
- 1023 00c5 19       		.uleb128 0x19
- 1024 00c6 03       		.uleb128 0x3
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 25
+ 968 008b 0B       		.uleb128 0xb
+ 969 008c 49       		.uleb128 0x49
+ 970 008d 13       		.uleb128 0x13
+ 971 008e 00       		.byte	0
+ 972 008f 00       		.byte	0
+ 973 0090 0C       		.uleb128 0xc
+ 974 0091 26       		.uleb128 0x26
+ 975 0092 00       		.byte	0
+ 976 0093 00       		.byte	0
+ 977 0094 00       		.byte	0
+ 978 0095 0D       		.uleb128 0xd
+ 979 0096 2E       		.uleb128 0x2e
+ 980 0097 00       		.byte	0
+ 981 0098 03       		.uleb128 0x3
+ 982 0099 0E       		.uleb128 0xe
+ 983 009a 3A       		.uleb128 0x3a
+ 984 009b 0B       		.uleb128 0xb
+ 985 009c 3B       		.uleb128 0x3b
+ 986 009d 0B       		.uleb128 0xb
+ 987 009e 27       		.uleb128 0x27
+ 988 009f 19       		.uleb128 0x19
+ 989 00a0 11       		.uleb128 0x11
+ 990 00a1 01       		.uleb128 0x1
+ 991 00a2 12       		.uleb128 0x12
+ 992 00a3 06       		.uleb128 0x6
+ 993 00a4 40       		.uleb128 0x40
+ 994 00a5 18       		.uleb128 0x18
+ 995 00a6 9642     		.uleb128 0x2116
+ 996 00a8 19       		.uleb128 0x19
+ 997 00a9 00       		.byte	0
+ 998 00aa 00       		.byte	0
+ 999 00ab 0E       		.uleb128 0xe
+ 1000 00ac 2E       		.uleb128 0x2e
+ 1001 00ad 00       		.byte	0
+ 1002 00ae 03       		.uleb128 0x3
+ 1003 00af 0E       		.uleb128 0xe
+ 1004 00b0 3A       		.uleb128 0x3a
+ 1005 00b1 0B       		.uleb128 0xb
+ 1006 00b2 3B       		.uleb128 0x3b
+ 1007 00b3 0B       		.uleb128 0xb
+ 1008 00b4 27       		.uleb128 0x27
+ 1009 00b5 19       		.uleb128 0x19
+ 1010 00b6 11       		.uleb128 0x11
+ 1011 00b7 01       		.uleb128 0x1
+ 1012 00b8 12       		.uleb128 0x12
+ 1013 00b9 06       		.uleb128 0x6
+ 1014 00ba 40       		.uleb128 0x40
+ 1015 00bb 18       		.uleb128 0x18
+ 1016 00bc 9742     		.uleb128 0x2117
+ 1017 00be 19       		.uleb128 0x19
+ 1018 00bf 00       		.byte	0
+ 1019 00c0 00       		.byte	0
+ 1020 00c1 0F       		.uleb128 0xf
+ 1021 00c2 2E       		.uleb128 0x2e
+ 1022 00c3 01       		.byte	0x1
+ 1023 00c4 3F       		.uleb128 0x3f
+ 1024 00c5 19       		.uleb128 0x19
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 25
 
 
- 1025 00c7 0E       		.uleb128 0xe
- 1026 00c8 3A       		.uleb128 0x3a
- 1027 00c9 0B       		.uleb128 0xb
- 1028 00ca 3B       		.uleb128 0x3b
- 1029 00cb 05       		.uleb128 0x5
- 1030 00cc 27       		.uleb128 0x27
- 1031 00cd 19       		.uleb128 0x19
- 1032 00ce 11       		.uleb128 0x11
- 1033 00cf 01       		.uleb128 0x1
- 1034 00d0 12       		.uleb128 0x12
- 1035 00d1 06       		.uleb128 0x6
- 1036 00d2 40       		.uleb128 0x40
- 1037 00d3 18       		.uleb128 0x18
- 1038 00d4 9642     		.uleb128 0x2116
- 1039 00d6 19       		.uleb128 0x19
- 1040 00d7 00       		.byte	0
- 1041 00d8 00       		.byte	0
- 1042 00d9 10       		.uleb128 0x10
- 1043 00da 0B       		.uleb128 0xb
- 1044 00db 01       		.byte	0x1
- 1045 00dc 11       		.uleb128 0x11
- 1046 00dd 01       		.uleb128 0x1
- 1047 00de 12       		.uleb128 0x12
- 1048 00df 06       		.uleb128 0x6
- 1049 00e0 00       		.byte	0
- 1050 00e1 00       		.byte	0
- 1051 00e2 11       		.uleb128 0x11
- 1052 00e3 13       		.uleb128 0x13
- 1053 00e4 01       		.byte	0x1
- 1054 00e5 0B       		.uleb128 0xb
- 1055 00e6 0B       		.uleb128 0xb
- 1056 00e7 3A       		.uleb128 0x3a
- 1057 00e8 0B       		.uleb128 0xb
- 1058 00e9 3B       		.uleb128 0x3b
- 1059 00ea 05       		.uleb128 0x5
- 1060 00eb 01       		.uleb128 0x1
- 1061 00ec 13       		.uleb128 0x13
- 1062 00ed 00       		.byte	0
- 1063 00ee 00       		.byte	0
- 1064 00ef 12       		.uleb128 0x12
- 1065 00f0 0D       		.uleb128 0xd
- 1066 00f1 00       		.byte	0
- 1067 00f2 03       		.uleb128 0x3
- 1068 00f3 0E       		.uleb128 0xe
- 1069 00f4 3A       		.uleb128 0x3a
- 1070 00f5 0B       		.uleb128 0xb
- 1071 00f6 3B       		.uleb128 0x3b
- 1072 00f7 05       		.uleb128 0x5
- 1073 00f8 49       		.uleb128 0x49
- 1074 00f9 13       		.uleb128 0x13
- 1075 00fa 38       		.uleb128 0x38
- 1076 00fb 0B       		.uleb128 0xb
- 1077 00fc 00       		.byte	0
- 1078 00fd 00       		.byte	0
- 1079 00fe 13       		.uleb128 0x13
- 1080 00ff 01       		.uleb128 0x1
- 1081 0100 01       		.byte	0x1
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 26
+ 1025 00c6 03       		.uleb128 0x3
+ 1026 00c7 0E       		.uleb128 0xe
+ 1027 00c8 3A       		.uleb128 0x3a
+ 1028 00c9 0B       		.uleb128 0xb
+ 1029 00ca 3B       		.uleb128 0x3b
+ 1030 00cb 05       		.uleb128 0x5
+ 1031 00cc 27       		.uleb128 0x27
+ 1032 00cd 19       		.uleb128 0x19
+ 1033 00ce 11       		.uleb128 0x11
+ 1034 00cf 01       		.uleb128 0x1
+ 1035 00d0 12       		.uleb128 0x12
+ 1036 00d1 06       		.uleb128 0x6
+ 1037 00d2 40       		.uleb128 0x40
+ 1038 00d3 18       		.uleb128 0x18
+ 1039 00d4 9642     		.uleb128 0x2116
+ 1040 00d6 19       		.uleb128 0x19
+ 1041 00d7 00       		.byte	0
+ 1042 00d8 00       		.byte	0
+ 1043 00d9 10       		.uleb128 0x10
+ 1044 00da 0B       		.uleb128 0xb
+ 1045 00db 01       		.byte	0x1
+ 1046 00dc 11       		.uleb128 0x11
+ 1047 00dd 01       		.uleb128 0x1
+ 1048 00de 12       		.uleb128 0x12
+ 1049 00df 06       		.uleb128 0x6
+ 1050 00e0 00       		.byte	0
+ 1051 00e1 00       		.byte	0
+ 1052 00e2 11       		.uleb128 0x11
+ 1053 00e3 13       		.uleb128 0x13
+ 1054 00e4 01       		.byte	0x1
+ 1055 00e5 0B       		.uleb128 0xb
+ 1056 00e6 0B       		.uleb128 0xb
+ 1057 00e7 3A       		.uleb128 0x3a
+ 1058 00e8 0B       		.uleb128 0xb
+ 1059 00e9 3B       		.uleb128 0x3b
+ 1060 00ea 05       		.uleb128 0x5
+ 1061 00eb 01       		.uleb128 0x1
+ 1062 00ec 13       		.uleb128 0x13
+ 1063 00ed 00       		.byte	0
+ 1064 00ee 00       		.byte	0
+ 1065 00ef 12       		.uleb128 0x12
+ 1066 00f0 0D       		.uleb128 0xd
+ 1067 00f1 00       		.byte	0
+ 1068 00f2 03       		.uleb128 0x3
+ 1069 00f3 0E       		.uleb128 0xe
+ 1070 00f4 3A       		.uleb128 0x3a
+ 1071 00f5 0B       		.uleb128 0xb
+ 1072 00f6 3B       		.uleb128 0x3b
+ 1073 00f7 05       		.uleb128 0x5
+ 1074 00f8 49       		.uleb128 0x49
+ 1075 00f9 13       		.uleb128 0x13
+ 1076 00fa 38       		.uleb128 0x38
+ 1077 00fb 0B       		.uleb128 0xb
+ 1078 00fc 00       		.byte	0
+ 1079 00fd 00       		.byte	0
+ 1080 00fe 13       		.uleb128 0x13
+ 1081 00ff 01       		.uleb128 0x1
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 26
 
 
- 1082 0101 49       		.uleb128 0x49
- 1083 0102 13       		.uleb128 0x13
- 1084 0103 01       		.uleb128 0x1
- 1085 0104 13       		.uleb128 0x13
- 1086 0105 00       		.byte	0
- 1087 0106 00       		.byte	0
- 1088 0107 14       		.uleb128 0x14
- 1089 0108 21       		.uleb128 0x21
- 1090 0109 00       		.byte	0
- 1091 010a 49       		.uleb128 0x49
- 1092 010b 13       		.uleb128 0x13
- 1093 010c 2F       		.uleb128 0x2f
- 1094 010d 0B       		.uleb128 0xb
- 1095 010e 00       		.byte	0
- 1096 010f 00       		.byte	0
- 1097 0110 15       		.uleb128 0x15
- 1098 0111 26       		.uleb128 0x26
- 1099 0112 00       		.byte	0
- 1100 0113 49       		.uleb128 0x49
- 1101 0114 13       		.uleb128 0x13
- 1102 0115 00       		.byte	0
- 1103 0116 00       		.byte	0
- 1104 0117 16       		.uleb128 0x16
- 1105 0118 34       		.uleb128 0x34
- 1106 0119 00       		.byte	0
- 1107 011a 03       		.uleb128 0x3
- 1108 011b 0E       		.uleb128 0xe
- 1109 011c 3A       		.uleb128 0x3a
- 1110 011d 0B       		.uleb128 0xb
- 1111 011e 3B       		.uleb128 0x3b
- 1112 011f 05       		.uleb128 0x5
- 1113 0120 49       		.uleb128 0x49
- 1114 0121 13       		.uleb128 0x13
- 1115 0122 02       		.uleb128 0x2
- 1116 0123 18       		.uleb128 0x18
- 1117 0124 00       		.byte	0
- 1118 0125 00       		.byte	0
- 1119 0126 17       		.uleb128 0x17
- 1120 0127 34       		.uleb128 0x34
- 1121 0128 00       		.byte	0
- 1122 0129 03       		.uleb128 0x3
- 1123 012a 08       		.uleb128 0x8
- 1124 012b 3A       		.uleb128 0x3a
- 1125 012c 0B       		.uleb128 0xb
- 1126 012d 3B       		.uleb128 0x3b
- 1127 012e 05       		.uleb128 0x5
- 1128 012f 49       		.uleb128 0x49
- 1129 0130 13       		.uleb128 0x13
- 1130 0131 02       		.uleb128 0x2
- 1131 0132 18       		.uleb128 0x18
- 1132 0133 00       		.byte	0
- 1133 0134 00       		.byte	0
- 1134 0135 00       		.byte	0
- 1135              		.section	.debug_aranges,"",%progbits
- 1136 0000 44000000 		.4byte	0x44
- 1137 0004 0200     		.2byte	0x2
- 1138 0006 00000000 		.4byte	.Ldebug_info0
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 27
+ 1082 0100 01       		.byte	0x1
+ 1083 0101 49       		.uleb128 0x49
+ 1084 0102 13       		.uleb128 0x13
+ 1085 0103 01       		.uleb128 0x1
+ 1086 0104 13       		.uleb128 0x13
+ 1087 0105 00       		.byte	0
+ 1088 0106 00       		.byte	0
+ 1089 0107 14       		.uleb128 0x14
+ 1090 0108 21       		.uleb128 0x21
+ 1091 0109 00       		.byte	0
+ 1092 010a 49       		.uleb128 0x49
+ 1093 010b 13       		.uleb128 0x13
+ 1094 010c 2F       		.uleb128 0x2f
+ 1095 010d 0B       		.uleb128 0xb
+ 1096 010e 00       		.byte	0
+ 1097 010f 00       		.byte	0
+ 1098 0110 15       		.uleb128 0x15
+ 1099 0111 26       		.uleb128 0x26
+ 1100 0112 00       		.byte	0
+ 1101 0113 49       		.uleb128 0x49
+ 1102 0114 13       		.uleb128 0x13
+ 1103 0115 00       		.byte	0
+ 1104 0116 00       		.byte	0
+ 1105 0117 16       		.uleb128 0x16
+ 1106 0118 34       		.uleb128 0x34
+ 1107 0119 00       		.byte	0
+ 1108 011a 03       		.uleb128 0x3
+ 1109 011b 0E       		.uleb128 0xe
+ 1110 011c 3A       		.uleb128 0x3a
+ 1111 011d 0B       		.uleb128 0xb
+ 1112 011e 3B       		.uleb128 0x3b
+ 1113 011f 05       		.uleb128 0x5
+ 1114 0120 49       		.uleb128 0x49
+ 1115 0121 13       		.uleb128 0x13
+ 1116 0122 02       		.uleb128 0x2
+ 1117 0123 18       		.uleb128 0x18
+ 1118 0124 00       		.byte	0
+ 1119 0125 00       		.byte	0
+ 1120 0126 17       		.uleb128 0x17
+ 1121 0127 34       		.uleb128 0x34
+ 1122 0128 00       		.byte	0
+ 1123 0129 03       		.uleb128 0x3
+ 1124 012a 08       		.uleb128 0x8
+ 1125 012b 3A       		.uleb128 0x3a
+ 1126 012c 0B       		.uleb128 0xb
+ 1127 012d 3B       		.uleb128 0x3b
+ 1128 012e 05       		.uleb128 0x5
+ 1129 012f 49       		.uleb128 0x49
+ 1130 0130 13       		.uleb128 0x13
+ 1131 0131 02       		.uleb128 0x2
+ 1132 0132 18       		.uleb128 0x18
+ 1133 0133 00       		.byte	0
+ 1134 0134 00       		.byte	0
+ 1135 0135 00       		.byte	0
+ 1136              		.section	.debug_aranges,"",%progbits
+ 1137 0000 44000000 		.4byte	0x44
+ 1138 0004 0200     		.2byte	0x2
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 27
 
 
- 1139 000a 04       		.byte	0x4
- 1140 000b 00       		.byte	0
- 1141 000c 0000     		.2byte	0
- 1142 000e 0000     		.2byte	0
- 1143 0010 00000000 		.4byte	.LFB2
- 1144 0014 1E000000 		.4byte	.LFE2-.LFB2
- 1145 0018 00000000 		.4byte	.LFB3
- 1146 001c 20000000 		.4byte	.LFE3-.LFB3
- 1147 0020 00000000 		.4byte	.LFB4
- 1148 0024 20000000 		.4byte	.LFE4-.LFB4
- 1149 0028 00000000 		.4byte	.LFB5
- 1150 002c 14010000 		.4byte	.LFE5-.LFB5
- 1151 0030 00000000 		.4byte	.LFB6
- 1152 0034 28000000 		.4byte	.LFE6-.LFB6
- 1153 0038 14010000 		.4byte	.LFB7
- 1154 003c 28010000 		.4byte	.LFE7-.LFB7
- 1155 0040 00000000 		.4byte	0
- 1156 0044 00000000 		.4byte	0
- 1157              		.section	.debug_ranges,"",%progbits
- 1158              	.Ldebug_ranges0:
- 1159 0000 00000000 		.4byte	.LFB2
- 1160 0004 1E000000 		.4byte	.LFE2
- 1161 0008 00000000 		.4byte	.LFB3
- 1162 000c 20000000 		.4byte	.LFE3
- 1163 0010 00000000 		.4byte	.LFB4
- 1164 0014 20000000 		.4byte	.LFE4
- 1165 0018 00000000 		.4byte	.LFB5
- 1166 001c 14010000 		.4byte	.LFE5
- 1167 0020 00000000 		.4byte	.LFB6
- 1168 0024 28000000 		.4byte	.LFE6
- 1169 0028 14010000 		.4byte	.LFB7
- 1170 002c 3C020000 		.4byte	.LFE7
- 1171 0030 00000000 		.4byte	0
- 1172 0034 00000000 		.4byte	0
- 1173              		.section	.debug_line,"",%progbits
- 1174              	.Ldebug_line0:
- 1175 0000 76010000 		.section	.debug_str,"MS",%progbits,1
- 1175      0200CB00 
- 1175      00000201 
- 1175      FB0E0D00 
- 1175      01010101 
- 1176              	.LASF19:
- 1177 0000 72656733 		.ascii	"reg32\000"
- 1177      3200
- 1178              	.LASF12:
- 1179 0006 73697A65 		.ascii	"size_t\000"
- 1179      5F7400
- 1180              	.LASF25:
- 1181 000d 416E616C 		.ascii	"AnalogSetDefault\000"
- 1181      6F675365 
- 1181      74446566 
- 1181      61756C74 
- 1181      00
- 1182              	.LASF29:
- 1183 001e 6366675F 		.ascii	"cfg_memset_list\000"
- 1183      6D656D73 
- 1183      65745F6C 
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 28
+ 1139 0006 00000000 		.4byte	.Ldebug_info0
+ 1140 000a 04       		.byte	0x4
+ 1141 000b 00       		.byte	0
+ 1142 000c 0000     		.2byte	0
+ 1143 000e 0000     		.2byte	0
+ 1144 0010 00000000 		.4byte	.LFB2
+ 1145 0014 1E000000 		.4byte	.LFE2-.LFB2
+ 1146 0018 00000000 		.4byte	.LFB3
+ 1147 001c 20000000 		.4byte	.LFE3-.LFB3
+ 1148 0020 00000000 		.4byte	.LFB4
+ 1149 0024 20000000 		.4byte	.LFE4-.LFB4
+ 1150 0028 00000000 		.4byte	.LFB5
+ 1151 002c 14010000 		.4byte	.LFE5-.LFB5
+ 1152 0030 00000000 		.4byte	.LFB6
+ 1153 0034 28000000 		.4byte	.LFE6-.LFB6
+ 1154 0038 14010000 		.4byte	.LFB7
+ 1155 003c 2C010000 		.4byte	.LFE7-.LFB7
+ 1156 0040 00000000 		.4byte	0
+ 1157 0044 00000000 		.4byte	0
+ 1158              		.section	.debug_ranges,"",%progbits
+ 1159              	.Ldebug_ranges0:
+ 1160 0000 00000000 		.4byte	.LFB2
+ 1161 0004 1E000000 		.4byte	.LFE2
+ 1162 0008 00000000 		.4byte	.LFB3
+ 1163 000c 20000000 		.4byte	.LFE3
+ 1164 0010 00000000 		.4byte	.LFB4
+ 1165 0014 20000000 		.4byte	.LFE4
+ 1166 0018 00000000 		.4byte	.LFB5
+ 1167 001c 14010000 		.4byte	.LFE5
+ 1168 0020 00000000 		.4byte	.LFB6
+ 1169 0024 28000000 		.4byte	.LFE6
+ 1170 0028 14010000 		.4byte	.LFB7
+ 1171 002c 40020000 		.4byte	.LFE7
+ 1172 0030 00000000 		.4byte	0
+ 1173 0034 00000000 		.4byte	0
+ 1174              		.section	.debug_line,"",%progbits
+ 1175              	.Ldebug_line0:
+ 1176 0000 76010000 		.section	.debug_str,"MS",%progbits,1
+ 1176      0200CB00 
+ 1176      00000201 
+ 1176      FB0E0D00 
+ 1176      01010101 
+ 1177              	.LASF19:
+ 1178 0000 72656733 		.ascii	"reg32\000"
+ 1178      3200
+ 1179              	.LASF12:
+ 1180 0006 73697A65 		.ascii	"size_t\000"
+ 1180      5F7400
+ 1181              	.LASF25:
+ 1182 000d 416E616C 		.ascii	"AnalogSetDefault\000"
+ 1182      6F675365 
+ 1182      74446566 
+ 1182      61756C74 
+ 1182      00
+ 1183              	.LASF29:
+ 1184 001e 6366675F 		.ascii	"cfg_memset_list\000"
+ 1184      6D656D73 
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 28
 
 
- 1183      69737400 
- 1184              	.LASF24:
- 1185 002e 436C6F63 		.ascii	"ClockSetup\000"
- 1185      6B536574 
- 1185      757000
- 1186              	.LASF6:
- 1187 0039 73686F72 		.ascii	"short unsigned int\000"
- 1187      7420756E 
- 1187      7369676E 
- 1187      65642069 
- 1187      6E7400
- 1188              	.LASF16:
- 1189 004c 666C6F61 		.ascii	"float\000"
- 1189      7400
- 1190              	.LASF22:
- 1191 0052 64657374 		.ascii	"dest\000"
- 1191      00
- 1192              	.LASF32:
- 1193 0057 433A5C55 		.ascii	"C:\\Users\\megan\\Google Drive\\College\\S10 - Fall"
- 1193      73657273 
- 1193      5C6D6567 
- 1193      616E5C47 
- 1193      6F6F676C 
- 1194 0085 20323031 		.ascii	" 2017\\ECEN 4350 - Embedded uC Design\\Github\\ECEN"
- 1194      375C4543 
- 1194      454E2034 
- 1194      33353020 
- 1194      2D20456D 
- 1195 00b5 34333530 		.ascii	"4350-EmbeddedMicrocontrollerDesign\\BinMonitorPart1"
- 1195      2D456D62 
- 1195      65646465 
- 1195      644D6963 
- 1195      726F636F 
- 1196 00e7 5C42696E 		.ascii	"\\BinMonitorPart1\\BinMonitorPart1.cydsn\000"
- 1196      4D6F6E69 
- 1196      746F7250 
- 1196      61727431 
- 1196      5C42696E 
- 1197              	.LASF27:
- 1198 010e 73697A65 		.ascii	"size\000"
- 1198      00
- 1199              	.LASF18:
- 1200 0113 72656738 		.ascii	"reg8\000"
- 1200      00
- 1201              	.LASF8:
- 1202 0118 6C6F6E67 		.ascii	"long unsigned int\000"
- 1202      20756E73 
- 1202      69676E65 
- 1202      6420696E 
- 1202      7400
- 1203              	.LASF13:
- 1204 012a 75696E74 		.ascii	"uint8\000"
- 1204      3800
- 1205              	.LASF20:
- 1206 0130 43594D45 		.ascii	"CYMEMZERO\000"
- 1206      4D5A4552 
- 1206      4F00
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 29
+ 1184      65745F6C 
+ 1184      69737400 
+ 1185              	.LASF24:
+ 1186 002e 436C6F63 		.ascii	"ClockSetup\000"
+ 1186      6B536574 
+ 1186      757000
+ 1187              	.LASF6:
+ 1188 0039 73686F72 		.ascii	"short unsigned int\000"
+ 1188      7420756E 
+ 1188      7369676E 
+ 1188      65642069 
+ 1188      6E7400
+ 1189              	.LASF16:
+ 1190 004c 666C6F61 		.ascii	"float\000"
+ 1190      7400
+ 1191              	.LASF22:
+ 1192 0052 64657374 		.ascii	"dest\000"
+ 1192      00
+ 1193              	.LASF32:
+ 1194 0057 433A5C55 		.ascii	"C:\\Users\\megan\\Google Drive\\College\\S10 - Fall"
+ 1194      73657273 
+ 1194      5C6D6567 
+ 1194      616E5C47 
+ 1194      6F6F676C 
+ 1195 0085 20323031 		.ascii	" 2017\\ECEN 4350 - Embedded uC Design\\Github\\ECEN"
+ 1195      375C4543 
+ 1195      454E2034 
+ 1195      33353020 
+ 1195      2D20456D 
+ 1196 00b5 34333530 		.ascii	"4350-EmbeddedMicrocontrollerDesign\\BinMonitorPart1"
+ 1196      2D456D62 
+ 1196      65646465 
+ 1196      644D6963 
+ 1196      726F636F 
+ 1197 00e7 5C42696E 		.ascii	"\\BinMonitorPart1\\BinMonitorPart1.cydsn\000"
+ 1197      4D6F6E69 
+ 1197      746F7250 
+ 1197      61727431 
+ 1197      5C42696E 
+ 1198              	.LASF27:
+ 1199 010e 73697A65 		.ascii	"size\000"
+ 1199      00
+ 1200              	.LASF18:
+ 1201 0113 72656738 		.ascii	"reg8\000"
+ 1201      00
+ 1202              	.LASF8:
+ 1203 0118 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1203      20756E73 
+ 1203      69676E65 
+ 1203      6420696E 
+ 1203      7400
+ 1204              	.LASF13:
+ 1205 012a 75696E74 		.ascii	"uint8\000"
+ 1205      3800
+ 1206              	.LASF20:
+ 1207 0130 43594D45 		.ascii	"CYMEMZERO\000"
+ 1207      4D5A4552 
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 29
 
 
- 1207              	.LASF30:
- 1208 013a 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 1208      43313120 
- 1208      352E342E 
- 1208      31203230 
- 1208      31363036 
- 1209 016d 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
- 1209      20726576 
- 1209      6973696F 
- 1209      6E203233 
- 1209      37373135 
- 1210 01a0 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
- 1210      66756E63 
- 1210      74696F6E 
- 1210      2D736563 
- 1210      74696F6E 
- 1211              	.LASF4:
- 1212 01c8 756E7369 		.ascii	"unsigned char\000"
- 1212      676E6564 
- 1212      20636861 
- 1212      7200
- 1213              	.LASF17:
- 1214 01d6 646F7562 		.ascii	"double\000"
- 1214      6C6500
- 1215              	.LASF33:
- 1216 01dd 63796669 		.ascii	"cyfitter_cfg\000"
- 1216      74746572 
- 1216      5F636667 
- 1216      00
- 1217              	.LASF14:
- 1218 01ea 75696E74 		.ascii	"uint16\000"
- 1218      313600
- 1219              	.LASF15:
- 1220 01f1 75696E74 		.ascii	"uint32\000"
- 1220      333200
- 1221              	.LASF0:
- 1222 01f8 756E7369 		.ascii	"unsigned int\000"
- 1222      676E6564 
- 1222      20696E74 
- 1222      00
- 1223              	.LASF26:
- 1224 0205 61646472 		.ascii	"address\000"
- 1224      65737300 
- 1225              	.LASF9:
- 1226 020d 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1226      206C6F6E 
- 1226      6720756E 
- 1226      7369676E 
- 1226      65642069 
- 1227              	.LASF28:
- 1228 0224 6366675F 		.ascii	"cfg_memset_t\000"
- 1228      6D656D73 
- 1228      65745F74 
- 1228      00
- 1229              	.LASF10:
- 1230 0231 73697A65 		.ascii	"sizetype\000"
- 1230      74797065 
-ARM GAS  C:\Users\megan\AppData\Local\Temp\ccNdF2Lk.s 			page 30
+ 1207      4F00
+ 1208              	.LASF30:
+ 1209 013a 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1209      43313120 
+ 1209      352E342E 
+ 1209      31203230 
+ 1209      31363036 
+ 1210 016d 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 1210      20726576 
+ 1210      6973696F 
+ 1210      6E203233 
+ 1210      37373135 
+ 1211 01a0 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1211      66756E63 
+ 1211      74696F6E 
+ 1211      2D736563 
+ 1211      74696F6E 
+ 1212              	.LASF4:
+ 1213 01c8 756E7369 		.ascii	"unsigned char\000"
+ 1213      676E6564 
+ 1213      20636861 
+ 1213      7200
+ 1214              	.LASF17:
+ 1215 01d6 646F7562 		.ascii	"double\000"
+ 1215      6C6500
+ 1216              	.LASF33:
+ 1217 01dd 63796669 		.ascii	"cyfitter_cfg\000"
+ 1217      74746572 
+ 1217      5F636667 
+ 1217      00
+ 1218              	.LASF14:
+ 1219 01ea 75696E74 		.ascii	"uint16\000"
+ 1219      313600
+ 1220              	.LASF15:
+ 1221 01f1 75696E74 		.ascii	"uint32\000"
+ 1221      333200
+ 1222              	.LASF0:
+ 1223 01f8 756E7369 		.ascii	"unsigned int\000"
+ 1223      676E6564 
+ 1223      20696E74 
+ 1223      00
+ 1224              	.LASF26:
+ 1225 0205 61646472 		.ascii	"address\000"
+ 1225      65737300 
+ 1226              	.LASF9:
+ 1227 020d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1227      206C6F6E 
+ 1227      6720756E 
+ 1227      7369676E 
+ 1227      65642069 
+ 1228              	.LASF28:
+ 1229 0224 6366675F 		.ascii	"cfg_memset_t\000"
+ 1229      6D656D73 
+ 1229      65745F74 
+ 1229      00
+ 1230              	.LASF10:
+ 1231 0231 73697A65 		.ascii	"sizetype\000"
+ARM GAS  C:\Users\megan\AppData\Local\Temp\cciTg9Db.s 			page 30
 
 
- 1230      00
- 1231              	.LASF1:
- 1232 023a 6C6F6E67 		.ascii	"long long int\000"
- 1232      206C6F6E 
- 1232      6720696E 
- 1232      7400
- 1233              	.LASF11:
- 1234 0248 63686172 		.ascii	"char\000"
- 1234      00
- 1235              	.LASF5:
- 1236 024d 73686F72 		.ascii	"short int\000"
- 1236      7420696E 
- 1236      7400
- 1237              	.LASF7:
- 1238 0257 6C6F6E67 		.ascii	"long int\000"
- 1238      20696E74 
- 1238      00
- 1239              	.LASF2:
- 1240 0260 6C6F6E67 		.ascii	"long double\000"
- 1240      20646F75 
- 1240      626C6500 
- 1241              	.LASF3:
- 1242 026c 7369676E 		.ascii	"signed char\000"
- 1242      65642063 
- 1242      68617200 
- 1243              	.LASF31:
- 1244 0278 47656E65 		.ascii	"Generated_Source\\PSoC4\\cyfitter_cfg.c\000"
- 1244      72617465 
- 1244      645F536F 
- 1244      75726365 
- 1244      5C50536F 
- 1245              	.LASF23:
- 1246 029e 4359434F 		.ascii	"CYCONFIGCPYCODE\000"
- 1246      4E464947 
- 1246      43505943 
- 1246      4F444500 
- 1247              	.LASF21:
- 1248 02ae 4359434F 		.ascii	"CYCONFIGCPY\000"
- 1248      4E464947 
- 1248      43505900 
- 1249              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 1231      74797065 
+ 1231      00
+ 1232              	.LASF1:
+ 1233 023a 6C6F6E67 		.ascii	"long long int\000"
+ 1233      206C6F6E 
+ 1233      6720696E 
+ 1233      7400
+ 1234              	.LASF11:
+ 1235 0248 63686172 		.ascii	"char\000"
+ 1235      00
+ 1236              	.LASF5:
+ 1237 024d 73686F72 		.ascii	"short int\000"
+ 1237      7420696E 
+ 1237      7400
+ 1238              	.LASF7:
+ 1239 0257 6C6F6E67 		.ascii	"long int\000"
+ 1239      20696E74 
+ 1239      00
+ 1240              	.LASF2:
+ 1241 0260 6C6F6E67 		.ascii	"long double\000"
+ 1241      20646F75 
+ 1241      626C6500 
+ 1242              	.LASF3:
+ 1243 026c 7369676E 		.ascii	"signed char\000"
+ 1243      65642063 
+ 1243      68617200 
+ 1244              	.LASF31:
+ 1245 0278 47656E65 		.ascii	"Generated_Source\\PSoC4\\cyfitter_cfg.c\000"
+ 1245      72617465 
+ 1245      645F536F 
+ 1245      75726365 
+ 1245      5C50536F 
+ 1246              	.LASF23:
+ 1247 029e 4359434F 		.ascii	"CYCONFIGCPYCODE\000"
+ 1247      4E464947 
+ 1247      43505943 
+ 1247      4F444500 
+ 1248              	.LASF21:
+ 1249 02ae 4359434F 		.ascii	"CYCONFIGCPY\000"
+ 1249      4E464947 
+ 1249      43505900 
+ 1250              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

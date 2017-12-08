@@ -300,7 +300,8 @@ void textMode(void)
   /* Set text mode */
   writeCommand(RA8875_MWCR0);
   uint8_t temp = readData();
-  temp |= RA8875_MWCR0_TXTMODE; // Set bit 7
+  //temp |= RA8875_MWCR0_TXTMODE; // Set bit 7
+    temp = 0x80;
   writeData(temp);
   
   /* Select the internal (ROM) font */
@@ -435,7 +436,7 @@ void textWrite(const char* buffer, uint16_t len)
 #elif defined(__arm__)
     // This delay is needed with textEnlarge(1) because
     // Teensy 3.X is much faster than Arduino Uno
-    if (_textScale > 0) CyDelay(1);
+    if (_textScale > 0) CyDelay(1); // was 1
 #endif
   }
 }
@@ -1306,7 +1307,8 @@ uint8_t  readData(void)
 //  uint8_t x = SPI.transfer(0x0);
     
 //    y = LCDSPI_SpiUartGetRxBufferSize();
-    x = LCDSPI_SpiUartReadRxData() & 0x000F;
+    x = LCDSPI_SpiUartReadRxData() & 0x000F; // ISSUE HERE
+    //x = LCDSPI_SpiUartReadRxData();
     
 //    spi_end();
 //  digitalWrite(_cs, HIGH);

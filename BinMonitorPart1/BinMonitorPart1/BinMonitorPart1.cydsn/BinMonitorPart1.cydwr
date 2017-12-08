@@ -15,9 +15,10 @@
       <Data key="8c8734ef-3644-4eed-bc55-360072b94fff/1425177d-0d0e-4468-8bcc-e638e5509a9b" value="LCDSPI_miso_m" />
       <Data key="8c8734ef-3644-4eed-bc55-360072b94fff/9613317f-9767-4872-a15a-e07325d93413" value="LCDSPI_ss0_m" />
       <Data key="8c8734ef-3644-4eed-bc55-360072b94fff/ed092b9b-d398-4703-be89-cebf998501f6" value="LCDSPI_mosi_m" />
+      <Data key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba" value="LCD_int" />
       <Data key="69c8d878-c455-4137-a9b7-7a51c19233b6" value="Pin_1" />
-      <Data key="3899b5dc-effb-43d8-8853-66d82e684bc9" value="LED_2" />
-      <Data key="bf10fafd-0b2b-433f-95d5-24cc426b237d" value="LED_1" />
+      <Data key="3899b5dc-effb-43d8-8853-66d82e684bc9" value="LED_GREEN" />
+      <Data key="bf10fafd-0b2b-433f-95d5-24cc426b237d" value="LED_BLUE" />
       <Data key="d44d0fea-0085-48a1-82c3-354be77a6259" value="ADC_In" />
       <Data key="e851a3b9-efb8-48be-bbb8-b303b216c393" value="rst0_m" />
     </Group>
@@ -3578,6 +3579,11 @@
         <Data key="Port Format" value="0,4" />
       </Group>
     </Group>
+    <Group key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba">
+      <Group key="0">
+        <Data key="Port Format" value="2,0" />
+      </Group>
+    </Group>
     <Group key="69c8d878-c455-4137-a9b7-7a51c19233b6">
       <Group key="0">
         <Data key="Port Format" value="4,0" />
@@ -3585,19 +3591,20 @@
     </Group>
     <Group key="3899b5dc-effb-43d8-8853-66d82e684bc9">
       <Group key="0">
-        <Data key="Port Format" value="1,5" />
+        <Data key="Port Format" value="2,3" />
       </Group>
     </Group>
     <Group key="bf10fafd-0b2b-433f-95d5-24cc426b237d">
       <Group key="0">
-        <Data key="Port Format" value="1,4" />
+        <Data key="Port Format" value="2,2" />
       </Group>
     </Group>
     <Group key="e851a3b9-efb8-48be-bbb8-b303b216c393">
       <Group key="0">
-        <Data key="Port Format" value="2,0" />
+        <Data key="Port Format" value="1,4" />
       </Group>
     </Group>
+    <Group key="UnAssigned Pins" />
   </Group>
   <Group key="PlaceDir">
     <Data key="count" value="0" />

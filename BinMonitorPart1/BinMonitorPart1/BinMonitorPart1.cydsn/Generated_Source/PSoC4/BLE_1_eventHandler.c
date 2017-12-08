@@ -66,9 +66,9 @@ const CYBLE_GAPS_T cyBle_gaps =
     0x0001u,    /* Handle of the GAP service */
     0x0003u,    /* Handle of the Device Name characteristic */
     0x0005u,    /* Handle of the Appearance characteristic */
-    0x0007u,    /* Handle of the Peripheral Preferred Connection Parameters characteristic */
-    CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, /* Handle of the Central Address Resolution characteristic */
-    CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, /* Handle of the Resolvable Private Address Only characteristic */
+    0x0009u,    /* Handle of the Peripheral Preferred Connection Parameters characteristic */
+    0x0007u,    /* Handle of the Central Address Resolution characteristic */
+    0x000Bu,    /* Handle of the Resolvable Private Address Only characteristic */
 };
 
 
@@ -100,7 +100,7 @@ static CYBLE_DISC_INCL_INFO_T cyBle_discInclInfo;
     static uint8 disServiceIndex;      /* To discovery descriptors for multiple HID service instances */
 #endif /* CYBLE_HIDS_CLIENT */
 
-CYBLE_DISC_SRVC_INFO_T cyBle_serverInfo[CYBLE_SRVI_COUNT] = /*6*/
+CYBLE_DISC_SRVC_INFO_T cyBle_serverInfo[CYBLE_SRVI_COUNT] = /*5*/
 {
     {{CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE}, CYBLE_UUID_GAP_SERVICE},
     {{CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE}, CYBLE_UUID_GATT_SERVICE},
@@ -143,7 +143,8 @@ CYBLE_DISC_SRVC_INFO_T cyBle_serverInfo[CYBLE_SRVI_COUNT] = /*6*/
     {{CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE}, CYBLE_UUID_CURRENT_TIME_SERVICE},
 #endif /* CYBLE_CTS_CLIENT */
 #ifdef CYBLE_CUSTOM_CLIENT
-    
+            {{CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE}, 0x0000u},
+
 #endif /* CYBLE_CUSTOM_CLIENT */
 #ifdef CYBLE_DIS_CLIENT
     {{CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE}, CYBLE_UUID_DEVICE_INFO_SERVICE},

@@ -19,9 +19,29 @@ void StackEventHandler( uint32 eventCode, void *eventParam );
 
 int main()
 {
+    //------ Declarations -------//
+    
+    // LCD Strings
+    char welcome1[] = "Megan Bird";
+    char welcome2[] = "ECEN 4350";
+    char welcome3[] = "Fall 2017";
+    char ble[] = "BLE_Central";
+    
+    uint16_t x;
+    uint16_t y;
+    bool waiting = true;
+    
+    char BLE_START_ERROR[] = "BLE Start() Error";
+    char STR_CYBLE_ERROR_OK[] = "BLE Advertise Successful";
+    
+    CYBLE_API_RESULT_T apiResult;
+    //---------------------------//
+    
      CyGlobalIntEnable;   /* Enable global interrupts */
-    /* Place your initialization/startup code here (e.g. MyInst_Start()) */
-        
+
+    
+    //------ LCD Setup ------//   
+    
     rst0_m_Write(1u);
     
     begin(RA8875_800x480);
@@ -31,61 +51,127 @@ int main()
     PWM1config(true, RA8875_PWM_CLK_DIV1024); // PWM output for backlight  
     PWM1out(255);
     
-    fillScreen(RA8875_WHITE);    
+    LCD_int_Write(1u);
+    touchEnable(true);   
     
-    for (uint8_t i=255; i!=0; i-=5 ) 
-  {
-    PWM1out(i); 
+    //----- Color Demo -----//
+    
+    fillScreen(RA8875_WHITE);    
+    CyDelay(500);
+    fillScreen(RA8875_RED);
+    CyDelay(500);
+    fillScreen(RA8875_YELLOW);
+    CyDelay(500);
+    fillScreen(RA8875_GREEN);
+    CyDelay(500);
+    fillScreen(RA8875_BLUE);
+    CyDelay(500);
+    fillScreen(RA8875_CYAN);
+    CyDelay(500);
+    fillScreen(RA8875_MAGENTA);
+    CyDelay(500);
+    fillScreen(RA8875_BLACK);
+    
+    CyDelay(3000);
+    
+    // Try some GFX acceleration!
+      drawCircle(100, 100, 50, RA8875_BLACK);
+      fillCircle(100, 100, 49, RA8875_GREEN);
+      
+      fillRect(11, 11, 398, 198, RA8875_BLUE);
+      drawRect(10, 10, 400, 200, RA8875_GREEN);
+      drawPixel(10,10,RA8875_BLACK);
+      drawPixel(11,11,RA8875_BLACK);
+      drawLine(10, 10, 200, 100, RA8875_RED);
+      drawTriangle(200, 15, 250, 100, 150, 125, RA8875_BLACK);
+      fillTriangle(200, 16, 249, 99, 151, 124, RA8875_YELLOW);
+      drawEllipse(300, 100, 100, 40, RA8875_BLACK);
+      fillEllipse(300, 100, 98, 38, RA8875_GREEN);
+      // Argument 5 (curvePart) is a 2-bit value to control each corner (select 0, 1, 2, or 3)
+      drawCurve(50, 100, 80, 40, 2, RA8875_BLACK);  
+      fillCurve(50, 100, 78, 38, 2, RA8875_WHITE);
+        
+    //--- Welcome Screen ---//
+    CyDelay(10000);
+    PWM1out(0);
+    fillScreen(RA8875_WHITE);
+    
+    
+    for (int i = 0; i < 256; i++) {
+        PWM1out(i);
+        CyDelay(5);
+    }
+
+    textMode();
+    fillRect(75,85,370,100,RA8875_RED);
+    textSetCursor(100, 100);
+    textEnlarge(1);
+    textTransparent(RA8875_WHITE);
+    textWrite(welcome1,strlen(welcome1)); 
+    
+    textEnlarge(0);
+    textSetCursor(100, 200);
+    textTransparent(RA8875_BLACK);
+    textWrite(welcome2,strlen(welcome2)); 
+    textSetCursor(100, 250);
+    textWrite(welcome3,strlen(welcome3)); 
+    
+    textSetCursor(100, 350);
+    textTransparent(RA8875_BLUE);
+    textWrite(ble,strlen(ble));    
+    
+    //CyDelay(1000);
+    touchRead(&x, &y);
     CyDelay(10);
-  }  
-  for (uint8_t i=0; i!=255; i+=5 ) 
-  {
-    PWM1out(i); 
-    CyDelay(10);
-  }
-  PWM1out(255); 
+    while ( waiting )  {
+        //if (LCD_int_Read() == 0u) {
+            if ( touched() ) {
+                LED_GREEN_Write(0u);
+                touchRead(&x, &y);
+                waiting = false;
+            }
+        //}
+    }
+    
+    
+    
+    //----- Temp Screen -----//
+    
+    
+    
+    //------ BLE Setup ------//
+    
+    // Start
+    apiResult = CyBle_Start(StackEventHandler);
+    if(apiResult != 0x00u)
+    {
+        /* BLE stack initialization failed, check your configuration */
+//        fillScreen(RA8875_RED);
+//        textWrite(BLE_START_ERROR, strlen(BLE_START_ERROR));
+    }
+    
+    // Advertise
+    CyBle_ProcessEvents();
+    apiResult = CyBle_GappStartAdvertisement(0x00u);
+    if (apiResult == CYBLE_ERROR_OK) {
+//        textWrite(STR_CYBLE_ERROR_OK, strlen(STR_CYBLE_ERROR_OK));
+    }
+    
   
-  fillScreen(RA8875_RED);
-  CyDelay(500);
-  fillScreen(RA8875_YELLOW);
-  CyDelay(500);
-  fillScreen(RA8875_GREEN);
-  CyDelay(500);
-  fillScreen(RA8875_CYAN);
-  CyDelay(500);
-  fillScreen(RA8875_MAGENTA);
-  CyDelay(500);
-  fillScreen(RA8875_BLACK);
-  
-  // Try some GFX acceleration!
-  drawCircle(100, 100, 50, RA8875_BLACK);
-  fillCircle(100, 100, 49, RA8875_GREEN);
-  
-  fillRect(11, 11, 398, 198, RA8875_BLUE);
-  drawRect(10, 10, 400, 200, RA8875_GREEN);
-  drawPixel(10,10,RA8875_BLACK);
-  drawPixel(11,11,RA8875_BLACK);
-  drawLine(10, 10, 200, 100, RA8875_RED);
-  drawTriangle(200, 15, 250, 100, 150, 125, RA8875_BLACK);
-  fillTriangle(200, 16, 249, 99, 151, 124, RA8875_YELLOW);
-  drawEllipse(300, 100, 100, 40, RA8875_BLACK);
-  fillEllipse(300, 100, 98, 38, RA8875_GREEN);
-  // Argument 5 (curvePart) is a 2-bit value to control each corner (select 0, 1, 2, or 3)
-  drawCurve(50, 100, 80, 40, 2, RA8875_BLACK);  
-  fillCurve(50, 100, 78, 38, 2, RA8875_WHITE);
+
+    
     
 
     CyBle_Start( StackEventHandler );
     for(;;)
     {
         /* Place your application code here */
-        LED_1_Write(0u);  
+        LED_BLUE_Write(0u);  
         CyDelay(1000);
         //for(int i=0;i<1000;i++);
-        LED_1_Write(1u);
+        LED_BLUE_Write(1u);
         //for(int i=0;i<1000;i++);
         CyDelay(1000);
-        
         
         CyBle_ProcessEvents();
     }
